@@ -1,7 +1,7 @@
-package com.example.takeaway.feature.presentation
+package com.example.takeaway.feature.feed.presentation
 
 import com.example.takeaway.app.BasePresenter
-import com.example.takeaway.feature.ui.FeedView
+import com.example.takeaway.feature.feed.ui.FeedView
 import ru.terrakok.cicerone.Router
 import javax.inject.Inject
 

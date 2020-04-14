@@ -1,11 +1,11 @@
-package com.example.takeaway.feature.ui
+package com.example.takeaway.feature.feed.ui
 
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import com.example.takeaway.R
 import com.example.takeaway.app.BaseFragment
-import com.example.takeaway.feature.presentation.FeedPresenter
+import com.example.takeaway.feature.feed.presentation.FeedPresenter
 import javax.inject.Inject
 
 class FeedFragment : BaseFragment(R.layout.feed_fragment), FeedView {

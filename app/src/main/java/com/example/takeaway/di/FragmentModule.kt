@@ -1,6 +1,6 @@
 package com.example.takeaway.di
 
-import com.example.takeaway.feature.ui.FeedFragment
+import com.example.takeaway.feature.feed.ui.FeedFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 

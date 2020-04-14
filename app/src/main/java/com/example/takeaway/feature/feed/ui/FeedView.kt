@@ -1,4 +1,4 @@
-package com.example.takeaway.feature.ui
+package com.example.takeaway.feature.feed.ui
 
 import com.example.takeaway.app.TakeawayView
 
