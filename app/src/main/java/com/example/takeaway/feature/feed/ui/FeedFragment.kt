@@ -25,11 +25,13 @@ class FeedFragment : BaseFragment(R.layout.feed_fragment), FeedView {
         super.onViewCreated(view, savedInstanceState)
         presenter.attachView(this)
 
-        initToolbar()
+        initHandlers()
     }
 
-    private fun initToolbar() {
-        initToolbar(R.string.feed_title)
+    private fun initHandlers() {
+        infoButton.setOnClickListener {
+            presenter.onInfoButtonClicked()
+        }
     }
 
     override fun setFeed(cafeList: List<CafeItem>) {
