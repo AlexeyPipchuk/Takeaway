@@ -5,54 +5,55 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/spacing_16"
-    app:cardElevation="@dimen/card_elevation"
-    app:cardCornerRadius="@dimen/corner_radius">
+    app:cardCornerRadius="@dimen/corner_radius"
+    app:cardElevation="@dimen/card_elevation">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:paddingBottom="@dimen/spacing_16"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/spacing_16">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/cafeImage"
             android:layout_width="match_parent"
             android:layout_height="@dimen/card_height"
-            android:src="@drawable/splash"
             android:scaleType="centerCrop"
+            android:src="@drawable/default_cafe_background"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:src="@drawable/splash" />
+            tools:src="@drawable/default_cafe_background" />
 
         <androidx.appcompat.widget.AppCompatImageView
-            android:layout_width="48dp"
-            android:layout_height="24dp"
-            android:src="@mipmap/ic_launcher"
+            android:id="@+id/cafeLogo"
+            android:layout_width="56dp"
+            android:layout_height="42dp"
             android:layout_margin="@dimen/spacing_24"
+            android:background="@drawable/white_border"
             android:scaleType="centerCrop"
+            android:visibility="gone"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:src="@mipmap/ic_launcher" />
+            tools:src="@color/colorPrimary" />
 
         <TextView
             android:id="@+id/cafeName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/spacing_16"
             android:layout_marginStart="@dimen/spacing_16"
+            android:layout_marginTop="@dimen/spacing_16"
             android:layout_marginEnd="@dimen/spacing_16"
-            android:gravity="start"
-            android:text="Santa monica stereo cafe"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cafeImage" />
+            app:layout_constraintTop_toBottomOf="@+id/cafeImage"
+            tools:text="Santa monica stereo cafe" />
 
         <TextView
             android:id="@+id/deliveryDiscount"
             android:layout_width="wrap_content"
-            android:layout_marginTop="@dimen/spacing_16"
-            android:layout_marginStart="@dimen/spacing_16"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_16"
+            android:layout_marginTop="@dimen/spacing_16"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cafeName"
             tools:text="-20% на самовывоз" />

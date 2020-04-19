@@ -19,28 +19,6 @@ class FeedPresenter @Inject constructor(
     override fun onViewAttach() {
         super.onViewAttach()
 
-//        val list = listOf(
-//            CafeItem(
-//                "Torta",
-//                "соточку заплоти",
-//                "скидочка хуидочка"
-//            ),
-//            CafeItem(
-//                "Torta",
-//                "соточку заплоти",
-//                "скидочка хуидочка"
-//            ),
-//            CafeItem(
-//                "Torta",
-//                "соточку заплоти",
-//                "скидочка хуидочка"
-//            ),
-//            CafeItem(
-//                "Torta",
-//                "соточку заплоти",
-//                "скидочка хуидочка"
-//            )
-//        )
         getCafeListUseCase()
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(
@@ -50,8 +28,7 @@ class FeedPresenter @Inject constructor(
                     view?.setFeed(cafeItemList)
                 },
                 { error ->
-                    var a = 4
-                    var e = 5
+
                 }
             )
             .addToDisposable()
@@ -61,7 +38,9 @@ class FeedPresenter @Inject constructor(
         CafeItem(
             cafeName = cafe.name,
             deliveryDiscount = cafe.deliveryDiscount,
-            deliveryFreeFrom = cafe.minDeliverySum
+            deliveryFreeFrom = cafe.minDeliverySum,
+            imageUrl = cafe.imgUrls?.firstOrNull(),
+            logoUrl = cafe.logoUrl
         )
 
     fun onInfoButtonClicked() {
