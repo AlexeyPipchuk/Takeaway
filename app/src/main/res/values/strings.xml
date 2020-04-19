@@ -5,4 +5,7 @@
     //feed
     <string name="delivery_free_from">бесплатно от %1$s</string>
     <string name="delivery_discount">-%1$s%% на самовывоз</string>
+    <string name="feed_search_view_title">Поиск заведений</string>
+    <string name="empty_search_result">Ничего не найдено =(</string>
+    <string name="clear_button_text">Сбросить</string>
 </resources>

@@ -2,13 +2,16 @@ package com.example.takeaway.feature.feed.ui
 
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.widget.SearchView
 import androidx.core.content.res.ResourcesCompat.getColor
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.example.takeaway.R
 import com.example.takeaway.app.BaseFragment
+import com.example.takeaway.app.hideKeyboard
 import com.example.takeaway.feature.feed.presentation.CafeItem
 import com.example.takeaway.feature.feed.presentation.FeedPresenter
+import kotlinx.android.synthetic.main.empty_search_result_view.*
 import kotlinx.android.synthetic.main.feed_fragment.*
 import javax.inject.Inject
 
@@ -47,6 +50,22 @@ class FeedFragment : BaseFragment(R.layout.feed_fragment), FeedView {
         }
 
         swipeContainer.setOnRefreshListener { presenter.onRefresh() }
+
+        searchView.setOnQueryTextListener(
+            object : SearchView.OnQueryTextListener {
+                override fun onQueryTextSubmit(query: String?): Boolean {
+                    presenter.onSearchQuerySubmit(query)
+                    hideKeyboard()
+                    return true
+                }
+
+                override fun onQueryTextChange(newText: String?): Boolean = true
+            }
+        )
+
+        clearButton.setOnClickListener {
+            presenter.onClearClicked()
+        }
     }
 
     override fun setFeed(cafeList: List<CafeItem>) {
@@ -80,5 +99,18 @@ class FeedFragment : BaseFragment(R.layout.feed_fragment), FeedView {
     override fun hideProgress() {
         progressBar.isVisible = false
         cafeListRecycler.isVisible = true
+    }
+
+    override fun showEmptySearchResult() {
+        emptyResultView.isVisible = true
+    }
+
+    override fun hideEmptySearchResult() {
+        emptyResultView.isVisible = false
+    }
+
+    override fun clearSearchQuery() {
+        searchView.setQuery("", false)
+        searchView.clearFocus()
     }
 }

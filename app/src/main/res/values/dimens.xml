@@ -5,7 +5,10 @@
     <dimen name="corner_radius">8dp</dimen>
     <dimen name="card_height">200dp</dimen>
     <dimen name="spacing_24">24dp</dimen>
-    <dimen name="spacing_16">16dp</dimen>
     <dimen name="logo_width">56dp</dimen>
     <dimen name="logo_height">42dp</dimen>
+    <dimen name="feed_fragment_app_bar_elevation">0dp</dimen>
+    <dimen name="spacing_1">1dp</dimen>
+    <dimen name="search_bar_elevation">1dp</dimen>
+    <dimen name="search_bar_corner_radius">8dp</dimen>
 </resources>

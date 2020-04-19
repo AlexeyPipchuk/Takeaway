@@ -2,11 +2,12 @@ package com.example.takeaway.feature.feed.presentation
 
 import com.example.takeaway.app.BasePresenter
 import com.example.takeaway.app.navigation.Screen
-import com.example.takeaway.feature.feed.domain.usecase.GetCafeListUseCase
 import com.example.takeaway.feature.feed.domain.entity.Cafe
+import com.example.takeaway.feature.feed.domain.usecase.GetCafeListUseCase
 import com.example.takeaway.feature.feed.ui.FeedView
 import io.reactivex.android.schedulers.AndroidSchedulers
 import ru.terrakok.cicerone.Router
+import java.util.*
 import javax.inject.Inject
 
 class FeedPresenter @Inject constructor(
@@ -30,9 +31,7 @@ class FeedPresenter @Inject constructor(
             .subscribe(
                 { cafeList ->
                     cafeListCache = cafeList
-                    val cafeItemList = cafeList.map(::mapCafeToCafeItem)
-                    view?.setFeed(cafeItemList)
-                    view?.hideProgress()
+                    showAllFeedFromCache()
                 },
                 { error ->
                     view?.hideProgress()
@@ -50,11 +49,49 @@ class FeedPresenter @Inject constructor(
             logoUrl = cafe.logoUrl
         )
 
+    private fun showAllFeedFromCache() {
+        val cafeItemList = cafeListCache.orEmpty().map(::mapCafeToCafeItem)
+        view?.setFeed(cafeItemList)
+        view?.hideProgress()
+    }
+
     fun onInfoButtonClicked() {
         router.navigateTo(Screen.InfoScreen)
     }
 
     fun onRefresh() {
+        view?.hideEmptySearchResult()
+        view?.clearSearchQuery()
         loadCafeList()
+    }
+
+    fun onSearchQuerySubmit(query: String?) {
+        view?.hideEmptySearchResult()
+
+        when {
+            cafeListCache.isNullOrEmpty() -> Unit
+            query.isNullOrEmpty() -> cafeListCache?.let { view?.setFeed(it.map(::mapCafeToCafeItem)) }
+            else -> {
+                val filteredList = cafeListCache?.filter {
+                    it.name.toUpperCase(Locale.ENGLISH).contains(
+                        query.toUpperCase(
+                            Locale.ENGLISH
+                        )
+                    )
+                }?.map(::mapCafeToCafeItem)
+
+                if (filteredList.isNullOrEmpty()) {
+                    view?.setFeed(emptyList())
+                    view?.showEmptySearchResult()
+                } else view?.setFeed(filteredList)
+            }
+        }
+    }
+
+    fun onClearClicked() {
+        view?.hideEmptySearchResult()
+        view?.clearSearchQuery()
+
+        showAllFeedFromCache()
     }
 }

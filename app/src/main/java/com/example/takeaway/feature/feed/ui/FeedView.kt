@@ -10,4 +10,10 @@ interface FeedView : TakeawayView {
     fun showProgress()
 
     fun hideProgress()
+
+    fun showEmptySearchResult()
+
+    fun hideEmptySearchResult()
+
+    fun clearSearchQuery()
 }
