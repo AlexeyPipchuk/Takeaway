@@ -2,6 +2,8 @@ package com.example.takeaway.feature.feed.ui
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.content.res.ResourcesCompat.getColor
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.example.takeaway.R
 import com.example.takeaway.app.BaseFragment
@@ -25,19 +27,58 @@ class FeedFragment : BaseFragment(R.layout.feed_fragment), FeedView {
         super.onViewCreated(view, savedInstanceState)
         presenter.attachView(this)
 
+        initViews()
         initHandlers()
+    }
+
+    private fun initViews() {
+        swipeContainer.setColorSchemeColors(
+            getColor(
+                requireContext().resources,
+                R.color.colorPrimary,
+                null
+            )
+        )
     }
 
     private fun initHandlers() {
         infoButton.setOnClickListener {
             presenter.onInfoButtonClicked()
         }
+
+        swipeContainer.setOnRefreshListener { presenter.onRefresh() }
     }
 
     override fun setFeed(cafeList: List<CafeItem>) {
+        initAdapter(cafeList)
+        enableSwipeRefresh()
+    }
+
+    private fun initAdapter(cafeList: List<CafeItem>) {
         adapter = FeedAdapter(requireContext())
         adapter?.cafeList = cafeList
 
+        cafeListRecycler.isVisible = true
         cafeListRecycler.adapter = adapter
+    }
+
+    private fun disableSwipeRefresh() {
+        swipeContainer.isEnabled = false
+        swipeContainer.isRefreshing = false
+    }
+
+    private fun enableSwipeRefresh() {
+        swipeContainer.isEnabled = true
+    }
+
+    override fun showProgress() {
+        disableSwipeRefresh()
+        cafeListRecycler.isVisible = false
+        progressBar.isVisible = true
+    }
+
+    override fun hideProgress() {
+        progressBar.isVisible = false
+        cafeListRecycler.isVisible = true
     }
 }

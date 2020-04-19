@@ -6,4 +6,8 @@ import com.example.takeaway.feature.feed.presentation.CafeItem
 interface FeedView : TakeawayView {
 
     fun setFeed(cafeList: List<CafeItem>)
+
+    fun showProgress()
+
+    fun hideProgress()
 }

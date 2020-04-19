@@ -19,6 +19,12 @@ class FeedPresenter @Inject constructor(
     override fun onViewAttach() {
         super.onViewAttach()
 
+        loadCafeList()
+    }
+
+    private fun loadCafeList() {
+        view?.showProgress()
+
         getCafeListUseCase()
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(
@@ -26,9 +32,10 @@ class FeedPresenter @Inject constructor(
                     cafeListCache = cafeList
                     val cafeItemList = cafeList.map(::mapCafeToCafeItem)
                     view?.setFeed(cafeItemList)
+                    view?.hideProgress()
                 },
                 { error ->
-
+                    view?.hideProgress()
                 }
             )
             .addToDisposable()
@@ -45,5 +52,9 @@ class FeedPresenter @Inject constructor(
 
     fun onInfoButtonClicked() {
         router.navigateTo(Screen.InfoScreen)
+    }
+
+    fun onRefresh() {
+        loadCafeList()
     }
 }
