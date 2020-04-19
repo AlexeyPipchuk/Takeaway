@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">Takeaway</string>
     <string name="info_title">Takeaway</string>
+
+    //feed
+    <string name="delivery_free_from">бесплатно от %1$s</string>
+    <string name="delivery_discount">-%1$s%% на самовывоз</string>
 </resources>

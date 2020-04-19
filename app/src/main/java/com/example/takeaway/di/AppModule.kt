@@ -7,7 +7,9 @@ import dagger.android.ContributesAndroidInjector
 
 @Module(includes = [
     AndroidInjectionModule::class,
-    NavigationModule::class
+    NavigationModule::class,
+    NetworkModule::class,
+    DataModule::class
 ])
 interface AppModule {
 

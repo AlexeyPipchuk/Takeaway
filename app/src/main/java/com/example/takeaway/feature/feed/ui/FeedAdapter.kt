@@ -1,10 +1,11 @@
 package com.example.takeaway.feature.feed.ui
 
+import android.content.Context
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.takeaway.feature.feed.model.CafeItem
+import com.example.takeaway.feature.feed.presentation.CafeItem
 
-class FeedAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class FeedAdapter(private val context: Context) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     var cafeList: List<CafeItem> = listOf()
         set(value) {
@@ -13,7 +14,7 @@ class FeedAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder =
-        FeedHolder.createInstance(parent)
+        FeedHolder.createInstance(parent, context)
 
     override fun getItemCount(): Int = cafeList.size
 
