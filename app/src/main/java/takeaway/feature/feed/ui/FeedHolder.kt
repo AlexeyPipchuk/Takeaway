@@ -7,9 +7,10 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.example.takeaway.R
+import kotlinx.android.synthetic.main.feed_item.view.*
+import takeaway.app.fromHtml
 import takeaway.app.loadImage
 import takeaway.feature.feed.presentation.CafeItem
-import kotlinx.android.synthetic.main.feed_item.view.*
 
 class FeedHolder(
     view: View,
@@ -29,12 +30,18 @@ class FeedHolder(
 
     fun bind(cafeItem: CafeItem) {
         itemView.cafeName.text = cafeItem.cafeName
-        itemView.deliveryDiscount.text =
-            context.getString(R.string.delivery_discount)
-                .format(cafeItem.deliveryDiscount.toString())
+
+        if (cafeItem.deliveryDiscount > 0) {
+            itemView.deliveryDiscount.text =
+                context.getString(R.string.delivery_discount)
+                    .format(cafeItem.deliveryDiscount.toString())
+                    .fromHtml()
+        }
+
         itemView.deliveryFreeFrom.text =
             context.getString(R.string.delivery_free_from)
                 .format(cafeItem.deliveryFreeFrom.toString())
+                .fromHtml()
 
         if (!cafeItem.imageUrl.isNullOrEmpty()) {
             itemView.cafeImage.loadImage(cafeItem.imageUrl)

@@ -25,7 +25,7 @@
             android:elevation="@dimen/search_bar_elevation"
             app:cardCornerRadius="@dimen/search_bar_corner_radius"
             app:layout_scrollFlags="scroll|enterAlways"
-            app:strokeColor="@color/colorPrimaryDark"
+            app:strokeColor="@color/colorAccent"
             app:strokeWidth="@dimen/spacing_1">
 
             <takeaway.feature.feed.ui.EmptySubmitSearchView
