@@ -1,8 +1,8 @@
 package takeaway.app
 
-import com.example.takeaway.di.DaggerAppComponent
 import dagger.android.AndroidInjector
 import dagger.android.support.DaggerApplication
+import takeaway.di.DaggerAppComponent
 
 class App : DaggerApplication() {
 

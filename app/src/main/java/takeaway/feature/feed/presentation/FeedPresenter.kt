@@ -70,22 +70,27 @@ class FeedPresenter @Inject constructor(
 
         when {
             cafeListCache.isNullOrEmpty() -> Unit
-            query.isNullOrEmpty() -> cafeListCache?.let { view?.setFeed(it.map(::mapCafeToCafeItem)) }
-            else -> {
-                val filteredList = cafeListCache?.filter {
-                    it.name.toUpperCase(Locale.ENGLISH).contains(
-                        query.toUpperCase(
-                            Locale.ENGLISH
-                        )
-                    )
-                }?.map(::mapCafeToCafeItem)
 
-                if (filteredList.isNullOrEmpty()) {
-                    view?.setFeed(emptyList())
-                    view?.showEmptySearchResult()
-                } else view?.setFeed(filteredList)
-            }
+            query.isNullOrEmpty() ->
+                cafeListCache?.let { view?.setFeed(it.map(::mapCafeToCafeItem)) }
+
+            else -> showFeedListByQuery(query)
         }
+    }
+
+    private fun showFeedListByQuery(query: String) {
+        val filteredList = cafeListCache?.filter {
+            it.name.toUpperCase(Locale.ENGLISH).contains(
+                query.toUpperCase(
+                    Locale.ENGLISH
+                ).trim()
+            )
+        }?.map(::mapCafeToCafeItem)
+
+        if (filteredList.isNullOrEmpty()) {
+            view?.setFeed(emptyList())
+            view?.showEmptySearchResult()
+        } else view?.setFeed(filteredList)
     }
 
     fun onClearClicked() {
