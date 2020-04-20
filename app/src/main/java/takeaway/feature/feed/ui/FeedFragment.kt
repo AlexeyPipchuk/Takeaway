@@ -1,4 +1,4 @@
-package com.example.takeaway.feature.feed.ui
+package takeaway.feature.feed.ui
 
 import android.os.Bundle
 import android.view.View
@@ -7,10 +7,10 @@ import androidx.core.content.res.ResourcesCompat.getColor
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.example.takeaway.R
-import com.example.takeaway.app.BaseFragment
-import com.example.takeaway.app.hideKeyboard
-import com.example.takeaway.feature.feed.presentation.CafeItem
-import com.example.takeaway.feature.feed.presentation.FeedPresenter
+import takeaway.app.BaseFragment
+import takeaway.app.hideKeyboard
+import takeaway.feature.feed.presentation.CafeItem
+import takeaway.feature.feed.presentation.FeedPresenter
 import kotlinx.android.synthetic.main.empty_search_result_view.*
 import kotlinx.android.synthetic.main.feed_fragment.*
 import javax.inject.Inject

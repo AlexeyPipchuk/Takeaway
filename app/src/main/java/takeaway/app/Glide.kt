@@ -1,4 +1,4 @@
-package com.example.takeaway.app
+package takeaway.app
 
 import android.widget.ImageView
 import com.bumptech.glide.Glide

@@ -1,11 +1,11 @@
-package com.example.takeaway.feature.info.ui
+package takeaway.feature.info.ui
 
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import com.example.takeaway.R
-import com.example.takeaway.app.BaseFragment
-import com.example.takeaway.feature.info.presentation.InfoPresenter
+import takeaway.app.BaseFragment
+import takeaway.feature.info.presentation.InfoPresenter
 import javax.inject.Inject
 
 class InfoFragment : BaseFragment(R.layout.info_fragment), InfoView {

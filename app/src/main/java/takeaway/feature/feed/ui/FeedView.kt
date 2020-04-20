@@ -1,7 +1,7 @@
-package com.example.takeaway.feature.feed.ui
+package takeaway.feature.feed.ui
 
-import com.example.takeaway.app.TakeawayView
-import com.example.takeaway.feature.feed.presentation.CafeItem
+import takeaway.app.TakeawayView
+import takeaway.feature.feed.presentation.CafeItem
 
 interface FeedView : TakeawayView {
 

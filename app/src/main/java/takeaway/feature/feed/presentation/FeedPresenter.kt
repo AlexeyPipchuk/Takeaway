@@ -1,10 +1,10 @@
-package com.example.takeaway.feature.feed.presentation
+package takeaway.feature.feed.presentation
 
-import com.example.takeaway.app.BasePresenter
-import com.example.takeaway.app.navigation.Screen
-import com.example.takeaway.feature.feed.domain.entity.Cafe
-import com.example.takeaway.feature.feed.domain.usecase.GetCafeListUseCase
-import com.example.takeaway.feature.feed.ui.FeedView
+import takeaway.app.BasePresenter
+import takeaway.app.navigation.Screen
+import takeaway.feature.feed.domain.entity.Cafe
+import takeaway.feature.feed.domain.usecase.GetCafeListUseCase
+import takeaway.feature.feed.ui.FeedView
 import io.reactivex.android.schedulers.AndroidSchedulers
 import ru.terrakok.cicerone.Router
 import java.util.*

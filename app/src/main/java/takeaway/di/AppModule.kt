@@ -1,6 +1,6 @@
-package com.example.takeaway.di
+package takeaway.di
 
-import com.example.takeaway.app.activity.MainActivity
+import takeaway.app.activity.MainActivity
 import dagger.Module
 import dagger.android.AndroidInjectionModule
 import dagger.android.ContributesAndroidInjector

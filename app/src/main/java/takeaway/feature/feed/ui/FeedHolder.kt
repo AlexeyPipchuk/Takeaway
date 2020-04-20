@@ -1,4 +1,4 @@
-package com.example.takeaway.feature.feed.ui
+package takeaway.feature.feed.ui
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -7,8 +7,8 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.example.takeaway.R
-import com.example.takeaway.app.loadImage
-import com.example.takeaway.feature.feed.presentation.CafeItem
+import takeaway.app.loadImage
+import takeaway.feature.feed.presentation.CafeItem
 import kotlinx.android.synthetic.main.feed_item.view.*
 
 class FeedHolder(

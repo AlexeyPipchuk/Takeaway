@@ -1,4 +1,4 @@
-package com.example.takeaway.app.navigation
+package takeaway.app.navigation
 
 import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentManager

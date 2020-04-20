@@ -1,7 +1,7 @@
-package com.example.takeaway.feature.feed.data.converter
+package takeaway.feature.feed.data.converter
 
-import com.example.takeaway.feature.feed.data.model.CafeListResponse
-import com.example.takeaway.feature.feed.domain.entity.Cafe
+import takeaway.feature.feed.data.model.CafeListResponse
+import takeaway.feature.feed.domain.entity.Cafe
 import javax.inject.Inject
 
 class CafeConverter @Inject constructor() {

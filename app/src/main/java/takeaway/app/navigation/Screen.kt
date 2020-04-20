@@ -1,8 +1,8 @@
-package com.example.takeaway.app.navigation
+package takeaway.app.navigation
 
 import androidx.fragment.app.Fragment
-import com.example.takeaway.feature.feed.ui.FeedFragment
-import com.example.takeaway.feature.info.ui.InfoFragment
+import takeaway.feature.feed.ui.FeedFragment
+import takeaway.feature.info.ui.InfoFragment
 
 sealed class Screen(fragment: Fragment) : BaseScreen(fragment) {
 

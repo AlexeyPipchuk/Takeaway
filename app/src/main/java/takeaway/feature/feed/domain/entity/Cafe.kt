@@ -1,4 +1,4 @@
-package com.example.takeaway.feature.feed.domain.entity
+package takeaway.feature.feed.domain.entity
 
 import com.google.gson.annotations.SerializedName
 

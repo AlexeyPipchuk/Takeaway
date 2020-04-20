@@ -1,4 +1,4 @@
-package com.example.takeaway
+package takeaway
 
 import org.junit.Test
 

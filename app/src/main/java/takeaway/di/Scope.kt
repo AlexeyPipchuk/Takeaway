@@ -1,4 +1,4 @@
-package com.example.takeaway.di
+package takeaway.di
 
 import javax.inject.Scope
 

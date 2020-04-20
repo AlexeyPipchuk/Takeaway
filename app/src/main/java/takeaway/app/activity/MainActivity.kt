@@ -1,8 +1,8 @@
-package com.example.takeaway.app.activity
+package takeaway.app.activity
 
 import android.os.Bundle
 import com.example.takeaway.R
-import com.example.takeaway.app.navigation.Navigator
+import takeaway.app.navigation.Navigator
 import dagger.android.support.DaggerAppCompatActivity
 import ru.terrakok.cicerone.NavigatorHolder
 import ru.terrakok.cicerone.android.support.SupportAppNavigator

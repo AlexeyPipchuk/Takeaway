@@ -1,4 +1,4 @@
-package com.example.takeaway.feature.feed.presentation
+package takeaway.feature.feed.presentation
 
 data class CafeItem (
     val cafeName: String,

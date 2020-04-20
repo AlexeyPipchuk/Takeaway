@@ -1,3 +1,3 @@
-package com.example.takeaway.app
+package takeaway.app
 
 interface TakeawayView

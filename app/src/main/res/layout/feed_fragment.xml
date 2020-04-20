@@ -28,7 +28,7 @@
             app:strokeColor="@color/colorPrimaryDark"
             app:strokeWidth="@dimen/spacing_1">
 
-            <com.example.takeaway.feature.feed.ui.EmptySubmitSearchView
+            <takeaway.feature.feed.ui.EmptySubmitSearchView
                 android:id="@+id/searchView"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"

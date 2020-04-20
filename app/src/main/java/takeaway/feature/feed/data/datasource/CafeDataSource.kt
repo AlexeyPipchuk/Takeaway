@@ -1,7 +1,7 @@
-package com.example.takeaway.feature.feed.data.datasource
+package takeaway.feature.feed.data.datasource
 
-import com.example.takeaway.feature.feed.data.api.TakeawayApi
-import com.example.takeaway.feature.feed.data.model.CafeListResponse
+import takeaway.feature.feed.data.api.TakeawayApi
+import takeaway.feature.feed.data.model.CafeListResponse
 import io.reactivex.Single
 import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject

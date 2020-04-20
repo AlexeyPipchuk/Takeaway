@@ -1,6 +1,6 @@
-package com.example.takeaway.feature.feed.domain.repository
+package takeaway.feature.feed.domain.repository
 
-import com.example.takeaway.feature.feed.domain.entity.Cafe
+import takeaway.feature.feed.domain.entity.Cafe
 import io.reactivex.Single
 
 interface CafeRepository {

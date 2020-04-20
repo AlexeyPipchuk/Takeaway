@@ -1,10 +1,9 @@
-package com.example.takeaway.feature.feed.data.repository
+package takeaway.feature.feed.data.repository
 
-import com.example.takeaway.feature.feed.data.converter.CafeConverter
-import com.example.takeaway.feature.feed.data.datasource.CafeDataSource
-import com.example.takeaway.feature.feed.data.model.CafeListResponse
-import com.example.takeaway.feature.feed.domain.entity.Cafe
-import com.example.takeaway.feature.feed.domain.repository.CafeRepository
+import takeaway.feature.feed.data.converter.CafeConverter
+import takeaway.feature.feed.data.datasource.CafeDataSource
+import takeaway.feature.feed.domain.entity.Cafe
+import takeaway.feature.feed.domain.repository.CafeRepository
 import io.reactivex.Single
 import javax.inject.Inject
 

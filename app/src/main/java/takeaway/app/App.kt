@@ -1,4 +1,4 @@
-package com.example.takeaway.app
+package takeaway.app
 
 import com.example.takeaway.di.DaggerAppComponent
 import dagger.android.AndroidInjector

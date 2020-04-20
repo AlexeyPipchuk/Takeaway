@@ -1,4 +1,4 @@
-package com.example.takeaway.feature.feed.ui
+package takeaway.feature.feed.ui
 
 import android.content.Context
 import android.util.AttributeSet

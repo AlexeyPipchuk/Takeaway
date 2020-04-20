@@ -1,6 +1,6 @@
-package com.example.takeaway.feature.feed.data.api
+package takeaway.feature.feed.data.api
 
-import com.example.takeaway.feature.feed.data.model.CafeListResponse
+import takeaway.feature.feed.data.model.CafeListResponse
 import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Query

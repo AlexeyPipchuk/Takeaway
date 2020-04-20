@@ -1,7 +1,7 @@
-package com.example.takeaway.feature.feed.domain.usecase
+package takeaway.feature.feed.domain.usecase
 
-import com.example.takeaway.feature.feed.domain.repository.CafeRepository
-import com.example.takeaway.feature.feed.domain.entity.Cafe
+import takeaway.feature.feed.domain.repository.CafeRepository
+import takeaway.feature.feed.domain.entity.Cafe
 import io.reactivex.Single
 import javax.inject.Inject
 
