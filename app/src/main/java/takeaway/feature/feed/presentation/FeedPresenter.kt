@@ -1,12 +1,13 @@
 package takeaway.feature.feed.presentation
 
+import io.reactivex.android.schedulers.AndroidSchedulers
+import ru.terrakok.cicerone.Router
 import takeaway.app.BasePresenter
 import takeaway.app.navigation.Screen
 import takeaway.feature.feed.domain.entity.Cafe
 import takeaway.feature.feed.domain.usecase.GetCafeListUseCase
 import takeaway.feature.feed.ui.FeedView
-import io.reactivex.android.schedulers.AndroidSchedulers
-import ru.terrakok.cicerone.Router
+import java.net.UnknownHostException
 import java.util.*
 import javax.inject.Inject
 
@@ -35,6 +36,7 @@ class FeedPresenter @Inject constructor(
                 },
                 { error ->
                     view?.hideProgress()
+                    handleError(error)
                 }
             )
             .addToDisposable()
@@ -98,5 +100,18 @@ class FeedPresenter @Inject constructor(
         view?.clearSearchQuery()
 
         showAllFeedFromCache()
+    }
+
+    fun onRetryClicked() {
+        loadCafeList()
+    }
+
+    private fun handleError(error: Throwable) {
+        //TODO(Сделать ErrorConverter)
+        if (error is UnknownHostException) {
+            view?.showNoInternetDialog()
+        } else {
+            view?.showServiceUnavailable()
+        }
     }
 }

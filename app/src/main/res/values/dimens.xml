@@ -13,4 +13,5 @@
     <dimen name="search_bar_corner_radius">8dp</dimen>
     <dimen name="spacing_4">4dp</dimen>
     <dimen name="spacing_12">12dp</dimen>
+    <dimen name="spacing_8">8dp</dimen>
 </resources>

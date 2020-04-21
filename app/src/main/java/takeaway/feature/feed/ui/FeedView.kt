@@ -16,4 +16,8 @@ interface FeedView : TakeawayView {
     fun hideEmptySearchResult()
 
     fun clearSearchQuery()
+
+    fun showNoInternetDialog()
+
+    fun showServiceUnavailable()
 }

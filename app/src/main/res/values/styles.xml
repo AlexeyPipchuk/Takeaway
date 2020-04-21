@@ -4,6 +4,9 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="android:fontFamily">@font/nunito_light</item>
+        <item name="alertDialogTheme">@style/AlertDialog</item>
     </style>
 
     <style name="AppTheme.Splash" parent="AppTheme">
@@ -12,6 +15,31 @@
         <item name="android:windowFullscreen">true</item>
         <item name="android:windowContentOverlay">@null</item>
         <item name="android:windowActionBar">true</item>
+    </style>
+
+    <style name="AlertDialog" parent="ThemeOverlay.MaterialComponents.MaterialAlertDialog">
+        <item name="buttonStyle">@style/TextAppearance.MaterialComponents.Button</item>
+        <item name="android:colorPrimary">@color/colorPrimaryDark</item>
+        <item name="materialAlertDialogTitleTextStyle">@style/AlertDialogTitle</item>
+        <item name="materialAlertDialogBodyTextStyle">@style/DialogBody</item>
+    </style>
+
+    <style name="AlertDialogTitle" parent="MaterialAlertDialog.MaterialComponents.Title.Text">
+        <item name="android:fontFamily">@font/nunito_bold</item>
+    </style>
+
+    <style name="DialogBody" parent="MaterialAlertDialog.MaterialComponents.Body.Text">
+        <item name="android:textAppearance">@style/Text.Body</item>
+    </style>
+
+    <style name="Text.Title" parent="TextAppearance.AppCompat.Title">
+        <item name="android:fontFamily">@font/nunito_bold</item>
+        <item name="android:textSize">@dimen/spacing_16</item>
+    </style>
+
+    <style name="Text.Body" parent="TextAppearance.AppCompat.Body2">
+        <item name="android:fontFamily">@font/nunito_light</item>
+        <item name="android:textSize">@dimen/spacing_12</item>
     </style>
 
 </resources>

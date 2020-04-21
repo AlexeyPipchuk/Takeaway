@@ -8,4 +8,11 @@
     <string name="feed_search_view_title">Поиск заведений</string>
     <string name="empty_search_result">Ничего не найдено =(</string>
     <string name="clear_button_text">Сбросить</string>
+    <string name="no_internet_dialog_title">Проблемы с интернетом =(</string>
+    <string name="no_internet_dialog_message">Отсутствует подключение к интернету. Проверьте соединение и повторите попытку.</string>
+    <string name="ok_dialog_button_text">Повторить</string>
+    <string name="service_unavailable_dialog_title">Что-то пошло не так…</string>
+    <string name="service_unavailable_dialog_message">Сервер не отвечает, повторите попытку или зайдите позже</string>
+    <string name="repeat_dialog_button_text">Повторить</string>
+    <string name="cancel_dialog_button_text">отмена</string>
 </resources>

@@ -7,12 +7,14 @@ import androidx.core.content.res.ResourcesCompat.getColor
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.example.takeaway.R
-import takeaway.app.BaseFragment
-import takeaway.app.hideKeyboard
-import takeaway.feature.feed.presentation.CafeItem
-import takeaway.feature.feed.presentation.FeedPresenter
 import kotlinx.android.synthetic.main.empty_search_result_view.*
 import kotlinx.android.synthetic.main.feed_fragment.*
+import takeaway.app.BaseFragment
+import takeaway.app.hideKeyboard
+import takeaway.app.showNoInternetDialog
+import takeaway.app.showServiceUnavailableDialog
+import takeaway.feature.feed.presentation.CafeItem
+import takeaway.feature.feed.presentation.FeedPresenter
 import javax.inject.Inject
 
 class FeedFragment : BaseFragment(R.layout.feed_fragment), FeedView {
@@ -112,5 +114,25 @@ class FeedFragment : BaseFragment(R.layout.feed_fragment), FeedView {
     override fun clearSearchQuery() {
         searchView.setQuery("", false)
         searchView.clearFocus()
+    }
+
+    override fun showNoInternetDialog() {
+        showNoInternetDialog(
+            positiveResult = {
+                presenter.onRetryClicked()
+            }, negativeResult = {
+                //TODO(Заглушка с возможностью повторить)
+            }
+        )
+    }
+
+    override fun showServiceUnavailable() {
+        showServiceUnavailableDialog(
+            positiveResult = {
+                presenter.onRetryClicked()
+            }, negativeResult = {
+                //TODO(Заглушка с возможностью повторить)
+            }
+        )
     }
 }
