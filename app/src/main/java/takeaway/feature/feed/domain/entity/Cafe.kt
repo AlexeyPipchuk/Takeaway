@@ -1,6 +1,7 @@
 package takeaway.feature.feed.domain.entity
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class Cafe(
     val id: String,
@@ -25,4 +26,4 @@ data class Cafe(
     @SerializedName("product_category_ids") val productCategoryIds: List<Int>?,
     @SerializedName("is_popular") val isPopular: Boolean,
     @SerializedName("is_closed") val isClosed: Boolean
-)
+) : Serializable

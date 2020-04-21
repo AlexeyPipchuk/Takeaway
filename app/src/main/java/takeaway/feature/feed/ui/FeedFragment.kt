@@ -76,7 +76,10 @@ class FeedFragment : BaseFragment(R.layout.feed_fragment), FeedView {
     }
 
     private fun initAdapter(cafeList: List<CafeItem>) {
-        adapter = FeedAdapter(requireContext())
+        adapter = FeedAdapter(
+            context = requireContext(),
+            onCafeClickListener = presenter::onCafeClicked
+        )
         adapter?.cafeList = cafeList
 
         cafeListRecycler.isVisible = true

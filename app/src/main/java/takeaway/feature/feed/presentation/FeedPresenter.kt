@@ -102,6 +102,13 @@ class FeedPresenter @Inject constructor(
         showAllFeedFromCache()
     }
 
+    fun onCafeClicked(selectedCafe: CafeItem) {
+        val cafe = cafeListCache?.firstOrNull { it.name == selectedCafe.cafeName }
+        cafe?.let {
+            router.navigateTo(Screen.CafeScreen(it))
+        }
+    }
+
     fun onRetryClicked() {
         loadCafeList()
     }

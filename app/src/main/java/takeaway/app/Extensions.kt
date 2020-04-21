@@ -1,6 +1,7 @@
 package takeaway.app
 
 import android.os.Build
+import android.os.Bundle
 import android.text.Html
 import android.text.Spanned
 import android.view.View
@@ -9,6 +10,10 @@ import androidx.core.content.getSystemService
 import androidx.fragment.app.Fragment
 import com.example.takeaway.R
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+
+val Fragment.args: Bundle
+    get() = arguments
+        ?: throw IllegalArgumentException("Fragment has no arguments")
 
 fun Fragment.hideKeyboard() =
     requireActivity().window.decorView.hideKeyboard()

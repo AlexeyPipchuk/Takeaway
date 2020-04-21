@@ -10,25 +10,40 @@ import com.example.takeaway.R
 import kotlinx.android.synthetic.main.feed_item.view.*
 import takeaway.app.fromHtml
 import takeaway.app.loadImage
+import takeaway.feature.feed.domain.entity.Cafe
 import takeaway.feature.feed.presentation.CafeItem
 
 class FeedHolder(
     view: View,
-    private val context: Context
+    private val context: Context,
+    private val onCafeClickListener: (CafeItem) -> Unit
 ) : RecyclerView.ViewHolder(view) {
 
     companion object {
-        fun createInstance(parent: ViewGroup, context: Context) = FeedHolder(
+        fun createInstance(
+            parent: ViewGroup,
+            context: Context,
+            onCafeClickListener: (CafeItem) -> Unit
+        ) = FeedHolder(
             LayoutInflater.from(parent.context).inflate(
                 R.layout.feed_item,
                 parent,
                 false
             ),
-            context
+            context,
+            onCafeClickListener
         )
     }
 
+    lateinit var item: CafeItem
+
+    init {
+        itemView.setOnClickListener { onCafeClickListener(item) }
+    }
+
     fun bind(cafeItem: CafeItem) {
+        this.item = cafeItem
+
         itemView.cafeName.text = cafeItem.cafeName
 
         if (cafeItem.deliveryDiscount > 0) {
