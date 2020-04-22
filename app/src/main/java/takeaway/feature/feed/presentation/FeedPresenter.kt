@@ -7,6 +7,7 @@ import takeaway.app.navigation.Screen
 import takeaway.feature.feed.domain.entity.Cafe
 import takeaway.feature.feed.domain.usecase.GetCafeListUseCase
 import takeaway.feature.feed.ui.FeedView
+import java.net.SocketTimeoutException
 import java.net.UnknownHostException
 import java.util.*
 import javax.inject.Inject
@@ -115,7 +116,7 @@ class FeedPresenter @Inject constructor(
 
     private fun handleError(error: Throwable) {
         //TODO(Сделать ErrorConverter)
-        if (error is UnknownHostException) {
+        if (error is UnknownHostException || error is SocketTimeoutException) {
             view?.showNoInternetDialog()
         } else {
             view?.showServiceUnavailable()

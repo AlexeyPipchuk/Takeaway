@@ -37,4 +37,11 @@ class CafeFragment : BaseFragment(R.layout.cafe_fragment), CafeView {
     override fun setCafeName(name: String) {
         cafeName.text = name
     }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+
+        //TODO(Внести в базу каким нибудь образом)
+        presenter.detachView()
+    }
 }
