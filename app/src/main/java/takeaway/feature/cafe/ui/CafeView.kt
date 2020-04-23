@@ -5,4 +5,12 @@ import takeaway.app.TakeawayView
 interface CafeView : TakeawayView {
 
     fun setCafeName(name: String)
+
+    fun showProgress()
+
+    fun hideProgress()
+
+    fun showNoInternetDialog()
+
+    fun showServiceUnavailable()
 }

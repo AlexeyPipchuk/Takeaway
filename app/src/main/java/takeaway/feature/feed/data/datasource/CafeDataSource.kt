@@ -1,6 +1,6 @@
 package takeaway.feature.feed.data.datasource
 
-import takeaway.feature.feed.data.api.TakeawayApi
+import takeaway.feature.feed.data.api.CafeApi
 import takeaway.feature.feed.data.model.CafeListResponse
 import io.reactivex.Single
 import io.reactivex.schedulers.Schedulers
@@ -12,7 +12,7 @@ interface CafeDataSource {
 }
 
 class CafeDataSourceImpl @Inject constructor(
-    private val api: TakeawayApi
+    private val api: CafeApi
 ) : CafeDataSource {
 
     override fun getList(): Single<CafeListResponse> =

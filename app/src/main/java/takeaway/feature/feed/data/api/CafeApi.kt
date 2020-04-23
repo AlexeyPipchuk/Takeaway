@@ -5,7 +5,7 @@ import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-interface TakeawayApi {
+interface CafeApi {
 
     @GET("cafe")
     fun getCafeList(@Query("limit") limit: String = "100"): Single<CafeListResponse>

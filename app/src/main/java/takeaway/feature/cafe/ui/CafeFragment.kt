@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment
 import com.example.takeaway.R
 import kotlinx.android.synthetic.main.cafe_fragment.*
 import takeaway.app.BaseFragment
+import takeaway.app.showNoInternetDialog
+import takeaway.app.showServiceUnavailableDialog
 import takeaway.feature.cafe.presentation.CafePresenter
 import takeaway.feature.feed.domain.entity.Cafe
 import javax.inject.Inject
@@ -43,5 +45,33 @@ class CafeFragment : BaseFragment(R.layout.cafe_fragment), CafeView {
 
         //TODO(Внести в базу каким нибудь образом)
         presenter.detachView()
+    }
+
+    override fun showProgress() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun hideProgress() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun showNoInternetDialog() {
+        showNoInternetDialog(
+            positiveResult = {
+                presenter.onRetryClicked()
+            }, negativeResult = {
+                //TODO(Заглушка с возможностью повторить)
+            }
+        )
+    }
+
+    override fun showServiceUnavailable() {
+        showServiceUnavailableDialog(
+            positiveResult = {
+                presenter.onRetryClicked()
+            }, negativeResult = {
+                //TODO(Заглушка с возможностью повторить)
+            }
+        )
     }
 }
