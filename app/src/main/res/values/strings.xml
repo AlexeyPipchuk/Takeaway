@@ -15,4 +15,6 @@
     <string name="service_unavailable_dialog_message">Сервер не отвечает, повторите попытку или зайдите позже</string>
     <string name="repeat_dialog_button_text">Повторить</string>
     <string name="cancel_dialog_button_text">отмена</string>
+    <string name="all_cafe">Все рестораны</string>
+    <string name="default_amount">0₽</string>
 </resources>

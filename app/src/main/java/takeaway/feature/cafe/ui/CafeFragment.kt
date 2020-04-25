@@ -2,10 +2,14 @@ package takeaway.feature.cafe.ui
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.example.takeaway.R
+import kotlinx.android.synthetic.main.cafe_appbar.*
 import kotlinx.android.synthetic.main.cafe_fragment.*
+import kotlinx.android.synthetic.main.feed_item.view.*
 import takeaway.app.BaseFragment
+import takeaway.app.loadImage
 import takeaway.app.showNoInternetDialog
 import takeaway.app.showServiceUnavailableDialog
 import takeaway.feature.cafe.presentation.CafePresenter
@@ -34,10 +38,14 @@ class CafeFragment : BaseFragment(R.layout.cafe_fragment), CafeView {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         presenter.attachView(this)
+
+        initListeners()
     }
 
-    override fun setCafeName(name: String) {
-        cafeName.text = name
+    private fun initListeners() {
+        backButton.setOnClickListener {
+            presenter.onBackClicked()
+        }
     }
 
     override fun onDestroyView() {
@@ -48,11 +56,11 @@ class CafeFragment : BaseFragment(R.layout.cafe_fragment), CafeView {
     }
 
     override fun showProgress() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        progressBar.isVisible = true
     }
 
     override fun hideProgress() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        progressBar.isVisible = false
     }
 
     override fun showNoInternetDialog() {
@@ -73,5 +81,13 @@ class CafeFragment : BaseFragment(R.layout.cafe_fragment), CafeView {
                 //TODO(Заглушка с возможностью повторить)
             }
         )
+    }
+
+    override fun showCafeInfo(cafe: Cafe) {
+
+        val cafeMainImg = cafe.imgUrls?.firstOrNull()
+        if (cafeMainImg != null) {
+            titleCafeImg.loadImage(cafeMainImg)
+        }
     }
 }

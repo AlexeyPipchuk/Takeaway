@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/cafe_app_bar_height"
+        android:importantForAccessibility="no"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_background_dark_gradient"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/backButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing_16"
+        android:layout_marginTop="@dimen/spacing_16"
+        android:importantForAccessibility="no"
+        android:src="@drawable/ic_back_white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/allCafeText"
+        style="@style/Text.Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing_8"
+        android:text="@string/all_cafe"
+        android:textColor="@android:color/white"
+        app:layout_constraintStart_toEndOf="@+id/backButton"
+        app:layout_constraintTop_toTopOf="@+id/backButton"
+        app:layout_constraintBottom_toBottomOf="@+id/backButton"/>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/basket"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/spacing_16"
+        app:cardBackgroundColor="@android:color/transparent"
+        app:cardCornerRadius="@dimen/spacing_16"
+        app:cardElevation="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/allCafeText"
+        app:layout_constraintBottom_toBottomOf="@+id/allCafeText"
+        app:strokeColor="@android:color/white"
+        app:strokeWidth="@dimen/spacing_1">
+
+        <TextView
+            android:id="@+id/basketAmount"
+            style="@style/Text.Title"
+            android:layout_width="wrap_content"
+            android:layout_margin="@dimen/spacing_8"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_basket"
+            android:drawablePadding="@dimen/spacing_4"
+            android:text="@string/default_amount"
+            android:textColor="@android:color/white"
+            tools:text="320Р" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

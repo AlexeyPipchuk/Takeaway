@@ -33,7 +33,7 @@ abstract class BaseFragment(
     protected fun initToolbar(
         @StringRes titleId: Int = 0,
         @MenuRes menuId: Int = 0,
-        toolbarNavigationIcon: Int? = R.drawable.ic_back,
+        toolbarNavigationIcon: Int? = R.drawable.ic_back_black,
         action: () -> Unit = {}
     ) {
         toolbar?.apply {

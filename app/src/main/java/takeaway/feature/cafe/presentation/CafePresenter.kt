@@ -20,16 +20,17 @@ class CafePresenter @Inject constructor(
         super.onViewAttach()
 
         loadProductList()
-        view?.setCafeName(cafe.name)
     }
 
     private fun loadProductList() {
+        view?.showProgress()
 
         getProductListUseCase(cafe.id)
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(
                 { products ->
-
+                    view?.showCafeInfo(cafe)
+                    view?.hideProgress()
                 },
                 { error ->
                     view?.hideProgress()
@@ -41,6 +42,10 @@ class CafePresenter @Inject constructor(
 
     fun onRetryClicked() {
         loadProductList()
+    }
+
+    fun onBackClicked() {
+        router.backTo(null)
     }
 
     private fun handleError(error: Throwable) {

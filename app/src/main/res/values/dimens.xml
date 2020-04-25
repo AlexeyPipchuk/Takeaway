@@ -7,11 +7,17 @@
     <dimen name="spacing_24">24dp</dimen>
     <dimen name="logo_width">56dp</dimen>
     <dimen name="logo_height">42dp</dimen>
-    <dimen name="feed_fragment_app_bar_elevation">0dp</dimen>
+    <dimen name="app_bar_elevation">0dp</dimen>
     <dimen name="spacing_1">1dp</dimen>
     <dimen name="search_bar_elevation">1dp</dimen>
     <dimen name="search_bar_corner_radius">8dp</dimen>
     <dimen name="spacing_4">4dp</dimen>
     <dimen name="spacing_12">12dp</dimen>
     <dimen name="spacing_8">8dp</dimen>
+
+    //Cafe
+
+    <dimen name="cafe_image_height">200dp</dimen>
+    <dimen name="cafe_app_bar_height">100dp</dimen>
+    <item name="z_up" type="dimen" format="float">0.1dp</item>
 </resources>

@@ -17,6 +17,10 @@
         <item name="android:windowActionBar">true</item>
     </style>
 
+    <style name="AppBar" parent="Widget.MaterialComponents.AppBarLayout.Primary">
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+
     <style name="AlertDialog" parent="ThemeOverlay.MaterialComponents.MaterialAlertDialog">
         <item name="buttonStyle">@style/TextAppearance.MaterialComponents.Button</item>
         <item name="android:colorPrimary">@color/colorPrimaryDark</item>

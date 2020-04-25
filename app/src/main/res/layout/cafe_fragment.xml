@@ -1,13 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundUnderCards"
+    android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/cafeName"
-        android:textSize="@dimen/spacing_24"
-        style="@style/Text.Title"
+    <com.google.android.material.appbar.AppBarLayout
+        style="@style/AppBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView" />
-</LinearLayout>
+        android:gravity="top"
+        android:translationZ="@dimen/z_up"
+        app:elevation="@dimen/app_bar_elevation">
+
+        <include layout="@layout/cafe_appbar" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ImageView
+        android:id="@+id/titleCafeImg"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/cafe_image_height"
+        android:importantForAccessibility="no"
+        android:scaleType="centerCrop"
+        tools:src="@drawable/ic_splash" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

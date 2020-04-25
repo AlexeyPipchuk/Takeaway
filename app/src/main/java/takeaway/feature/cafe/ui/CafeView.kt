@@ -1,10 +1,11 @@
 package takeaway.feature.cafe.ui
 
 import takeaway.app.TakeawayView
+import takeaway.feature.feed.domain.entity.Cafe
 
 interface CafeView : TakeawayView {
 
-    fun setCafeName(name: String)
+    fun showCafeInfo(cafe: Cafe)
 
     fun showProgress()
 
