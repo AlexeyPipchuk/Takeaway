@@ -19,5 +19,6 @@
 
     <dimen name="cafe_image_height">200dp</dimen>
     <dimen name="cafe_app_bar_height">100dp</dimen>
-    <item name="z_up" type="dimen" format="float">0.1dp</item>
+    <dimen name="z_up">0.1dp</dimen>
+    <dimen name="spacing_32">32dp</dimen>
 </resources>

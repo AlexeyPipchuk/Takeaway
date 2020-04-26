@@ -41,9 +41,22 @@
         <item name="android:textSize">@dimen/spacing_16</item>
     </style>
 
+    <style name="Text.Title.Light" parent="TextAppearance.AppCompat.Title">
+        <item name="android:fontFamily">@font/nunito_regular</item>
+        <item name="android:textSize">@dimen/spacing_16</item>
+    </style>
+
     <style name="Text.Body" parent="TextAppearance.AppCompat.Body2">
         <item name="android:fontFamily">@font/nunito_light</item>
         <item name="android:textSize">@dimen/spacing_12</item>
+    </style>
+
+    <style name="Text.Title.Large" parent="Text.Title">
+        <item name="android:textSize">@dimen/spacing_24</item>
+    </style>
+
+    <style name="Text.Body.Large" parent="Text.Body">
+        <item name="android:textSize">@dimen/spacing_16</item>
     </style>
 
 </resources>

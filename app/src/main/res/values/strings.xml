@@ -3,11 +3,20 @@
     <string name="info_title">Takeaway</string>
 
     //feed
-    <string name="delivery_free_from">бесплатно от &lt;font color=#FF004C>%1$s ₽&lt;/font></string>
-    <string name="delivery_discount">&lt;font color=#FF004C>-%1$s%%&lt;/font> на самовывоз</string>
+    <string name="delivery_free_from_colored">бесплатно от &lt;font color=#FF004C>%1$s ₽&lt;/font></string>
+    <string name="takeaway_discount_colored">&lt;font color=#FF004C>-%1$s%%&lt;/font> на самовывоз</string>
     <string name="feed_search_view_title">Поиск заведений</string>
     <string name="empty_search_result">Ничего не найдено =(</string>
     <string name="clear_button_text">Сбросить</string>
+
+    //cafe
+    <string name="all_cafe">Все рестораны</string>
+    <string name="default_amount">0₽</string>
+    <string name="delivery_free_from">бесплатно от %1$s₽</string>
+    <string name="takeaway_discount">-%1$s%% на самовывоз</string>
+    <string name="delivery_price">%1$s₽ при заказе на меньшую сумму</string>
+
+    //common
     <string name="no_internet_dialog_title">Проблемы с интернетом =(</string>
     <string name="no_internet_dialog_message">Отсутствует подключение к интернету. Проверьте соединение и повторите попытку.</string>
     <string name="ok_dialog_button_text">Повторить</string>
@@ -15,6 +24,7 @@
     <string name="service_unavailable_dialog_message">Сервер не отвечает, повторите попытку или зайдите позже</string>
     <string name="repeat_dialog_button_text">Повторить</string>
     <string name="cancel_dialog_button_text">отмена</string>
-    <string name="all_cafe">Все рестораны</string>
-    <string name="default_amount">0₽</string>
+    <string name="work_time_text">Часы работы</string>
+    <string name="business_time_text">Бизнес-ланч</string>
+
 </resources>

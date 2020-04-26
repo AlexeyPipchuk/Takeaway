@@ -19,13 +19,160 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <ImageView
-        android:id="@+id/titleCafeImg"
+    <ScrollView
+        android:id="@+id/content"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/cafe_image_height"
-        android:importantForAccessibility="no"
-        android:scaleType="centerCrop"
-        tools:src="@drawable/ic_splash" />
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/titleCafeImg"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/cafe_image_height"
+                android:importantForAccessibility="no"
+                android:scaleType="centerCrop"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@drawable/ic_splash" />
+
+            <ImageView
+                android:id="@+id/cafeLogo"
+                android:layout_width="@dimen/logo_width"
+                android:layout_height="@dimen/logo_height"
+                android:layout_margin="@dimen/spacing_24"
+                android:layout_marginEnd="@dimen/spacing_16"
+                android:layout_marginBottom="@dimen/spacing_16"
+                android:background="@drawable/white_border"
+                android:importantForAccessibility="no"
+                android:scaleType="centerCrop"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@+id/titleCafeImg"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:src="@color/colorPrimary"
+                tools:visibility="visible" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_16"
+                android:layout_marginTop="@dimen/spacing_32"
+                android:layout_marginEnd="@dimen/spacing_16"
+                android:layout_marginBottom="@dimen/spacing_32"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/titleCafeImg">
+
+                <TextView
+                    android:id="@+id/cafeType"
+                    style="@style/Text.Body.Large"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="Кондитерская" />
+
+                <TextView
+                    android:id="@+id/cafeName"
+                    style="@style/Text.Title.Large"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="Гости" />
+
+                <TextView
+                    android:id="@+id/cafeDescription"
+                    style="@style/Text.Title.Light"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="Мы кафе хорошее и у нас крутое описание" />
+
+                <TextView
+                    android:id="@+id/location"
+                    style="@style/Text.Title.Light"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_16"
+                    android:drawableStart="@drawable/ic_location"
+                    android:drawablePadding="@dimen/spacing_8"
+                    tools:text="ул.Ленина 10" />
+
+                <TextView
+                    android:id="@+id/time"
+                    style="@style/Text.Title.Light"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_8"
+                    android:drawableStart="@drawable/ic_time"
+                    android:drawablePadding="@dimen/spacing_8"
+                    tools:text="8:00−21:00" />
+
+                <TextView
+                    android:id="@+id/timeSubtitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_24"
+                    android:text="@string/work_time_text"
+                    android:visibility="gone"
+                    tools:visibility="visible" />
+
+                <TextView
+                    android:id="@+id/businessTime"
+                    style="@style/Text.Title.Light"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_24"
+                    android:layout_marginTop="@dimen/spacing_8"
+                    android:visibility="gone"
+                    tools:text="8:00−21:00"
+                    tools:visibility="visible" />
+
+                <TextView
+                    android:id="@+id/businessTimeSubtitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_24"
+                    android:text="@string/business_time_text"
+                    android:visibility="gone"
+                    tools:visibility="visible" />
+
+                <TextView
+                    android:id="@+id/takeawayDiscount"
+                    style="@style/Text.Title.Light"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_8"
+                    android:drawableStart="@drawable/ic_discount"
+                    android:drawablePadding="@dimen/spacing_8"
+                    android:visibility="gone"
+                    tools:text="-20% на самовывоз"
+                    tools:visibility="visible" />
+
+                <TextView
+                    android:id="@+id/deliveryFreeFrom"
+                    style="@style/Text.Title.Light"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_8"
+                    android:drawableStart="@drawable/ic_delivery_bag"
+                    android:drawablePadding="@dimen/spacing_8"
+                    tools:text="бесплатно от 650 рублей" />
+
+                <TextView
+                    android:id="@+id/deliveryPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_24"
+                    android:visibility="gone"
+                    tools:text="150 рублей при заказе на меньшую сумму"
+                    tools:visibility="visible" />
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
 
     <ProgressBar
         android:id="@+id/progressBar"

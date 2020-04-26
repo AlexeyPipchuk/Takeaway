@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:background="@color/backgroundUnderCards"
         android:gravity="top"
-        app:elevation="@dimen/feed_fragment_app_bar_elevation">
+        app:elevation="@dimen/app_bar_elevation">
 
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"

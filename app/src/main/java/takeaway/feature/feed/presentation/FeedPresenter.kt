@@ -46,8 +46,8 @@ class FeedPresenter @Inject constructor(
     private fun mapCafeToCafeItem(cafe: Cafe): CafeItem =
         CafeItem(
             cafeName = cafe.name,
-            deliveryDiscount = cafe.deliveryDiscount,
-            deliveryFreeFrom = cafe.minDeliverySum,
+            takeawayDiscount = cafe.deliveryDiscount,
+            deliveryFreeFrom = cafe.deliveryFreeFrom,
             imageUrl = cafe.imgUrls?.firstOrNull(),
             logoUrl = cafe.logoUrl
         )

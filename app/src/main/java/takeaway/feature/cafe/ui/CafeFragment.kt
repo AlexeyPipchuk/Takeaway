@@ -7,7 +7,6 @@ import androidx.fragment.app.Fragment
 import com.example.takeaway.R
 import kotlinx.android.synthetic.main.cafe_appbar.*
 import kotlinx.android.synthetic.main.cafe_fragment.*
-import kotlinx.android.synthetic.main.feed_item.view.*
 import takeaway.app.BaseFragment
 import takeaway.app.loadImage
 import takeaway.app.showNoInternetDialog
@@ -57,10 +56,12 @@ class CafeFragment : BaseFragment(R.layout.cafe_fragment), CafeView {
 
     override fun showProgress() {
         progressBar.isVisible = true
+        content.isVisible = false
     }
 
     override fun hideProgress() {
         progressBar.isVisible = false
+        content.isVisible = true
     }
 
     override fun showNoInternetDialog() {
@@ -88,6 +89,42 @@ class CafeFragment : BaseFragment(R.layout.cafe_fragment), CafeView {
         val cafeMainImg = cafe.imgUrls?.firstOrNull()
         if (cafeMainImg != null) {
             titleCafeImg.loadImage(cafeMainImg)
+        }
+
+        val cafeLogoImg = cafe.logoUrl
+        if (cafeLogoImg != null) {
+            cafeLogo.isVisible = true
+            cafeLogo.loadImage(cafeLogoImg)
+        }
+
+        cafeType.text = cafe.cafeType
+        cafeName.text = cafe.name
+        cafeDescription.text = cafe.description
+        location.text = cafe.address
+        time.text = cafe.workFrom.plus("-").plus(cafe.workTo)
+
+        if (cafe.deliveryDiscount > 0) {
+            takeawayDiscount.text =
+                getString(R.string.takeaway_discount)
+                    .format(cafe.deliveryDiscount.toString())
+
+            takeawayDiscount.isVisible = true
+        }
+
+        deliveryFreeFrom.text = getString(R.string.delivery_free_from)
+            .format(cafe.deliveryFreeFrom.toString())
+
+        if (cafe.deliveryPrice != 0) {
+            deliveryPrice.text =
+                getString(R.string.delivery_price).format(cafe.deliveryPrice.toString())
+            deliveryPrice.isVisible = true
+        }
+
+        if (cafe.businessFrom.isNotEmpty() && cafe.businessTo.isNotEmpty()) {
+            timeSubtitle.isVisible = true
+            businessTimeSubtitle.isVisible = true
+            businessTime.isVisible = true
+            businessTime.text = cafe.businessFrom.plus("-").plus(cafe.businessTo)
         }
     }
 }

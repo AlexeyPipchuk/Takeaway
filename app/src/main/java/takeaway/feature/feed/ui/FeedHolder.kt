@@ -10,7 +10,6 @@ import com.example.takeaway.R
 import kotlinx.android.synthetic.main.feed_item.view.*
 import takeaway.app.fromHtml
 import takeaway.app.loadImage
-import takeaway.feature.feed.domain.entity.Cafe
 import takeaway.feature.feed.presentation.CafeItem
 
 class FeedHolder(
@@ -35,7 +34,7 @@ class FeedHolder(
         )
     }
 
-    lateinit var item: CafeItem
+    private lateinit var item: CafeItem
 
     init {
         itemView.setOnClickListener { onCafeClickListener(item) }
@@ -46,15 +45,15 @@ class FeedHolder(
 
         itemView.cafeName.text = cafeItem.cafeName
 
-        if (cafeItem.deliveryDiscount > 0) {
+        if (cafeItem.takeawayDiscount > 0) {
             itemView.deliveryDiscount.text =
-                context.getString(R.string.delivery_discount)
-                    .format(cafeItem.deliveryDiscount.toString())
+                context.getString(R.string.takeaway_discount_colored)
+                    .format(cafeItem.takeawayDiscount.toString())
                     .fromHtml()
         }
 
         itemView.deliveryFreeFrom.text =
-            context.getString(R.string.delivery_free_from)
+            context.getString(R.string.delivery_free_from_colored)
                 .format(cafeItem.deliveryFreeFrom.toString())
                 .fromHtml()
 
@@ -64,7 +63,6 @@ class FeedHolder(
         if (!cafeItem.logoUrl.isNullOrEmpty()) {
             itemView.cafeLogo.loadImage(cafeItem.logoUrl)
             itemView.cafeLogo.isVisible = true
-
         } else {
             itemView.cafeLogo.isVisible = false
         }
