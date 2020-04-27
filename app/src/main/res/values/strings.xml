@@ -30,4 +30,6 @@
     <string name="product_weight">%1$s гр.</string>
     <string name="takeaway_description">Бесплатный сервис\nзаказа еды в Томске</string>
     <string name="link_on_statist">Сервис разработан&lt;br/>командой &lt;a href="https://statist-w.ru/">statist&lt;/a></string>
+    <string name="to_basket_text">В корзину</string>
+    <string name="rubles_postfix">%1$s ₽</string>
 </resources>

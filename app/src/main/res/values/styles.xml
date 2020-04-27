@@ -59,4 +59,10 @@
         <item name="android:textSize">@dimen/spacing_16</item>
     </style>
 
+    <style name="Button.Blue" parent="Widget.MaterialComponents.Button">
+        <item name="android:fontFamily">@font/nunito_bold</item>
+        <item name="android:backgroundTint">@color/colorAccent</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:padding">@dimen/spacing_16</item>
+    </style>
 </resources>

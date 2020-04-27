@@ -51,7 +51,7 @@ class CafePresenter @Inject constructor(
     }
 
     fun onProductClicked(selectedProduct: Product) {
-
+        view?.showProductDialog(selectedProduct)
     }
 
     private fun handleError(error: Throwable) {

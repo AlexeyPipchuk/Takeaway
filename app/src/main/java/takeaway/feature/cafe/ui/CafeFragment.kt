@@ -11,6 +11,7 @@ import kotlinx.android.synthetic.main.cafe_fragment.*
 import takeaway.app.*
 import takeaway.feature.cafe.domain.entity.Product
 import takeaway.feature.cafe.presentation.CafePresenter
+import takeaway.feature.cafe.ui.product.ProductDialogFragment
 import takeaway.feature.feed.domain.entity.Cafe
 import javax.inject.Inject
 
@@ -143,6 +144,17 @@ class CafeFragment : BaseFragment(R.layout.cafe_fragment), CafeView {
             businessTimeSubtitle.isVisible = true
             businessTime.isVisible = true
             businessTime.text = cafe.businessFrom.plus("-").plus(cafe.businessTo)
+        }
+    }
+
+    override fun showProductDialog(product: Product) {
+        val productDialog = ProductDialogFragment.getInstance(product)
+        productDialog.setTargetFragment(this, 0)
+        fragmentManager?.let { fragmentManager ->
+            productDialog.show(
+                fragmentManager,
+                productDialog::class.java.name
+            )
         }
     }
 }

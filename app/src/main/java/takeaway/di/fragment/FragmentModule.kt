@@ -4,6 +4,7 @@ import dagger.Module
 import dagger.android.ContributesAndroidInjector
 import takeaway.di.FragmentScope
 import takeaway.feature.cafe.ui.CafeFragment
+import takeaway.feature.cafe.ui.product.ProductDialogFragment
 import takeaway.feature.feed.ui.FeedFragment
 import takeaway.feature.info.ui.InfoFragment
 
@@ -21,4 +22,8 @@ interface FragmentModule {
     @FragmentScope
     @ContributesAndroidInjector(modules = [CafeFragmentModule::class])
     fun provideCafeFragment(): CafeFragment
+
+    @FragmentScope
+    @ContributesAndroidInjector(modules = [ProductDialogFragmentModule::class])
+    fun provideProductDialogFragment(): ProductDialogFragment
 }

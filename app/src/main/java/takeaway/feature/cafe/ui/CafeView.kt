@@ -17,4 +17,6 @@ interface CafeView : TakeawayView {
     fun showNoInternetDialog()
 
     fun showServiceUnavailable()
+
+    fun showProductDialog(product: Product)
 }
