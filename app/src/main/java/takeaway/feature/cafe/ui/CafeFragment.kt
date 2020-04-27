@@ -11,6 +11,7 @@ import takeaway.app.BaseFragment
 import takeaway.app.loadImage
 import takeaway.app.showNoInternetDialog
 import takeaway.app.showServiceUnavailableDialog
+import takeaway.feature.cafe.domain.entity.Product
 import takeaway.feature.cafe.presentation.CafePresenter
 import takeaway.feature.feed.domain.entity.Cafe
 import javax.inject.Inject
@@ -34,6 +35,8 @@ class CafeFragment : BaseFragment(R.layout.cafe_fragment), CafeView {
     @Inject
     lateinit var presenter: CafePresenter
 
+    private var adapter: ProductAdapter? = null
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         presenter.attachView(this)
@@ -45,6 +48,20 @@ class CafeFragment : BaseFragment(R.layout.cafe_fragment), CafeView {
         backButton.setOnClickListener {
             presenter.onBackClicked()
         }
+    }
+
+    override fun setProducts(productList: List<Product>) {
+        initAdapter(productList)
+    }
+
+    private fun initAdapter(productList: List<Product>) {
+        adapter = ProductAdapter(
+            context = requireContext(),
+            onCafeClickListener = presenter::onProductClicked
+        )
+        adapter?.productList = productList
+
+        productListRecycler.adapter = adapter
     }
 
     override fun onDestroyView() {

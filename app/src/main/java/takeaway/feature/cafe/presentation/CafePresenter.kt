@@ -3,6 +3,7 @@ package takeaway.feature.cafe.presentation
 import io.reactivex.android.schedulers.AndroidSchedulers
 import ru.terrakok.cicerone.Router
 import takeaway.app.BasePresenter
+import takeaway.feature.cafe.domain.entity.Product
 import takeaway.feature.cafe.domain.usecase.GetProductListUseCase
 import takeaway.feature.cafe.ui.CafeView
 import takeaway.feature.feed.domain.entity.Cafe
@@ -30,6 +31,7 @@ class CafePresenter @Inject constructor(
             .subscribe(
                 { products ->
                     view?.showCafeInfo(cafe)
+                    view?.setProducts(products)
                     view?.hideProgress()
                 },
                 { error ->
@@ -46,6 +48,10 @@ class CafePresenter @Inject constructor(
 
     fun onBackClicked() {
         router.backTo(null)
+    }
+
+    fun onProductClicked(selectedProduct: Product) {
+
     }
 
     private fun handleError(error: Throwable) {

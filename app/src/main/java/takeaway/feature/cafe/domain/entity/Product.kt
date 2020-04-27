@@ -11,7 +11,7 @@ data class Product(
     val weight: String,
     @SerializedName("weight_type") val weightType: String,
     @SerializedName("is_visible") val isVisible: Boolean,
-    @SerializedName("img_url") val imgUrl: String,
+    @SerializedName("img_url") val imgUrl: String?,
     @SerializedName("category_id") val categoryId: String,
     @SerializedName("is_popular") val isPopular: Boolean
 )

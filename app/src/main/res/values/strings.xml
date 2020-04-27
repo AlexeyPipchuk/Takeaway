@@ -26,5 +26,7 @@
     <string name="cancel_dialog_button_text">отмена</string>
     <string name="work_time_text">Часы работы</string>
     <string name="business_time_text">Бизнес-ланч</string>
+    <string name="product_price">&lt;font color=#FF004C>%1$s ₽&lt;/font></string>
+    <string name="product_weight">%1$s гр.</string>
 
 </resources>
