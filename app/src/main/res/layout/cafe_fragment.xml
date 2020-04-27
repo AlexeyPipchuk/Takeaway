@@ -11,9 +11,9 @@
         style="@style/AppBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
         android:gravity="top"
         android:translationZ="@dimen/z_up"
-        android:fitsSystemWindows="true"
         app:elevation="@dimen/app_bar_elevation">
 
         <include layout="@layout/cafe_appbar" />
@@ -38,7 +38,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:src="@drawable/ic_splash" />
+                tools:src="@drawable/ic_default_product" />
 
             <ImageView
                 android:id="@+id/cafeLogo"
@@ -186,6 +186,51 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/cafeInfo"
                 tools:listitem="@layout/product_item" />
+
+            <ImageView
+                android:id="@+id/logoFooter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_48"
+                android:importantForAccessibility="no"
+                android:src="@drawable/ic_logo_takeaway_small"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/productListRecycler" />
+
+            <TextView
+                android:id="@+id/takeawayDescription"
+                style="@style/Text.Body.Large"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_16"
+                android:layout_marginTop="@dimen/spacing_16"
+                android:layout_marginEnd="@dimen/spacing_16"
+                android:text="@string/takeaway_description"
+                android:textAlignment="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/logoFooter" />
+
+            <TextView
+                android:id="@+id/linkOnStatist"
+                style="@style/Text.Body.Large"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_16"
+                android:layout_marginTop="@dimen/spacing_32"
+                android:layout_marginEnd="@dimen/spacing_16"
+                android:layout_marginBottom="@dimen/spacing_32"
+                android:clickable="true"
+                android:focusable="true"
+                android:linksClickable="true"
+                android:textAlignment="center"
+                android:textColorLink="@color/colorAccent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/takeawayDescription"
+                tools:text="Сервис разработан Statist" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

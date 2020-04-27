@@ -28,5 +28,6 @@
     <string name="business_time_text">Бизнес-ланч</string>
     <string name="product_price">&lt;font color=#FF004C>%1$s ₽&lt;/font></string>
     <string name="product_weight">%1$s гр.</string>
-
+    <string name="takeaway_description">Бесплатный сервис\nзаказа еды в Томске</string>
+    <string name="link_on_statist">Сервис разработан&lt;br/>командой &lt;a href="https://statist-w.ru/">statist&lt;/a></string>
 </resources>

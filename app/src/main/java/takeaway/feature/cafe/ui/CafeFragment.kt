@@ -1,16 +1,14 @@
 package takeaway.feature.cafe.ui
 
 import android.os.Bundle
+import android.text.method.LinkMovementMethod
 import android.view.View
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.example.takeaway.R
 import kotlinx.android.synthetic.main.cafe_appbar.*
 import kotlinx.android.synthetic.main.cafe_fragment.*
-import takeaway.app.BaseFragment
-import takeaway.app.loadImage
-import takeaway.app.showNoInternetDialog
-import takeaway.app.showServiceUnavailableDialog
+import takeaway.app.*
 import takeaway.feature.cafe.domain.entity.Product
 import takeaway.feature.cafe.presentation.CafePresenter
 import takeaway.feature.feed.domain.entity.Cafe
@@ -48,6 +46,9 @@ class CafeFragment : BaseFragment(R.layout.cafe_fragment), CafeView {
         backButton.setOnClickListener {
             presenter.onBackClicked()
         }
+
+        linkOnStatist.text = getString(R.string.link_on_statist).fromHtml()
+        linkOnStatist.movementMethod = LinkMovementMethod.getInstance()
     }
 
     override fun setProducts(productList: List<Product>) {
