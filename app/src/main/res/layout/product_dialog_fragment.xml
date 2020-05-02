@@ -58,13 +58,14 @@
         app:layout_constraintTop_toBottomOf="@+id/productName"
         tools:text="Лаваш, лаваш, лаваш, лаваш, помидор, огурец, шиша, корм, свежие яблоки" />
 
-    <TextView
-        android:id="@+id/productCount"
+    <takeaway.component.CustomCounterView
+        android:id="@+id/productCounter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/spacing_16"
         android:layout_marginTop="@dimen/spacing_16"
-        android:text="1"
+        android:elevation="@dimen/spacing_4"
+        app:cardCornerRadius="@dimen/spacing_4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/productDescription" />
 
@@ -74,9 +75,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/spacing_24"
-        app:layout_constraintBottom_toBottomOf="@+id/productCount"
-        app:layout_constraintStart_toStartOf="@+id/productCount"
-        app:layout_constraintTop_toTopOf="@+id/productCount"
+        app:layout_constraintBottom_toBottomOf="@+id/productCounter"
+        app:layout_constraintStart_toEndOf="@+id/productCounter"
+        app:layout_constraintTop_toTopOf="@+id/productCounter"
         tools:text="210 гр." />
 
     <TextView
@@ -86,9 +87,9 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/spacing_16"
         android:textColor="@color/colorPrimaryDark"
-        app:layout_constraintBottom_toBottomOf="@+id/productCount"
+        app:layout_constraintBottom_toBottomOf="@+id/productCounter"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/productCount"
+        app:layout_constraintTop_toTopOf="@+id/productCounter"
         tools:text="350 Р" />
 
     <com.google.android.material.button.MaterialButton

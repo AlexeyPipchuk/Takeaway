@@ -14,4 +14,21 @@ class ProductPresenter @Inject constructor(
 
         view?.showProductInfo(product)
     }
+
+    fun onPlusButtonClicked() {
+        view?.incPrice(product.price)
+    }
+
+    fun onMinusButtonClicked() {
+        view?.decPrice(product.price)
+    }
+
+    fun onExitButtonClicked() {
+        view?.closeDialog()
+    }
+
+    fun onToBasketButtonClicked(count: Int) {
+
+        view?.closeDialog()
+    }
 }

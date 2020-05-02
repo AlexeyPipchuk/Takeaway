@@ -6,4 +6,10 @@ import takeaway.feature.cafe.domain.entity.Product
 interface ProductView : TakeawayView {
 
     fun showProductInfo(product: Product)
+
+    fun incPrice(price: Int)
+
+    fun decPrice(price: Int)
+
+    fun closeDialog()
 }

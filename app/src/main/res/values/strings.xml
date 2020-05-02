@@ -32,4 +32,7 @@
     <string name="link_on_statist">Сервис разработан&lt;br/>командой &lt;a href="https://statist-w.ru/">statist&lt;/a></string>
     <string name="to_basket_text">В корзину</string>
     <string name="rubles_postfix">%1$s ₽</string>
+    <string name="one">1</string>
+    <string name="minus">-</string>
+    <string name="plus">+</string>
 </resources>
