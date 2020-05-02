@@ -54,8 +54,8 @@ class ProductDialogFragment : BaseDialogFragment(R.layout.product_dialog_fragmen
     override fun showProductInfo(product: Product) {
         if (product.imgUrl != null) {
             productImg.isVisible = true
+            //TODO(Решить проблему с закруглением картинки)
             productImg.loadImage(product.imgUrl)
-            exitButton.isVisible = true
         }
 
         productName.text = product.title

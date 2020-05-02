@@ -6,4 +6,5 @@
     <color name="backgroundUnderCards">#f2f2f2</color>
     <color name="backgroundMain">#fcfcfc</color>
     <color name="default_product_background">#D4D4D4</color>
+    <color name="image_button_ripple">#666666</color>
 </resources>
