@@ -18,5 +18,7 @@ interface CafeView : TakeawayView {
 
     fun showServiceUnavailable()
 
-    fun showProductDialog(product: Product)
+    fun showProductDialog(product: Product, cafe: Cafe)
+
+    fun setBasketAmount(basketAmount: Int)
 }

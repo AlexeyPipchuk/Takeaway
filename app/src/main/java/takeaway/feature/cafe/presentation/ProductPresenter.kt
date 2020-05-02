@@ -3,10 +3,18 @@ package takeaway.feature.cafe.presentation
 import takeaway.app.BasePresenter
 import takeaway.feature.cafe.domain.entity.Product
 import takeaway.feature.cafe.ui.product.ProductView
+import takeaway.feature.feed.domain.entity.Cafe
+import takeaway.shared.basket.domian.usecase.AddToBasketUseCase
+import takeaway.shared.basket.domian.usecase.ClearBasketUseCase
+import takeaway.shared.basket.domian.usecase.GetBasketCafeIdUseCase
 import javax.inject.Inject
 
 class ProductPresenter @Inject constructor(
-    private val product: Product
+    private val product: Product,
+    private val cafe: Cafe,
+    private val getBasketCafeIdUseCase: GetBasketCafeIdUseCase,
+    private val clearBasketUseCase: ClearBasketUseCase,
+    private val addToBasketUseCase: AddToBasketUseCase
 ) : BasePresenter<ProductView>() {
 
     override fun onViewAttach() {
@@ -24,11 +32,29 @@ class ProductPresenter @Inject constructor(
     }
 
     fun onExitButtonClicked() {
-        view?.closeDialog()
+        view?.closeProductDialog()
     }
 
     fun onToBasketButtonClicked(count: Int) {
+        val cafeInBasketId = getBasketCafeIdUseCase()
 
-        view?.closeDialog()
+        if (cafeInBasketId != null) {
+            if (cafeInBasketId == cafe.id) {
+                addToBasketUseCase(product, count, cafe)
+                view?.closeProductDialog()
+            } else {
+                view?.showClearBasketQuestionDialog()
+            }
+        } else {
+            addToBasketUseCase(product, count, cafe)
+            view?.closeProductDialog()
+        }
+    }
+
+    fun onApproveToClearBasketButtonClicked(count: Int) {
+        clearBasketUseCase()
+        
+        addToBasketUseCase(product, count, cafe)
+        view?.closeProductDialog()
     }
 }

@@ -14,6 +14,10 @@ import takeaway.feature.feed.data.datasource.CafeDataSource
 import takeaway.feature.feed.data.datasource.CafeDataSourceImpl
 import takeaway.feature.feed.data.repository.CafeRepositoryImpl
 import takeaway.feature.feed.domain.repository.CafeRepository
+import takeaway.shared.basket.data.datasource.BasketDataSource
+import takeaway.shared.basket.data.datasource.BasketDataSourceImpl
+import takeaway.shared.basket.data.repository.BasketRepositoryImpl
+import takeaway.shared.basket.domian.repository.BasketRepository
 
 @Module
 abstract class DataModule {
@@ -33,6 +37,14 @@ abstract class DataModule {
     @AppScope
     @Binds
     abstract fun provideProductDataSource(dataSource: ProductDataSourceImpl): ProductDataSource
+
+    @AppScope
+    @Binds
+    abstract fun provideBasketRepository(repository: BasketRepositoryImpl): BasketRepository
+
+    @AppScope
+    @Binds
+    abstract fun provideBasketDataSource(dataSource: BasketDataSourceImpl): BasketDataSource
 
     @Module
     companion object {

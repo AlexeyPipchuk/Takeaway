@@ -7,6 +7,7 @@ import takeaway.feature.cafe.domain.entity.Product
 import takeaway.feature.cafe.domain.usecase.GetProductListUseCase
 import takeaway.feature.cafe.ui.CafeView
 import takeaway.feature.feed.domain.entity.Cafe
+import takeaway.shared.basket.domian.usecase.GetBasketAmountUseCase
 import java.net.SocketTimeoutException
 import java.net.UnknownHostException
 import javax.inject.Inject
@@ -14,7 +15,8 @@ import javax.inject.Inject
 class CafePresenter @Inject constructor(
     private val getProductListUseCase: GetProductListUseCase,
     private val cafe: Cafe,
-    private val router: Router
+    private val router: Router,
+    private val getBasketAmountUseCase: GetBasketAmountUseCase
 ) : BasePresenter<CafeView>() {
 
     override fun onViewAttach() {
@@ -51,7 +53,7 @@ class CafePresenter @Inject constructor(
     }
 
     fun onProductClicked(selectedProduct: Product) {
-        view?.showProductDialog(selectedProduct)
+        view?.showProductDialog(selectedProduct, cafe)
     }
 
     private fun handleError(error: Throwable) {
@@ -61,5 +63,10 @@ class CafePresenter @Inject constructor(
         } else {
             view?.showServiceUnavailable()
         }
+    }
+
+    fun onScreenUpdated() {
+        val actualBasketAmount = getBasketAmountUseCase()
+        view?.setBasketAmount(actualBasketAmount)
     }
 }

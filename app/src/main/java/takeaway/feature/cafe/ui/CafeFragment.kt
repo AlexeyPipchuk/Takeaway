@@ -1,5 +1,6 @@
 package takeaway.feature.cafe.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.method.LinkMovementMethod
 import android.view.View
@@ -7,6 +8,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.example.takeaway.R
 import kotlinx.android.synthetic.main.cafe_appbar.*
+import kotlinx.android.synthetic.main.cafe_appbar.view.*
 import kotlinx.android.synthetic.main.cafe_fragment.*
 import takeaway.app.*
 import takeaway.feature.cafe.domain.entity.Product
@@ -41,6 +43,7 @@ class CafeFragment : BaseFragment(R.layout.cafe_fragment), CafeView {
         presenter.attachView(this)
 
         initListeners()
+        presenter.onScreenUpdated()
     }
 
     private fun initListeners() {
@@ -147,8 +150,8 @@ class CafeFragment : BaseFragment(R.layout.cafe_fragment), CafeView {
         }
     }
 
-    override fun showProductDialog(product: Product) {
-        val productDialog = ProductDialogFragment.getInstance(product)
+    override fun showProductDialog(product: Product, cafe: Cafe) {
+        val productDialog = ProductDialogFragment.getInstance(product, cafe)
         productDialog.setTargetFragment(this, 0)
         fragmentManager?.let { fragmentManager ->
             productDialog.show(
@@ -156,5 +159,15 @@ class CafeFragment : BaseFragment(R.layout.cafe_fragment), CafeView {
                 productDialog::class.java.name
             )
         }
+    }
+
+    override fun setBasketAmount(basketAmount: Int) {
+        cafeAppbar.basketAmountText.text =
+            getString(R.string.rubles_postfix).format(basketAmount.toString())
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        presenter.onScreenUpdated()
     }
 }

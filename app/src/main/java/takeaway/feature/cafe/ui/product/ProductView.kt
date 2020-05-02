@@ -11,5 +11,7 @@ interface ProductView : TakeawayView {
 
     fun decPrice(price: Int)
 
-    fun closeDialog()
+    fun closeProductDialog()
+
+    fun showClearBasketQuestionDialog()
 }

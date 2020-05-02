@@ -26,4 +26,5 @@
     <dimen name="product_image_width">110dp</dimen>
     <dimen name="product_image_height">145dp</dimen>
     <dimen name="spacing_48">48dp</dimen>
+    <dimen name="spacing_5">5dp</dimen>
 </resources>
