@@ -19,7 +19,7 @@ class BasketRepositoryImpl @Inject constructor(
         dataSource.clearBasket()
     }
 
-    override fun getBasket(): Basket? =
+    override fun getBasket(): Basket =
         dataSource.getBasket()
 
     override fun getBasketAmount(): Int =

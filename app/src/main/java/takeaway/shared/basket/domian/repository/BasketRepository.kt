@@ -10,7 +10,7 @@ interface BasketRepository {
 
     fun clearBasket()
 
-    fun getBasket(): Basket?
+    fun getBasket(): Basket
 
     fun getBasketAmount(): Int
 

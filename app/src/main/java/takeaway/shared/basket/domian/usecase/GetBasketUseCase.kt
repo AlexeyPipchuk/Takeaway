@@ -8,6 +8,6 @@ class GetBasketUseCase @Inject constructor(
     private val repository: BasketRepository
 ) {
 
-    operator fun invoke(): Basket? =
+    operator fun invoke(): Basket =
         repository.getBasket()
 }
