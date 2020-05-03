@@ -3,6 +3,7 @@ package takeaway.feature.cafe.presentation
 import io.reactivex.android.schedulers.AndroidSchedulers
 import ru.terrakok.cicerone.Router
 import takeaway.app.BasePresenter
+import takeaway.app.navigation.Screen
 import takeaway.feature.cafe.domain.entity.Product
 import takeaway.feature.cafe.domain.usecase.GetProductListUseCase
 import takeaway.feature.cafe.ui.CafeView
@@ -54,6 +55,10 @@ class CafePresenter @Inject constructor(
 
     fun onProductClicked(selectedProduct: Product) {
         view?.showProductDialog(selectedProduct, cafe)
+    }
+
+    fun onBasketClick() {
+        router.navigateTo(Screen.BasketScreen)
     }
 
     private fun handleError(error: Throwable) {

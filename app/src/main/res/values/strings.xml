@@ -39,4 +39,8 @@
     <string name="several_cafe_basket_warning_message">В корзине уже имеются блюда из другого кафе</string>
     <string name="several_cafe_basket_warning_clear_approve">Очистить</string>
     <string name="several_cafe_basket_warning_cancel_clear">Отменить</string>
+    <string name="back_to_cafe_text">К заведению</string>
+    <string name="basket_title">Корзина</string>
+    <string name="order_title">Ваш заказ</string>
+    <string name="empty_basket_title">Корзина пуста</string>
 </resources>

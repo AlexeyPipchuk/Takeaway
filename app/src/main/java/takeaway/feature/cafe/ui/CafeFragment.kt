@@ -7,7 +7,6 @@ import android.view.View
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.example.takeaway.R
-import kotlinx.android.synthetic.main.cafe_appbar.*
 import kotlinx.android.synthetic.main.cafe_appbar.view.*
 import kotlinx.android.synthetic.main.cafe_fragment.*
 import takeaway.app.*
@@ -47,8 +46,12 @@ class CafeFragment : BaseFragment(R.layout.cafe_fragment), CafeView {
     }
 
     private fun initListeners() {
-        backButton.setOnClickListener {
+        cafeAppbar.backToAllCafeButton.setOnClickListener {
             presenter.onBackClicked()
+        }
+
+        cafeAppbar.basket.setOnClickListener {
+            presenter.onBasketClick()
         }
 
         linkOnStatist.text = getString(R.string.link_on_statist).fromHtml()

@@ -27,4 +27,8 @@
     <dimen name="product_image_height">145dp</dimen>
     <dimen name="spacing_48">48dp</dimen>
     <dimen name="spacing_5">5dp</dimen>
+    <dimen name="spacing_2">2dp</dimen>
+
+    //Basket
+    <dimen name="basket_app_bar_elevation">10dp</dimen>
 </resources>
