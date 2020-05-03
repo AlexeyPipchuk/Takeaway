@@ -145,7 +145,7 @@ class CafeFragment : BaseFragment(R.layout.cafe_fragment), CafeView {
             deliveryPrice.isVisible = true
         }
 
-        if (cafe.businessFrom.isNotEmpty() && cafe.businessTo.isNotEmpty()) {
+        if (!cafe.businessFrom.isNullOrEmpty() && !cafe.businessTo.isNullOrEmpty()) {
             timeSubtitle.isVisible = true
             businessTimeSubtitle.isVisible = true
             businessTime.isVisible = true
