@@ -15,6 +15,7 @@ import takeaway.app.showNoInternetDialog
 import takeaway.app.showServiceUnavailableDialog
 import takeaway.feature.feed.presentation.FeedPresenter
 import takeaway.feature.feed.presentation.model.FeedItem
+import takeaway.feature.feed.promo.ui.PromoDialogFragment
 import javax.inject.Inject
 
 class FeedFragment : BaseFragment(R.layout.feed_fragment), FeedView {
@@ -138,6 +139,17 @@ class FeedFragment : BaseFragment(R.layout.feed_fragment), FeedView {
                 //TODO(Заглушка с возможностью повторить)
             }
         )
+    }
+
+    override fun showPromoDialog() {
+        val promoDialog = PromoDialogFragment()
+        promoDialog.setTargetFragment(this, 0)
+        fragmentManager?.let { fragmentManager ->
+            promoDialog.show(
+                fragmentManager,
+                promoDialog::class.java.name
+            )
+        }
     }
 
     override fun onDestroyView() {

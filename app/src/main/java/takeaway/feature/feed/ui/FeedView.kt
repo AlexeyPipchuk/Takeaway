@@ -20,4 +20,6 @@ interface FeedView : TakeawayView {
     fun showNoInternetDialog()
 
     fun showServiceUnavailable()
+
+    fun showPromoDialog()
 }

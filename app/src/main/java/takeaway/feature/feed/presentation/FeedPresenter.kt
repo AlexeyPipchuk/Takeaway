@@ -127,7 +127,7 @@ class FeedPresenter @Inject constructor(
     }
 
     fun onPromoClicked() {
-
+        view?.showPromoDialog()
     }
 
     fun onRetryClicked() {
