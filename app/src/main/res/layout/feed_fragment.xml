@@ -54,7 +54,7 @@
             android:clipToPadding="false"
             android:overScrollMode="never"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/feed_item" />
+            tools:listitem="@layout/cafe_item" />
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 

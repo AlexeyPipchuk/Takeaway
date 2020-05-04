@@ -3,15 +3,18 @@ package takeaway.feature.feed.ui
 import android.content.Context
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import takeaway.feature.feed.presentation.CafeItem
-import takeaway.feature.feed.presentation.Separator
+import takeaway.feature.feed.presentation.model.CafeItem
+import takeaway.feature.feed.presentation.model.FeedItem
+import takeaway.feature.feed.presentation.model.Promo
+import takeaway.feature.feed.presentation.model.Separator
 import takeaway.feature.feed.ui.holder.CafeHolder
-import takeaway.feature.feed.ui.holder.FeedItem
+import takeaway.feature.feed.ui.holder.PromoHolder
 import takeaway.feature.feed.ui.holder.SeparatorHolder
 
 class FeedAdapter(
     private val context: Context,
-    private val onCafeClickListener: (CafeItem) -> Unit
+    private val onCafeClickListener: (CafeItem) -> Unit,
+    private val onPromoClickListener: () -> Unit
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     var feedItems: List<FeedItem> = listOf()
@@ -28,6 +31,10 @@ class FeedAdapter(
                 onCafeClickListener
             )
             FeedItemType.SEPARATOR_ITEM.ordinal -> SeparatorHolder.createInstance(parent)
+            FeedItemType.PROMO_ITEM.ordinal -> PromoHolder.createInstance(
+                parent,
+                onPromoClickListener
+            )
             else -> throw  IllegalArgumentException("no such item for viewType $viewType")
         }
 
@@ -37,6 +44,7 @@ class FeedAdapter(
         when (feedItems[position]) {
             is CafeItem -> FeedItemType.CAFE_ITEM.ordinal
             is Separator -> FeedItemType.SEPARATOR_ITEM.ordinal
+            is Promo -> FeedItemType.PROMO_ITEM.ordinal
             else -> throw  IllegalArgumentException("no viewHolder for type ${feedItems[position].javaClass}")
         }
 
@@ -44,11 +52,13 @@ class FeedAdapter(
         when (holder) {
             is CafeHolder -> holder.bind(feedItems[position] as CafeItem)
             is SeparatorHolder -> holder.bind(feedItems[position] as Separator)
+            is PromoHolder -> Unit
         }
     }
 
     enum class FeedItemType {
         CAFE_ITEM,
-        SEPARATOR_ITEM
+        SEPARATOR_ITEM,
+        PROMO_ITEM
     }
 }

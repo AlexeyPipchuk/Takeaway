@@ -14,7 +14,7 @@ import takeaway.app.hideKeyboard
 import takeaway.app.showNoInternetDialog
 import takeaway.app.showServiceUnavailableDialog
 import takeaway.feature.feed.presentation.FeedPresenter
-import takeaway.feature.feed.ui.holder.FeedItem
+import takeaway.feature.feed.presentation.model.FeedItem
 import javax.inject.Inject
 
 class FeedFragment : BaseFragment(R.layout.feed_fragment), FeedView {
@@ -78,7 +78,8 @@ class FeedFragment : BaseFragment(R.layout.feed_fragment), FeedView {
     private fun initAdapter(cafeItemList: List<FeedItem>) {
         adapter = FeedAdapter(
             context = requireContext(),
-            onCafeClickListener = presenter::onCafeClicked
+            onCafeClickListener = presenter::onCafeClicked,
+            onPromoClickListener = presenter::onPromoClicked
         )
         adapter?.feedItems = cafeItemList
 

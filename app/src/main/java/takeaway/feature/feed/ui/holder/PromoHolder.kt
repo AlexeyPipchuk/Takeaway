@@ -5,26 +5,27 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.takeaway.R
-import kotlinx.android.synthetic.main.separator_item.view.*
-import takeaway.feature.feed.presentation.model.Separator
 
-class SeparatorHolder(
-    view: View
+class PromoHolder(
+    view: View,
+    private val onPromoClickListener: () -> Unit
 ) : RecyclerView.ViewHolder(view) {
 
     companion object {
         fun createInstance(
-            parent: ViewGroup
-        ) = SeparatorHolder(
+            parent: ViewGroup,
+            onPromoLinkListener: () -> Unit
+        ) = PromoHolder(
             LayoutInflater.from(parent.context).inflate(
-                R.layout.separator_item,
+                R.layout.promo_item,
                 parent,
                 false
-            )
+            ),
+            onPromoLinkListener
         )
     }
 
-    fun bind(separator: Separator) {
-        itemView.separatorTitle.text = separator.title
+    init {
+        itemView.setOnClickListener { onPromoClickListener() }
     }
 }

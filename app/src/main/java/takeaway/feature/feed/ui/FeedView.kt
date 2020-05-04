@@ -1,7 +1,7 @@
 package takeaway.feature.feed.ui
 
 import takeaway.app.TakeawayView
-import takeaway.feature.feed.ui.holder.FeedItem
+import takeaway.feature.feed.presentation.model.FeedItem
 
 interface FeedView : TakeawayView {
 

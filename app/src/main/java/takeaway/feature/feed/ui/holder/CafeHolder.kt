@@ -7,10 +7,10 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.example.takeaway.R
-import kotlinx.android.synthetic.main.feed_item.view.*
+import kotlinx.android.synthetic.main.cafe_item.view.*
 import takeaway.app.fromHtml
 import takeaway.app.loadImage
-import takeaway.feature.feed.presentation.CafeItem
+import takeaway.feature.feed.presentation.model.CafeItem
 
 class CafeHolder(
     view: View,
@@ -25,7 +25,7 @@ class CafeHolder(
             onCafeClickListener: (CafeItem) -> Unit
         ) = CafeHolder(
             LayoutInflater.from(parent.context).inflate(
-                R.layout.feed_item,
+                R.layout.cafe_item,
                 parent,
                 false
             ),

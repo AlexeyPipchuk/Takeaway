@@ -54,4 +54,6 @@
     <string name="minimum_amount_for_free_delivery_message">Минимальная сумма доставки — %1$s ₽</string>
     <string name="delivery_price_calculated_text">Стоимость доставки для данной суммы — %1$s ₽</string>
     <string name="message_with_value_to_free_delivery">Для доставки за 0 ₽ закажите еще на %1$s ₽</string>
+    <string name="promo_title">Поможем томским\nзаведениям вместе!</string>
+    <string name="promo_description">Узнайте, как вы помогаете, совершая заказы через сервис TAKEAWAY</string>
 </resources>

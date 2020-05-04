@@ -1,8 +1,7 @@
-package takeaway.feature.feed.presentation
+package takeaway.feature.feed.presentation.model
 
-import takeaway.feature.feed.ui.holder.FeedItem
-
-data class Separator(val title: String) : FeedItem {
+data class Separator(val title: String) :
+    FeedItem {
 
     companion object {
         val POPULAR = Separator("Популярное")

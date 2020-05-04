@@ -6,8 +6,11 @@ import takeaway.app.BasePresenter
 import takeaway.app.navigation.Screen
 import takeaway.feature.feed.domain.entity.Cafe
 import takeaway.feature.feed.domain.usecase.GetCafeListUseCase
+import takeaway.feature.feed.presentation.model.CafeItem
+import takeaway.feature.feed.presentation.model.FeedItem
+import takeaway.feature.feed.presentation.model.Promo
+import takeaway.feature.feed.presentation.model.Separator
 import takeaway.feature.feed.ui.FeedView
-import takeaway.feature.feed.ui.holder.FeedItem
 import java.net.SocketTimeoutException
 import java.net.UnknownHostException
 import java.util.*
@@ -65,6 +68,7 @@ class FeedPresenter @Inject constructor(
     private fun createFeedList(cafeList: List<CafeItem>): List<FeedItem> =
         mutableListOf<FeedItem>(Separator.POPULAR)
             .apply {
+                add(Promo())
                 addAll(cafeList.filter { it.isPopular })
                 add(Separator.NOT_POPULAR)
                 addAll(cafeList.filter { !it.isPopular })
@@ -120,6 +124,10 @@ class FeedPresenter @Inject constructor(
         cafe?.let {
             router.navigateTo(Screen.CafeScreen(it))
         }
+    }
+
+    fun onPromoClicked() {
+
     }
 
     fun onRetryClicked() {

@@ -1,6 +1,4 @@
-package takeaway.feature.feed.presentation
-
-import takeaway.feature.feed.ui.holder.FeedItem
+package takeaway.feature.feed.presentation.model
 
 data class CafeItem(
     val cafeName: String,
