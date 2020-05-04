@@ -1,11 +1,11 @@
 package takeaway.feature.feed.ui
 
 import takeaway.app.TakeawayView
-import takeaway.feature.feed.presentation.CafeItem
+import takeaway.feature.feed.ui.holder.FeedItem
 
 interface FeedView : TakeawayView {
 
-    fun setFeed(cafeList: List<CafeItem>)
+    fun setFeed (cafeItemList: List<FeedItem>)
 
     fun showProgress()
 

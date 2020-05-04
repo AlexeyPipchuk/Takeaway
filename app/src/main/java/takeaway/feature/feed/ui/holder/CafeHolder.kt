@@ -1,4 +1,4 @@
-package takeaway.feature.feed.ui
+package takeaway.feature.feed.ui.holder
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -12,7 +12,7 @@ import takeaway.app.fromHtml
 import takeaway.app.loadImage
 import takeaway.feature.feed.presentation.CafeItem
 
-class FeedHolder(
+class CafeHolder(
     view: View,
     private val context: Context,
     private val onCafeClickListener: (CafeItem) -> Unit
@@ -23,7 +23,7 @@ class FeedHolder(
             parent: ViewGroup,
             context: Context,
             onCafeClickListener: (CafeItem) -> Unit
-        ) = FeedHolder(
+        ) = CafeHolder(
             LayoutInflater.from(parent.context).inflate(
                 R.layout.feed_item,
                 parent,

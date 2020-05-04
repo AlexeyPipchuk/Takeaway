@@ -1,6 +1,7 @@
 package takeaway.feature.feed.domain.entity
 
 import com.google.gson.annotations.SerializedName
+import takeaway.feature.feed.ui.holder.FeedItem
 import java.io.Serializable
 
 data class Cafe(

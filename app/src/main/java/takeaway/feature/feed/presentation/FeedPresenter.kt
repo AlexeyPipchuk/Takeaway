@@ -7,6 +7,7 @@ import takeaway.app.navigation.Screen
 import takeaway.feature.feed.domain.entity.Cafe
 import takeaway.feature.feed.domain.usecase.GetCafeListUseCase
 import takeaway.feature.feed.ui.FeedView
+import takeaway.feature.feed.ui.holder.FeedItem
 import java.net.SocketTimeoutException
 import java.net.UnknownHostException
 import java.util.*
@@ -49,14 +50,25 @@ class FeedPresenter @Inject constructor(
             takeawayDiscount = cafe.takeawayDiscount,
             deliveryFreeFrom = cafe.deliveryFreeFrom,
             imageUrl = cafe.imgUrls?.firstOrNull(),
-            logoUrl = cafe.logoUrl
+            logoUrl = cafe.logoUrl,
+            isPopular = cafe.isPopular
         )
 
     private fun showAllFeedFromCache() {
         val cafeItemList = cafeListCache.orEmpty().map(::mapCafeToCafeItem)
-        view?.setFeed(cafeItemList)
+        val feedList = createFeedList(cafeItemList)
+
+        view?.setFeed(feedList)
         view?.hideProgress()
     }
+
+    private fun createFeedList(cafeList: List<CafeItem>): List<FeedItem> =
+        mutableListOf<FeedItem>(Separator.POPULAR)
+            .apply {
+                addAll(cafeList.filter { it.isPopular })
+                add(Separator.NOT_POPULAR)
+                addAll(cafeList.filter { !it.isPopular })
+            }
 
     fun onInfoButtonClicked() {
         router.navigateTo(Screen.InfoScreen)

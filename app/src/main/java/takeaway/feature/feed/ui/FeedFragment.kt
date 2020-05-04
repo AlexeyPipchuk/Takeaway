@@ -13,8 +13,8 @@ import takeaway.app.BaseFragment
 import takeaway.app.hideKeyboard
 import takeaway.app.showNoInternetDialog
 import takeaway.app.showServiceUnavailableDialog
-import takeaway.feature.feed.presentation.CafeItem
 import takeaway.feature.feed.presentation.FeedPresenter
+import takeaway.feature.feed.ui.holder.FeedItem
 import javax.inject.Inject
 
 class FeedFragment : BaseFragment(R.layout.feed_fragment), FeedView {
@@ -70,20 +70,20 @@ class FeedFragment : BaseFragment(R.layout.feed_fragment), FeedView {
         }
     }
 
-    override fun setFeed(cafeList: List<CafeItem>) {
-        initAdapter(cafeList)
+    override fun setFeed(cafeItemList: List<FeedItem>) {
+        initAdapter(cafeItemList)
         enableSwipeRefresh()
     }
 
-    private fun initAdapter(cafeList: List<CafeItem>) {
+    private fun initAdapter(cafeItemList: List<FeedItem>) {
         adapter = FeedAdapter(
             context = requireContext(),
             onCafeClickListener = presenter::onCafeClicked
         )
-        adapter?.cafeList = cafeList
+        adapter?.feedItems = cafeItemList
 
-        cafeListRecycler.isVisible = true
-        cafeListRecycler.adapter = adapter
+        feedItemListRecycler.isVisible = true
+        feedItemListRecycler.adapter = adapter
     }
 
     private fun disableSwipeRefresh() {
@@ -97,13 +97,13 @@ class FeedFragment : BaseFragment(R.layout.feed_fragment), FeedView {
 
     override fun showProgress() {
         disableSwipeRefresh()
-        cafeListRecycler.isVisible = false
+        feedItemListRecycler.isVisible = false
         progressBar.isVisible = true
     }
 
     override fun hideProgress() {
         progressBar.isVisible = false
-        cafeListRecycler.isVisible = true
+        feedItemListRecycler.isVisible = true
     }
 
     override fun showEmptySearchResult() {
