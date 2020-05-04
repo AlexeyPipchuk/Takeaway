@@ -1,4 +1,4 @@
-package takeaway.feature.cafe.ui.product
+package takeaway.feature.cafe.product.presentation
 
 import takeaway.app.TakeawayView
 import takeaway.feature.cafe.domain.entity.Product

@@ -1,4 +1,4 @@
-package takeaway.feature.cafe.ui
+package takeaway.feature.cafe.product.ui.holder
 
 import android.content.Context
 import android.view.LayoutInflater

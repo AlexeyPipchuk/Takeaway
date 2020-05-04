@@ -4,8 +4,8 @@ import dagger.Module
 import dagger.android.ContributesAndroidInjector
 import takeaway.di.FragmentScope
 import takeaway.feature.basket.ui.BasketFragment
+import takeaway.feature.cafe.product.ui.ProductDialogFragment
 import takeaway.feature.cafe.ui.CafeFragment
-import takeaway.feature.cafe.ui.product.ProductDialogFragment
 import takeaway.feature.feed.promo.ui.PromoDialogFragment
 import takeaway.feature.feed.ui.FeedFragment
 import takeaway.feature.info.ui.InfoFragment

@@ -12,7 +12,8 @@ import kotlinx.android.synthetic.main.cafe_fragment.*
 import takeaway.app.*
 import takeaway.feature.cafe.domain.entity.Product
 import takeaway.feature.cafe.presentation.CafePresenter
-import takeaway.feature.cafe.ui.product.ProductDialogFragment
+import takeaway.feature.cafe.product.ui.ProductAdapter
+import takeaway.feature.cafe.product.ui.ProductDialogFragment
 import takeaway.feature.feed.domain.entity.Cafe
 import javax.inject.Inject
 
