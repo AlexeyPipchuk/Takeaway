@@ -1,5 +1,6 @@
 package takeaway.feature.cafe.product.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.core.content.ContextCompat.getColor
@@ -11,10 +12,11 @@ import kotlinx.android.synthetic.main.custom_counter_view.view.*
 import kotlinx.android.synthetic.main.product_dialog_fragment.*
 import takeaway.app.BaseDialogFragment
 import takeaway.app.loadImage
-import takeaway.app.showSeveralCafeBasketWarningDialog
 import takeaway.feature.cafe.domain.entity.Product
 import takeaway.feature.cafe.product.presentation.ProductPresenter
 import takeaway.feature.cafe.product.presentation.ProductView
+import takeaway.feature.cafe.product.severalcafe.SeveralCafeWarningDialogFragment
+import takeaway.feature.cafe.product.severalcafe.SeveralCafeWarningDialogFragment.Companion.ACCEPT_RESULT
 import takeaway.feature.feed.domain.entity.Cafe
 import javax.inject.Inject
 
@@ -172,11 +174,22 @@ class ProductDialogFragment : BaseDialogFragment(R.layout.product_dialog_fragmen
     }
 
     override fun showClearBasketQuestionDialog() {
-        showSeveralCafeBasketWarningDialog(
-            positiveResult = {
-                presenter.onApproveToClearBasketButtonClicked(productCounter.productCount.text.toString().toInt())
-            }
-        )
+        val severalCafeWarningDialog = SeveralCafeWarningDialogFragment()
+        severalCafeWarningDialog.setTargetFragment(this, 0)
+        fragmentManager?.let { fragmentManager ->
+            severalCafeWarningDialog.show(
+                fragmentManager,
+                severalCafeWarningDialog::class.java.name
+            )
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (resultCode == ACCEPT_RESULT) {
+            presenter.onApproveToClearBasketButtonClicked(productCounter.productCount.text.toString().toInt())
+        }
     }
 
     private fun String.cutCurrency(): String =
