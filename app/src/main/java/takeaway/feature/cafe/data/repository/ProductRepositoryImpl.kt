@@ -14,5 +14,3 @@ class ProductRepositoryImpl @Inject constructor(
         dataSource.getList(cafeId)
             .map { it.productList }
 }
-
-//TODO (избавиться от конвертера при данном мапинге)

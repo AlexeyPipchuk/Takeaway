@@ -1,8 +1,8 @@
 package takeaway.feature.feed.domain.usecase
 
-import takeaway.feature.feed.domain.repository.CafeRepository
-import takeaway.feature.feed.domain.entity.Cafe
 import io.reactivex.Single
+import takeaway.feature.feed.domain.entity.Cafe
+import takeaway.feature.feed.domain.repository.CafeRepository
 import javax.inject.Inject
 
 class GetCafeListUseCase @Inject constructor(
