@@ -6,6 +6,7 @@ import java.io.Serializable
 data class Cafe(
     val id: String,
     val name: String,
+    val slug: String?,
     @SerializedName("work_from") val workFrom: String,
     @SerializedName("work_to") val workTo: String,
     @SerializedName("business_from") val businessFrom: String?,
