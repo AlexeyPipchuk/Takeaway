@@ -9,6 +9,7 @@ import kotlinx.android.synthetic.main.basket_appbar.view.*
 import kotlinx.android.synthetic.main.basket_fragment.*
 import takeaway.app.BaseFragment
 import takeaway.app.loadImage
+import takeaway.feature.basket.model.BasketItem
 import takeaway.feature.basket.presentation.BasketPresenter
 import takeaway.feature.feed.domain.entity.Cafe
 import javax.inject.Inject
@@ -22,13 +23,23 @@ class BasketFragment : BaseFragment(R.layout.basket_fragment), BasketView {
     @Inject
     lateinit var presenter: BasketPresenter
 
-    //private var adapter: BasketAdapter? = null
+    private var adapter: BasketAdapter? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         presenter.attachView(this)
 
         initListeners()
+    }
+
+    override fun showBasketItems(basketItems: List<BasketItem>) {
+        adapter = BasketAdapter(
+            context = requireContext(),
+            onProductDeleteClickListener = presenter::onProductDeleteClicked
+        )
+
+        adapter?.basketItems = basketItems
+        basketRecycler.adapter = adapter
     }
 
     private fun initListeners() {
@@ -55,5 +66,45 @@ class BasketFragment : BaseFragment(R.layout.basket_fragment), BasketView {
     override fun onDestroyView() {
         super.onDestroyView()
         presenter.detachView()
+    }
+
+    override fun setBasketAmount(basketAmount: Int) {
+        orderAmountPrice.text = getString(R.string.rubles_postfix).format(basketAmount)
+    }
+
+    override fun showTakeawayDiscountCalculated(
+        takeawayDiscount: Int,
+        takeawayDiscountCalculated: Int
+    ) {
+        takeawayDiscountCalculatedText.isVisible = true
+        takeawayDiscountCalculatedText.text = getString(
+            R.string.takeaway_discount_calculated,
+            takeawayDiscount.toString(),
+            takeawayDiscountCalculated.toString()
+        )
+    }
+
+    override fun showMinDeliverySum(minDeliverySum: Int) {
+        minimumAmountForFreeDeliveryMessage.isVisible = true
+        minimumAmountForFreeDeliveryMessage.text =
+            getString(R.string.minimum_amount_for_free_delivery_message).format(minDeliverySum.toString())
+    }
+
+    override fun showDeliveryPriceCalculated(deliveryPriceCalculated: Int) {
+        deliveryPriceCalculatedText.isVisible = true
+        deliveryPriceCalculatedText.text =
+            getString(R.string.delivery_price_calculated_text).format(deliveryPriceCalculated.toString())
+    }
+
+    override fun showMessageForFreeDelivery(valueToFreeDelivery: Int) {
+        messageForFreeDelivery.isVisible = true
+        messageForFreeDelivery.text =
+            getString(R.string.message_with_value_to_free_delivery).format(valueToFreeDelivery.toString())
+    }
+
+    override fun setDefaultHelpMessagesState() {
+        minimumAmountForFreeDeliveryMessage.isVisible = false
+        deliveryPriceCalculatedText.isVisible = false
+        messageForFreeDelivery.isVisible = false
     }
 }

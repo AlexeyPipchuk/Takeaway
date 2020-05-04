@@ -15,4 +15,6 @@ interface BasketRepository {
     fun getBasketAmount(): Int
 
     fun getBasketCafeId(): String?
+
+    fun deleteProductFromBasket(productId: String)
 }

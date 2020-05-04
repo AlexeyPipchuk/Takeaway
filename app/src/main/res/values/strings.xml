@@ -2,6 +2,8 @@
     <string name="app_name">Takeaway</string>
     <string name="info_title">Takeaway</string>
 
+    //TODO(Отсортировать)
+
     //feed
     <string name="delivery_free_from_colored">бесплатно от &lt;font color=#FF004C>%1$s ₽&lt;/font></string>
     <string name="takeaway_discount_colored">&lt;font color=#FF004C>-%1$s%%&lt;/font> на самовывоз</string>
@@ -12,9 +14,9 @@
     //cafe
     <string name="all_cafe">Все рестораны</string>
     <string name="default_amount">0₽</string>
-    <string name="delivery_free_from">бесплатно от %1$s₽</string>
+    <string name="delivery_free_from">бесплатно от %1$s ₽</string>
     <string name="takeaway_discount">-%1$s%% на самовывоз</string>
-    <string name="delivery_price">%1$s₽ при заказе на меньшую сумму</string>
+    <string name="delivery_price">%1$s ₽ при заказе на меньшую сумму</string>
 
     //common
     <string name="no_internet_dialog_title">Проблемы с интернетом =(</string>
@@ -31,7 +33,7 @@
     <string name="takeaway_description">Бесплатный сервис\nзаказа еды в Томске</string>
     <string name="link_on_statist">Сервис разработан&lt;br/>командой &lt;a href="https://statist-w.ru/">statist&lt;/a></string>
     <string name="to_basket_text">В корзину</string>
-    <string name="rubles_postfix">%1$s₽</string>
+    <string name="rubles_postfix">%1$s ₽</string>
     <string name="one">1</string>
     <string name="minus">-</string>
     <string name="plus">+</string>
@@ -43,4 +45,13 @@
     <string name="basket_title">Корзина</string>
     <string name="order_title">Ваш заказ</string>
     <string name="empty_basket_title">Корзина пуста</string>
+    <string name="product_count">%1$s шт.</string>
+    <string name="order_amount_price">Сумма заказа</string>
+    <string name="to_order_registration_button_text">Перейти к оформлению</string>
+
+    //basket
+    <string name="takeaway_discount_calculated">Скидка −%1$s%% на самовывоз составит %2$s ₽</string>
+    <string name="minimum_amount_for_free_delivery_message">Минимальная сумма доставки — %1$s ₽</string>
+    <string name="delivery_price_calculated_text">Стоимость доставки для данной суммы — %1$s ₽</string>
+    <string name="message_with_value_to_free_delivery">Для доставки за 0 ₽ закажите еще на %1$s ₽</string>
 </resources>

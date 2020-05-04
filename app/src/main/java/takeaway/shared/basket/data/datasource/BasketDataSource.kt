@@ -16,6 +16,8 @@ interface BasketDataSource {
     fun getBasketAmount(): Int
 
     fun getBasketCafeId(): String?
+
+    fun deleteProductFromBasket(productId: String)
 }
 
 class BasketDataSourceImpl @Inject constructor() : BasketDataSource {
@@ -53,4 +55,14 @@ class BasketDataSourceImpl @Inject constructor() : BasketDataSource {
     override fun getBasketAmount(): Int = amount
 
     override fun getBasketCafeId(): String? = cafe?.id
+
+    override fun deleteProductFromBasket(productId: String) {
+        if (productInBasket != null) {
+            val removedProduct = productInBasket?.entries?.find { it.key.id == productId }
+            removedProduct?.let {
+                amount -= removedProduct.key.price * removedProduct.value
+                productInBasket?.entries?.remove(removedProduct)
+            }
+        }
+    }
 }

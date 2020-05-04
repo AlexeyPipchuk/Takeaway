@@ -40,7 +40,7 @@ class ProductDialogFragment : BaseDialogFragment(R.layout.product_dialog_fragmen
 
         const val MAX_COUNT = 50
         const val MIN_COUNT = 0
-        const val ROUBLE_CURRENCY_POSTFIX = "\u20BD"
+        const val ROUBLE_CURRENCY_POSTFIX = " \u20BD"
     }
 
     @Inject

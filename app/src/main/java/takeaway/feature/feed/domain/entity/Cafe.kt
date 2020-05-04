@@ -15,7 +15,7 @@ data class Cafe(
     @SerializedName("menu_link") val menuLink: String,
     val description: String,
     val phone: String,
-    @SerializedName("delivery_discount") val deliveryDiscount: Int,
+    @SerializedName("delivery_discount") val takeawayDiscount: Int,
     @SerializedName("delivery_price") val deliveryPrice: Int,
     @SerializedName("delivery_free_from") val deliveryFreeFrom: Int,
     @SerializedName("cafe_type") val cafeType: String,

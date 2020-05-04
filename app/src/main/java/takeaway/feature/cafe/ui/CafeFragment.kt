@@ -128,10 +128,10 @@ class CafeFragment : BaseFragment(R.layout.cafe_fragment), CafeView {
         location.text = cafe.address
         time.text = cafe.workFrom.plus("-").plus(cafe.workTo)
 
-        if (cafe.deliveryDiscount > 0) {
+        if (cafe.takeawayDiscount > 0) {
             takeawayDiscount.text =
                 getString(R.string.takeaway_discount)
-                    .format(cafe.deliveryDiscount.toString())
+                    .format(cafe.takeawayDiscount.toString())
 
             takeawayDiscount.isVisible = true
         }

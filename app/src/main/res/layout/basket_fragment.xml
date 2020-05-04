@@ -56,14 +56,13 @@
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/orderCafeLogo"
-                android:layout_width="@dimen/logo_width"
-                android:layout_height="@dimen/logo_height"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/spacing_16"
                 android:background="@android:color/white"
-                android:elevation="@dimen/card_elevation"
-                android:padding="@dimen/spacing_2"
                 android:visibility="gone"
                 app:cardCornerRadius="@dimen/spacing_5"
+                app:cardElevation="@dimen/card_elevation"
                 app:layout_constraintBottom_toBottomOf="@+id/orderCafeName"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/orderCafeName"
@@ -71,12 +70,128 @@
 
                 <ImageView
                     android:id="@+id/orderCafeLogoImg"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_width="@dimen/logo_width"
+                    android:layout_height="@dimen/logo_height"
+                    android:layout_margin="@dimen/spacing_2"
                     android:importantForAccessibility="no"
-                    android:scaleType="centerCrop" />
+                    android:scaleType="centerCrop"
+                    tools:src="@drawable/default_cafe_background" />
 
             </com.google.android.material.card.MaterialCardView>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/basketRecycler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_16"
+                android:layout_marginTop="@dimen/spacing_32"
+                android:layout_marginEnd="@dimen/spacing_16"
+                android:clipToPadding="false"
+                android:overScrollMode="never"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintTop_toBottomOf="@+id/orderCafeName"
+                tools:listitem="@layout/basket_item" />
+
+            <TextView
+                android:id="@+id/orderAmountTitle"
+                style="@style/Text.Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_16"
+                android:layout_marginTop="@dimen/spacing_12"
+                android:text="@string/order_amount_price"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/basketRecycler" />
+
+            <TextView
+                android:id="@+id/orderAmountPrice"
+                style="@style/Text.Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_12"
+                android:layout_marginEnd="@dimen/spacing_16"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/basketRecycler"
+                tools:text="660 Р" />
+
+            <TextView
+                android:id="@+id/takeawayDiscountCalculatedText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_16"
+                android:layout_marginTop="@dimen/spacing_8"
+                android:layout_marginEnd="@dimen/spacing_16"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/orderAmountTitle"
+                tools:text="Скидка -10% на самовывоз составит 60Р"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/minimumAmountForFreeDeliveryMessage"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_16"
+                android:layout_marginTop="@dimen/spacing_4"
+                android:layout_marginEnd="@dimen/spacing_16"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/takeawayDiscountCalculatedText"
+                tools:text="Минимальная сумма доставки — 500 ₽"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/deliveryPriceCalculatedText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_16"
+                android:layout_marginTop="@dimen/spacing_4"
+                android:layout_marginEnd="@dimen/spacing_16"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/minimumAmountForFreeDeliveryMessage"
+                tools:text="Стоимость доставки для данной суммы — 50 ₽"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/messageForFreeDelivery"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_16"
+                android:layout_marginTop="@dimen/spacing_4"
+                android:layout_marginEnd="@dimen/spacing_16"
+                android:visibility="gone"
+                app:layout_constraintBottom_toTopOf="@+id/footerSpace"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/deliveryPriceCalculatedText"
+                app:layout_constraintVertical_bias="0.0"
+                tools:text="Для доставки за 0₽ закажите еще на 140 ₽"
+                tools:visibility="visible" />
+
+            <Space
+                android:id="@+id/footerSpace"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/spacing_32"
+                app:layout_constraintBottom_toTopOf="@+id/toOrderRegistrationButton"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/toOrderRegistrationButton"
+                style="@style/Button.Blue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_16"
+                android:layout_marginEnd="@dimen/spacing_16"
+                android:layout_marginBottom="@dimen/spacing_16"
+                android:text="@string/to_order_registration_button_text"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

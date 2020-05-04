@@ -27,4 +27,8 @@ class BasketRepositoryImpl @Inject constructor(
 
     override fun getBasketCafeId(): String? =
         dataSource.getBasketCafeId()
+
+    override fun deleteProductFromBasket(productId: String) {
+        dataSource.deleteProductFromBasket(productId)
+    }
 }
