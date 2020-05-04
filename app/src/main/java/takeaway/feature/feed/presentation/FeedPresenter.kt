@@ -29,10 +29,10 @@ class FeedPresenter @Inject constructor(
         loadCafeList()
     }
 
-    private fun loadCafeList() {
+    private fun loadCafeList(useCache: Boolean = true) {
         view?.showProgress()
 
-        getCafeListUseCase()
+        getCafeListUseCase(useCache)
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(
                 { cafeList ->
@@ -81,7 +81,7 @@ class FeedPresenter @Inject constructor(
     fun onRefresh() {
         view?.hideEmptySearchResult()
         view?.clearSearchQuery()
-        loadCafeList()
+        loadCafeList(useCache = false)
     }
 
     fun onSearchQuerySubmit(query: String?) {
@@ -131,7 +131,7 @@ class FeedPresenter @Inject constructor(
     }
 
     fun onRetryClicked() {
-        loadCafeList()
+        loadCafeList(useCache = false)
     }
 
     private fun handleError(error: Throwable) {

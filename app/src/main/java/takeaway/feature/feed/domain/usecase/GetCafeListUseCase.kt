@@ -9,8 +9,8 @@ class GetCafeListUseCase @Inject constructor(
     private val repository: CafeRepository
 ) {
 
-    operator fun invoke(): Single<List<Cafe>> =
-        repository.getList()
+    operator fun invoke(useCache: Boolean = false): Single<List<Cafe>> =
+        repository.getList(useCache)
             .map {
                 it.filter { cafe ->
                     cafe.isVisible

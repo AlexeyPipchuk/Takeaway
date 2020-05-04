@@ -10,9 +10,17 @@ class CafeRepositoryImpl @Inject constructor(
     private val dataSource: CafeDataSource
 ) : CafeRepository {
 
-    override fun getList(): Single<List<Cafe>> =
-        dataSource.getList()
+    override fun getList(useCache: Boolean): Single<List<Cafe>> =
+        if (useCache) {
+            val cacheCafeList = dataSource.getListFromCache()
+            cacheCafeList?.let { return Single.just(it) } ?: getListFromNetwork()
+        } else getListFromNetwork()
+
+    private fun getListFromNetwork(): Single<List<Cafe>> =
+        dataSource.getListFromNetwork()
             .map { response ->
-                response.popularCafeList.plus(response.cafeList)
+                val cafeList = response.popularCafeList.plus(response.cafeList)
+                dataSource.setCache(cafeList)
+                cafeList
             }
 }

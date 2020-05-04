@@ -1,9 +1,9 @@
 package takeaway.feature.feed.domain.repository
 
-import takeaway.feature.feed.domain.entity.Cafe
 import io.reactivex.Single
+import takeaway.feature.feed.domain.entity.Cafe
 
 interface CafeRepository {
 
-    fun getList(): Single<List<Cafe>>
+    fun getList(useCache: Boolean): Single<List<Cafe>>
 }
