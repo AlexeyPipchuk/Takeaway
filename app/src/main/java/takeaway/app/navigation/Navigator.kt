@@ -8,7 +8,6 @@ import com.example.takeaway.R
 import ru.terrakok.cicerone.android.support.SupportAppNavigator
 import ru.terrakok.cicerone.commands.Command
 import takeaway.feature.basket.ui.BasketFragment
-import takeaway.feature.cafe.ui.CafeFragment
 import takeaway.feature.feed.ui.FeedFragment
 import takeaway.feature.info.ui.InfoFragment
 
@@ -29,7 +28,6 @@ class Navigator(
 
         val horizontalFlowList = listOf(
             FeedFragment::class,
-            CafeFragment::class,
             InfoFragment::class,
             BasketFragment::class
         )
