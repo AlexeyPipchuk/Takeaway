@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/categoryCard"
+    style="@style/Card.Category.Selected"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/spacing_2"
+    android:layout_marginTop="@dimen/spacing_4"
+    android:layout_marginEnd="@dimen/spacing_2"
+    android:layout_marginBottom="@dimen/spacing_4"
+    app:cardCornerRadius="@dimen/spacing_4">
+
+    <TextView
+        android:id="@+id/categoryName"
+        style="@style/Text.Title.Light"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing_8"
+        android:layout_marginTop="@dimen/spacing_4"
+        android:layout_marginEnd="@dimen/spacing_8"
+        android:layout_marginBottom="@dimen/spacing_4"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimaryDark"
+        tools:text="Супы" />
+
+</com.google.android.material.card.MaterialCardView>

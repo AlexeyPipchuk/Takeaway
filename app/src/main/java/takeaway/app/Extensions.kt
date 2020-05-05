@@ -10,6 +10,10 @@ import androidx.core.content.getSystemService
 import androidx.fragment.app.Fragment
 import com.example.takeaway.R
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import io.reactivex.Single
+import io.reactivex.SingleSource
+import io.reactivex.disposables.Disposable
+import io.reactivex.functions.BiFunction
 
 val Fragment.args: Bundle
     get() = arguments
@@ -75,3 +79,11 @@ fun Fragment.showSeveralCafeBasketWarningDialog(positiveResult: () -> Unit) {
         .setCancelable(false)
         .show()
 }
+
+fun <T, U> Single<T>.zipWith(other: SingleSource<U>): Single<Pair<T, U>> =
+    zipWith(other, BiFunction { t, u -> Pair(t, u) })
+
+fun <T : Any> Single<T>.subscribeOver(
+    onError: (Throwable) -> Unit = {},
+    onSuccess: (T) -> Unit = {}
+): Disposable = subscribe(onSuccess, onError)

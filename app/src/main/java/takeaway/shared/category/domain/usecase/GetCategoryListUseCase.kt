@@ -9,6 +9,14 @@ class GetCategoryListUseCase @Inject constructor(
     private val repository: CategoryRepository
 ) {
 
-    operator fun invoke(useCache: Boolean = false): Single<List<Category>> =
+    operator fun invoke(
+        useCache: Boolean = false,
+        cafeCategories: List<Int>? = null
+    ): Single<List<Category>> =
         repository.getList(useCache)
+            .map { categories ->
+                cafeCategories?.let {
+                    categories.filter { cafeCategories.contains(it.id) }
+                }
+            }
 }

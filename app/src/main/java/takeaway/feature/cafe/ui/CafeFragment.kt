@@ -10,11 +10,12 @@ import com.example.takeaway.R
 import kotlinx.android.synthetic.main.cafe_appbar.view.*
 import kotlinx.android.synthetic.main.cafe_fragment.*
 import takeaway.app.*
-import takeaway.shared.cafe.domain.entity.Product
 import takeaway.feature.cafe.presentation.CafePresenter
+import takeaway.feature.cafe.presentation.model.CategoryItem
 import takeaway.feature.cafe.product.ui.ProductAdapter
 import takeaway.feature.cafe.product.ui.ProductDialogFragment
 import takeaway.feature.feed.domain.entity.Cafe
+import takeaway.shared.cafe.domain.entity.Product
 import javax.inject.Inject
 
 private const val CAFE_ARG = "CAFE"
@@ -36,7 +37,8 @@ class CafeFragment : BaseFragment(R.layout.cafe_fragment), CafeView {
     @Inject
     lateinit var presenter: CafePresenter
 
-    private var adapter: ProductAdapter? = null
+    private var productAdapter: ProductAdapter? = null
+    private var categoryAdapter: CategoryAdapter? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -60,17 +62,39 @@ class CafeFragment : BaseFragment(R.layout.cafe_fragment), CafeView {
     }
 
     override fun setProducts(productList: List<Product>) {
-        initAdapter(productList)
+        initProductAdapter(productList)
     }
 
-    private fun initAdapter(productList: List<Product>) {
-        adapter = ProductAdapter(
+    override fun setCategories(categoryList: List<CategoryItem>) {
+        initCategoriesAdapter(categoryList)
+    }
+
+    private fun initProductAdapter(productList: List<Product>) {
+        productAdapter = ProductAdapter(
             context = requireContext(),
             onCafeClickListener = presenter::onProductClicked
         )
-        adapter?.productList = productList
+        productAdapter?.productList = productList
 
-        productListRecycler.adapter = adapter
+        productListRecycler.adapter = productAdapter
+    }
+
+    private fun initCategoriesAdapter(categoryList: List<CategoryItem>) {
+        categoryAdapter = CategoryAdapter(
+            onCategoryClickListener = presenter::onCategoryClicked
+        )
+        categoryAdapter?.categoryList = categoryList
+
+        categoryListRecycler.isVisible = true
+        categoryListRecycler.adapter = categoryAdapter
+    }
+
+    override fun updateCategories(categoryList: List<CategoryItem>) {
+        categoryAdapter?.categoryList = categoryList
+    }
+
+    override fun updateProducts(productList: List<Product>) {
+        productAdapter?.productList = productList
     }
 
     override fun onDestroyView() {

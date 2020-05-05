@@ -175,6 +175,24 @@
             </LinearLayout>
 
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/categoryListRecycler"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginStart="@dimen/spacing_16"
+                android:layout_marginTop="@dimen/spacing_12"
+                android:layout_marginEnd="@dimen/spacing_16"
+                android:nestedScrollingEnabled="false"
+                android:overScrollMode="never"
+                android:visibility="gone"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cafeInfo"
+                tools:listitem="@layout/category_item"
+                tools:visibility="visible" />
+
+            <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/productListRecycler"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
@@ -186,7 +204,7 @@
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cafeInfo"
+                app:layout_constraintTop_toBottomOf="@+id/categoryListRecycler"
                 tools:listitem="@layout/product_item" />
 
             <ImageView

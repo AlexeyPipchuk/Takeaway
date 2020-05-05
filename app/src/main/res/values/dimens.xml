@@ -8,6 +8,7 @@
     <dimen name="logo_width">56dp</dimen>
     <dimen name="logo_height">42dp</dimen>
     <dimen name="app_bar_elevation">0dp</dimen>
+    <dimen name="none_elevation">0dp</dimen>
     <dimen name="spacing_1">1dp</dimen>
     <dimen name="search_bar_elevation">1dp</dimen>
     <dimen name="search_bar_corner_radius">8dp</dimen>

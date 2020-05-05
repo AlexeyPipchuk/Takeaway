@@ -1,14 +1,21 @@
 package takeaway.feature.cafe.ui
 
 import takeaway.app.TakeawayView
-import takeaway.shared.cafe.domain.entity.Product
+import takeaway.feature.cafe.presentation.model.CategoryItem
 import takeaway.feature.feed.domain.entity.Cafe
+import takeaway.shared.cafe.domain.entity.Product
 
 interface CafeView : TakeawayView {
 
     fun showCafeInfo(cafe: Cafe)
 
     fun setProducts(productList: List<Product>)
+
+    fun setCategories(categoryList: List<CategoryItem>)
+
+    fun updateCategories(categoryList: List<CategoryItem>)
+
+    fun updateProducts(productList: List<Product>)
 
     fun showProgress()
 
