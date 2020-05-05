@@ -10,7 +10,7 @@ import com.example.takeaway.R
 import kotlinx.android.synthetic.main.cafe_appbar.view.*
 import kotlinx.android.synthetic.main.cafe_fragment.*
 import takeaway.app.*
-import takeaway.feature.cafe.domain.entity.Product
+import takeaway.shared.cafe.domain.entity.Product
 import takeaway.feature.cafe.presentation.CafePresenter
 import takeaway.feature.cafe.product.ui.ProductAdapter
 import takeaway.feature.cafe.product.ui.ProductDialogFragment

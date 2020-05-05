@@ -1,9 +1,9 @@
-package takeaway.feature.cafe.data.datasource
+package takeaway.shared.cafe.data.datasource
 
 import io.reactivex.Single
 import io.reactivex.schedulers.Schedulers
-import takeaway.feature.cafe.data.api.ProductApi
-import takeaway.feature.cafe.data.model.ProductListResponse
+import takeaway.shared.cafe.data.api.ProductApi
+import takeaway.shared.cafe.data.model.ProductListResponse
 import javax.inject.Inject
 
 interface ProductDataSource {

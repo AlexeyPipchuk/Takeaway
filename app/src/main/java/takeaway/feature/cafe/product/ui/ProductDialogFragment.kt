@@ -12,7 +12,7 @@ import kotlinx.android.synthetic.main.custom_counter_view.view.*
 import kotlinx.android.synthetic.main.product_dialog_fragment.*
 import takeaway.app.BaseDialogFragment
 import takeaway.app.loadImage
-import takeaway.feature.cafe.domain.entity.Product
+import takeaway.shared.cafe.domain.entity.Product
 import takeaway.feature.cafe.product.presentation.ProductPresenter
 import takeaway.feature.cafe.product.presentation.ProductView
 import takeaway.feature.cafe.product.severalcafe.SeveralCafeWarningDialogFragment

@@ -3,7 +3,7 @@ package takeaway.feature.cafe.product.ui
 import android.content.Context
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import takeaway.feature.cafe.domain.entity.Product
+import takeaway.shared.cafe.domain.entity.Product
 import takeaway.feature.cafe.product.ui.holder.ProductHolder
 
 class ProductAdapter(

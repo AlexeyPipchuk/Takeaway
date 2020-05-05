@@ -1,7 +1,7 @@
 package takeaway.feature.cafe.product.presentation
 
 import takeaway.app.BasePresenter
-import takeaway.feature.cafe.domain.entity.Product
+import takeaway.shared.cafe.domain.entity.Product
 import takeaway.feature.feed.domain.entity.Cafe
 import takeaway.shared.basket.domian.usecase.AddToBasketUseCase
 import takeaway.shared.basket.domian.usecase.ClearBasketUseCase

@@ -1,7 +1,7 @@
-package takeaway.feature.cafe.domain.repository
+package takeaway.shared.cafe.domain.repository
 
 import io.reactivex.Single
-import takeaway.feature.cafe.domain.entity.Product
+import takeaway.shared.cafe.domain.entity.Product
 
 interface ProductRepository {
 

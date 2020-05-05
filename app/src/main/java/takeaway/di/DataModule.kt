@@ -4,11 +4,11 @@ import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import retrofit2.Retrofit
-import takeaway.feature.cafe.data.api.ProductApi
-import takeaway.feature.cafe.data.datasource.ProductDataSource
-import takeaway.feature.cafe.data.datasource.ProductDataSourceImpl
-import takeaway.feature.cafe.data.repository.ProductRepositoryImpl
-import takeaway.feature.cafe.domain.repository.ProductRepository
+import takeaway.shared.cafe.data.api.ProductApi
+import takeaway.shared.cafe.data.datasource.ProductDataSource
+import takeaway.shared.cafe.data.datasource.ProductDataSourceImpl
+import takeaway.shared.cafe.data.repository.ProductRepositoryImpl
+import takeaway.shared.cafe.domain.repository.ProductRepository
 import takeaway.feature.feed.data.api.CafeApi
 import takeaway.feature.feed.data.datasource.CafeDataSource
 import takeaway.feature.feed.data.datasource.CafeDataSourceImpl

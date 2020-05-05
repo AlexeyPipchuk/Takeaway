@@ -4,8 +4,8 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import ru.terrakok.cicerone.Router
 import takeaway.app.BasePresenter
 import takeaway.app.navigation.Screen
-import takeaway.feature.cafe.domain.entity.Product
-import takeaway.feature.cafe.domain.usecase.GetProductListUseCase
+import takeaway.shared.cafe.domain.entity.Product
+import takeaway.shared.cafe.domain.usecase.GetProductListUseCase
 import takeaway.feature.cafe.ui.CafeView
 import takeaway.feature.feed.domain.entity.Cafe
 import takeaway.shared.basket.domian.usecase.GetBasketAmountUseCase

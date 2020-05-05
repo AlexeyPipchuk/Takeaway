@@ -1,8 +1,8 @@
-package takeaway.feature.cafe.domain.usecase
+package takeaway.shared.cafe.domain.usecase
 
 import io.reactivex.Single
-import takeaway.feature.cafe.domain.entity.Product
-import takeaway.feature.cafe.domain.repository.ProductRepository
+import takeaway.shared.cafe.domain.entity.Product
+import takeaway.shared.cafe.domain.repository.ProductRepository
 import javax.inject.Inject
 
 class GetProductListUseCase @Inject constructor(

@@ -9,7 +9,7 @@ import com.example.takeaway.R
 import kotlinx.android.synthetic.main.product_item.view.*
 import takeaway.app.fromHtml
 import takeaway.app.loadImage
-import takeaway.feature.cafe.domain.entity.Product
+import takeaway.shared.cafe.domain.entity.Product
 
 class ProductHolder(
     view: View,

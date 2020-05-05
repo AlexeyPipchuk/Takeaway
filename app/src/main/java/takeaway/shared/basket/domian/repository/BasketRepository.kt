@@ -1,6 +1,6 @@
 package takeaway.shared.basket.domian.repository
 
-import takeaway.feature.cafe.domain.entity.Product
+import takeaway.shared.cafe.domain.entity.Product
 import takeaway.feature.feed.domain.entity.Cafe
 import takeaway.shared.basket.domian.entity.Basket
 

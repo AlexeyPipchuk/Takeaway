@@ -4,7 +4,7 @@ import dagger.Module
 import dagger.Provides
 import takeaway.app.args
 import takeaway.di.FragmentScope
-import takeaway.feature.cafe.domain.entity.Product
+import takeaway.shared.cafe.domain.entity.Product
 import takeaway.feature.cafe.product.ui.ProductDialogFragment
 import takeaway.feature.cafe.product.ui.product
 import takeaway.feature.cafe.ui.cafe

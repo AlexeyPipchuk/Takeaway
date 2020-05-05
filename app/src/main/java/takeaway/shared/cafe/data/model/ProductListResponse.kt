@@ -1,7 +1,7 @@
-package takeaway.feature.cafe.data.model
+package takeaway.shared.cafe.data.model
 
 import com.google.gson.annotations.SerializedName
-import takeaway.feature.cafe.domain.entity.Product
+import takeaway.shared.cafe.domain.entity.Product
 
 //TODO(Подумать над baseResponse)
 data class ProductListResponse(

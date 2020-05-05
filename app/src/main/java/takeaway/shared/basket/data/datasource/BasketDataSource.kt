@@ -1,6 +1,6 @@
 package takeaway.shared.basket.data.datasource
 
-import takeaway.feature.cafe.domain.entity.Product
+import takeaway.shared.cafe.domain.entity.Product
 import takeaway.feature.feed.domain.entity.Cafe
 import takeaway.shared.basket.domian.entity.Basket
 import javax.inject.Inject

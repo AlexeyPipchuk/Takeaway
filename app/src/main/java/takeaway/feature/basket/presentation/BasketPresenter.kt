@@ -4,7 +4,7 @@ import ru.terrakok.cicerone.Router
 import takeaway.app.BasePresenter
 import takeaway.feature.basket.model.BasketItem
 import takeaway.feature.basket.ui.BasketView
-import takeaway.feature.cafe.domain.entity.Product
+import takeaway.shared.cafe.domain.entity.Product
 import takeaway.shared.basket.domian.entity.Basket
 import takeaway.shared.basket.domian.usecase.ClearBasketUseCase
 import takeaway.shared.basket.domian.usecase.DeleteProductFromBasketUseCase
