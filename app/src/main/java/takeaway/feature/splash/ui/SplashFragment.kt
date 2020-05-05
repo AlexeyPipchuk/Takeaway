@@ -2,9 +2,11 @@ package takeaway.feature.splash.ui
 
 import android.os.Bundle
 import android.view.View
-import android.view.WindowManager
+import android.view.ViewGroup
+import androidx.core.view.updateLayoutParams
 import androidx.fragment.app.Fragment
 import com.example.takeaway.R
+import kotlinx.android.synthetic.main.splash_fragment.*
 import takeaway.app.BaseFragment
 import takeaway.feature.splash.presentation.SplashPresenter
 import takeaway.feature.splash.presentation.SplashView
@@ -12,6 +14,14 @@ import javax.inject.Inject
 
 class SplashFragment : BaseFragment(R.layout.splash_fragment),
     SplashView {
+
+    private val windowInsetListener = View.OnApplyWindowInsetsListener { windowView, insets ->
+        splashView?.updateLayoutParams<ViewGroup.MarginLayoutParams> {
+            topMargin = insets.systemWindowInsetBottom
+            bottomMargin = insets.systemWindowInsetTop
+        }
+        windowView.onApplyWindowInsets(insets)
+    }
 
     companion object {
         fun getInstance(): Fragment = SplashFragment()
@@ -26,11 +36,11 @@ class SplashFragment : BaseFragment(R.layout.splash_fragment),
     }
 
     override fun showStatusBar() {
-        activity?.window?.clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
+        activity?.window?.decorView?.setOnApplyWindowInsetsListener(null)
     }
 
     override fun hideStatusBar() {
-        activity?.window?.addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
+        activity?.window?.decorView?.setOnApplyWindowInsetsListener(windowInsetListener)
     }
 
     override fun onDestroyView() {
