@@ -1,7 +1,6 @@
 package takeaway.app.activity
 
 import android.os.Bundle
-import android.view.WindowManager
 import com.example.takeaway.R
 import dagger.android.support.DaggerAppCompatActivity
 import ru.terrakok.cicerone.NavigatorHolder
@@ -35,14 +34,6 @@ class MainActivity @Inject constructor() : DaggerAppCompatActivity(), MainActivi
         if (supportFragmentManager.backStackEntryCount == 0) {
             presenter.onBackStackIsEmpty()
         }
-    }
-
-    override fun showStatusBar() {
-        this.window.clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
-    }
-
-    override fun hideStatusBar() {
-        this.window.addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
     }
 
     override fun onResume() {

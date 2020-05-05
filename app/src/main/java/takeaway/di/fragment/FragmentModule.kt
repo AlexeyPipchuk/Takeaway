@@ -10,9 +10,14 @@ import takeaway.feature.cafe.ui.CafeFragment
 import takeaway.feature.feed.promo.ui.PromoDialogFragment
 import takeaway.feature.feed.ui.FeedFragment
 import takeaway.feature.info.ui.InfoFragment
+import takeaway.feature.splash.ui.SplashFragment
 
 @Module
 interface FragmentModule {
+
+    @FragmentScope
+    @ContributesAndroidInjector
+    fun provideSplashFragment(): SplashFragment
 
     @FragmentScope
     @ContributesAndroidInjector
