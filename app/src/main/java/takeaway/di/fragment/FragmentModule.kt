@@ -11,6 +11,7 @@ import takeaway.feature.feed.promo.ui.PromoDialogFragment
 import takeaway.feature.feed.ui.FeedFragment
 import takeaway.feature.info.ui.InfoFragment
 import takeaway.feature.splash.ui.SplashFragment
+import takeaway.shared.privacy.policy.ui.PrivacyPolicyFragment
 
 @Module
 interface FragmentModule {
@@ -46,4 +47,9 @@ interface FragmentModule {
     @FragmentScope
     @ContributesAndroidInjector
     fun provideSeveralCafeWarningDialogFragment(): SeveralCafeWarningDialogFragment
+
+    @FragmentScope
+    @ContributesAndroidInjector
+    fun providePrivacyPolicyFragment(): PrivacyPolicyFragment
+
 }
