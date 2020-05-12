@@ -10,6 +10,7 @@ import takeaway.feature.cafe.ui.CafeFragment
 import takeaway.feature.feed.promo.ui.PromoDialogFragment
 import takeaway.feature.feed.ui.FeedFragment
 import takeaway.feature.info.ui.InfoFragment
+import takeaway.feature.order.registration.ui.OrderRegistrationFragment
 import takeaway.feature.splash.ui.SplashFragment
 import takeaway.shared.privacy.policy.ui.PrivacyPolicyFragment
 
@@ -52,4 +53,7 @@ interface FragmentModule {
     @ContributesAndroidInjector
     fun providePrivacyPolicyFragment(): PrivacyPolicyFragment
 
+    @FragmentScope
+    @ContributesAndroidInjector
+    fun provideOrderRegistrationFragment(): OrderRegistrationFragment
 }

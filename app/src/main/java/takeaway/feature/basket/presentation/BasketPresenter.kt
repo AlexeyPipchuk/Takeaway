@@ -2,14 +2,15 @@ package takeaway.feature.basket.presentation
 
 import ru.terrakok.cicerone.Router
 import takeaway.app.BasePresenter
+import takeaway.app.navigation.Screen
 import takeaway.feature.basket.model.BasketItem
 import takeaway.feature.basket.ui.BasketView
-import takeaway.shared.cafe.domain.entity.Product
 import takeaway.shared.basket.domian.entity.Basket
 import takeaway.shared.basket.domian.usecase.ClearBasketUseCase
 import takeaway.shared.basket.domian.usecase.DeleteProductFromBasketUseCase
 import takeaway.shared.basket.domian.usecase.GetBasketAmountUseCase
 import takeaway.shared.basket.domian.usecase.GetBasketUseCase
+import takeaway.shared.cafe.domain.entity.Product
 import javax.inject.Inject
 
 class BasketPresenter @Inject constructor(
@@ -82,6 +83,10 @@ class BasketPresenter @Inject constructor(
 
     fun onBackButtonClick() {
         router.exit()
+    }
+
+    fun onToOrderRegistrationButtonClicked() {
+        router.navigateTo(Screen.OrderRegistrationScreen)
     }
 
     fun onProductDeleteClicked(product: BasketItem) {

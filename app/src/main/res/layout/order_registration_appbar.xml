@@ -5,18 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="@dimen/spacing_12"
-    android:background="@color/backgroundUnderCards"
     app:cardCornerRadius="0dp"
     app:cardElevation="@dimen/spacing_8">
-
-    <!--    //TODO(В базовый фрагмент вытащить настройку подобного аппбара и переиспользовать вместо тулбара, тот выпилить)-->
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <LinearLayout
-            android:id="@+id/backButton"
+            android:id="@+id/backToBasketButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spacing_32"
@@ -41,7 +38,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="@dimen/spacing_8"
-                android:text="@string/back_text" />
+                android:text="@string/back_to_basket_text" />
 
         </LinearLayout>
 
@@ -51,10 +48,10 @@
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:layout_marginEnd="@dimen/spacing_16"
-            android:text="@string/privacy_policy_title"
-            app:layout_constraintBottom_toBottomOf="@+id/backButton"
+            android:text="@string/order_registration_title"
+            app:layout_constraintBottom_toBottomOf="@+id/backToBasketButton"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/backButton" />
+            app:layout_constraintTop_toTopOf="@+id/backToBasketButton" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

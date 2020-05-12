@@ -46,6 +46,9 @@ class BasketFragment : BaseFragment(R.layout.basket_fragment), BasketView {
         basketAppbar.backToCafeButton.setOnClickListener {
             presenter.onBackButtonClick()
         }
+        toOrderRegistrationButton.setOnClickListener {
+            presenter.onToOrderRegistrationButtonClicked()
+        }
     }
 
     override fun showOrderCafeInfo(cafe: Cafe) {
