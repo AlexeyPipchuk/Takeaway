@@ -9,4 +9,6 @@
     <color name="default_product_background">#D4D4D4</color>
     <color name="image_button_ripple">#666666</color>
     <color name="black">#000000</color>
+    <color name="separator_light">#808080</color>
+    <color name="disabled_button_background">#D4D4D4</color>
 </resources>

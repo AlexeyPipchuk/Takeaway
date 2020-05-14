@@ -6,9 +6,11 @@ import android.text.Html
 import android.text.Spanned
 import android.view.View
 import android.view.inputmethod.InputMethodManager
+import androidx.core.content.ContextCompat
 import androidx.core.content.getSystemService
 import androidx.fragment.app.Fragment
 import com.example.takeaway.R
+import com.google.android.material.button.MaterialButton
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import io.reactivex.Single
 import io.reactivex.SingleSource
@@ -87,3 +89,18 @@ fun <T : Any> Single<T>.subscribeOver(
     onError: (Throwable) -> Unit = {},
     onSuccess: (T) -> Unit = {}
 ): Disposable = subscribe(onSuccess, onError)
+
+fun MaterialButton.enable() {
+    isEnabled = true
+    background.setTint(ContextCompat.getColor(context, R.color.colorAccent))
+}
+
+fun MaterialButton.disable() {
+    isEnabled = false
+    background.setTint(
+        ContextCompat.getColor(
+            context,
+            R.color.disabled_button_background
+        )
+    )
+}

@@ -49,11 +49,12 @@
     <string name="order_amount_price">Сумма заказа</string>
     <string name="to_order_registration_button_text">Перейти к оформлению</string>
 
+    <string name="message_with_value_to_free_delivery">Для доставки за 0 ₽ закажите еще на %1$s ₽</string>
+    <string name="minimum_amount_for_free_delivery_message">Минимальная сумма доставки — %1$s ₽</string>
+
     //basket
     <string name="takeaway_discount_calculated">Скидка −%1$s%% на самовывоз составит %2$s ₽</string>
-    <string name="minimum_amount_for_free_delivery_message">Минимальная сумма доставки — %1$s ₽</string>
     <string name="delivery_price_calculated_text">Стоимость доставки для данной суммы — %1$s ₽</string>
-    <string name="message_with_value_to_free_delivery">Для доставки за 0 ₽ закажите еще на %1$s ₽</string>
 
     //promo
     <string name="promo_title">Поможем томским\nзаведениям вместе!</string>
@@ -71,4 +72,11 @@
     <string name="order_registration_title">Оформление заказа</string>
     <string name="create_order_button_text">Оформить заказ</string>
     <string name="privacy_policy_link_text">Нажимая эту кнопку, вы соглашаетесь с &lt;br/>&lt;font color=#FF004C>Политикой конфиденциальности&lt;/font></string>
+    <string name="takeaway_radio_button">Самовывоз</string>
+    <string name="delivery_radio_button">Доставка</string>
+    <string name="pickUpWay">Способ получения заказа</string>
+    <string name="order_result_amount_price">Итого</string>
+    <string name="delivery_cost_title">Стоимость доставки</string>
+    <string name="takeaway_radio_button_subtitle">Скидка −%1$s%%</string>
+    <string name="order_registration_takeaway_discount_text">Скидка на самовывоз −%1$s%%</string>
 </resources>

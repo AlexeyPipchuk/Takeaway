@@ -11,13 +11,15 @@ import com.google.android.material.button.MaterialButton
 import kotlinx.android.synthetic.main.custom_counter_view.view.*
 import kotlinx.android.synthetic.main.product_dialog_fragment.*
 import takeaway.app.BaseDialogFragment
+import takeaway.app.disable
+import takeaway.app.enable
 import takeaway.app.loadImage
-import takeaway.shared.cafe.domain.entity.Product
 import takeaway.feature.cafe.product.presentation.ProductPresenter
 import takeaway.feature.cafe.product.presentation.ProductView
 import takeaway.feature.cafe.product.severalcafe.SeveralCafeWarningDialogFragment
 import takeaway.feature.cafe.product.severalcafe.SeveralCafeWarningDialogFragment.Companion.ACCEPT_RESULT
 import takeaway.feature.feed.domain.entity.Cafe
+import takeaway.shared.cafe.domain.entity.Product
 import javax.inject.Inject
 
 private const val PRODUCT_ARG = "PRODUCT"
@@ -124,18 +126,6 @@ class ProductDialogFragment : BaseDialogFragment(R.layout.product_dialog_fragmen
         productDescription.text = product.description
         productWeight.text = getString(R.string.product_weight).format(product.weight)
         productAmount.text = getString(R.string.rubles_postfix).format(product.price)
-    }
-
-    private fun MaterialButton.enable() {
-        isEnabled = true
-        background.setTint(getColor(requireContext(), R.color.colorAccent))
-        setTextColor(getColor(requireContext(), R.color.backgroundMain))
-    }
-
-    private fun MaterialButton.disable() {
-        isEnabled = false
-        background.setTint(getColor(requireContext(), R.color.material_on_background_disabled))
-        setTextColor(getColor(requireContext(), R.color.black))
     }
 
     private fun MaterialButton.disableMathOperation() {

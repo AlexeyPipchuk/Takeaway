@@ -11,6 +11,7 @@ import takeaway.shared.basket.domian.usecase.DeleteProductFromBasketUseCase
 import takeaway.shared.basket.domian.usecase.GetBasketAmountUseCase
 import takeaway.shared.basket.domian.usecase.GetBasketUseCase
 import takeaway.shared.cafe.domain.entity.Product
+import takeaway.shared.order.registration.domain.entity.OrderSketch
 import javax.inject.Inject
 
 class BasketPresenter @Inject constructor(
@@ -20,6 +21,8 @@ class BasketPresenter @Inject constructor(
     private val clearBasketUseCase: ClearBasketUseCase,
     private val getBasketAmountUseCase: GetBasketAmountUseCase
 ) : BasePresenter<BasketView>() {
+
+    private var deliveryDiscountCalculated = 0
 
     override fun onViewAttach() {
         super.onViewAttach()
@@ -36,7 +39,7 @@ class BasketPresenter @Inject constructor(
             val basketAmount = getBasketAmountUseCase()
 
             view?.setBasketAmount(basketAmount)
-            basket.cafe?.takeawayDiscount?.let { calculateTakeawayDiscount(it, basketAmount) }
+            basket.cafe?.takeawayDiscount?.let { showCalculatedTakeawayDiscount(it, basketAmount) }
             calculateHelpValues(basketAmount, basket)
         } else {
             view?.showEmptyContent()
@@ -46,12 +49,15 @@ class BasketPresenter @Inject constructor(
     private fun Basket.isBasketNotEmpty() =
         cafe != null && !products.isNullOrEmpty()
 
-    private fun calculateTakeawayDiscount(takeawayDiscount: Int, basketAmount: Int) {
-        val takeawayDiscountCalculated = takeawayDiscount * basketAmount / 100
+    private fun showCalculatedTakeawayDiscount(takeawayDiscount: Int, basketAmount: Int) {
+        val takeawayDiscountCalculated = calculateTakeawayDiscount(takeawayDiscount, basketAmount)
         if (takeawayDiscountCalculated != 0) {
             view?.showTakeawayDiscountCalculated(takeawayDiscount, takeawayDiscountCalculated)
         }
     }
+
+    private fun calculateTakeawayDiscount(takeawayDiscount: Int, basketAmount: Int): Int =
+        takeawayDiscount * basketAmount / 100
 
     private fun calculateHelpValues(basketAmount: Int, basket: Basket) {
         view?.setDefaultHelpMessagesState()
@@ -62,6 +68,7 @@ class BasketPresenter @Inject constructor(
 
         minDeliverySum?.let {
             if (basketAmount < minDeliverySum) {
+                deliveryDiscountCalculated = 0
                 view?.showMinDeliverySum(minDeliverySum)
             } else {
                 val deliveryPriceCalculated =
@@ -69,6 +76,7 @@ class BasketPresenter @Inject constructor(
                         if (basketAmount < deliveryFreeFrom) deliveryPrice else 0
                     } else deliveryPrice
 
+                deliveryDiscountCalculated = deliveryPriceCalculated ?: 0
                 view?.showDeliveryPriceCalculated(deliveryPriceCalculated!!)
 
                 if (deliveryPriceCalculated != 0) {
@@ -86,7 +94,33 @@ class BasketPresenter @Inject constructor(
     }
 
     fun onToOrderRegistrationButtonClicked() {
-        router.navigateTo(Screen.OrderRegistrationScreen)
+        val resultProductAmount = getBasketAmountUseCase()
+        val resultBasket = getBasketUseCase()
+        val resultCafe = resultBasket.cafe!!
+
+        var valueToFreeDelivery = resultCafe.deliveryFreeFrom - resultProductAmount
+        if (valueToFreeDelivery < 0) valueToFreeDelivery = 0
+
+        val takeawayDiscountCalculated = calculateTakeawayDiscount(
+            resultCafe.takeawayDiscount,
+            resultProductAmount
+        )
+
+        router.navigateTo(
+            Screen.OrderRegistrationScreen(
+                OrderSketch(
+                    cafe = resultCafe,
+                    basketAmountWithoutAll = resultProductAmount,
+                    products = resultBasket.products!!,
+                    takeawayDiscountCalculated = takeawayDiscountCalculated,
+                    orderWithTakeawayAmount = resultProductAmount - takeawayDiscountCalculated,
+                    deliveryCostCalculated = deliveryDiscountCalculated,
+                    orderWithDeliveryAmount = resultProductAmount + deliveryDiscountCalculated,
+                    deliveryAllowed = resultProductAmount >= resultCafe.minDeliverySum,
+                    valueToFreeDelivery = valueToFreeDelivery
+                )
+            )
+        )
     }
 
     fun onProductDeleteClicked(product: BasketItem) {

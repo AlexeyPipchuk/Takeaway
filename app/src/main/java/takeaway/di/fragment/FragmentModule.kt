@@ -54,6 +54,6 @@ interface FragmentModule {
     fun providePrivacyPolicyFragment(): PrivacyPolicyFragment
 
     @FragmentScope
-    @ContributesAndroidInjector
+    @ContributesAndroidInjector(modules = [OrderRegistrationFragmentModule::class])
     fun provideOrderRegistrationFragment(): OrderRegistrationFragment
 }
