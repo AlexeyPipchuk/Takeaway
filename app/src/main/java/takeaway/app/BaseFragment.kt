@@ -8,8 +8,10 @@ import androidx.annotation.LayoutRes
 import androidx.annotation.MenuRes
 import androidx.annotation.StringRes
 import androidx.appcompat.widget.Toolbar
+import androidx.core.view.forEach
 import androidx.fragment.app.Fragment
 import com.example.takeaway.R
+import com.google.android.material.textfield.TextInputLayout
 import dagger.android.support.AndroidSupportInjection
 
 abstract class BaseFragment(
@@ -51,6 +53,17 @@ abstract class BaseFragment(
             }
 
             action()
+        }
+    }
+
+    protected fun requestFocusOnFirstError(formLayout: ViewGroup) {
+        formLayout.forEach { child ->
+            if (child is TextInputLayout && child.error != null && child.editText?.isFocusable == true) {
+                child.editText?.requestFocus()
+                return
+            }
+
+            formLayout.requestFocus()
         }
     }
 }

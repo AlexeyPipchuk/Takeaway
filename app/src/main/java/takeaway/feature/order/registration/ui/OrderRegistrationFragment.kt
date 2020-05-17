@@ -2,13 +2,17 @@ package takeaway.feature.order.registration.ui
 
 import android.os.Bundle
 import android.view.View
+import android.widget.EditText
 import androidx.core.view.isVisible
+import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import com.example.takeaway.R
+import com.google.android.material.textfield.TextInputLayout
 import kotlinx.android.synthetic.main.order_registration_appbar.view.*
 import kotlinx.android.synthetic.main.order_registration_fragment.*
 import takeaway.app.*
 import takeaway.feature.feed.domain.entity.Cafe
+import takeaway.feature.order.registration.domain.entity.OrderValidatorField
 import takeaway.feature.order.registration.presentation.OrderRegistrationPresenter
 import takeaway.feature.order.registration.presentation.OrderRegistrationView
 import takeaway.shared.order.registration.domain.entity.OrderSketch
@@ -39,6 +43,11 @@ class OrderRegistrationFragment : BaseFragment(R.layout.order_registration_fragm
         presenter.attachView(this)
 
         initListeners()
+        setTextChangedListeners()
+        setTextFocusChangeListeners()
+
+        //default focus
+        nameEditText.requestFocus()
     }
 
     private fun initListeners() {
@@ -65,6 +74,37 @@ class OrderRegistrationFragment : BaseFragment(R.layout.order_registration_fragm
         }
     }
 
+    private fun setTextChangedListeners() {
+        nameEditText.doAfterTextChanged { nameEditTextLayout.invalidateError() }
+        phoneEditText.doAfterTextChanged { phoneEditTextLayout.invalidateError() }
+        emailEditText.doAfterTextChanged { emailEditTextLayout.invalidateError() }
+    }
+
+    private fun setTextFocusChangeListeners() {
+        val focusChangeListener = View.OnFocusChangeListener { view, hasFocus ->
+            if (!hasFocus) {
+                onFocusLost(view)
+            }
+        }
+
+        nameEditText.onFocusChangeListener = focusChangeListener
+        phoneEditText.onFocusChangeListener = focusChangeListener
+        emailEditText.onFocusChangeListener = focusChangeListener
+    }
+
+    private fun onFocusLost(view: View) {
+        when (view) {
+            !is EditText -> Unit
+            nameEditText -> view.onFocusLost(OrderValidatorField.NAME)
+            phoneEditText -> view.onFocusLost(OrderValidatorField.PHONE)
+            emailEditText -> view.onFocusLost(OrderValidatorField.EMAIL)
+        }
+    }
+
+    private fun EditText.onFocusLost(field: OrderValidatorField) {
+        presenter.onInputFieldFocusLost(this.text.toString().trim(), field)
+    }
+
     override fun setPrivacyPolicyText() {
         privacyPolicyLink.text = getString(R.string.privacy_policy_link_text).fromHtml()
     }
@@ -77,6 +117,16 @@ class OrderRegistrationFragment : BaseFragment(R.layout.order_registration_fragm
             orderCafeLogo.isVisible = true
             orderCafeLogoImg.loadImage(cafeLogoImg)
         }
+    }
+
+    override fun selectTakeawayReceivingMethod(adressList: List<String>?) {
+        takeawayOptionLayout.isVisible = true
+        deliveryOptionLayout.isVisible = false
+    }
+
+    override fun selectDeliveryReceivingMethod() {
+        deliveryOptionLayout.isVisible = true
+        takeawayOptionLayout.isVisible = false
     }
 
     override fun showBasketAmount(basketAmountWithoutAll: Int) {
@@ -150,6 +200,70 @@ class OrderRegistrationFragment : BaseFragment(R.layout.order_registration_fragm
         orderResultAmountPrice.isVisible = true
         orderSeparator.isVisible = true
         createOrderButton.enable()
+    }
+
+    override fun clearFocus() {
+        requireActivity().currentFocus?.clearFocus()
+    }
+
+    override fun setNameValidationResult(error: String?) {
+        setFieldValidationResult(nameEditTextLayout, error)
+    }
+
+    override fun setPhoneValidationResult(error: String?) {
+        setFieldValidationResult(phoneEditTextLayout, error)
+    }
+
+    override fun setEmailValidationResult(error: String?) {
+        setFieldValidationResult(emailEditTextLayout, error)
+    }
+
+    override fun setTakeawayAddressValidationResult(error: String?) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun setTakeawayTimeValidationResult(error: String?) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun setStreetValidationResult(error: String?) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun setHouseNumberValidationResult(error: String?) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun setPorchValidationResult(error: String?) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun setFloorValidationResult(error: String?) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun setFlatValidationResult(error: String?) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun setCommentValidationResult(error: String?) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun setDeliveryTimeValidationResult(error: String?) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    private fun setFieldValidationResult(layout: TextInputLayout, error: String?) {
+        when {
+            layout.error == null && error != null -> layout.error = error
+            layout.error != null && error == null -> layout.invalidateError()
+            else -> Unit
+        }
+    }
+
+    override fun requestFocusOnFirstError() {
+        requestFocusOnFirstError(formLayout = basketContent)
     }
 
     override fun onDestroyView() {

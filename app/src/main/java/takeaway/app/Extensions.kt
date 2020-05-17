@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment
 import com.example.takeaway.R
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.android.material.textfield.TextInputLayout
 import io.reactivex.Single
 import io.reactivex.SingleSource
 import io.reactivex.disposables.Disposable
@@ -103,4 +104,9 @@ fun MaterialButton.disable() {
             R.color.disabled_button_background
         )
     )
+}
+
+fun TextInputLayout.invalidateError() {
+    error = null
+    isErrorEnabled = false
 }

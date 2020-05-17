@@ -8,6 +8,7 @@
         <item name="android:fontFamily">@font/nunito_light</item>
         <item name="alertDialogTheme">@style/AlertDialog</item>
         <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialogTheme</item>
+        <item name="textInputStyle">@style/AppOutlinedTextInputLayout</item>>
     </style>
 
     <style name="AppTheme.Splash" parent="AppTheme">
@@ -114,6 +115,12 @@
 
     <style name="AppModalStyle" parent="Widget.Design.BottomSheet.Modal">
         <item name="android:background">@drawable/product_dialog_border</item>
+    </style>
+
+    //TextInput
+
+    <style name="AppOutlinedTextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:fontFamily">@font/nunito_regular</item>
     </style>
 
 </resources>

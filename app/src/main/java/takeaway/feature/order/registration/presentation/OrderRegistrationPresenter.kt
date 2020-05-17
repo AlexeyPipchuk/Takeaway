@@ -3,13 +3,27 @@ package takeaway.feature.order.registration.presentation
 import ru.terrakok.cicerone.Router
 import takeaway.app.BasePresenter
 import takeaway.app.navigation.Screen
+import takeaway.feature.order.registration.domain.entity.Order
+import takeaway.feature.order.registration.domain.entity.OrderValidatorField
+import takeaway.feature.order.registration.domain.entity.ReceiveMethod
+import takeaway.feature.order.registration.domain.usecase.CreateOrderUseCase
+import takeaway.feature.order.registration.domain.usecase.validation.*
 import takeaway.shared.order.registration.domain.entity.OrderSketch
 import javax.inject.Inject
 
 class OrderRegistrationPresenter @Inject constructor(
+    private val validateNameUseCase: ValidateNameUseCase,
+    private val validatePhoneUseCase: ValidatePhoneUseCase,
+    private val validateEmailUseCase: ValidateEmailUseCase,
+    private val validateCommonStringUseCase: ValidateCommonStringUseCase,
+    private val validateSingleNumberUseCase: ValidateSingleNumberUseCase,
+    private val validateTimeUseCase: ValidateTimeUseCase,
+    private val createOrderUseCase: CreateOrderUseCase,
     private val orderSketch: OrderSketch,
     private val router: Router
 ) : BasePresenter<OrderRegistrationView>() {
+
+    var order = Order.EMPTY.copy(cafe = orderSketch.cafe, productMap = orderSketch.products)
 
     override fun onViewAttach() {
         super.onViewAttach()
@@ -22,6 +36,7 @@ class OrderRegistrationPresenter @Inject constructor(
 
         setUpTakeawayAndDeliveryCalculatedValues()
 
+        showInputFieldsForTakeaway()
         showOrderAmountWithTakeaway()
     }
 
@@ -46,6 +61,10 @@ class OrderRegistrationPresenter @Inject constructor(
         view?.setDeliveryCostResult(
             orderSketch.deliveryCostCalculated
         )
+    }
+
+    private fun showInputFieldsForTakeaway() {
+        view?.selectTakeawayReceivingMethod(null)
     }
 
     private fun showOrderAmountWithTakeaway() {
@@ -74,15 +93,143 @@ class OrderRegistrationPresenter @Inject constructor(
     }
 
     fun onTakeawayRadioButtonClicked() {
+        showInputFieldsForTakeaway()
         showOrderAmountWithTakeaway()
     }
 
     fun onDeliveryRadioButtonClicked() {
+        view?.selectDeliveryReceivingMethod()
         showOrderAmountWithDelivery()
     }
 
     fun onCreateOrderButtonClicked() {
-        //TODO(Формирование ордера)
+        if (order.receiveMethod == ReceiveMethod.TAKEAWAY) {
+            validateTakeawayOrder(::createOrder)
+        } else {
+            validateDeliveryOrder(::createOrder)
+        }
+    }
+
+    private fun validateTakeawayOrder(onOrderValid: () -> Unit) {
+        view?.clearFocus()
+
+        if (
+            validateName() &&
+            validatePhone() &&
+            validateEmail()
+        ) {
+            onOrderValid()
+        } else view?.requestFocusOnFirstError()
+    }
+
+    private fun validateDeliveryOrder(onOrderValid: () -> Unit) {
+        view?.clearFocus()
+
+        if (
+            validateName() &&
+            validatePhone() &&
+            validateEmail()
+        ) {
+            onOrderValid()
+        } else view?.requestFocusOnFirstError()
+    }
+
+    private fun createOrder() {
+        createOrderUseCase(order)
+    }
+
+    fun onInputFieldFocusLost(value: String, field: OrderValidatorField) {
+        when (field) {
+
+            OrderValidatorField.NAME -> {
+                order = order.copy(name = value)
+                validateName()
+            }
+
+            OrderValidatorField.PHONE -> {
+                order = order.copy(phone = value)
+                validatePhone()
+            }
+
+            OrderValidatorField.EMAIL -> {
+                order = order.copy(email = value)
+                validateEmail()
+            }
+            else -> Unit
+
+//            OrderValidatorField.TAKEAWAY_ADDRESS -> {
+//                view?.setTakeawayAddressValidationResult(
+//                    validateCommonStringUseCase(order.takeawayAddress, required = true)
+//                )
+//            }
+//
+//            OrderValidatorField.TAKEAWAY_TIME -> {
+//                view?.setTakeawayTimeValidationResult(
+//                    validateTimeUseCase(order.takeawayTime)
+//                )
+//            }
+//
+//            OrderValidatorField.STREET -> {
+//                view?.setStreetValidationResult(
+//                    validateCommonStringUseCase(order.street, required = true)
+//                )
+//            }
+//            OrderValidatorField.HOUSE_NUMBER -> {
+//                view?.setHouseNumberValidationResult(
+//                    validateSingleNumberUseCase(order.houseNumber, required = true)
+//                )
+//            }
+//
+//            OrderValidatorField.PORCH -> {
+//                view?.setPorchValidationResult(
+//                    validateSingleNumberUseCase(order.porch, required = false)
+//                )
+//            }
+//
+//            OrderValidatorField.FLOOR -> {
+//                view?.setFloorValidationResult(
+//                    validateSingleNumberUseCase(order.floor, required = false)
+//                )
+//            }
+//
+//            OrderValidatorField.FLAT -> {
+//                view?.setFlatValidationResult(
+//                    validateSingleNumberUseCase(order.flat, required = true)
+//                )
+//            }
+//            OrderValidatorField.COMMENT -> {
+//                view?.setCommentValidationResult(
+//                    validateCommonStringUseCase(order.comment, required = false)
+//                )
+//            }
+//
+//            OrderValidatorField.DELIVERY_TIME -> {
+//                view?.setDeliveryTimeValidationResult(
+//                    validateTimeUseCase(order.deliveryTime)
+//                )
+//            }
+        }
+    }
+
+    private fun validateName(): Boolean {
+        val validationResult = validateNameUseCase(order.name)
+        view?.setNameValidationResult(validationResult)
+
+        return validationResult == null
+    }
+
+    private fun validatePhone(): Boolean {
+        val validationResult = validatePhoneUseCase(order.phone)
+        view?.setPhoneValidationResult(validationResult)
+
+        return validationResult == null
+    }
+
+    private fun validateEmail(): Boolean {
+        val validationResult = validateEmailUseCase(order.email)
+        view?.setEmailValidationResult(validationResult)
+
+        return validationResult == null
     }
 
     fun onPrivacyPolicyClicked() {
