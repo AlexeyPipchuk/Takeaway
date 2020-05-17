@@ -13,7 +13,7 @@ class GetCafeListUseCase @Inject constructor(
         repository.getList(useCache)
             .map {
                 it.filter { cafe ->
-                    cafe.isVisible
+                    cafe.isVisible && !cafe.isClosed
                 }
             }
 }
