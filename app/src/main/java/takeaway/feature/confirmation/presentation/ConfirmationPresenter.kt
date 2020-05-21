@@ -16,6 +16,10 @@ class ConfirmationPresenter @Inject constructor(
         view?.setOrderId(orderId)
     }
 
+    fun onToMainPageBackClicked() {
+        router.backTo(Screen.FeedScreen)
+    }
+
     fun onBackClicked() {
         router.backTo(Screen.FeedScreen)
     }

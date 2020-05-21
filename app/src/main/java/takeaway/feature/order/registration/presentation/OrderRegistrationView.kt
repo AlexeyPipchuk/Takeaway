@@ -5,6 +5,10 @@ import takeaway.feature.feed.domain.entity.Cafe
 
 interface OrderRegistrationView : TakeawayView {
 
+    fun showProgress()
+
+    fun hideProgress()
+
     fun setPrivacyPolicyText()
 
     fun showPopUpWithAddresses(addresses: List<String>)

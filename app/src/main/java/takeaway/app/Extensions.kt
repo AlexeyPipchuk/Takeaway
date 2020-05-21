@@ -7,6 +7,7 @@ import android.text.Spanned
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.PopupMenu
+import androidx.activity.OnBackPressedCallback
 import androidx.core.content.ContextCompat
 import androidx.core.content.getSystemService
 import androidx.fragment.app.Fragment
@@ -174,4 +175,17 @@ fun String.getIntervalListBetween(workTo: String): List<String> {
         }
         timeList
     }
+}
+
+fun Fragment.addBackPressedListener(
+    enabledCallback: Boolean = true,
+    action: OnBackPressedCallback.() -> Unit
+): OnBackPressedCallback {
+    val callback: OnBackPressedCallback = object : OnBackPressedCallback(enabledCallback) {
+        override fun handleOnBackPressed() {
+            action.invoke(this)
+        }
+    }
+    requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
+    return callback
 }

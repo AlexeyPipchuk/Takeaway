@@ -117,6 +117,16 @@ class OrderRegistrationFragment : BaseFragment(R.layout.order_registration_fragm
         presenter.onInputFieldFocusLost(this.text.toString().trim(), field)
     }
 
+    override fun showProgress() {
+        content.isVisible = false
+        progressBar.isVisible = true
+    }
+
+    override fun hideProgress() {
+        content.isVisible = true
+        progressBar.isVisible = false
+    }
+
     override fun setPrivacyPolicyText() {
         privacyPolicyLink.text = getString(R.string.privacy_policy_link_text).fromHtml()
     }

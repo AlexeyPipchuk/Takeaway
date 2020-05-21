@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import com.example.takeaway.R
 import kotlinx.android.synthetic.main.confirmation_fragment.*
 import takeaway.app.BaseFragment
+import takeaway.app.addBackPressedListener
 import takeaway.app.fromHtml
 import takeaway.feature.confirmation.presentation.ConfirmationPresenter
 import takeaway.feature.confirmation.presentation.ConfirmationView
@@ -39,6 +40,10 @@ class ConfirmationFragment : BaseFragment(R.layout.confirmation_fragment), Confi
 
     private fun initListeners() {
         toMainPageBackButton.setOnClickListener {
+            presenter.onToMainPageBackClicked()
+        }
+
+        addBackPressedListener {
             presenter.onBackClicked()
         }
     }

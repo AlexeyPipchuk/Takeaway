@@ -1,5 +1,6 @@
 package takeaway.feature.order.registration.presentation
 
+import io.reactivex.android.schedulers.AndroidSchedulers
 import ru.terrakok.cicerone.Router
 import takeaway.app.BasePresenter
 import takeaway.app.getIntervalListBetween
@@ -167,7 +168,21 @@ class OrderRegistrationPresenter @Inject constructor(
     }
 
     private fun createOrder() {
+        view?.showProgress()
+
         createOrderUseCase(order)
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe(
+                { orderId ->
+                    view?.hideProgress()
+                    router.navigateTo(Screen.ConfirmationScreen(orderId))
+                },
+                {
+                    view?.hideProgress()
+                    //TODO(Обработать)
+                }
+            )
+            .addToDisposable()
     }
 
     fun onInputFieldFocusLost(value: String, field: OrderValidatorField) {
