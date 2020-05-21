@@ -91,4 +91,5 @@
     <string name="porch_hint">Подъезд</string>
     <string name="floor_hint">Этаж</string>
     <string name="flat_hint">Кв.</string>
+    <string name="time_delivery_hint">Укажите время доставки</string>
 </resources>

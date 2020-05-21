@@ -23,8 +23,8 @@
         android:id="@+id/content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:overScrollMode="never"
         android:fillViewport="true"
+        android:overScrollMode="never"
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -249,12 +249,20 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/spacing_12"
-                    android:hint="@string/select_address_hint">
+                    android:hint="@string/select_address_hint"
+                    android:visibility="gone"
+                    app:endIconMode="custom"
+                    app:endIconDrawable="@drawable/ic_popup_list"
+                    tools:visibility="visible">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/addressTakeawayEditText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:clickable="false"
+                        android:cursorVisible="false"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
                         android:inputType="text"
                         tools:text="ул.Ленина 66" />
 
@@ -264,12 +272,17 @@
                     android:id="@+id/timeTakeawayEditTextLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/select_time_to_takeaway_hint">
+                    android:hint="@string/select_time_to_takeaway_hint"
+                    app:endIconMode="custom"
+                    app:endIconDrawable="@drawable/ic_time">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/timeTakeawayEditText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:cursorVisible="false"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
                         android:inputType="time"
                         tools:text="10:10" />
 
@@ -406,6 +419,26 @@
                         android:layout_height="wrap_content"
                         android:inputType="text"
                         tools:text="Позвоните, как подойдете" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/timeDeliveryEditTextLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/time_delivery_hint"
+                    app:endIconMode="custom"
+                    app:endIconDrawable="@drawable/ic_time">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/timeDeliveryEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:cursorVisible="false"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        android:inputType="time"
+                        tools:text="10:10" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 

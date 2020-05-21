@@ -2,6 +2,7 @@ package takeaway.feature.order.registration.presentation
 
 import ru.terrakok.cicerone.Router
 import takeaway.app.BasePresenter
+import takeaway.app.getIntervalListBetween
 import takeaway.app.navigation.Screen
 import takeaway.feature.order.registration.domain.entity.Order
 import takeaway.feature.order.registration.domain.entity.OrderValidatorField
@@ -17,7 +18,7 @@ class OrderRegistrationPresenter @Inject constructor(
     private val validateEmailUseCase: ValidateEmailUseCase,
     private val validateCommonStringUseCase: ValidateCommonStringUseCase,
     private val validateSingleNumberUseCase: ValidateSingleNumberUseCase,
-    private val validateTimeUseCase: ValidateTimeUseCase,
+    private val validateExportExportTimeUseCase: ValidateExportTimeUseCase,
     private val createOrderUseCase: CreateOrderUseCase,
     private val orderSketch: OrderSketch,
     private val router: Router
@@ -64,7 +65,8 @@ class OrderRegistrationPresenter @Inject constructor(
     }
 
     private fun showInputFieldsForTakeaway() {
-        view?.selectTakeawayReceivingMethod(null)
+        val severalAddresses = listOf(orderSketch.cafe.address).count() > 1
+        view?.selectTakeawayReceivingMethod(severalAddresses)
     }
 
     private fun showOrderAmountWithTakeaway() {
@@ -92,6 +94,34 @@ class OrderRegistrationPresenter @Inject constructor(
         router.exit()
     }
 
+    fun onAddressTakeawayClicked() {
+        //TODO(Это задел для поддержки нескольких адресов, не реализовано сразу т.к. бэк присылает не список)
+        view?.showPopUpWithAddresses(listOf(orderSketch.cafe.address))
+    }
+
+    fun onTimeTakeawayClicked() {
+        view?.showPopUpWithAvailableTakeawayTimes(getAvailableExportTimeList())
+    }
+
+    fun onTimeDeliveryClicked() {
+        view?.showPopUpWithAvailableDeliveryTimes(getAvailableExportTimeList())
+    }
+
+    private fun getAvailableExportTimeList(): List<String> =
+        orderSketch.cafe.workFrom.getIntervalListBetween(orderSketch.cafe.workTo)
+
+    fun onAddressSelected(address: String) {
+        view?.setAddress(address)
+    }
+
+    fun onTakeawayTimeSelected(takeawayTime: String) {
+        view?.setTakeawayTime(takeawayTime)
+    }
+
+    fun onDeliveryTimeSelected(deliveryTime: String) {
+        view?.setDeliveryTime(deliveryTime)
+    }
+
     fun onTakeawayRadioButtonClicked() {
         showInputFieldsForTakeaway()
         showOrderAmountWithTakeaway()
@@ -116,7 +146,8 @@ class OrderRegistrationPresenter @Inject constructor(
         if (
             validateName() &&
             validatePhone() &&
-            validateEmail()
+            validateEmail() &&
+            validateTakeawayTime()
         ) {
             onOrderValid()
         } else view?.requestFocusOnFirstError()
@@ -128,7 +159,8 @@ class OrderRegistrationPresenter @Inject constructor(
         if (
             validateName() &&
             validatePhone() &&
-            validateEmail()
+            validateEmail() &&
+            validateDeliveryTime()
         ) {
             onOrderValid()
         } else view?.requestFocusOnFirstError()
@@ -156,18 +188,6 @@ class OrderRegistrationPresenter @Inject constructor(
                 validateEmail()
             }
             else -> Unit
-
-//            OrderValidatorField.TAKEAWAY_ADDRESS -> {
-//                view?.setTakeawayAddressValidationResult(
-//                    validateCommonStringUseCase(order.takeawayAddress, required = true)
-//                )
-//            }
-//
-//            OrderValidatorField.TAKEAWAY_TIME -> {
-//                view?.setTakeawayTimeValidationResult(
-//                    validateTimeUseCase(order.takeawayTime)
-//                )
-//            }
 //
 //            OrderValidatorField.STREET -> {
 //                view?.setStreetValidationResult(
@@ -203,11 +223,6 @@ class OrderRegistrationPresenter @Inject constructor(
 //                )
 //            }
 //
-//            OrderValidatorField.DELIVERY_TIME -> {
-//                view?.setDeliveryTimeValidationResult(
-//                    validateTimeUseCase(order.deliveryTime)
-//                )
-//            }
         }
     }
 
@@ -228,6 +243,22 @@ class OrderRegistrationPresenter @Inject constructor(
     private fun validateEmail(): Boolean {
         val validationResult = validateEmailUseCase(order.email)
         view?.setEmailValidationResult(validationResult)
+
+        return validationResult == null
+    }
+
+    private fun validateTakeawayTime(): Boolean {
+        val validationResult =
+            validateExportExportTimeUseCase(order.takeawayTime, getAvailableExportTimeList())
+        view?.setTakeawayTimeValidationResult(validationResult)
+
+        return validationResult == null
+    }
+
+    private fun validateDeliveryTime(): Boolean {
+        val validationResult =
+            validateExportExportTimeUseCase(order.deliveryTime, getAvailableExportTimeList())
+        view?.setDeliveryTimeValidationResult(validationResult)
 
         return validationResult == null
     }

@@ -7,9 +7,21 @@ interface OrderRegistrationView : TakeawayView {
 
     fun setPrivacyPolicyText()
 
+    fun showPopUpWithAddresses(addresses: List<String>)
+
+    fun showPopUpWithAvailableTakeawayTimes(times: List<String>)
+
+    fun showPopUpWithAvailableDeliveryTimes(times: List<String>)
+
+    fun setAddress(address: String)
+
+    fun setTakeawayTime(takeawayTime: String)
+
+    fun setDeliveryTime(deliveryTime: String)
+
     fun showOrderCafeInfo(cafe: Cafe)
 
-    fun selectTakeawayReceivingMethod(adressList: List<String>?)
+    fun selectTakeawayReceivingMethod(severalAddresses: Boolean)
 
     fun selectDeliveryReceivingMethod()
 
@@ -56,10 +68,6 @@ interface OrderRegistrationView : TakeawayView {
 
     fun setEmailValidationResult(error: String?)
 
-    fun setTakeawayAddressValidationResult(error: String?)
-
-    fun setTakeawayTimeValidationResult(error: String?)
-
     fun setStreetValidationResult(error: String?)
 
     fun setHouseNumberValidationResult(error: String?)
@@ -71,6 +79,8 @@ interface OrderRegistrationView : TakeawayView {
     fun setFlatValidationResult(error: String?)
 
     fun setCommentValidationResult(error: String?)
+
+    fun setTakeawayTimeValidationResult(error: String?)
 
     fun setDeliveryTimeValidationResult(error: String?)
 }

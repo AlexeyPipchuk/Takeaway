@@ -72,12 +72,24 @@ class OrderRegistrationFragment : BaseFragment(R.layout.order_registration_fragm
                 takeawayRadioButton.isChecked = false
             }
         }
+
+        addressTakeawayEditText.setOnClickListener {
+            presenter.onAddressTakeawayClicked()
+        }
+        timeTakeawayEditText.setOnClickListener {
+            presenter.onTimeTakeawayClicked()
+        }
+        timeDeliveryEditText.setOnClickListener {
+            presenter.onTimeDeliveryClicked()
+        }
     }
 
     private fun setTextChangedListeners() {
         nameEditText.doAfterTextChanged { nameEditTextLayout.invalidateError() }
         phoneEditText.doAfterTextChanged { phoneEditTextLayout.invalidateError() }
         emailEditText.doAfterTextChanged { emailEditTextLayout.invalidateError() }
+        timeTakeawayEditText.doAfterTextChanged { timeTakeawayEditTextLayout.invalidateError() }
+        timeDeliveryEditText.doAfterTextChanged { timeDeliveryEditTextLayout.invalidateError() }
     }
 
     private fun setTextFocusChangeListeners() {
@@ -109,6 +121,36 @@ class OrderRegistrationFragment : BaseFragment(R.layout.order_registration_fragm
         privacyPolicyLink.text = getString(R.string.privacy_policy_link_text).fromHtml()
     }
 
+    override fun showPopUpWithAddresses(addresses: List<String>) {
+        addressTakeawayEditText.showPopup(addresses) {
+            presenter.onAddressSelected(it)
+        }
+    }
+
+    override fun showPopUpWithAvailableTakeawayTimes(times: List<String>) {
+        timeTakeawayEditText.showPopup(times) {
+            presenter.onTakeawayTimeSelected(it)
+        }
+    }
+
+    override fun showPopUpWithAvailableDeliveryTimes(times: List<String>) {
+        timeDeliveryEditText.showPopup(times) {
+            presenter.onDeliveryTimeSelected(it)
+        }
+    }
+
+    override fun setAddress(address: String) {
+        addressTakeawayEditText.setText(address)
+    }
+
+    override fun setTakeawayTime(takeawayTime: String) {
+        timeTakeawayEditText.setText(takeawayTime)
+    }
+
+    override fun setDeliveryTime(deliveryTime: String) {
+        timeDeliveryEditText.setText(deliveryTime)
+    }
+
     override fun showOrderCafeInfo(cafe: Cafe) {
         orderCafeName.text = cafe.name
 
@@ -119,9 +161,13 @@ class OrderRegistrationFragment : BaseFragment(R.layout.order_registration_fragm
         }
     }
 
-    override fun selectTakeawayReceivingMethod(adressList: List<String>?) {
+    override fun selectTakeawayReceivingMethod(severalAddresses: Boolean) {
         takeawayOptionLayout.isVisible = true
         deliveryOptionLayout.isVisible = false
+
+        if (severalAddresses) {
+            addressTakeawayEditTextLayout.isVisible = true
+        }
     }
 
     override fun selectDeliveryReceivingMethod() {
@@ -218,14 +264,6 @@ class OrderRegistrationFragment : BaseFragment(R.layout.order_registration_fragm
         setFieldValidationResult(emailEditTextLayout, error)
     }
 
-    override fun setTakeawayAddressValidationResult(error: String?) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-    override fun setTakeawayTimeValidationResult(error: String?) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
     override fun setStreetValidationResult(error: String?) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
@@ -250,8 +288,12 @@ class OrderRegistrationFragment : BaseFragment(R.layout.order_registration_fragm
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
+    override fun setTakeawayTimeValidationResult(error: String?) {
+        setFieldValidationResult(timeTakeawayEditTextLayout, error)
+    }
+
     override fun setDeliveryTimeValidationResult(error: String?) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        setFieldValidationResult(timeDeliveryEditTextLayout, error)
     }
 
     private fun setFieldValidationResult(layout: TextInputLayout, error: String?) {

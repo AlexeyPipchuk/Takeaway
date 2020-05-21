@@ -4,13 +4,10 @@ enum class OrderValidatorField {
     NAME,
     PHONE,
     EMAIL,
-    TAKEAWAY_ADDRESS,
-    TAKEAWAY_TIME,
     STREET,
     HOUSE_NUMBER,
     PORCH,
     FLOOR,
     FLAT,
-    COMMENT,
-    DELIVERY_TIME
+    COMMENT
 }
