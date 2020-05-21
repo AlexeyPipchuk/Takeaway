@@ -3,6 +3,7 @@ package takeaway.app.navigation
 import androidx.fragment.app.Fragment
 import takeaway.feature.basket.ui.BasketFragment
 import takeaway.feature.cafe.ui.CafeFragment
+import takeaway.feature.confirmation.ui.ConfirmationFragment
 import takeaway.feature.feed.domain.entity.Cafe
 import takeaway.feature.feed.ui.FeedFragment
 import takeaway.feature.info.ui.InfoFragment
@@ -19,6 +20,10 @@ sealed class Screen(fragment: Fragment) : BaseScreen(fragment) {
     data class CafeScreen(val cafe: Cafe) : Screen(CafeFragment.getInstance(cafe))
     object BasketScreen : Screen(BasketFragment.getInstance())
     object PrivacyPolicyScreen : Screen(PrivacyPolicyFragment.getInstance())
+
     data class OrderRegistrationScreen(val orderSketch: OrderSketch) :
         Screen(OrderRegistrationFragment.getInstance(orderSketch))
+
+    data class ConfirmationScreen(val orderId: String) :
+        Screen(ConfirmationFragment.getInstance(orderId))
 }

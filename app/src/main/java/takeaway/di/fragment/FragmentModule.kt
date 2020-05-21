@@ -7,6 +7,7 @@ import takeaway.feature.basket.ui.BasketFragment
 import takeaway.feature.cafe.product.severalcafe.SeveralCafeWarningDialogFragment
 import takeaway.feature.cafe.product.ui.ProductDialogFragment
 import takeaway.feature.cafe.ui.CafeFragment
+import takeaway.feature.confirmation.ui.ConfirmationFragment
 import takeaway.feature.feed.promo.ui.PromoDialogFragment
 import takeaway.feature.feed.ui.FeedFragment
 import takeaway.feature.info.ui.InfoFragment
@@ -56,4 +57,8 @@ interface FragmentModule {
     @FragmentScope
     @ContributesAndroidInjector(modules = [OrderRegistrationFragmentModule::class])
     fun provideOrderRegistrationFragment(): OrderRegistrationFragment
+
+    @FragmentScope
+    @ContributesAndroidInjector(modules = [ConfirmationFragmentModule::class])
+    fun provideConfirmationFragment(): ConfirmationFragment
 }

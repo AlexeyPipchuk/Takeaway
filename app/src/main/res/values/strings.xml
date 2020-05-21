@@ -92,4 +92,10 @@
     <string name="floor_hint">Этаж</string>
     <string name="flat_hint">Кв.</string>
     <string name="time_delivery_hint">Укажите время доставки</string>
+
+    //Confirmation
+    <string name="confirmation_go_to_mail_to_confirm_order_text">Перейдите в почту для его подтверждения</string>
+    <string name="confirmation_description">Обычно письмо приходит в течение 5 минут, но если такого не произошло, то проверьте папку «Спам» — скорее всего, оно там.</string>
+    <string name="confirmation_back_button_text">Вернуться на главную</string>
+    <string name="confirmation_order_id_text">Номер вашего заказа &lt;font color=#3216E7>#%1$s&lt;/font></string>
 </resources>
