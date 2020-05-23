@@ -140,10 +140,10 @@ const val interval = 900000L // 15 мин
 fun String.getIntervalListBetween(workTo: String): List<String> {
 
     fun getHours(time: String): Int =
-        time.substring(0, 2).toInt()
+        time.substringBefore(":").toInt()
 
     fun getMinutes(time: String): Int =
-        time.substring(3, 5).toInt()
+        time.substringAfter(":").toInt()
 
     val fromDateCalendar = Calendar.getInstance()
     fromDateCalendar.set(Calendar.HOUR_OF_DAY, getHours(this))

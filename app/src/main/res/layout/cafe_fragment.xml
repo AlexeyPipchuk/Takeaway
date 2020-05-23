@@ -108,7 +108,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/spacing_8"
-                    android:drawableStart="@drawable/ic_time"
+                    android:drawableStart="@drawable/ic_time_grey"
                     android:drawablePadding="@dimen/spacing_8"
                     tools:text="8:00−21:00" />
 
