@@ -134,6 +134,7 @@ class CafeFragment : BaseFragment(R.layout.cafe_fragment), CafeView {
         )
     }
 
+    //TODO(Зарефакторить эту дичь, нужны отдельные методы презентера)
     override fun showCafeInfo(cafe: Cafe) {
 
         val cafeMainImg = cafe.imgUrls?.firstOrNull()
@@ -168,6 +169,12 @@ class CafeFragment : BaseFragment(R.layout.cafe_fragment), CafeView {
             deliveryPrice.text =
                 getString(R.string.delivery_price).format(cafe.deliveryPrice.toString())
             deliveryPrice.isVisible = true
+        }
+
+        if (cafe.minDeliverySum != 0) {
+            minimumDeliverySumText.text = getString(R.string.minimumDeliverySumText)
+                .format(cafe.minDeliverySum.toString())
+            minimumDeliverySumText.isVisible = true
         }
 
         if (!cafe.businessFrom.isNullOrEmpty() && !cafe.businessTo.isNullOrEmpty()) {

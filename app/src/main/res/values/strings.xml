@@ -17,6 +17,7 @@
     <string name="delivery_free_from">бесплатно от %1$s ₽</string>
     <string name="takeaway_discount">-%1$s%% на самовывоз</string>
     <string name="delivery_price">%1$s ₽ при заказе на меньшую сумму</string>
+    <string name="minimumDeliverySumText">минимальная сумма доставки — %1$s₽</string>
 
     //common
     <string name="no_internet_dialog_title">Проблемы с интернетом =(</string>

@@ -93,21 +93,11 @@
                     tools:text="Мы кафе хорошее и у нас крутое описание" />
 
                 <TextView
-                    android:id="@+id/location"
-                    style="@style/Text.Title.Light"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/spacing_16"
-                    android:drawableStart="@drawable/ic_location"
-                    android:drawablePadding="@dimen/spacing_8"
-                    tools:text="ул.Ленина 10" />
-
-                <TextView
                     android:id="@+id/time"
                     style="@style/Text.Title.Light"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/spacing_8"
+                    android:layout_marginTop="@dimen/spacing_16"
                     android:drawableStart="@drawable/ic_time_grey"
                     android:drawablePadding="@dimen/spacing_8"
                     tools:text="8:00−21:00" />
@@ -142,11 +132,21 @@
                     tools:visibility="visible" />
 
                 <TextView
+                    android:id="@+id/location"
+                    style="@style/Text.Title.Light"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_12"
+                    android:drawableStart="@drawable/ic_location"
+                    android:drawablePadding="@dimen/spacing_8"
+                    tools:text="ул.Ленина 10" />
+
+                <TextView
                     android:id="@+id/takeawayDiscount"
                     style="@style/Text.Title.Light"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/spacing_8"
+                    android:layout_marginTop="@dimen/spacing_12"
                     android:drawableStart="@drawable/ic_discount"
                     android:drawablePadding="@dimen/spacing_8"
                     android:visibility="gone"
@@ -158,7 +158,7 @@
                     style="@style/Text.Title.Light"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/spacing_8"
+                    android:layout_marginTop="@dimen/spacing_12"
                     android:drawableStart="@drawable/ic_delivery_bag"
                     android:drawablePadding="@dimen/spacing_8"
                     tools:text="бесплатно от 650 рублей" />
@@ -170,6 +170,15 @@
                     android:layout_marginStart="@dimen/spacing_24"
                     android:visibility="gone"
                     tools:text="150 рублей при заказе на меньшую сумму"
+                    tools:visibility="visible" />
+
+                <TextView
+                    android:id="@+id/minimumDeliverySumText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_24"
+                    android:visibility="gone"
+                    tools:text="минимальная сумма доставки — 400₽"
                     tools:visibility="visible" />
 
             </LinearLayout>
