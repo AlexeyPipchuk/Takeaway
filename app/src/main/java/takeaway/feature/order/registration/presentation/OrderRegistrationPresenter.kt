@@ -10,6 +10,7 @@ import takeaway.feature.order.registration.domain.entity.OrderValidatorField
 import takeaway.feature.order.registration.domain.entity.ReceiveMethod
 import takeaway.feature.order.registration.domain.usecase.CreateOrderUseCase
 import takeaway.feature.order.registration.domain.usecase.validation.*
+import takeaway.shared.basket.domian.usecase.ClearBasketUseCase
 import takeaway.shared.order.registration.domain.entity.OrderSketch
 import javax.inject.Inject
 
@@ -20,6 +21,7 @@ class OrderRegistrationPresenter @Inject constructor(
     private val validateCommonStringUseCase: ValidateCommonStringUseCase,
     private val validateSingleNumberUseCase: ValidateSingleNumberUseCase,
     private val validateExportExportTimeUseCase: ValidateExportTimeUseCase,
+    private val clearBasketUseCase: ClearBasketUseCase,
     private val createOrderUseCase: CreateOrderUseCase,
     private val orderSketch: OrderSketch,
     private val router: Router
@@ -101,34 +103,51 @@ class OrderRegistrationPresenter @Inject constructor(
     }
 
     fun onTimeTakeawayClicked() {
-        view?.showPopUpWithAvailableTakeawayTimes(getAvailableExportTimeList())
+        val timeList = getAvailableExportTimeList()
+        if (timeList.isEmpty()) {
+            view?.showEmptyExportTimeListError()
+        } else {
+            view?.showPopUpWithAvailableTakeawayTimes(getAvailableExportTimeList())
+        }
     }
 
     fun onTimeDeliveryClicked() {
-        view?.showPopUpWithAvailableDeliveryTimes(getAvailableExportTimeList())
+        val timeList = getAvailableExportTimeList()
+        if (timeList.isEmpty()) {
+            view?.showEmptyExportTimeListError()
+        } else {
+            view?.showPopUpWithAvailableDeliveryTimes(getAvailableExportTimeList())
+        }
     }
 
     private fun getAvailableExportTimeList(): List<String> =
         orderSketch.cafe.workFrom.getIntervalListBetween(orderSketch.cafe.workTo)
 
     fun onAddressSelected(address: String) {
+        order = order.copy(takeawayAddress = address)
         view?.setAddress(address)
     }
 
     fun onTakeawayTimeSelected(takeawayTime: String) {
+        order = order.copy(takeawayTime = takeawayTime)
         view?.setTakeawayTime(takeawayTime)
     }
 
     fun onDeliveryTimeSelected(deliveryTime: String) {
+        order = order.copy(deliveryTime = deliveryTime)
         view?.setDeliveryTime(deliveryTime)
     }
 
     fun onTakeawayRadioButtonClicked() {
+        order = order.copy(receiveMethod = ReceiveMethod.TAKEAWAY)
+
         showInputFieldsForTakeaway()
         showOrderAmountWithTakeaway()
     }
 
     fun onDeliveryRadioButtonClicked() {
+        order = order.copy(receiveMethod = ReceiveMethod.DELIVERY)
+
         view?.selectDeliveryReceivingMethod()
         showOrderAmountWithDelivery()
     }
@@ -144,11 +163,16 @@ class OrderRegistrationPresenter @Inject constructor(
     private fun validateTakeawayOrder(onOrderValid: () -> Unit) {
         view?.clearFocus()
 
+        val isNameValid = validateName()
+        val isPhoneValid = validatePhone()
+        val isEmailValid = validateEmail()
+        val isTakeawayTimeValid = validateTakeawayTime()
+
         if (
-            validateName() &&
-            validatePhone() &&
-            validateEmail() &&
-            validateTakeawayTime()
+            isNameValid &&
+            isPhoneValid &&
+            isEmailValid &&
+            isTakeawayTimeValid
         ) {
             onOrderValid()
         } else view?.requestFocusOnFirstError()
@@ -157,11 +181,28 @@ class OrderRegistrationPresenter @Inject constructor(
     private fun validateDeliveryOrder(onOrderValid: () -> Unit) {
         view?.clearFocus()
 
+        val isNameValid = validateName()
+        val isPhoneValid = validatePhone()
+        val isEmailValid = validateEmail()
+        val isDeliveryTimeValid = validateDeliveryTime()
+        val isStreetValid = validateStreet()
+        val isHouseNumberValid = validateHouseNumber()
+        val isPorchValid = validatePorch()
+        val isFloorValid = validateFloor()
+        val isFlatValid = validateFlat()
+        val isCommentValid = validateComment()
+
         if (
-            validateName() &&
-            validatePhone() &&
-            validateEmail() &&
-            validateDeliveryTime()
+            isNameValid &&
+            isPhoneValid &&
+            isEmailValid &&
+            isDeliveryTimeValid &&
+            isStreetValid &&
+            isHouseNumberValid &&
+            isPorchValid &&
+            isFloorValid &&
+            isFlatValid &&
+            isCommentValid
         ) {
             onOrderValid()
         } else view?.requestFocusOnFirstError()
@@ -175,6 +216,7 @@ class OrderRegistrationPresenter @Inject constructor(
             .subscribe(
                 { orderId ->
                     view?.hideProgress()
+                    clearBasketUseCase()
                     router.navigateTo(Screen.ConfirmationScreen(orderId))
                 },
                 {
@@ -202,42 +244,36 @@ class OrderRegistrationPresenter @Inject constructor(
                 order = order.copy(email = value)
                 validateEmail()
             }
-            else -> Unit
-//
-//            OrderValidatorField.STREET -> {
-//                view?.setStreetValidationResult(
-//                    validateCommonStringUseCase(order.street, required = true)
-//                )
-//            }
-//            OrderValidatorField.HOUSE_NUMBER -> {
-//                view?.setHouseNumberValidationResult(
-//                    validateSingleNumberUseCase(order.houseNumber, required = true)
-//                )
-//            }
-//
-//            OrderValidatorField.PORCH -> {
-//                view?.setPorchValidationResult(
-//                    validateSingleNumberUseCase(order.porch, required = false)
-//                )
-//            }
-//
-//            OrderValidatorField.FLOOR -> {
-//                view?.setFloorValidationResult(
-//                    validateSingleNumberUseCase(order.floor, required = false)
-//                )
-//            }
-//
-//            OrderValidatorField.FLAT -> {
-//                view?.setFlatValidationResult(
-//                    validateSingleNumberUseCase(order.flat, required = true)
-//                )
-//            }
-//            OrderValidatorField.COMMENT -> {
-//                view?.setCommentValidationResult(
-//                    validateCommonStringUseCase(order.comment, required = false)
-//                )
-//            }
-//
+
+            OrderValidatorField.STREET -> {
+                order = order.copy(street = value)
+                validateStreet()
+            }
+
+            OrderValidatorField.HOUSE_NUMBER -> {
+                order = order.copy(houseNumber = value)
+                validateHouseNumber()
+            }
+
+            OrderValidatorField.PORCH -> {
+                order = order.copy(porch = value)
+                validatePorch()
+            }
+
+            OrderValidatorField.FLOOR -> {
+                order = order.copy(floor = value)
+                validateFloor()
+            }
+
+            OrderValidatorField.FLAT -> {
+                order = order.copy(flat = value)
+                validateFlat()
+            }
+
+            OrderValidatorField.COMMENT -> {
+                order = order.copy(comment = value)
+                validateComment()
+            }
         }
     }
 
@@ -258,6 +294,48 @@ class OrderRegistrationPresenter @Inject constructor(
     private fun validateEmail(): Boolean {
         val validationResult = validateEmailUseCase(order.email)
         view?.setEmailValidationResult(validationResult)
+
+        return validationResult == null
+    }
+
+    private fun validateStreet(): Boolean {
+        val validationResult = validateCommonStringUseCase(order.street, required = true)
+        view?.setStreetValidationResult(validationResult)
+
+        return validationResult == null
+    }
+
+    private fun validateHouseNumber(): Boolean {
+        val validationResult = validateSingleNumberUseCase(order.houseNumber, required = true)
+        view?.setHouseNumberValidationResult(validationResult)
+
+        return validationResult == null
+    }
+
+    private fun validatePorch(): Boolean {
+        val validationResult = validateSingleNumberUseCase(order.porch, required = false)
+        view?.setPorchValidationResult(validationResult)
+
+        return validationResult == null
+    }
+
+    private fun validateFloor(): Boolean {
+        val validationResult = validateSingleNumberUseCase(order.floor, required = false)
+        view?.setFloorValidationResult(validationResult)
+
+        return validationResult == null
+    }
+
+    private fun validateFlat(): Boolean {
+        val validationResult = validateSingleNumberUseCase(order.flat, required = true)
+        view?.setFlatValidationResult(validationResult)
+
+        return validationResult == null
+    }
+
+    private fun validateComment(): Boolean {
+        val validationResult = validateCommonStringUseCase(order.comment, required = false)
+        view?.setCommentValidationResult(validationResult)
 
         return validationResult == null
     }

@@ -90,6 +90,12 @@ class OrderRegistrationFragment : BaseFragment(R.layout.order_registration_fragm
         emailEditText.doAfterTextChanged { emailEditTextLayout.invalidateError() }
         timeTakeawayEditText.doAfterTextChanged { timeTakeawayEditTextLayout.invalidateError() }
         timeDeliveryEditText.doAfterTextChanged { timeDeliveryEditTextLayout.invalidateError() }
+        streetEditText.doAfterTextChanged { streetEditTextLayout.invalidateError() }
+        houseNumberEditText.doAfterTextChanged { houseNumberEditTextLayout.invalidateError() }
+        porchEditText.doAfterTextChanged { porchEditTextLayout.invalidateError() }
+        floorEditText.doAfterTextChanged { floorEditTextLayout.invalidateError() }
+        flatEditText.doAfterTextChanged { flatEditTextLayout.invalidateError() }
+        commentEditText.doAfterTextChanged { commentEditTextLayout.invalidateError() }
     }
 
     private fun setTextFocusChangeListeners() {
@@ -102,6 +108,12 @@ class OrderRegistrationFragment : BaseFragment(R.layout.order_registration_fragm
         nameEditText.onFocusChangeListener = focusChangeListener
         phoneEditText.onFocusChangeListener = focusChangeListener
         emailEditText.onFocusChangeListener = focusChangeListener
+        streetEditText.onFocusChangeListener = focusChangeListener
+        houseNumberEditText.onFocusChangeListener = focusChangeListener
+        porchEditText.onFocusChangeListener = focusChangeListener
+        floorEditText.onFocusChangeListener = focusChangeListener
+        flatEditText.onFocusChangeListener = focusChangeListener
+        commentEditText.onFocusChangeListener = focusChangeListener
     }
 
     private fun onFocusLost(view: View) {
@@ -110,6 +122,12 @@ class OrderRegistrationFragment : BaseFragment(R.layout.order_registration_fragm
             nameEditText -> view.onFocusLost(OrderValidatorField.NAME)
             phoneEditText -> view.onFocusLost(OrderValidatorField.PHONE)
             emailEditText -> view.onFocusLost(OrderValidatorField.EMAIL)
+            streetEditText -> view.onFocusLost(OrderValidatorField.STREET)
+            houseNumberEditText -> view.onFocusLost(OrderValidatorField.HOUSE_NUMBER)
+            porchEditText -> view.onFocusLost(OrderValidatorField.PORCH)
+            floorEditText -> view.onFocusLost(OrderValidatorField.FLOOR)
+            flatEditText -> view.onFocusLost(OrderValidatorField.FLAT)
+            commentEditText -> view.onFocusLost(OrderValidatorField.COMMENT)
         }
     }
 
@@ -147,6 +165,13 @@ class OrderRegistrationFragment : BaseFragment(R.layout.order_registration_fragm
         timeDeliveryEditText.showPopup(times) {
             presenter.onDeliveryTimeSelected(it)
         }
+    }
+
+    override fun showEmptyExportTimeListError() {
+        val error = getString(R.string.empty_export_time_list_error)
+
+        setFieldValidationResult(timeTakeawayEditTextLayout, error)
+        setFieldValidationResult(timeDeliveryEditTextLayout, error)
     }
 
     override fun setAddress(address: String) {
@@ -275,27 +300,27 @@ class OrderRegistrationFragment : BaseFragment(R.layout.order_registration_fragm
     }
 
     override fun setStreetValidationResult(error: String?) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        setFieldValidationResult(streetEditTextLayout, error)
     }
 
     override fun setHouseNumberValidationResult(error: String?) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        setFieldValidationResult(houseNumberEditTextLayout, error)
     }
 
     override fun setPorchValidationResult(error: String?) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        setFieldValidationResult(porchEditTextLayout, error)
     }
 
     override fun setFloorValidationResult(error: String?) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        setFieldValidationResult(floorEditTextLayout, error)
     }
 
     override fun setFlatValidationResult(error: String?) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        setFieldValidationResult(flatEditTextLayout, error)
     }
 
     override fun setCommentValidationResult(error: String?) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        setFieldValidationResult(commentEditTextLayout, error)
     }
 
     override fun setTakeawayTimeValidationResult(error: String?) {

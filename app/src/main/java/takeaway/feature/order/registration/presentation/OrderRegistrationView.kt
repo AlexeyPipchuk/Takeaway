@@ -17,6 +17,8 @@ interface OrderRegistrationView : TakeawayView {
 
     fun showPopUpWithAvailableDeliveryTimes(times: List<String>)
 
+    fun showEmptyExportTimeListError()
+
     fun setAddress(address: String)
 
     fun setTakeawayTime(takeawayTime: String)
