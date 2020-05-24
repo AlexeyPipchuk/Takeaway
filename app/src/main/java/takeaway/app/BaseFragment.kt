@@ -56,14 +56,15 @@ abstract class BaseFragment(
         }
     }
 
-    protected fun requestFocusOnFirstError(formLayout: ViewGroup) {
+    protected fun requestFocusOnFirstError(formLayout: ViewGroup): Boolean {
         formLayout.forEach { child ->
             if (child is TextInputLayout && child.error != null && child.editText?.isFocusable == true) {
                 child.editText?.requestFocus()
-                return
+                return false
             }
 
             formLayout.requestFocus()
         }
+        return true
     }
 }

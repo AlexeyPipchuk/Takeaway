@@ -351,7 +351,15 @@ class OrderRegistrationFragment : BaseFragment(R.layout.order_registration_fragm
     }
 
     override fun requestFocusOnFirstError() {
-        requestFocusOnFirstError(formLayout = basketContent)
+        //TODO(Разобраться че не так)
+        // т.к. они в разных уровнях вложенности
+//        if (requestFocusOnFirstError(formLayout = basketContent)) {
+//            if (takeawayRadioButton.isChecked) {
+//                requestFocusOnFirstError(formLayout = takeawayOptionLayout)
+//            } else {
+//                requestFocusOnFirstError(formLayout = deliveryFieldsLayout)
+//            }
+//        }
     }
 
     override fun onDestroyView() {
