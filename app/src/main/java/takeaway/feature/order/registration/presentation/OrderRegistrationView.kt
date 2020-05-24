@@ -5,6 +5,8 @@ import takeaway.feature.feed.domain.entity.Cafe
 
 interface OrderRegistrationView : TakeawayView {
 
+    fun setPhoneMask(mask: String)
+
     fun showProgress()
 
     fun hideProgress()

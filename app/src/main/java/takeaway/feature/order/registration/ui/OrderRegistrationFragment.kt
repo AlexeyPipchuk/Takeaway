@@ -8,6 +8,8 @@ import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import com.example.takeaway.R
 import com.google.android.material.textfield.TextInputLayout
+import com.redmadrobot.inputmask.MaskedTextChangedListener
+import com.redmadrobot.inputmask.helper.AffinityCalculationStrategy
 import kotlinx.android.synthetic.main.order_registration_appbar.view.*
 import kotlinx.android.synthetic.main.order_registration_fragment.*
 import takeaway.app.*
@@ -133,6 +135,15 @@ class OrderRegistrationFragment : BaseFragment(R.layout.order_registration_fragm
 
     private fun EditText.onFocusLost(field: OrderValidatorField) {
         presenter.onInputFieldFocusLost(this.text.toString().trim(), field)
+    }
+
+    override fun setPhoneMask(mask: String) {
+        MaskedTextChangedListener.installOn(
+            phoneEditText,
+            "+$mask ([000]) [000]-[00]-[00]",
+            emptyList(),
+            AffinityCalculationStrategy.PREFIX
+        )
     }
 
     override fun showProgress() {

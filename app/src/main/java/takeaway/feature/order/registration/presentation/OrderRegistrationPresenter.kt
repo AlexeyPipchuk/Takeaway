@@ -9,6 +9,7 @@ import takeaway.feature.order.registration.domain.entity.Order
 import takeaway.feature.order.registration.domain.entity.OrderValidatorField
 import takeaway.feature.order.registration.domain.entity.ReceiveMethod
 import takeaway.feature.order.registration.domain.usecase.CreateOrderUseCase
+import takeaway.feature.order.registration.domain.usecase.GetPhoneCountryPrefixUseCase
 import takeaway.feature.order.registration.domain.usecase.validation.*
 import takeaway.shared.basket.domian.usecase.ClearBasketUseCase
 import takeaway.shared.order.registration.domain.entity.OrderSketch
@@ -23,6 +24,7 @@ class OrderRegistrationPresenter @Inject constructor(
     private val validateExportExportTimeUseCase: ValidateExportTimeUseCase,
     private val clearBasketUseCase: ClearBasketUseCase,
     private val createOrderUseCase: CreateOrderUseCase,
+    private val getPhoneCountryPrefixUseCase: GetPhoneCountryPrefixUseCase,
     private val orderSketch: OrderSketch,
     private val router: Router
 ) : BasePresenter<OrderRegistrationView>() {
@@ -35,6 +37,7 @@ class OrderRegistrationPresenter @Inject constructor(
         view?.showOrderCafeInfo(orderSketch.cafe)
         view?.showBasketAmount(orderSketch.basketAmountWithoutAll)
         view?.setPrivacyPolicyText()
+        view?.setPhoneMask(getPhoneCountryPrefixUseCase())
 
         setUpSubtitles()
 
