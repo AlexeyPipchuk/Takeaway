@@ -1,6 +1,7 @@
 package takeaway.app.navigation
 
 import androidx.fragment.app.Fragment
+import takeaway.feature.addcafe.ui.AddCafeFragment
 import takeaway.feature.basket.ui.BasketFragment
 import takeaway.feature.cafe.ui.CafeFragment
 import takeaway.feature.confirmation.ui.ConfirmationFragment
@@ -26,4 +27,6 @@ sealed class Screen(fragment: Fragment) : BaseScreen(fragment) {
 
     data class ConfirmationScreen(val orderId: String) :
         Screen(ConfirmationFragment.getInstance(orderId))
+
+    object AddCafeScreen : Screen(AddCafeFragment.getInstance())
 }

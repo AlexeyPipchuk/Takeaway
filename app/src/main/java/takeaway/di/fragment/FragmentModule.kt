@@ -3,6 +3,7 @@ package takeaway.di.fragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 import takeaway.di.FragmentScope
+import takeaway.feature.addcafe.ui.AddCafeFragment
 import takeaway.feature.basket.ui.BasketFragment
 import takeaway.feature.cafe.product.severalcafe.SeveralCafeWarningDialogFragment
 import takeaway.feature.cafe.product.ui.ProductDialogFragment
@@ -61,4 +62,8 @@ interface FragmentModule {
     @FragmentScope
     @ContributesAndroidInjector(modules = [ConfirmationFragmentModule::class])
     fun provideConfirmationFragment(): ConfirmationFragment
+
+    @FragmentScope
+    @ContributesAndroidInjector
+    fun provideAddCafeFragment(): AddCafeFragment
 }

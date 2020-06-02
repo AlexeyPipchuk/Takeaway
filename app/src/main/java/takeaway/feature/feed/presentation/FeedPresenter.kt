@@ -91,7 +91,7 @@ class FeedPresenter @Inject constructor(
     }
 
     fun onAddCafeButtonClicked() {
-
+        router.navigateTo(Screen.AddCafeScreen)
     }
 
     fun onRefresh() {
