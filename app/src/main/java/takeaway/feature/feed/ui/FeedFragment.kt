@@ -2,12 +2,16 @@ package takeaway.feature.feed.ui
 
 import android.os.Bundle
 import android.view.View
+import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import androidx.appcompat.widget.SearchView
 import androidx.core.content.res.ResourcesCompat.getColor
 import androidx.core.view.isVisible
+import androidx.core.view.updateLayoutParams
 import androidx.fragment.app.Fragment
 import com.example.takeaway.R
 import kotlinx.android.synthetic.main.empty_search_result_view.*
+import kotlinx.android.synthetic.main.fab_layout.view.*
 import kotlinx.android.synthetic.main.feed_fragment.*
 import takeaway.app.BaseFragment
 import takeaway.app.hideKeyboard
@@ -17,6 +21,7 @@ import takeaway.feature.feed.presentation.FeedPresenter
 import takeaway.feature.feed.presentation.model.FeedItem
 import takeaway.feature.feed.promo.ui.PromoDialogFragment
 import javax.inject.Inject
+
 
 class FeedFragment : BaseFragment(R.layout.feed_fragment), FeedView {
 
@@ -48,9 +53,21 @@ class FeedFragment : BaseFragment(R.layout.feed_fragment), FeedView {
     }
 
     private fun initHandlers() {
-        infoButton.setOnClickListener {
+        fabMenuButton.setOnClickListener {
+            presenter.onFabMenuButtonClicked()
+        }
+
+        val infoButtonClickListener = View.OnClickListener {
             presenter.onInfoButtonClicked()
         }
+        fabMenu.infoButtonLayout.setOnClickListener(infoButtonClickListener)
+        fabMenu.infoButton.setOnClickListener(infoButtonClickListener)
+
+        val addCafeButtonClickListener = View.OnClickListener {
+            presenter.onAddCafeButtonClicked()
+        }
+        fabMenu.addCafeButtonLayout.setOnClickListener(addCafeButtonClickListener)
+        fabMenu.addCafeButton.setOnClickListener(addCafeButtonClickListener)
 
         swipeContainer.setOnRefreshListener { presenter.onRefresh() }
 
@@ -149,6 +166,42 @@ class FeedFragment : BaseFragment(R.layout.feed_fragment), FeedView {
                 fragmentManager,
                 promoDialog::class.java.name
             )
+        }
+    }
+
+    override fun openFabMenu() {
+        val newInfoButtonMarginBottom = (fabMenu.infoButtonLayout.height * 1.75).toInt()
+        val fab1Animation = AnimationUtils.loadAnimation(context, R.anim.fab1_show)
+        fabMenu.infoButtonLayout.startAnimation(fab1Animation)
+        fabMenu.infoButtonLayout.isClickable = true
+        fabMenu.infoButtonLayout.updateLayoutParams<ViewGroup.MarginLayoutParams> {
+            bottomMargin = newInfoButtonMarginBottom
+        }
+
+        val addCafeButtonNewMarginBottom = (fabMenu.addCafeButtonLayout.height * 2.75).toInt()
+        val fab2Animation = AnimationUtils.loadAnimation(context, R.anim.fab2_show)
+        fabMenu.addCafeButtonLayout.startAnimation(fab2Animation)
+        fabMenu.addCafeButtonLayout.isClickable = true
+        fabMenu.addCafeButtonLayout.updateLayoutParams<ViewGroup.MarginLayoutParams> {
+            bottomMargin = addCafeButtonNewMarginBottom
+        }
+    }
+
+    override fun closeFabMenu() {
+        val newInfoButtonMarginBottom = (fabMenu.infoButtonLayout.height * 1.75).toInt()
+        val fab1Animation = AnimationUtils.loadAnimation(context, R.anim.fab1_hide)
+        fabMenu.infoButtonLayout.startAnimation(fab1Animation)
+        fabMenu.infoButtonLayout.isClickable = false
+        fabMenu.infoButtonLayout.updateLayoutParams<ViewGroup.MarginLayoutParams> {
+            bottomMargin -= newInfoButtonMarginBottom
+        }
+
+        val addCafeButtonNewMarginBottom = (fabMenu.addCafeButtonLayout.height * 2.75).toInt()
+        val fab2Animation = AnimationUtils.loadAnimation(context, R.anim.fab2_hide)
+        fabMenu.addCafeButtonLayout.startAnimation(fab2Animation)
+        fabMenu.addCafeButtonLayout.isClickable = false
+        fabMenu.addCafeButtonLayout.updateLayoutParams<ViewGroup.MarginLayoutParams> {
+            bottomMargin -= addCafeButtonNewMarginBottom
         }
     }
 

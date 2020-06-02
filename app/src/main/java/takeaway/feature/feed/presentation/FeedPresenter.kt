@@ -22,9 +22,11 @@ class FeedPresenter @Inject constructor(
 ) : BasePresenter<FeedView>() {
 
     private var cafeListCache: List<Cafe>? = null
+    private var fabMenuOpened = false
 
     override fun onViewAttach() {
         super.onViewAttach()
+        fabMenuOpened = false
 
         loadCafeList()
     }
@@ -74,8 +76,22 @@ class FeedPresenter @Inject constructor(
                 addAll(cafeList.filter { !it.isPopular })
             }
 
+    fun onFabMenuButtonClicked() {
+        if (fabMenuOpened) {
+            fabMenuOpened = false
+            view?.closeFabMenu()
+        } else {
+            fabMenuOpened = true
+            view?.openFabMenu()
+        }
+    }
+
     fun onInfoButtonClicked() {
         router.navigateTo(Screen.InfoScreen)
+    }
+
+    fun onAddCafeButtonClicked() {
+
     }
 
     fun onRefresh() {

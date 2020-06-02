@@ -100,4 +100,6 @@
     <string name="confirmation_back_button_text">Вернуться на главную</string>
     <string name="confirmation_order_id_text">Номер вашего заказа &lt;font color=#3216E7>#%1$s&lt;/font></string>
     <string name="empty_export_time_list_error">У заведения закончился рабочий день</string>
+    <string name="fab_menu_info_button_text">О Takeaway</string>
+    <string name="fab_menu_add_cafe_button_text">Добавить свое заведение</string>
 </resources>

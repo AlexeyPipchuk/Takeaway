@@ -22,4 +22,8 @@ interface FeedView : TakeawayView {
     fun showServiceUnavailable()
 
     fun showPromoDialog()
+
+    fun openFabMenu()
+
+    fun closeFabMenu()
 }
