@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CustomToolbarView">
+        <attr name="backIcon" format="reference" />
+        <attr name="backText" format="string" />
+        <attr name="toolbarTitle" format="string" />
+    </declare-styleable>
+</resources>

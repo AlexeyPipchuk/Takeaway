@@ -6,15 +6,16 @@
     android:orientation="vertical">
 
     <com.google.android.material.appbar.AppBarLayout
-        style="@style/AppBar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="top"
-        app:elevation="@dimen/basket_app_bar_elevation">
+        android:layout_height="wrap_content">
 
-        <include
-            android:id="@+id/privacyPolicyAppbar"
-            layout="@layout/privacy_policy_appbar" />
+        <takeaway.component.CustomToolbarView
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:backIcon="@drawable/ic_back_black"
+            app:backText="@string/back_text"
+            app:toolbarTitle="@string/privacy_policy_title" />
 
     </com.google.android.material.appbar.AppBarLayout>
 

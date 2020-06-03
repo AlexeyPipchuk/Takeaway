@@ -5,21 +5,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
-import androidx.annotation.MenuRes
-import androidx.annotation.StringRes
-import androidx.appcompat.widget.Toolbar
 import androidx.core.view.forEach
 import androidx.fragment.app.Fragment
-import com.example.takeaway.R
 import com.google.android.material.textfield.TextInputLayout
 import dagger.android.support.AndroidSupportInjection
 
 abstract class BaseFragment(
     @LayoutRes private val layoutRes: Int
 ) : Fragment(), TakeawayView {
-
-    protected val toolbar: Toolbar?
-        get() = view?.findViewById(R.id.toolbar)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         AndroidSupportInjection.inject(this)
@@ -31,30 +24,6 @@ abstract class BaseFragment(
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? = inflater.inflate(layoutRes, container, false)
-
-    protected fun initToolbar(
-        @StringRes titleId: Int = 0,
-        @MenuRes menuId: Int = 0,
-        toolbarNavigationIcon: Int? = R.drawable.ic_back_black,
-        action: () -> Unit = {}
-    ) {
-        toolbar?.apply {
-
-            if (titleId != 0) {
-                title = getString(titleId)
-            }
-
-            if (menuId != 0) {
-                inflateMenu(menuId)
-            }
-
-            toolbarNavigationIcon?.let {
-                setNavigationIcon(toolbarNavigationIcon)
-            }
-
-            action()
-        }
-    }
 
     protected fun requestFocusOnFirstError(formLayout: ViewGroup): Boolean {
         formLayout.forEach { child ->

@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">Takeaway</string>
-    <string name="info_title">Takeaway</string>
 
     //TODO(Отсортировать)
 
@@ -102,4 +101,6 @@
     <string name="empty_export_time_list_error">У заведения закончился рабочий день</string>
     <string name="fab_menu_info_button_text">О Takeaway</string>
     <string name="fab_menu_add_cafe_button_text">Добавить свое заведение</string>
+    <string name="info_back_button_text">Назад</string>
+    <string name="info_title">Takeaway</string>
 </resources>

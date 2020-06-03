@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import com.example.takeaway.R
-import kotlinx.android.synthetic.main.privacy_policy_appbar.view.*
 import kotlinx.android.synthetic.main.privacy_policy_fragment.*
 import takeaway.app.BaseFragment
 import takeaway.shared.privacy.policy.presentation.PrivacyPolicyPresenter
@@ -28,7 +27,7 @@ class PrivacyPolicyFragment : BaseFragment(R.layout.privacy_policy_fragment), Pr
     }
 
     private fun initListeners() {
-        privacyPolicyAppbar.backButton.setOnClickListener {
+        toolbar.setBackButtonListener {
             presenter.onBackClicked()
         }
     }

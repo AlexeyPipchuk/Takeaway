@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import com.example.takeaway.R
+import kotlinx.android.synthetic.main.info_fragment.*
 import takeaway.app.BaseFragment
 import takeaway.feature.info.presentation.InfoPresenter
 import javax.inject.Inject
@@ -25,10 +26,8 @@ class InfoFragment : BaseFragment(R.layout.info_fragment), InfoView {
     }
 
     private fun initToolbar() {
-        initToolbar(R.string.info_title) {
-            toolbar?.setNavigationOnClickListener {
-                presenter.onBackClicked()
-            }
+        toolbar.setBackButtonListener {
+            presenter.onBackClicked()
         }
     }
 

@@ -5,7 +5,6 @@ import android.view.View
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.example.takeaway.R
-import kotlinx.android.synthetic.main.basket_appbar.view.*
 import kotlinx.android.synthetic.main.basket_fragment.*
 import takeaway.app.BaseFragment
 import takeaway.app.loadImage
@@ -43,7 +42,7 @@ class BasketFragment : BaseFragment(R.layout.basket_fragment), BasketView {
     }
 
     private fun initListeners() {
-        basketAppbar.backToCafeButton.setOnClickListener {
+        toolbar.setBackButtonListener {
             presenter.onBackButtonClick()
         }
         toOrderRegistrationButton.setOnClickListener {

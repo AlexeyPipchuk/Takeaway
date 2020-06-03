@@ -10,7 +10,6 @@ import com.example.takeaway.R
 import com.google.android.material.textfield.TextInputLayout
 import com.redmadrobot.inputmask.MaskedTextChangedListener
 import com.redmadrobot.inputmask.helper.AffinityCalculationStrategy
-import kotlinx.android.synthetic.main.order_registration_appbar.view.*
 import kotlinx.android.synthetic.main.order_registration_fragment.*
 import takeaway.app.*
 import takeaway.feature.feed.domain.entity.Cafe
@@ -53,7 +52,7 @@ class OrderRegistrationFragment : BaseFragment(R.layout.order_registration_fragm
     }
 
     private fun initListeners() {
-        orderRegistrationAppbar.backToBasketButton.setOnClickListener {
+        toolbar.setBackButtonListener {
             presenter.onBackToBasketButtonClicked()
         }
         createOrderButton.setOnClickListener {
