@@ -6,4 +6,13 @@ import javax.inject.Inject
 
 class AddCafePresenter @Inject constructor(
     private val router: Router
-) : BasePresenter<AddCafeView>()
+) : BasePresenter<AddCafeView>() {
+
+    fun onBackClicked() {
+        router.exit()
+    }
+
+    fun onSendAddNewCafeClicked() {
+
+    }
+}
