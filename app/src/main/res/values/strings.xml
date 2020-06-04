@@ -101,6 +101,17 @@
     <string name="empty_export_time_list_error">У заведения закончился рабочий день</string>
     <string name="fab_menu_info_button_text">О Takeaway</string>
     <string name="fab_menu_add_cafe_button_text">Добавить свое заведение</string>
+
+    //Info
     <string name="info_back_button_text">Назад</string>
     <string name="info_title">Takeaway</string>
+    <string name="info_version_name">Версия приложения %1$s</string>
+    <string name="info_who_we_title">Что такое Takeaway?</string>
+    <string name="info_about_us">О нас</string>
+    <string name="info_about_takeaway_big_text">- Это бесплатный сервис заказа еды в Томске, помогающий вашим любимым кафе оставаться на плаву в сложное время пандемии</string>
+    <string name="info_who_statist_title">Что такое Statist?</string>
+    <string name="info_about_statist_big_text">Мы - команда Statist, разработчики сервиса Takeaway, молодые и амбициозные ребята, которым не все равно на сложившуюся тяжелую обстановку</string>
+    <string name="info_privacy_policy_link_text">Ознакомьтесь с\u00A0&lt;font color=#FF004C>Политикой конфиденциальности&lt;/font></string>
+    <string name="info_takeaway_instagram">&lt;a href="https://www.instagram.com/takeaway.russia/">takeaway.russia&lt;/a></string>
+    <string name="info_statist_instagram">&lt;a href="https://www.instagram.com/statist_russia/">statist_russia&lt;/a></string>
 </resources>

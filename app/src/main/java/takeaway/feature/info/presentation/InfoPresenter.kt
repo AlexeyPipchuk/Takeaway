@@ -1,8 +1,9 @@
 package takeaway.feature.info.presentation
 
-import takeaway.app.BasePresenter
-import takeaway.feature.info.ui.InfoView
 import ru.terrakok.cicerone.Router
+import takeaway.app.BasePresenter
+import takeaway.app.navigation.Screen
+import takeaway.feature.info.ui.InfoView
 import javax.inject.Inject
 
 class InfoPresenter @Inject constructor(
@@ -11,5 +12,9 @@ class InfoPresenter @Inject constructor(
 
     fun onBackClicked() {
         router.backTo(null)
+    }
+
+    fun onPrivacyPolicyClicked() {
+        router.navigateTo(Screen.PrivacyPolicyScreen)
     }
 }
