@@ -118,6 +118,13 @@
                 android:layout_marginBottom="@dimen/spacing_16"
                 android:text="@string/add_cafe_request_button" />
 
+            <androidx.coordinatorlayout.widget.CoordinatorLayout
+                android:id="@+id/snackBarParent"
+                android:elevation="@dimen/snackbar_elevation"
+                android:layout_gravity="bottom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>

@@ -122,4 +122,7 @@
     <string name="add_new_cafe_input_cafe_name_hint">Название заведения</string>
     <string name="add_new_cafe_input_email_hint">E-mail</string>
     <string name="add_new_cafe_input_phone_hint">Телефон</string>
+    <string name="send_add_new_cafe_request_snackbar_success">Заявка успешно отправлена</string>
+    <string name="send_add_new_cafe_request_snackbar_fail">Произошла ошибка</string>
+    <string name="send_add_new_cafe_request_snackbar_repeat">Повторить</string>
 </resources>

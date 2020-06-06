@@ -34,4 +34,5 @@
     <dimen name="basket_app_bar_elevation">10dp</dimen>
     <dimen name="spacing_40">40dp</dimen>
     <dimen name="spacing_64">64dp</dimen>
+    <dimen name="snackbar_elevation">2dp</dimen>
 </resources>

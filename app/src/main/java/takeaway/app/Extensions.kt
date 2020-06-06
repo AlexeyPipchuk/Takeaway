@@ -8,12 +8,16 @@ import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.PopupMenu
 import androidx.activity.OnBackPressedCallback
+import androidx.annotation.StringRes
 import androidx.core.content.ContextCompat
 import androidx.core.content.getSystemService
+import androidx.core.view.ViewCompat
 import androidx.fragment.app.Fragment
 import com.example.takeaway.R
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.android.material.snackbar.BaseTransientBottomBar
+import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputLayout
 import io.reactivex.Single
 import io.reactivex.SingleSource
@@ -188,4 +192,14 @@ fun Fragment.addBackPressedListener(
     }
     requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
     return callback
+}
+
+fun Fragment.makeSnackbar(hostView: View? = view, @StringRes textRes: Int): Snackbar? =
+    hostView?.let { Snackbar.make(it, textRes, BaseTransientBottomBar.LENGTH_LONG) }
+        ?.apply(::decorateSnackBar)
+
+private fun Fragment.decorateSnackBar(snackBar: Snackbar) {
+    with(snackBar) {
+        ViewCompat.setElevation(view, resources.getDimension(R.dimen.spacing_2))
+    }
 }

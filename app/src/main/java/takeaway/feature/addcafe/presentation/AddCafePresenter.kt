@@ -15,4 +15,17 @@ class AddCafePresenter @Inject constructor(
     fun onSendAddNewCafeClicked() {
 
     }
+
+    fun onSendAddNewCafeRepeatClick() {
+
+    }
+
+    private fun onSendFailed() {
+        view?.showFailSend()
+    }
+
+    private fun onSendSuccess() {
+        view?.showSuccessSend()
+        view?.disableSendButton()
+    }
 }
