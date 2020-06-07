@@ -143,7 +143,7 @@ class FeedFragment : BaseFragment(R.layout.feed_fragment), FeedView {
             positiveResult = {
                 presenter.onRetryClicked()
             }, negativeResult = {
-                //TODO(Заглушка с возможностью повторить)
+                presenter.onNegativeButtonClicked()
             }
         )
     }
@@ -153,7 +153,7 @@ class FeedFragment : BaseFragment(R.layout.feed_fragment), FeedView {
             positiveResult = {
                 presenter.onRetryClicked()
             }, negativeResult = {
-                //TODO(Заглушка с возможностью повторить)
+                presenter.onNegativeButtonClicked()
             }
         )
     }

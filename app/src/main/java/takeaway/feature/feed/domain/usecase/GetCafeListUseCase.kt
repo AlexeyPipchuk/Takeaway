@@ -5,6 +5,7 @@ import takeaway.feature.feed.domain.entity.Cafe
 import takeaway.feature.feed.domain.repository.CafeRepository
 import javax.inject.Inject
 
+//TODO(Вынести в shared поход за кафе)
 class GetCafeListUseCase @Inject constructor(
     private val repository: CafeRepository
 ) {

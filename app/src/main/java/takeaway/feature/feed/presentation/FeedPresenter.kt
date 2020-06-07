@@ -150,6 +150,10 @@ class FeedPresenter @Inject constructor(
         loadCafeList(useCache = false)
     }
 
+    fun onNegativeButtonClicked() {
+        router.navigateTo(Screen.NoInternetScreen)
+    }
+
     private fun handleError(error: Throwable) {
         //TODO(Сделать ErrorConverter)
         if (error is UnknownHostException || error is SocketTimeoutException) {

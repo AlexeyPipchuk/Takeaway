@@ -14,6 +14,7 @@ import takeaway.feature.feed.ui.FeedFragment
 import takeaway.feature.info.ui.InfoFragment
 import takeaway.feature.order.registration.ui.OrderRegistrationFragment
 import takeaway.feature.splash.ui.SplashFragment
+import takeaway.shared.nointernet.ui.NoInternetFragment
 import takeaway.shared.privacy.policy.ui.PrivacyPolicyFragment
 
 @Module
@@ -66,4 +67,8 @@ interface FragmentModule {
     @FragmentScope
     @ContributesAndroidInjector
     fun provideAddCafeFragment(): AddCafeFragment
+
+    @FragmentScope
+    @ContributesAndroidInjector
+    fun provideNoInternetFragment(): NoInternetFragment
 }

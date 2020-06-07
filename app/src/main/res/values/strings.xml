@@ -125,4 +125,10 @@
     <string name="send_add_new_cafe_request_snackbar_success">Заявка успешно отправлена</string>
     <string name="send_add_new_cafe_request_snackbar_fail">Произошла ошибка</string>
     <string name="send_add_new_cafe_request_snackbar_repeat">Повторить</string>
+    <string name="no_internet_title">К сожалению, достучаться до\u00A0сервера не\u00A0удалось</string>
+    <string name="no_internet_sorry">Приносим свои извинения</string>
+    <string name="no_internet_recommendation">Повторите попытку подключения или воспользуйтесь приложением позже</string>
+    <string name="no_internet_retry_button_text">Повторить подключение</string>
+    <string name="no_internet_takeaway_info_button">О Takeaway</string>
+    <string name="no_internet_offline_title">оффлайн доступ</string>
 </resources>

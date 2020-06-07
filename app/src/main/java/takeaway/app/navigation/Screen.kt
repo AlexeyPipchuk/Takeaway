@@ -10,6 +10,7 @@ import takeaway.feature.feed.ui.FeedFragment
 import takeaway.feature.info.ui.InfoFragment
 import takeaway.feature.order.registration.ui.OrderRegistrationFragment
 import takeaway.feature.splash.ui.SplashFragment
+import takeaway.shared.nointernet.ui.NoInternetFragment
 import takeaway.shared.order.registration.domain.entity.OrderSketch
 import takeaway.shared.privacy.policy.ui.PrivacyPolicyFragment
 
@@ -29,4 +30,5 @@ sealed class Screen(fragment: Fragment) : BaseScreen(fragment) {
         Screen(ConfirmationFragment.getInstance(orderId))
 
     object AddCafeScreen : Screen(AddCafeFragment.getInstance())
+    object NoInternetScreen : Screen(NoInternetFragment.getInstance())
 }
