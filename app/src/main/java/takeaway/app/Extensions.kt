@@ -77,20 +77,6 @@ fun Fragment.showNoInternetDialog(positiveResult: () -> Unit, negativeResult: ()
         .show()
 }
 
-fun Fragment.showSeveralCafeBasketWarningDialog(positiveResult: () -> Unit) {
-    MaterialAlertDialogBuilder(context, R.style.AlertDialog)
-        .setTitle(getString(R.string.several_cafe_basket_warning_title))
-        .setMessage(getString(R.string.several_cafe_basket_warning_message))
-        .setPositiveButton(getString(R.string.several_cafe_basket_warning_clear_approve)) { _, _ ->
-            positiveResult()
-        }
-        .setNegativeButton(getString(R.string.several_cafe_basket_warning_cancel_clear)) { _, _ ->
-            Unit
-        }
-        .setCancelable(false)
-        .show()
-}
-
 fun <T, U> Single<T>.zipWith(other: SingleSource<U>): Single<Pair<T, U>> =
     zipWith(other, BiFunction { t, u -> Pair(t, u) })
 

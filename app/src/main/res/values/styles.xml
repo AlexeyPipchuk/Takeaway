@@ -24,10 +24,18 @@
     </style>
 
     <style name="AlertDialog" parent="ThemeOverlay.MaterialComponents.MaterialAlertDialog">
-        <item name="buttonStyle">@style/TextAppearance.MaterialComponents.Button</item>
+        <item name="buttonBarNegativeButtonStyle">@style/AlertDialogButton</item>
+        <item name="buttonBarPositiveButtonStyle">@style/AlertDialogButton</item>
         <item name="android:colorPrimary">@color/colorPrimaryDark</item>
         <item name="materialAlertDialogTitleTextStyle">@style/AlertDialogTitle</item>
         <item name="materialAlertDialogBodyTextStyle">@style/DialogBody</item>
+    </style>
+
+    <style name="AlertDialogButton" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:fontFamily">@font/nunito_bold</item>
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:backgroundTint">@android:color/transparent</item>
+        <item name="android:elevation">0dp</item>
     </style>
 
     <style name="AlertDialogTitle" parent="MaterialAlertDialog.MaterialComponents.Title.Text">
