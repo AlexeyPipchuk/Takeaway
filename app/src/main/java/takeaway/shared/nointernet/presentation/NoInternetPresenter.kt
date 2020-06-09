@@ -19,7 +19,7 @@ class NoInternetPresenter @Inject constructor(
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(
                 {
-                    router.navigateTo(Screen.FeedScreen)
+                    router.replaceScreen(Screen.FeedScreen())
                 },
                 {
                     view?.hideProgress()

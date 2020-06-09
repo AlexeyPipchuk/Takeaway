@@ -23,19 +23,18 @@ class SplashPresenter @Inject constructor(
     }
 
     private fun loadCafeList() {
-        //for caching cafe
+        //for caching
         getCafeListUseCase(useCache = false)
             .zipWith(getCategoryListUseCase(useCache = false))
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(
                 {
                     view?.showStatusBar()
-                    router.newRootScreen(Screen.FeedScreen)
+                    router.newRootScreen(Screen.FeedScreen())
                 },
                 {
                     view?.showStatusBar()
-                    //попробуем еще раз на экране списка кафе, если нет, так диалог с ошибкой там уже будет
-                    router.newRootScreen(Screen.FeedScreen)
+                    router.newRootScreen(Screen.NoInternetScreen)
                 }
             )
             .addToDisposable()

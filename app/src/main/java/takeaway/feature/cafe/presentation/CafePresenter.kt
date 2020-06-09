@@ -132,6 +132,10 @@ class CafePresenter @Inject constructor(
         }
     }
 
+    fun onNegativeButtonClicked() {
+        router.newRootScreen(Screen.FeedScreen(noInternet = true))
+    }
+
     fun onScreenUpdated() {
         val actualBasketAmount = getBasketAmountUseCase()
         view?.setBasketAmount(actualBasketAmount)

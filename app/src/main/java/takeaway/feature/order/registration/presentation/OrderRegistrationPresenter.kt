@@ -13,6 +13,8 @@ import takeaway.feature.order.registration.domain.usecase.GetPhoneCountryPrefixU
 import takeaway.feature.order.registration.domain.usecase.validation.*
 import takeaway.shared.basket.domian.usecase.ClearBasketUseCase
 import takeaway.shared.order.registration.domain.entity.OrderSketch
+import java.net.SocketTimeoutException
+import java.net.UnknownHostException
 import javax.inject.Inject
 
 class OrderRegistrationPresenter @Inject constructor(
@@ -224,10 +226,27 @@ class OrderRegistrationPresenter @Inject constructor(
                 },
                 {
                     view?.hideProgress()
-                    //TODO(Обработать)
+                    handleError(it)
                 }
             )
             .addToDisposable()
+    }
+
+    private fun handleError(error: Throwable) {
+        //TODO(Сделать ErrorConverter)
+        if (error is UnknownHostException || error is SocketTimeoutException) {
+            view?.showNoInternetDialog()
+        } else {
+            view?.showServiceUnavailable()
+        }
+    }
+
+    fun onNegativeButtonClicked() {
+        router.newRootScreen(Screen.FeedScreen(noInternet = true))
+    }
+
+    fun onRetryClicked() {
+        createOrder()
     }
 
     fun onInputFieldFocusLost(value: String, field: OrderValidatorField) {

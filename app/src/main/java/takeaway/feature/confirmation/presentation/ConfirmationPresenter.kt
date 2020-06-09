@@ -17,10 +17,10 @@ class ConfirmationPresenter @Inject constructor(
     }
 
     fun onToMainPageBackClicked() {
-        router.backTo(Screen.FeedScreen)
+        router.backTo(Screen.FeedScreen())
     }
 
     fun onBackClicked() {
-        router.backTo(Screen.FeedScreen)
+        router.backTo(Screen.FeedScreen())
     }
 }

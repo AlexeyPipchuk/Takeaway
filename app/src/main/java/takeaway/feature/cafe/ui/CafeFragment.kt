@@ -119,7 +119,7 @@ class CafeFragment : BaseFragment(R.layout.cafe_fragment), CafeView {
             positiveResult = {
                 presenter.onRetryClicked()
             }, negativeResult = {
-                //TODO(Заглушка с возможностью повторить)
+                presenter.onNegativeButtonClicked()
             }
         )
     }
@@ -129,7 +129,7 @@ class CafeFragment : BaseFragment(R.layout.cafe_fragment), CafeView {
             positiveResult = {
                 presenter.onRetryClicked()
             }, negativeResult = {
-                //TODO(Заглушка с возможностью повторить)
+                presenter.onNegativeButtonClicked()
             }
         )
     }

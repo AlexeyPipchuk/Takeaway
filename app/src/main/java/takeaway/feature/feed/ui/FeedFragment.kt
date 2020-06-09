@@ -22,11 +22,20 @@ import takeaway.feature.feed.presentation.model.FeedItem
 import takeaway.feature.feed.promo.ui.PromoDialogFragment
 import javax.inject.Inject
 
+private const val NO_INTERNET_ARG = "NO_INTERNET"
+var Bundle.noInternet: Boolean
+    get() = getBoolean(NO_INTERNET_ARG)
+    set(value) = putBoolean(NO_INTERNET_ARG, value)
 
 class FeedFragment : BaseFragment(R.layout.feed_fragment), FeedView {
 
     companion object {
-        fun getInstance(): Fragment = FeedFragment()
+        fun getInstance(noInternet: Boolean): Fragment = FeedFragment()
+            .apply {
+                arguments = Bundle().apply {
+                    this.noInternet = noInternet
+                }
+            }
     }
 
     @Inject

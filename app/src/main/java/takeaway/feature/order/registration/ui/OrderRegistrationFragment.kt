@@ -220,6 +220,26 @@ class OrderRegistrationFragment : BaseFragment(R.layout.order_registration_fragm
         takeawayOptionLayout.isVisible = false
     }
 
+    override fun showNoInternetDialog() {
+        showNoInternetDialog(
+            positiveResult = {
+                presenter.onRetryClicked()
+            }, negativeResult = {
+                presenter.onNegativeButtonClicked()
+            }
+        )
+    }
+
+    override fun showServiceUnavailable() {
+        showServiceUnavailableDialog(
+            positiveResult = {
+                presenter.onRetryClicked()
+            }, negativeResult = {
+                presenter.onNegativeButtonClicked()
+            }
+        )
+    }
+
     override fun showBasketAmount(basketAmountWithoutAll: Int) {
         orderAmountPrice.text =
             getString(R.string.rubles_postfix).format(basketAmountWithoutAll.toString())

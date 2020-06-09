@@ -1,5 +1,6 @@
 package takeaway.feature.feed.presentation
 
+import android.os.Handler
 import io.reactivex.android.schedulers.AndroidSchedulers
 import ru.terrakok.cicerone.Router
 import takeaway.app.BasePresenter
@@ -18,7 +19,8 @@ import javax.inject.Inject
 
 class FeedPresenter @Inject constructor(
     private val getCafeListUseCase: GetCafeListUseCase,
-    private val router: Router
+    private val router: Router,
+    private val noInternet: Boolean
 ) : BasePresenter<FeedView>() {
 
     private var cafeListCache: List<Cafe>? = null
@@ -26,9 +28,17 @@ class FeedPresenter @Inject constructor(
 
     override fun onViewAttach() {
         super.onViewAttach()
-        fabMenuOpened = false
 
-        loadCafeList()
+        if (noInternet) {
+            //Прочекать pending transaction
+            Handler().post {
+                router.newRootScreen(Screen.NoInternetScreen)
+            }
+        } else {
+            fabMenuOpened = false
+
+            loadCafeList()
+        }
     }
 
     private fun loadCafeList(useCache: Boolean = true) {

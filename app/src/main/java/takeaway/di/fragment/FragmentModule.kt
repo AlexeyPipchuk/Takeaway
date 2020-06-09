@@ -25,7 +25,7 @@ interface FragmentModule {
     fun provideSplashFragment(): SplashFragment
 
     @FragmentScope
-    @ContributesAndroidInjector
+    @ContributesAndroidInjector(modules = [FeedFragmentModule::class])
     fun provideFeedFragment(): FeedFragment
 
     @FragmentScope

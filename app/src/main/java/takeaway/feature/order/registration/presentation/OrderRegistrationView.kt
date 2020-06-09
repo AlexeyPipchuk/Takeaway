@@ -68,6 +68,10 @@ interface OrderRegistrationView : TakeawayView {
 
     fun requestFocusOnFirstError()
 
+    fun showNoInternetDialog()
+
+    fun showServiceUnavailable()
+
     //Validation callbacks
 
     fun setNameValidationResult(error: String?)

@@ -17,7 +17,7 @@ import takeaway.shared.privacy.policy.ui.PrivacyPolicyFragment
 sealed class Screen(fragment: Fragment) : BaseScreen(fragment) {
 
     object SplashScreen : Screen(SplashFragment.getInstance())
-    object FeedScreen : Screen(FeedFragment.getInstance())
+    data class FeedScreen(val noInternet: Boolean = false) : Screen(FeedFragment.getInstance(noInternet))
     object InfoScreen : Screen(InfoFragment.getInstance())
     data class CafeScreen(val cafe: Cafe) : Screen(CafeFragment.getInstance(cafe))
     object BasketScreen : Screen(BasketFragment.getInstance())
