@@ -17,6 +17,6 @@ class GetCategoryListUseCase @Inject constructor(
             .map { categories ->
                 cafeCategories?.let {
                     categories.filter { cafeCategories.contains(it.id) }
-                }
+                } ?: categories
             }
 }
