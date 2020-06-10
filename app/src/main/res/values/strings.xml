@@ -131,4 +131,9 @@
     <string name="no_internet_retry_button_text">Повторить подключение</string>
     <string name="no_internet_takeaway_info_button">О Takeaway</string>
     <string name="no_internet_offline_title">оффлайн доступ</string>
+
+    //Success
+    <string name="success_order_id_text">Ваш заказ &lt;font color=#3216E7>#%1$s&lt;/font>&lt;br/>успешно подтвержден!</string>
+    <string name="success_go_to_feed_button_text">Перейти на главную</string>
+    <string name="success_message_under_title">Вскоре вам перезвонит менеджер. Возьмите трубку!</string>
 </resources>
