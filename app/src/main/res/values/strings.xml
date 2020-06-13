@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">Takeaway</string>
+    <string name="deep_link_scheme" translatable="false">takeaway</string>
+    <string name="deep_link_host" translatable="false">deep.takeaway.com</string>
+    <string name="https_scheme" translatable="false">https</string>
 
     //TODO(Отсортировать)
 

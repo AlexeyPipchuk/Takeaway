@@ -1,5 +1,6 @@
 package takeaway.app.activity
 
+import android.content.Intent
 import ru.terrakok.cicerone.Router
 import takeaway.app.BasePresenter
 import takeaway.app.navigation.Screen
@@ -9,7 +10,7 @@ class MainActivityPresenter @Inject constructor(
     private val router: Router
 ) : BasePresenter<MainActivityView>() {
 
-    fun onBackStackIsEmpty() {
-        router.newRootScreen(Screen.SplashScreen)
+    fun onBackStackIsEmpty(intent: Intent) {
+        router.newRootScreen(Screen.SplashScreen(intent.data))
     }
 }

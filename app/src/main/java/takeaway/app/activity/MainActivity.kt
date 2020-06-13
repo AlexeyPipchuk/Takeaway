@@ -32,7 +32,7 @@ class MainActivity @Inject constructor() : DaggerAppCompatActivity(), MainActivi
 
     private fun checkFirstStart() {
         if (supportFragmentManager.backStackEntryCount == 0) {
-            presenter.onBackStackIsEmpty()
+            presenter.onBackStackIsEmpty(intent)
         }
     }
 

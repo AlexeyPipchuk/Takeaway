@@ -22,7 +22,7 @@ import takeaway.shared.privacy.policy.ui.PrivacyPolicyFragment
 interface FragmentModule {
 
     @FragmentScope
-    @ContributesAndroidInjector
+    @ContributesAndroidInjector(modules = [SplashFragmentModule::class])
     fun provideSplashFragment(): SplashFragment
 
     @FragmentScope

@@ -3,7 +3,7 @@
     package="com.example.takeaway">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
     <application
         android:name="takeaway.app.App"
@@ -13,16 +13,31 @@
         android:roundIcon="@mipmap/ic_launcher_takeaway_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity
             android:name="takeaway.app.activity.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.Splash">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="@string/deep_link_host"
+                    android:scheme="@string/https_scheme" />
+            </intent-filter>
+
         </activity>
+
     </application>
 
 </manifest>

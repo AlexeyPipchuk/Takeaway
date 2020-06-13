@@ -6,7 +6,9 @@ import dagger.Provides
 import dagger.android.AndroidInjectionModule
 import dagger.android.ContributesAndroidInjector
 import takeaway.app.App
+import takeaway.app.DeepLinkDefiner
 import takeaway.app.activity.MainActivity
+import takeaway.app.navigation.DeepLinkValidator
 import takeaway.di.fragment.FragmentModule
 
 @Module(
@@ -28,6 +30,16 @@ abstract class AppModule {
         fun provideContext(app: App): Context =
             app.applicationContext
 
+        @JvmStatic
+        @AppScope
+        @Provides
+        fun provideDeepLinkDefiner(): DeepLinkDefiner = DeepLinkDefiner()
+
+        @JvmStatic
+        @AppScope
+        @Provides
+        fun provideDeepLinkValidator(app: App): DeepLinkValidator =
+            DeepLinkValidator(app.applicationContext)
     }
 
     @ActivityScope

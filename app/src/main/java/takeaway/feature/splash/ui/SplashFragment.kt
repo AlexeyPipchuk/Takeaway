@@ -1,5 +1,6 @@
 package takeaway.feature.splash.ui
 
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
@@ -12,8 +13,12 @@ import takeaway.feature.splash.presentation.SplashPresenter
 import takeaway.feature.splash.presentation.SplashView
 import javax.inject.Inject
 
-class SplashFragment : BaseFragment(R.layout.splash_fragment),
-    SplashView {
+private const val DEEP_LINK_ARG = "DEEP_LINK_ARG"
+var Bundle.deepLink: Uri?
+    get() = getParcelable(DEEP_LINK_ARG)
+    set(value) = putParcelable(DEEP_LINK_ARG, value)
+
+class SplashFragment : BaseFragment(R.layout.splash_fragment), SplashView {
 
     private val windowInsetListener = View.OnApplyWindowInsetsListener { windowView, insets ->
         splashView?.updateLayoutParams<ViewGroup.MarginLayoutParams> {
@@ -24,7 +29,11 @@ class SplashFragment : BaseFragment(R.layout.splash_fragment),
     }
 
     companion object {
-        fun getInstance(): Fragment = SplashFragment()
+        fun getInstance(deepLink: Uri? = null): Fragment = SplashFragment().apply {
+            arguments = Bundle().apply {
+                this.deepLink = deepLink
+            }
+        }
     }
 
     @Inject

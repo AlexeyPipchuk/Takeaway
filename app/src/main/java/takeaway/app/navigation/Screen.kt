@@ -1,5 +1,6 @@
 package takeaway.app.navigation
 
+import android.net.Uri
 import androidx.fragment.app.Fragment
 import takeaway.feature.addcafe.ui.AddCafeFragment
 import takeaway.feature.basket.ui.BasketFragment
@@ -17,7 +18,7 @@ import takeaway.shared.privacy.policy.ui.PrivacyPolicyFragment
 
 sealed class Screen(fragment: Fragment) : BaseScreen(fragment) {
 
-    object SplashScreen : Screen(SplashFragment.getInstance())
+    data class SplashScreen(val deepLink: Uri?) : Screen(SplashFragment.getInstance(deepLink))
     data class FeedScreen(val noInternet: Boolean = false) :
         Screen(FeedFragment.getInstance(noInternet))
 
