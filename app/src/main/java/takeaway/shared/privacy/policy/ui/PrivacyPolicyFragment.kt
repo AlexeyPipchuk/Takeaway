@@ -34,7 +34,6 @@ class PrivacyPolicyFragment : BaseFragment(R.layout.privacy_policy_fragment), Pr
 
     override fun onDestroyView() {
         super.onDestroyView()
-
         presenter.detachView()
     }
 }

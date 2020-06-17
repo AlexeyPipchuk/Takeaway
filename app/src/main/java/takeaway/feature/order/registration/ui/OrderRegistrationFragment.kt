@@ -383,7 +383,6 @@ class OrderRegistrationFragment : BaseFragment(R.layout.order_registration_fragm
 
     override fun onDestroyView() {
         super.onDestroyView()
-
         presenter.detachView()
     }
 }

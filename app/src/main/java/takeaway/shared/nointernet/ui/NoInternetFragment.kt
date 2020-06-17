@@ -56,7 +56,6 @@ class NoInternetFragment : BaseFragment(R.layout.no_internet_fragment), NoIntern
 
     override fun onDestroyView() {
         super.onDestroyView()
-
         presenter.detachView()
     }
 }

@@ -55,8 +55,6 @@ class InfoFragment : BaseFragment(R.layout.info_fragment), InfoView {
 
     override fun onDestroyView() {
         super.onDestroyView()
-
-        //TODO(Внести в базу каким нибудь образом)
         presenter.detachView()
     }
 }

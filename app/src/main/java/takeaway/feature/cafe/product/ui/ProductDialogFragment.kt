@@ -110,11 +110,6 @@ class ProductDialogFragment : BaseDialogFragment(R.layout.product_dialog_fragmen
         }
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        presenter.detachView()
-    }
-
     override fun showProductInfo(product: Product) {
         if (product.imgUrl != null) {
             productImg.isVisible = true
@@ -184,4 +179,9 @@ class ProductDialogFragment : BaseDialogFragment(R.layout.product_dialog_fragmen
 
     private fun String.cutCurrency(): String =
         this.replace(ROUBLE_CURRENCY_POSTFIX, "")
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        presenter.detachView()
+    }
 }

@@ -65,11 +65,6 @@ class BasketFragment : BaseFragment(R.layout.basket_fragment), BasketView {
         emptyBasketText.isVisible = true
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        presenter.detachView()
-    }
-
     override fun setBasketAmount(basketAmount: Int) {
         orderAmountPrice.text = getString(R.string.rubles_postfix).format(basketAmount)
     }
@@ -108,5 +103,10 @@ class BasketFragment : BaseFragment(R.layout.basket_fragment), BasketView {
         minimumAmountForFreeDeliveryMessage.isVisible = false
         deliveryPriceCalculatedText.isVisible = false
         messageForFreeDelivery.isVisible = false
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        presenter.detachView()
     }
 }

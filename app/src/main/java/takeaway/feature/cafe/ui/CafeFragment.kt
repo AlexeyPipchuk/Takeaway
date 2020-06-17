@@ -97,13 +97,6 @@ class CafeFragment : BaseFragment(R.layout.cafe_fragment), CafeView {
         productAdapter?.productList = productList
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-
-        //TODO(Внести в базу каким нибудь образом)
-        presenter.detachView()
-    }
-
     override fun showProgress() {
         progressBar.isVisible = true
         content.isVisible = false
@@ -204,5 +197,10 @@ class CafeFragment : BaseFragment(R.layout.cafe_fragment), CafeView {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         presenter.onScreenUpdated()
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        presenter.detachView()
     }
 }

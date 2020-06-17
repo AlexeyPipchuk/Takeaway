@@ -216,8 +216,6 @@ class FeedFragment : BaseFragment(R.layout.feed_fragment), FeedView {
 
     override fun onDestroyView() {
         super.onDestroyView()
-
-        //TODO(Внести в базу каким нибудь образом)
         presenter.detachView()
     }
 }

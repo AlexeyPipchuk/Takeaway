@@ -56,7 +56,6 @@ class ConfirmationFragment : BaseFragment(R.layout.confirmation_fragment), Confi
 
     override fun onDestroyView() {
         super.onDestroyView()
-
         presenter.detachView()
     }
 }

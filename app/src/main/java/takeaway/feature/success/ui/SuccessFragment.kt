@@ -57,7 +57,6 @@ class SuccessFragment : BaseFragment(R.layout.success_fragment), SuccessView {
 
     override fun onDestroyView() {
         super.onDestroyView()
-
         presenter.detachView()
     }
 }
