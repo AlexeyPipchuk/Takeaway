@@ -3,6 +3,8 @@ package takeaway.di
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
+import data.repository.PhoneCountryRepositoryImpl
+import domain.repository.PhoneCountryRepository
 import retrofit2.Retrofit
 import takeaway.feature.feed.data.api.CafeApi
 import takeaway.feature.feed.data.datasource.CafeDataSource
@@ -56,6 +58,10 @@ abstract class DataModule {
 
     @AppScope
     @Binds
+    abstract fun providePhoneCountryRepository(repository: PhoneCountryRepositoryImpl): PhoneCountryRepository
+
+    @AppScope
+    @Binds
     abstract fun provideCreateOrderRepository(repository: CreateOrderRepositoryImpl): CreateOrderRepository
 
     @AppScope
@@ -65,6 +71,8 @@ abstract class DataModule {
     @AppScope
     @Binds
     abstract fun provideCategoryDataSource(dataSource: CategoryDataSourceImpl): CategoryDataSource
+
+    // API
 
     @Module
     companion object {

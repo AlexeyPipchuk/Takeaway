@@ -1,5 +1,6 @@
 package takeaway.feature.order.registration.presentation
 
+import domain.usecase.GetPhoneCountryPrefixUseCase
 import io.reactivex.android.schedulers.AndroidSchedulers
 import ru.terrakok.cicerone.Router
 import takeaway.app.BasePresenter
@@ -11,7 +12,6 @@ import takeaway.feature.order.registration.domain.entity.Order
 import takeaway.feature.order.registration.domain.entity.OrderValidatorField
 import takeaway.feature.order.registration.domain.entity.ReceiveMethod
 import takeaway.feature.order.registration.domain.usecase.CreateOrderUseCase
-import takeaway.feature.order.registration.domain.usecase.GetPhoneCountryPrefixUseCase
 import takeaway.feature.order.registration.domain.usecase.validation.*
 import takeaway.shared.basket.domian.usecase.ClearBasketUseCase
 import takeaway.shared.order.registration.domain.entity.OrderSketch
