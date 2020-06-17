@@ -1,19 +1,19 @@
 package takeaway.feature.cafe.product.presentation
 
 import takeaway.app.BasePresenter
-import takeaway.shared.cafe.domain.entity.Product
 import takeaway.feature.feed.domain.entity.Cafe
 import takeaway.shared.basket.domian.usecase.AddToBasketUseCase
 import takeaway.shared.basket.domian.usecase.ClearBasketUseCase
 import takeaway.shared.basket.domian.usecase.GetBasketCafeIdUseCase
+import takeaway.shared.cafe.domain.entity.Product
 import javax.inject.Inject
 
 class ProductPresenter @Inject constructor(
-    private val product: Product,
-    private val cafe: Cafe,
     private val getBasketCafeIdUseCase: GetBasketCafeIdUseCase,
     private val clearBasketUseCase: ClearBasketUseCase,
-    private val addToBasketUseCase: AddToBasketUseCase
+    private val addToBasketUseCase: AddToBasketUseCase,
+    private val product: Product,
+    private val cafe: Cafe
 ) : BasePresenter<ProductView>() {
 
     override fun onViewAttach() {

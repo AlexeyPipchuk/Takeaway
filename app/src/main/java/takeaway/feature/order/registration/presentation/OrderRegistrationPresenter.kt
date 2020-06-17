@@ -3,6 +3,8 @@ package takeaway.feature.order.registration.presentation
 import io.reactivex.android.schedulers.AndroidSchedulers
 import ru.terrakok.cicerone.Router
 import takeaway.app.BasePresenter
+import takeaway.app.ErrorConverter
+import takeaway.app.ErrorType
 import takeaway.app.getIntervalListBetween
 import takeaway.app.navigation.Screen
 import takeaway.feature.order.registration.domain.entity.Order
@@ -13,8 +15,6 @@ import takeaway.feature.order.registration.domain.usecase.GetPhoneCountryPrefixU
 import takeaway.feature.order.registration.domain.usecase.validation.*
 import takeaway.shared.basket.domian.usecase.ClearBasketUseCase
 import takeaway.shared.order.registration.domain.entity.OrderSketch
-import java.net.SocketTimeoutException
-import java.net.UnknownHostException
 import javax.inject.Inject
 
 class OrderRegistrationPresenter @Inject constructor(
@@ -27,8 +27,9 @@ class OrderRegistrationPresenter @Inject constructor(
     private val clearBasketUseCase: ClearBasketUseCase,
     private val createOrderUseCase: CreateOrderUseCase,
     private val getPhoneCountryPrefixUseCase: GetPhoneCountryPrefixUseCase,
-    private val orderSketch: OrderSketch,
-    private val router: Router
+    private val errorConverter: ErrorConverter,
+    private val router: Router,
+    private val orderSketch: OrderSketch
 ) : BasePresenter<OrderRegistrationView>() {
 
     var order = Order.EMPTY.copy(cafe = orderSketch.cafe, productMap = orderSketch.products)
@@ -233,11 +234,9 @@ class OrderRegistrationPresenter @Inject constructor(
     }
 
     private fun handleError(error: Throwable) {
-        //TODO(Сделать ErrorConverter)
-        if (error is UnknownHostException || error is SocketTimeoutException) {
-            view?.showNoInternetDialog()
-        } else {
-            view?.showServiceUnavailable()
+        when (errorConverter.convert(error)) {
+            ErrorType.BAD_INTERNET -> view?.showNoInternetDialog()
+            ErrorType.SERVICE_UNAVAILABLE -> view?.showServiceUnavailable()
         }
     }
 

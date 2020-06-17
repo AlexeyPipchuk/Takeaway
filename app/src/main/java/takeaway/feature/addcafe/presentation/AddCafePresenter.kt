@@ -30,8 +30,8 @@ class AddCafePresenter @Inject constructor(
     private var newCafeRequest = NewCafeRequest("", "", "")
 
     fun onBackClicked() {
-        router.exit()
         view?.clearFields()
+        router.exit()
     }
 
     fun onInputFieldFocusLost(value: String, field: NewCafeValidatorField) {

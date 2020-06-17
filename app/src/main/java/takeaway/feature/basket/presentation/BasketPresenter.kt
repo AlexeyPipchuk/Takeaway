@@ -15,11 +15,11 @@ import takeaway.shared.order.registration.domain.entity.OrderSketch
 import javax.inject.Inject
 
 class BasketPresenter @Inject constructor(
-    private val router: Router,
     private val getBasketUseCase: GetBasketUseCase,
     private val deleteProductFromBasketUseCase: DeleteProductFromBasketUseCase,
     private val clearBasketUseCase: ClearBasketUseCase,
-    private val getBasketAmountUseCase: GetBasketAmountUseCase
+    private val getBasketAmountUseCase: GetBasketAmountUseCase,
+    private val router: Router
 ) : BasePresenter<BasketView>() {
 
     private var deliveryDiscountCalculated = 0

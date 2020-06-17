@@ -4,6 +4,8 @@ import android.os.Handler
 import io.reactivex.android.schedulers.AndroidSchedulers
 import ru.terrakok.cicerone.Router
 import takeaway.app.BasePresenter
+import takeaway.app.ErrorConverter
+import takeaway.app.ErrorType
 import takeaway.app.navigation.Screen
 import takeaway.feature.feed.domain.entity.Cafe
 import takeaway.feature.feed.domain.usecase.GetCafeListUseCase
@@ -12,13 +14,12 @@ import takeaway.feature.feed.presentation.model.FeedItem
 import takeaway.feature.feed.presentation.model.Promo
 import takeaway.feature.feed.presentation.model.Separator
 import takeaway.feature.feed.ui.FeedView
-import java.net.SocketTimeoutException
-import java.net.UnknownHostException
 import java.util.*
 import javax.inject.Inject
 
 class FeedPresenter @Inject constructor(
     private val getCafeListUseCase: GetCafeListUseCase,
+    private val errorConverter: ErrorConverter,
     private val router: Router,
     private val noInternet: Boolean
 ) : BasePresenter<FeedView>() {
@@ -165,11 +166,9 @@ class FeedPresenter @Inject constructor(
     }
 
     private fun handleError(error: Throwable) {
-        //TODO(Сделать ErrorConverter)
-        if (error is UnknownHostException || error is SocketTimeoutException) {
-            view?.showNoInternetDialog()
-        } else {
-            view?.showServiceUnavailable()
+        when (errorConverter.convert(error)) {
+            ErrorType.BAD_INTERNET -> view?.showNoInternetDialog()
+            ErrorType.SERVICE_UNAVAILABLE -> view?.showServiceUnavailable()
         }
     }
 }

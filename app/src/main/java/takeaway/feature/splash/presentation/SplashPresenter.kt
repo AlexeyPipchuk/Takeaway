@@ -14,13 +14,14 @@ import takeaway.shared.category.domain.usecase.GetCategoryListUseCase
 import javax.inject.Inject
 
 class SplashPresenter @Inject constructor(
-    private val router: Router,
-    private val deepLinkDefiner: DeepLinkDefiner,
     private val getCafeListUseCase: GetCafeListUseCase,
     private val getCategoryListUseCase: GetCategoryListUseCase,
     private val getDeepLinkUseCase: GetDeepLinkUseCase,
+    private val deepLinkDefiner: DeepLinkDefiner,
+    private val deepLinkValidator: DeepLinkValidator,
     private val deepLink: String?,
-    private val deepLinkValidator: DeepLinkValidator
+    private val router: Router
+
 ) : BasePresenter<SplashView>() {
 
     override fun onViewAttach() {
