@@ -9,6 +9,9 @@ import takeaway.feature.feed.data.datasource.CafeDataSource
 import takeaway.feature.feed.data.datasource.CafeDataSourceImpl
 import takeaway.feature.feed.data.repository.CafeRepositoryImpl
 import takeaway.feature.feed.domain.repository.CafeRepository
+import takeaway.feature.order.registration.data.network.OrderApi
+import takeaway.feature.order.registration.data.repository.CreateOrderRepositoryImpl
+import takeaway.feature.order.registration.domain.repository.CreateOrderRepository
 import takeaway.shared.basket.data.datasource.BasketDataSource
 import takeaway.shared.basket.data.datasource.BasketDataSourceImpl
 import takeaway.shared.basket.data.repository.BasketRepositoryImpl
@@ -53,6 +56,10 @@ abstract class DataModule {
 
     @AppScope
     @Binds
+    abstract fun provideCreateOrderRepository(repository: CreateOrderRepositoryImpl): CreateOrderRepository
+
+    @AppScope
+    @Binds
     abstract fun provideBasketDataSource(dataSource: BasketDataSourceImpl): BasketDataSource
 
     @AppScope
@@ -76,5 +83,10 @@ abstract class DataModule {
         @Provides
         fun provideCategoryApi(retrofit: Retrofit): CategoryApi =
             retrofit.create(CategoryApi::class.java)
+
+        @JvmStatic
+        @Provides
+        fun provideCreateOrderApi(retrofit: Retrofit): OrderApi =
+            retrofit.create(OrderApi::class.java)
     }
 }
