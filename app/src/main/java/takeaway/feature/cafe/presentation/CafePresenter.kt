@@ -6,12 +6,12 @@ import takeaway.app.*
 import takeaway.app.navigation.Screen
 import takeaway.feature.cafe.presentation.model.CategoryItem
 import takeaway.feature.cafe.ui.CafeView
-import takeaway.feature.feed.domain.entity.Cafe
 import takeaway.shared.basket.domian.usecase.GetBasketAmountUseCase
 import takeaway.shared.cafe.domain.entity.Product
 import takeaway.shared.cafe.domain.usecase.GetProductListUseCase
 import takeaway.shared.category.domain.entity.Category
 import takeaway.shared.category.domain.usecase.GetCategoryListUseCase
+import takeaway.shared_cafe.domain.entity.Cafe
 import javax.inject.Inject
 
 class CafePresenter @Inject constructor(

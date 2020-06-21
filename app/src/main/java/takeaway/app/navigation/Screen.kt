@@ -6,7 +6,6 @@ import takeaway.feature.addcafe.ui.AddCafeFragment
 import takeaway.feature.basket.ui.BasketFragment
 import takeaway.feature.cafe.ui.CafeFragment
 import takeaway.feature.confirmation.ui.ConfirmationFragment
-import takeaway.feature.feed.domain.entity.Cafe
 import takeaway.feature.feed.ui.FeedFragment
 import takeaway.feature.info.ui.InfoFragment
 import takeaway.feature.order.registration.ui.OrderRegistrationFragment
@@ -15,6 +14,7 @@ import takeaway.feature.success.ui.SuccessFragment
 import takeaway.shared.nointernet.ui.NoInternetFragment
 import takeaway.shared.order.registration.domain.entity.OrderSketch
 import takeaway.shared.privacy.policy.ui.PrivacyPolicyFragment
+import takeaway.shared_cafe.domain.entity.Cafe
 
 sealed class Screen(fragment: Fragment) : BaseScreen(fragment) {
 

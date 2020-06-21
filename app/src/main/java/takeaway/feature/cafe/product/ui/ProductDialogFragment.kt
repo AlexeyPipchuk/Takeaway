@@ -18,8 +18,8 @@ import takeaway.feature.cafe.product.presentation.ProductPresenter
 import takeaway.feature.cafe.product.presentation.ProductView
 import takeaway.feature.cafe.product.severalcafe.SeveralCafeWarningDialogFragment
 import takeaway.feature.cafe.product.severalcafe.SeveralCafeWarningDialogFragment.Companion.ACCEPT_RESULT
-import takeaway.feature.feed.domain.entity.Cafe
 import takeaway.shared.cafe.domain.entity.Product
+import takeaway.shared_cafe.domain.entity.Cafe
 import javax.inject.Inject
 
 private const val PRODUCT_ARG = "PRODUCT"

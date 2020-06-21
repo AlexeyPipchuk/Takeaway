@@ -1,11 +1,11 @@
 package takeaway.feature.cafe.product.presentation
 
 import takeaway.app.BasePresenter
-import takeaway.feature.feed.domain.entity.Cafe
 import takeaway.shared.basket.domian.usecase.AddToBasketUseCase
 import takeaway.shared.basket.domian.usecase.ClearBasketUseCase
 import takeaway.shared.basket.domian.usecase.GetBasketCafeIdUseCase
 import takeaway.shared.cafe.domain.entity.Product
+import takeaway.shared_cafe.domain.entity.Cafe
 import javax.inject.Inject
 
 class ProductPresenter @Inject constructor(

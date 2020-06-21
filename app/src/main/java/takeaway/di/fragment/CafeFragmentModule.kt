@@ -6,7 +6,7 @@ import takeaway.app.args
 import takeaway.di.FragmentScope
 import takeaway.feature.cafe.ui.CafeFragment
 import takeaway.feature.cafe.ui.cafe
-import takeaway.feature.feed.domain.entity.Cafe
+import takeaway.shared_cafe.domain.entity.Cafe
 
 @Module
 object CafeFragmentModule {

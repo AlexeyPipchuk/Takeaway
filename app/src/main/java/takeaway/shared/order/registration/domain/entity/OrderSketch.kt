@@ -1,7 +1,7 @@
 package takeaway.shared.order.registration.domain.entity
 
-import takeaway.feature.feed.domain.entity.Cafe
 import takeaway.shared.cafe.domain.entity.Product
+import takeaway.shared_cafe.domain.entity.Cafe
 import java.io.Serializable
 
 data class OrderSketch(

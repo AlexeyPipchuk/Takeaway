@@ -7,13 +7,13 @@ import takeaway.app.BasePresenter
 import takeaway.app.ErrorConverter
 import takeaway.app.ErrorType
 import takeaway.app.navigation.Screen
-import takeaway.feature.feed.domain.entity.Cafe
-import takeaway.feature.feed.domain.usecase.GetCafeListUseCase
 import takeaway.feature.feed.presentation.model.CafeItem
 import takeaway.feature.feed.presentation.model.FeedItem
 import takeaway.feature.feed.presentation.model.Promo
 import takeaway.feature.feed.presentation.model.Separator
 import takeaway.feature.feed.ui.FeedView
+import takeaway.shared_cafe.domain.entity.Cafe
+import takeaway.shared_cafe.domain.usecase.GetCafeListUseCase
 import java.util.*
 import javax.inject.Inject
 

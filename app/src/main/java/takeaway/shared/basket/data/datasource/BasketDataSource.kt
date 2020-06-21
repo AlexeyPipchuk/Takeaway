@@ -1,8 +1,8 @@
 package takeaway.shared.basket.data.datasource
 
-import takeaway.feature.feed.domain.entity.Cafe
 import takeaway.shared.basket.domian.entity.Basket
 import takeaway.shared.cafe.domain.entity.Product
+import takeaway.shared_cafe.domain.entity.Cafe
 import javax.inject.Inject
 
 class BasketDataSource @Inject constructor() {

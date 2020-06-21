@@ -1,10 +1,10 @@
-package takeaway.feature.feed.data.datasource
+package takeaway.shared_cafe.data.datasource
 
 import io.reactivex.Single
 import io.reactivex.schedulers.Schedulers
-import takeaway.feature.feed.data.api.CafeApi
-import takeaway.feature.feed.data.model.CafeListResponse
-import takeaway.feature.feed.domain.entity.Cafe
+import takeaway.shared_cafe.data.api.CafeApi
+import takeaway.shared_cafe.data.model.CafeListResponse
+import takeaway.shared_cafe.domain.entity.Cafe
 import javax.inject.Inject
 
 class CafeDataSource @Inject constructor(

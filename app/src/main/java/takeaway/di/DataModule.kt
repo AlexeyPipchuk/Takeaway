@@ -6,9 +6,6 @@ import dagger.Provides
 import data.repository.PhoneCountryRepositoryImpl
 import domain.repository.PhoneCountryRepository
 import retrofit2.Retrofit
-import takeaway.feature.feed.data.api.CafeApi
-import takeaway.feature.feed.data.repository.CafeRepositoryImpl
-import takeaway.feature.feed.domain.repository.CafeRepository
 import takeaway.feature.order.registration.data.network.OrderApi
 import takeaway.feature.order.registration.data.repository.CreateOrderRepositoryImpl
 import takeaway.feature.order.registration.domain.repository.CreateOrderRepository
@@ -20,6 +17,9 @@ import takeaway.shared.cafe.domain.repository.ProductRepository
 import takeaway.shared.category.data.api.CategoryApi
 import takeaway.shared.category.data.repository.CategoryRepositoryImpl
 import takeaway.shared.category.domain.repository.CategoryRepository
+import takeaway.shared_cafe.data.api.CafeApi
+import takeaway.shared_cafe.data.repository.CafeRepositoryImpl
+import takeaway.shared_cafe.domain.repository.CafeRepository
 
 @Module
 abstract class DataModule {

@@ -1,9 +1,9 @@
-package takeaway.feature.feed.data.repository
+package takeaway.shared_cafe.data.repository
 
 import io.reactivex.Single
-import takeaway.feature.feed.data.datasource.CafeDataSource
-import takeaway.feature.feed.domain.entity.Cafe
-import takeaway.feature.feed.domain.repository.CafeRepository
+import takeaway.shared_cafe.data.datasource.CafeDataSource
+import takeaway.shared_cafe.domain.entity.Cafe
+import takeaway.shared_cafe.domain.repository.CafeRepository
 import javax.inject.Inject
 
 class CafeRepositoryImpl @Inject constructor(

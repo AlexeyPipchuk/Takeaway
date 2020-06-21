@@ -1,8 +1,8 @@
 package takeaway.shared.basket.domian.usecase
 
-import takeaway.shared.cafe.domain.entity.Product
-import takeaway.feature.feed.domain.entity.Cafe
 import takeaway.shared.basket.domian.repository.BasketRepository
+import takeaway.shared.cafe.domain.entity.Product
+import takeaway.shared_cafe.domain.entity.Cafe
 import javax.inject.Inject
 
 class AddToBasketUseCase @Inject constructor(

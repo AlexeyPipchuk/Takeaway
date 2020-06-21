@@ -10,7 +10,7 @@ import takeaway.app.BaseFragment
 import takeaway.app.loadImage
 import takeaway.feature.basket.model.BasketItem
 import takeaway.feature.basket.presentation.BasketPresenter
-import takeaway.feature.feed.domain.entity.Cafe
+import takeaway.shared_cafe.domain.entity.Cafe
 import javax.inject.Inject
 
 class BasketFragment : BaseFragment(R.layout.basket_fragment), BasketView {

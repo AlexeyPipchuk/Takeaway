@@ -14,8 +14,8 @@ import takeaway.feature.cafe.presentation.CafePresenter
 import takeaway.feature.cafe.presentation.model.CategoryItem
 import takeaway.feature.cafe.product.ui.ProductAdapter
 import takeaway.feature.cafe.product.ui.ProductDialogFragment
-import takeaway.feature.feed.domain.entity.Cafe
 import takeaway.shared.cafe.domain.entity.Product
+import takeaway.shared_cafe.domain.entity.Cafe
 import javax.inject.Inject
 
 private const val CAFE_ARG = "CAFE"

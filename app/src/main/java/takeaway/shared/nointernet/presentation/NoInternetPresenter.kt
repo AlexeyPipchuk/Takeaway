@@ -4,7 +4,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import ru.terrakok.cicerone.Router
 import takeaway.app.BasePresenter
 import takeaway.app.navigation.Screen
-import takeaway.feature.feed.domain.usecase.GetCafeListUseCase
+import takeaway.shared_cafe.domain.usecase.GetCafeListUseCase
 import javax.inject.Inject
 
 class NoInternetPresenter @Inject constructor(

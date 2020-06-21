@@ -1,7 +1,7 @@
 package takeaway.feature.order.registration.domain.entity
 
-import takeaway.feature.feed.domain.entity.Cafe
 import takeaway.shared.cafe.domain.entity.Product
+import takeaway.shared_cafe.domain.entity.Cafe
 
 data class Order(
     val cafe: Cafe?,

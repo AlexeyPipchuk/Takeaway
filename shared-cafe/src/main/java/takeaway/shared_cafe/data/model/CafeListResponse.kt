@@ -1,7 +1,7 @@
-package takeaway.feature.feed.data.model
+package takeaway.shared_cafe.data.model
 
-import takeaway.feature.feed.domain.entity.Cafe
 import com.google.gson.annotations.SerializedName
+import takeaway.shared_cafe.domain.entity.Cafe
 
 data class CafeListResponse(
     @SerializedName("items") val cafeList: List<Cafe>,

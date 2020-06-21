@@ -1,9 +1,9 @@
-package takeaway.feature.feed.data.api
+package takeaway.shared_cafe.data.api
 
-import takeaway.feature.feed.data.model.CafeListResponse
 import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Query
+import takeaway.shared_cafe.data.model.CafeListResponse
 
 interface CafeApi {
 

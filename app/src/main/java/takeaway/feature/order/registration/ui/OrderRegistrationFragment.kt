@@ -12,11 +12,11 @@ import com.redmadrobot.inputmask.MaskedTextChangedListener
 import com.redmadrobot.inputmask.helper.AffinityCalculationStrategy
 import kotlinx.android.synthetic.main.order_registration_fragment.*
 import takeaway.app.*
-import takeaway.feature.feed.domain.entity.Cafe
 import takeaway.feature.order.registration.domain.entity.OrderValidatorField
 import takeaway.feature.order.registration.presentation.OrderRegistrationPresenter
 import takeaway.feature.order.registration.presentation.OrderRegistrationView
 import takeaway.shared.order.registration.domain.entity.OrderSketch
+import takeaway.shared_cafe.domain.entity.Cafe
 import javax.inject.Inject
 
 private const val ORDER_SKETCH_ARG = "ORDER_SKETCH"

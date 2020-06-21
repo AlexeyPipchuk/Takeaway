@@ -2,8 +2,8 @@ package takeaway.feature.cafe.ui
 
 import takeaway.app.TakeawayView
 import takeaway.feature.cafe.presentation.model.CategoryItem
-import takeaway.feature.feed.domain.entity.Cafe
 import takeaway.shared.cafe.domain.entity.Product
+import takeaway.shared_cafe.domain.entity.Cafe
 
 interface CafeView : TakeawayView {
 

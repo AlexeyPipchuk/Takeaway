@@ -7,10 +7,10 @@ import takeaway.app.DeepLinkDefiner
 import takeaway.app.navigation.DeepLinkValidator
 import takeaway.app.navigation.Screen
 import takeaway.app.zipWith
-import takeaway.feature.feed.domain.usecase.GetCafeListUseCase
 import takeaway.feature.splash.domain.entity.DeepLink
 import takeaway.feature.splash.domain.usecase.GetDeepLinkUseCase
 import takeaway.shared.category.domain.usecase.GetCategoryListUseCase
+import takeaway.shared_cafe.domain.usecase.GetCafeListUseCase
 import javax.inject.Inject
 
 class SplashPresenter @Inject constructor(

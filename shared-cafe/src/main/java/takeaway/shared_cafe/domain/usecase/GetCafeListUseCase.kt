@@ -1,11 +1,10 @@
-package takeaway.feature.feed.domain.usecase
+package takeaway.shared_cafe.domain.usecase
 
 import io.reactivex.Single
-import takeaway.feature.feed.domain.entity.Cafe
-import takeaway.feature.feed.domain.repository.CafeRepository
+import takeaway.shared_cafe.domain.entity.Cafe
+import takeaway.shared_cafe.domain.repository.CafeRepository
 import javax.inject.Inject
 
-//TODO(Вынести в shared поход за кафе)
 class GetCafeListUseCase @Inject constructor(
     private val repository: CafeRepository
 ) {

@@ -1,7 +1,7 @@
-package takeaway.feature.feed.domain.repository
+package takeaway.shared_cafe.domain.repository
 
 import io.reactivex.Single
-import takeaway.feature.feed.domain.entity.Cafe
+import takeaway.shared_cafe.domain.entity.Cafe
 
 interface CafeRepository {
 
