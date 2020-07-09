@@ -10,8 +10,6 @@ import takeaway.shared.basket.domian.usecase.ClearBasketUseCase
 import takeaway.shared.basket.domian.usecase.DeleteProductFromBasketUseCase
 import takeaway.shared.basket.domian.usecase.GetBasketAmountUseCase
 import takeaway.shared.basket.domian.usecase.GetBasketUseCase
-import takeaway.shared.cafe.domain.entity.Product
-import takeaway.shared.order.registration.domain.entity.OrderSketch
 import javax.inject.Inject
 
 class BasketPresenter @Inject constructor(
@@ -108,7 +106,7 @@ class BasketPresenter @Inject constructor(
 
         router.navigateTo(
             Screen.OrderRegistrationScreen(
-                OrderSketch(
+                domain.entity.OrderSketch(
                     cafe = resultCafe,
                     basketAmountWithoutAll = resultProductAmount,
                     products = resultBasket.products!!,
@@ -133,7 +131,7 @@ class BasketPresenter @Inject constructor(
         updateBasket(basket)
     }
 
-    private fun toBasketItemList(productMap: Map<Product, Int>): List<BasketItem> =
+    private fun toBasketItemList(productMap: Map<domain.entity.Product, Int>): List<BasketItem> =
         productMap.entries.map {
             BasketItem(
                 it.key.id,

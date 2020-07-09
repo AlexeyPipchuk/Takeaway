@@ -1,4 +1,4 @@
-package takeaway.shared.cafe.domain.entity
+package domain.entity
 
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable

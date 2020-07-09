@@ -7,7 +7,6 @@ import takeaway.di.FragmentScope
 import takeaway.feature.cafe.product.ui.ProductDialogFragment
 import takeaway.feature.cafe.product.ui.product
 import takeaway.feature.cafe.ui.cafe
-import takeaway.shared.cafe.domain.entity.Product
 import takeaway.shared_cafe.domain.entity.Cafe
 
 @Module
@@ -16,7 +15,7 @@ object ProductDialogFragmentModule {
     @Provides
     @FragmentScope
     @JvmStatic
-    fun provideProductArg(fragment: ProductDialogFragment): Product =
+    fun provideProductArg(fragment: ProductDialogFragment): domain.entity.Product =
         fragment.args.product
 
     @Provides

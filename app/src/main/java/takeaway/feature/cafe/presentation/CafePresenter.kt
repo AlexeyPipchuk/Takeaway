@@ -7,7 +7,6 @@ import takeaway.app.navigation.Screen
 import takeaway.feature.cafe.presentation.model.CategoryItem
 import takeaway.feature.cafe.ui.CafeView
 import takeaway.shared.basket.domian.usecase.GetBasketAmountUseCase
-import takeaway.shared.cafe.domain.entity.Product
 import takeaway.shared.cafe.domain.usecase.GetProductListUseCase
 import takeaway.shared.category.domain.entity.Category
 import takeaway.shared.category.domain.usecase.GetCategoryListUseCase
@@ -25,7 +24,7 @@ class CafePresenter @Inject constructor(
 ) : BasePresenter<CafeView>() {
 
     private var categoriesCache: List<CategoryItem>? = null
-    private var productsCache: List<Product>? = null
+    private var productsCache: List<domain.entity.Product>? = null
 
     override fun onViewAttach() {
         super.onViewAttach()
@@ -117,7 +116,7 @@ class CafePresenter @Inject constructor(
         router.backTo(null)
     }
 
-    fun onProductClicked(selectedProduct: Product) {
+    fun onProductClicked(selectedProduct: domain.entity.Product) {
         view?.showProductDialog(selectedProduct, cafe)
     }
 
@@ -142,7 +141,7 @@ class CafePresenter @Inject constructor(
         }
     }
 
-    private fun getFilteredProductList(selectedCategory: CategoryItem): List<Product>? =
+    private fun getFilteredProductList(selectedCategory: CategoryItem): List<domain.entity.Product>? =
         productsCache?.filter { it.categoryId == selectedCategory.category.id.toString() }
 
     fun onBasketClick() {

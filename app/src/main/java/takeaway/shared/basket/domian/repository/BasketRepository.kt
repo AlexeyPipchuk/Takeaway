@@ -1,12 +1,11 @@
 package takeaway.shared.basket.domian.repository
 
 import takeaway.shared.basket.domian.entity.Basket
-import takeaway.shared.cafe.domain.entity.Product
 import takeaway.shared_cafe.domain.entity.Cafe
 
 interface BasketRepository {
 
-    fun addToBasket(product: Product, count: Int, cafe: Cafe)
+    fun addToBasket(product: domain.entity.Product, count: Int, cafe: Cafe)
 
     fun clearBasket()
 

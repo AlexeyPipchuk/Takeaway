@@ -14,7 +14,6 @@ import takeaway.feature.cafe.presentation.CafePresenter
 import takeaway.feature.cafe.presentation.model.CategoryItem
 import takeaway.feature.cafe.product.ui.ProductAdapter
 import takeaway.feature.cafe.product.ui.ProductDialogFragment
-import takeaway.shared.cafe.domain.entity.Product
 import takeaway.shared_cafe.domain.entity.Cafe
 import javax.inject.Inject
 
@@ -61,7 +60,7 @@ class CafeFragment : BaseFragment(R.layout.cafe_fragment), CafeView {
         linkOnStatist.movementMethod = LinkMovementMethod.getInstance()
     }
 
-    override fun setProducts(productList: List<Product>) {
+    override fun setProducts(productList: List<domain.entity.Product>) {
         initProductAdapter(productList)
     }
 
@@ -69,7 +68,7 @@ class CafeFragment : BaseFragment(R.layout.cafe_fragment), CafeView {
         initCategoriesAdapter(categoryList)
     }
 
-    private fun initProductAdapter(productList: List<Product>) {
+    private fun initProductAdapter(productList: List<domain.entity.Product>) {
         productAdapter = ProductAdapter(
             context = requireContext(),
             onCafeClickListener = presenter::onProductClicked
@@ -93,7 +92,7 @@ class CafeFragment : BaseFragment(R.layout.cafe_fragment), CafeView {
         categoryAdapter?.categoryList = categoryList
     }
 
-    override fun updateProducts(productList: List<Product>) {
+    override fun updateProducts(productList: List<domain.entity.Product>) {
         productAdapter?.productList = productList
     }
 
@@ -186,7 +185,7 @@ class CafeFragment : BaseFragment(R.layout.cafe_fragment), CafeView {
         minimumDeliverySumText.isVisible = true
     }
 
-    override fun showProductDialog(product: Product, cafe: Cafe) {
+    override fun showProductDialog(product: domain.entity.Product, cafe: Cafe) {
         val productDialog = ProductDialogFragment.getInstance(product, cafe)
         productDialog.setTargetFragment(this, 0)
         fragmentManager?.let { fragmentManager ->

@@ -15,20 +15,19 @@ import takeaway.app.*
 import takeaway.feature.order.registration.domain.entity.OrderValidatorField
 import takeaway.feature.order.registration.presentation.OrderRegistrationPresenter
 import takeaway.feature.order.registration.presentation.OrderRegistrationView
-import takeaway.shared.order.registration.domain.entity.OrderSketch
 import takeaway.shared_cafe.domain.entity.Cafe
 import javax.inject.Inject
 
 private const val ORDER_SKETCH_ARG = "ORDER_SKETCH"
-var Bundle.orderSketch: OrderSketch
-    get() = getSerializable(ORDER_SKETCH_ARG) as OrderSketch
+var Bundle.orderSketch: domain.entity.OrderSketch
+    get() = getSerializable(ORDER_SKETCH_ARG) as domain.entity.OrderSketch
     set(value) = putSerializable(ORDER_SKETCH_ARG, value)
 
 class OrderRegistrationFragment : BaseFragment(R.layout.order_registration_fragment),
     OrderRegistrationView {
 
     companion object {
-        fun getInstance(orderSketch: OrderSketch): Fragment = OrderRegistrationFragment()
+        fun getInstance(orderSketch: domain.entity.OrderSketch): Fragment = OrderRegistrationFragment()
             .apply {
                 arguments = Bundle().apply {
                     this.orderSketch = orderSketch

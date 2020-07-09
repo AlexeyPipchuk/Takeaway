@@ -6,10 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.takeaway.R
+import domain.entity.Product
 import kotlinx.android.synthetic.main.product_item.view.*
 import takeaway.app.fromHtml
 import takeaway.app.loadImage
-import takeaway.shared.cafe.domain.entity.Product
 
 class ProductHolder(
     view: View,
@@ -42,8 +42,10 @@ class ProductHolder(
     fun bind(productItem: Product) {
         this.item = productItem
 
-        if (!productItem.imgUrl.isNullOrEmpty()) {
-            itemView.productImg.loadImage(productItem.imgUrl)
+        productItem.imgUrl?.let { url ->
+            if (url.isNotEmpty()) {
+                itemView.productImg.loadImage(url)
+            }
         }
 
         itemView.productName.text = productItem.title

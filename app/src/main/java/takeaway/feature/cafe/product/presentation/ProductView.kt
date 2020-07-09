@@ -1,11 +1,10 @@
 package takeaway.feature.cafe.product.presentation
 
 import takeaway.app.TakeawayView
-import takeaway.shared.cafe.domain.entity.Product
 
 interface ProductView : TakeawayView {
 
-    fun showProductInfo(product: Product)
+    fun showProductInfo(product: domain.entity.Product)
 
     fun incPrice(price: Int)
 

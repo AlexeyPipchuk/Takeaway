@@ -3,15 +3,14 @@ package takeaway.feature.cafe.product.ui
 import android.content.Context
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import takeaway.shared.cafe.domain.entity.Product
 import takeaway.feature.cafe.product.ui.holder.ProductHolder
 
 class ProductAdapter(
     private val context: Context,
-    private val onCafeClickListener: (Product) -> Unit
+    private val onCafeClickListener: (domain.entity.Product) -> Unit
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    var productList: List<Product> = listOf()
+    var productList: List<domain.entity.Product> = listOf()
         set(value) {
             field = value
             notifyDataSetChanged()

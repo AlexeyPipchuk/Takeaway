@@ -2,7 +2,6 @@ package takeaway.feature.cafe.ui
 
 import takeaway.app.TakeawayView
 import takeaway.feature.cafe.presentation.model.CategoryItem
-import takeaway.shared.cafe.domain.entity.Product
 import takeaway.shared_cafe.domain.entity.Cafe
 
 interface CafeView : TakeawayView {
@@ -28,13 +27,13 @@ interface CafeView : TakeawayView {
 
     fun showCafeImages(mainImg: List<String>?, logoImg: String?)
 
-    fun setProducts(productList: List<Product>)
+    fun setProducts(productList: List<domain.entity.Product>)
 
     fun setCategories(categoryList: List<CategoryItem>)
 
     fun updateCategories(categoryList: List<CategoryItem>)
 
-    fun updateProducts(productList: List<Product>)
+    fun updateProducts(productList: List<domain.entity.Product>)
 
     fun showProgress()
 
@@ -44,7 +43,7 @@ interface CafeView : TakeawayView {
 
     fun showServiceUnavailable()
 
-    fun showProductDialog(product: Product, cafe: Cafe)
+    fun showProductDialog(product: domain.entity.Product, cafe: Cafe)
 
     fun setBasketAmount(basketAmount: Int)
 }

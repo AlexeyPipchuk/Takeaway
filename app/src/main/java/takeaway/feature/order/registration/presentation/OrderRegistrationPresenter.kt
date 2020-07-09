@@ -14,7 +14,6 @@ import takeaway.feature.order.registration.domain.usecase.CreateOrderUseCase
 import takeaway.feature.order.registration.domain.usecase.GetIntervalListUseCase
 import takeaway.feature.order.registration.domain.usecase.validation.*
 import takeaway.shared.basket.domian.usecase.ClearBasketUseCase
-import takeaway.shared.order.registration.domain.entity.OrderSketch
 import javax.inject.Inject
 
 class OrderRegistrationPresenter @Inject constructor(
@@ -30,7 +29,7 @@ class OrderRegistrationPresenter @Inject constructor(
     private val getIntervalListUseCase: GetIntervalListUseCase,
     private val errorConverter: ErrorConverter,
     private val router: Router,
-    private val orderSketch: OrderSketch
+    private val orderSketch: domain.entity.OrderSketch
 ) : BasePresenter<OrderRegistrationView>() {
 
     var order = Order.EMPTY.copy(cafe = orderSketch.cafe, productMap = orderSketch.products)

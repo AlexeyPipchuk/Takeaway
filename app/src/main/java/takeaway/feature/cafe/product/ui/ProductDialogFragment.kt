@@ -8,6 +8,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.DialogFragment
 import com.example.takeaway.R
 import com.google.android.material.button.MaterialButton
+import domain.entity.Product
 import kotlinx.android.synthetic.main.custom_counter_view.view.*
 import kotlinx.android.synthetic.main.product_dialog_fragment.*
 import takeaway.app.BaseDialogFragment
@@ -18,7 +19,6 @@ import takeaway.feature.cafe.product.presentation.ProductPresenter
 import takeaway.feature.cafe.product.presentation.ProductView
 import takeaway.feature.cafe.product.severalcafe.SeveralCafeWarningDialogFragment
 import takeaway.feature.cafe.product.severalcafe.SeveralCafeWarningDialogFragment.Companion.ACCEPT_RESULT
-import takeaway.shared.cafe.domain.entity.Product
 import takeaway.shared_cafe.domain.entity.Cafe
 import javax.inject.Inject
 
@@ -36,13 +36,14 @@ class ProductDialogFragment : BaseDialogFragment(R.layout.product_dialog_fragmen
     ProductView {
 
     companion object {
-        fun getInstance(product: Product, cafe: Cafe): DialogFragment = ProductDialogFragment()
-            .apply {
-                arguments = Bundle().apply {
-                    this.product = product
-                    this.cafe = cafe
+        fun getInstance(product: Product, cafe: Cafe): DialogFragment =
+            ProductDialogFragment()
+                .apply {
+                    arguments = Bundle().apply {
+                        this.product = product
+                        this.cafe = cafe
+                    }
                 }
-            }
 
         const val MAX_COUNT = 50
         const val MIN_COUNT = 0
@@ -111,9 +112,9 @@ class ProductDialogFragment : BaseDialogFragment(R.layout.product_dialog_fragmen
     }
 
     override fun showProductInfo(product: Product) {
-        if (product.imgUrl != null) {
+        product.imgUrl?.let { url ->
             productImg.isVisible = true
-            productImg.loadImage(product.imgUrl)
+            productImg.loadImage(url)
         }
 
         productName.text = product.title

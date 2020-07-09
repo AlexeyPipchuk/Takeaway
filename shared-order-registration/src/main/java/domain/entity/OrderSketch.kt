@@ -1,6 +1,5 @@
-package takeaway.shared.order.registration.domain.entity
+package domain.entity
 
-import takeaway.shared.cafe.domain.entity.Product
 import takeaway.shared_cafe.domain.entity.Cafe
 import java.io.Serializable
 
