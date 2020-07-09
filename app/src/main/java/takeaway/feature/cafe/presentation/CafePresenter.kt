@@ -46,7 +46,8 @@ class CafePresenter @Inject constructor(
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeOver(
                 onSuccess = { (products, cafeProductCategories) ->
-                    view?.showCafeInfo(cafe)
+                    showCafe()
+
                     productsCache = products
 
                     if (!cafe.productCategoryIds.isNullOrEmpty()) {
@@ -74,6 +75,35 @@ class CafePresenter @Inject constructor(
                 }
             )
             .addToDisposable()
+    }
+
+    private fun showCafe() {
+        view?.showCafeImages(cafe.imgUrls, cafe.logoUrl)
+        view?.showCafeInfo(
+            cafe.cafeType,
+            cafe.name,
+            cafe.description,
+            cafe.address,
+            cafe.workFrom,
+            cafe.workTo
+        )
+        view?.showDeliveryFreeFrom(cafe.deliveryFreeFrom)
+
+        if (cafe.takeawayDiscount > 0) {
+            view?.showTakeawayDiscount(cafe.takeawayDiscount)
+        }
+
+        if (!cafe.businessFrom.isNullOrEmpty() && !cafe.businessTo.isNullOrEmpty()) {
+            view?.showBusinessLunch(cafe.businessFrom.toString(), cafe.businessTo.toString())
+        }
+
+        if (cafe.deliveryPrice != 0) {
+            view?.showDeliveryPrice(cafe.deliveryPrice)
+        }
+
+        if (cafe.minDeliverySum != 0) {
+            view?.showMinDeliverySum(cafe.minDeliverySum)
+        }
     }
 
     private fun toDefaultCategoryItemList(categories: List<Category>): List<CategoryItem> =

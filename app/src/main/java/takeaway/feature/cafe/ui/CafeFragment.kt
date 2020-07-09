@@ -127,55 +127,63 @@ class CafeFragment : BaseFragment(R.layout.cafe_fragment), CafeView {
         )
     }
 
-    //TODO(Зарефакторить эту дичь, нужны отдельные методы презентера)
-    override fun showCafeInfo(cafe: Cafe) {
-
-        val cafeMainImg = cafe.imgUrls?.firstOrNull()
+    override fun showCafeImages(mainImg: List<String>?, logoImg: String?) {
+        val cafeMainImg = mainImg?.firstOrNull()
         if (cafeMainImg != null) {
             titleCafeImg.loadImage(cafeMainImg)
         }
 
-        val cafeLogoImg = cafe.logoUrl
-        if (cafeLogoImg != null) {
+        if (logoImg != null) {
             cafeLogo.isVisible = true
-            cafeLogo.loadImage(cafeLogoImg)
+            cafeLogo.loadImage(logoImg)
         }
+    }
 
-        cafeType.text = cafe.cafeType
-        cafeName.text = cafe.name
-        cafeDescription.text = cafe.description
-        location.text = cafe.address
-        time.text = cafe.workFrom.plus("-").plus(cafe.workTo)
+    override fun showCafeInfo(
+        cafeType: String,
+        name: String,
+        description: String,
+        address: String,
+        workFrom: String,
+        workTo: String
+    ) {
+        this.cafeType.text = cafeType
+        this.cafeName.text = name
+        this.cafeDescription.text = description
+        this.location.text = address
+        this.time.text = workFrom.plus("-").plus(workTo)
+    }
 
-        if (cafe.takeawayDiscount > 0) {
-            takeawayDiscount.text =
-                getString(R.string.takeaway_discount)
-                    .format(cafe.takeawayDiscount.toString())
+    override fun showTakeawayDiscount(takeawayDiscount: Int) {
+        this.takeawayDiscount.text =
+            getString(R.string.takeaway_discount)
+                .format(takeawayDiscount.toString())
 
-            takeawayDiscount.isVisible = true
-        }
+        this.takeawayDiscount.isVisible = true
+    }
 
+    override fun showBusinessLunch(businessFrom: String, businessTo: String) {
+        timeSubtitle.isVisible = true
+        businessTimeSubtitle.isVisible = true
+        businessTime.isVisible = true
+        businessTime.text = businessFrom.plus("-").plus(businessTo)
+    }
+
+    override fun showDeliveryFreeFrom(freeFrom: Int) {
         deliveryFreeFrom.text = getString(R.string.delivery_free_from)
-            .format(cafe.deliveryFreeFrom.toString())
+            .format(freeFrom.toString())
+    }
 
-        if (cafe.deliveryPrice != 0) {
-            deliveryPrice.text =
-                getString(R.string.delivery_price).format(cafe.deliveryPrice.toString())
-            deliveryPrice.isVisible = true
-        }
+    override fun showDeliveryPrice(deliveryPrice: Int) {
+        this.deliveryPrice.text =
+            getString(R.string.delivery_price).format(deliveryPrice.toString())
+        this.deliveryPrice.isVisible = true
+    }
 
-        if (cafe.minDeliverySum != 0) {
-            minimumDeliverySumText.text = getString(R.string.minimumDeliverySumText)
-                .format(cafe.minDeliverySum.toString())
-            minimumDeliverySumText.isVisible = true
-        }
-
-        if (!cafe.businessFrom.isNullOrEmpty() && !cafe.businessTo.isNullOrEmpty()) {
-            timeSubtitle.isVisible = true
-            businessTimeSubtitle.isVisible = true
-            businessTime.isVisible = true
-            businessTime.text = cafe.businessFrom.plus("-").plus(cafe.businessTo)
-        }
+    override fun showMinDeliverySum(minDeliverySum: Int) {
+        minimumDeliverySumText.text = getString(R.string.minimumDeliverySumText)
+            .format(minDeliverySum.toString())
+        minimumDeliverySumText.isVisible = true
     }
 
     override fun showProductDialog(product: Product, cafe: Cafe) {

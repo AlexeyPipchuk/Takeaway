@@ -7,7 +7,26 @@ import takeaway.shared_cafe.domain.entity.Cafe
 
 interface CafeView : TakeawayView {
 
-    fun showCafeInfo(cafe: Cafe)
+    fun showMinDeliverySum(minDeliverySum: Int)
+
+    fun showDeliveryPrice(deliveryPrice: Int)
+
+    fun showDeliveryFreeFrom(freeFrom: Int)
+
+    fun showBusinessLunch(businessFrom: String, businessTo: String)
+
+    fun showTakeawayDiscount(takeawayDiscount: Int)
+
+    fun showCafeInfo(
+        cafeType: String,
+        name: String,
+        description: String,
+        address: String,
+        workFrom: String,
+        workTo: String
+    )
+
+    fun showCafeImages(mainImg: List<String>?, logoImg: String?)
 
     fun setProducts(productList: List<Product>)
 
