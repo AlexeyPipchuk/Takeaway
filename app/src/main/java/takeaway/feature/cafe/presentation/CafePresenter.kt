@@ -50,9 +50,7 @@ class CafePresenter @Inject constructor(
 
                     productsCache = products
 
-                    if (!cafe.productCategoryIds.isNullOrEmpty()) {
-                        // TODO(Выглядит, как костыль, этот ифчик -> в юзкейс null уходит
-                        //  и для загрузки всего, и в случае отсутствия категорий, мб сделать 2 юзкейза)
+                    if (cafeProductCategories.isNotEmpty()) {
                         val categoryItemList = toDefaultCategoryItemList(cafeProductCategories)
                         categoriesCache = categoryItemList
                         view?.setCategories(categoryItemList)
