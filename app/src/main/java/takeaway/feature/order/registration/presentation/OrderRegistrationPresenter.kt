@@ -6,12 +6,12 @@ import ru.terrakok.cicerone.Router
 import takeaway.app.BasePresenter
 import takeaway.app.ErrorConverter
 import takeaway.app.ErrorType
-import takeaway.app.getIntervalListBetween
 import takeaway.app.navigation.Screen
 import takeaway.feature.order.registration.domain.entity.Order
 import takeaway.feature.order.registration.domain.entity.OrderValidatorField
 import takeaway.feature.order.registration.domain.entity.ReceiveMethod
 import takeaway.feature.order.registration.domain.usecase.CreateOrderUseCase
+import takeaway.feature.order.registration.domain.usecase.GetIntervalListUseCase
 import takeaway.feature.order.registration.domain.usecase.validation.*
 import takeaway.shared.basket.domian.usecase.ClearBasketUseCase
 import takeaway.shared.order.registration.domain.entity.OrderSketch
@@ -27,6 +27,7 @@ class OrderRegistrationPresenter @Inject constructor(
     private val clearBasketUseCase: ClearBasketUseCase,
     private val createOrderUseCase: CreateOrderUseCase,
     private val getPhoneCountryPrefixUseCase: GetPhoneCountryPrefixUseCase,
+    private val getIntervalListUseCase: GetIntervalListUseCase,
     private val errorConverter: ErrorConverter,
     private val router: Router,
     private val orderSketch: OrderSketch
@@ -127,7 +128,7 @@ class OrderRegistrationPresenter @Inject constructor(
     }
 
     private fun getAvailableExportTimeList(): List<String> =
-        orderSketch.cafe.workFrom.getIntervalListBetween(orderSketch.cafe.workTo)
+        getIntervalListUseCase(orderSketch.cafe.workFrom, orderSketch.cafe.workTo)
 
     fun onAddressSelected(address: String) {
         order = order.copy(takeawayAddress = address)
