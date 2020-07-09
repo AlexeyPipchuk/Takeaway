@@ -1,5 +1,6 @@
 package takeaway.app
 
+import com.example.takeaway.BuildConfig
 import com.yandex.metrica.YandexMetrica
 import com.yandex.metrica.YandexMetricaConfig
 import dagger.android.AndroidInjector
@@ -18,11 +19,13 @@ class App : DaggerApplication() {
     override fun onCreate() {
         super.onCreate()
 
-        // Creating an extended library configuration.
-        val config = YandexMetricaConfig.newConfigBuilder(YANDEX_METRICA_API_KEY).build()
-        // Initializing the AppMetrica SDK.
-        YandexMetrica.activate(applicationContext, config)
-        // Automatic tracking of user activity.
-        YandexMetrica.enableActivityAutoTracking(this)
+        if (!BuildConfig.DEBUG) {
+            // Creating an extended library configuration.
+            val config = YandexMetricaConfig.newConfigBuilder(YANDEX_METRICA_API_KEY).build()
+            // Initializing the AppMetrica SDK.
+            YandexMetrica.activate(applicationContext, config)
+            // Automatic tracking of user activity.
+            YandexMetrica.enableActivityAutoTracking(this)
+        }
     }
 }
