@@ -9,13 +9,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <ImageView
+<!--        TODO("Отвязаться от либы")-->
+
+        <com.github.siyamed.shapeimageview.mask.PorterShapeImageView
             android:id="@+id/productImg"
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:importantForAccessibility="no"
             android:scaleType="centerCrop"
             android:visibility="gone"
+            app:siShape="@drawable/product_dialog_border"
+            app:siSquare="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"

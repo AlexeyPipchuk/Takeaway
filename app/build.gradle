@@ -95,6 +95,9 @@ dependencies {
     //input mask
     implementation 'com.redmadrobot:input-mask-android:6.0.0'
 
+    //shaped image
+    implementation 'com.github.siyamed:android-shape-imageview:0.9.3@aar'
+
     // AppMetrica SDK.
     implementation 'com.yandex.android:mobmetricalib:3.13.1'
     // Play Install Referrer library.

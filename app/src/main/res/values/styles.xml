@@ -8,7 +8,7 @@
         <item name="android:fontFamily">@font/nunito_light</item>
         <item name="alertDialogTheme">@style/AlertDialog</item>
         <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialogTheme</item>
-        <item name="textInputStyle">@style/AppOutlinedTextInputLayout</item>>
+        <item name="textInputStyle">@style/AppOutlinedTextInputLayout</item>
     </style>
 
     <style name="AppTheme.Splash" parent="AppTheme">
