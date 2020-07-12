@@ -11,6 +11,7 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/buildSrc" />
             <option value="$PROJECT_DIR$/component-presentation" />
+            <option value="$PROJECT_DIR$/component-ui" />
             <option value="$PROJECT_DIR$/shared-cafe" />
             <option value="$PROJECT_DIR$/shared-order-registration" />
             <option value="$PROJECT_DIR$/shared-phone-prefix" />
