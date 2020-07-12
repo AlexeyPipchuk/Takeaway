@@ -1,7 +1,7 @@
 package takeaway.feature.basket.presentation
 
+import base.BasePresenter
 import ru.terrakok.cicerone.Router
-import takeaway.app.BasePresenter
 import takeaway.app.navigation.Screen
 import takeaway.feature.basket.model.BasketItem
 import takeaway.feature.basket.ui.BasketView

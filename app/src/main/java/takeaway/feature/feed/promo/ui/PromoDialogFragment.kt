@@ -4,9 +4,8 @@ import android.os.Bundle
 import android.text.method.LinkMovementMethod
 import android.view.View
 import com.example.takeaway.R
-import kotlinx.android.synthetic.main.cafe_fragment.*
+import base.BaseDialogFragment
 import kotlinx.android.synthetic.main.promo_dialog_fragment.*
-import takeaway.app.BaseDialogFragment
 import takeaway.app.fromHtml
 import takeaway.feature.feed.promo.presentation.PromoPresenter
 import takeaway.feature.feed.promo.presentation.PromoView

@@ -9,9 +9,9 @@ import androidx.fragment.app.DialogFragment
 import com.example.takeaway.R
 import com.google.android.material.button.MaterialButton
 import domain.entity.Product
+import base.BaseDialogFragment
 import kotlinx.android.synthetic.main.custom_counter_view.view.*
 import kotlinx.android.synthetic.main.product_dialog_fragment.*
-import takeaway.app.BaseDialogFragment
 import takeaway.app.disable
 import takeaway.app.enable
 import takeaway.app.loadImage

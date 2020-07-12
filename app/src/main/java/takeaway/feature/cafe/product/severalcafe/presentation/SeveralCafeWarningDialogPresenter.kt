@@ -1,6 +1,6 @@
 package takeaway.feature.cafe.product.severalcafe.presentation
 
-import takeaway.app.BasePresenter
+import base.BasePresenter
 import javax.inject.Inject
 
 class SeveralCafeWarningDialogPresenter @Inject constructor() :

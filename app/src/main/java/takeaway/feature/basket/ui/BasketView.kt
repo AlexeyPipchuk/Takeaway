@@ -1,6 +1,6 @@
 package takeaway.feature.basket.ui
 
-import takeaway.app.TakeawayView
+import base.TakeawayView
 import takeaway.feature.basket.model.BasketItem
 import takeaway.shared_cafe.domain.entity.Cafe
 

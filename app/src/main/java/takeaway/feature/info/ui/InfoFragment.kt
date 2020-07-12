@@ -6,8 +6,8 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import com.example.takeaway.BuildConfig
 import com.example.takeaway.R
+import base.BaseFragment
 import kotlinx.android.synthetic.main.info_fragment.*
-import takeaway.app.BaseFragment
 import takeaway.app.fromHtml
 import takeaway.feature.info.presentation.InfoPresenter
 import javax.inject.Inject

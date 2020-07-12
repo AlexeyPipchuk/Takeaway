@@ -3,7 +3,7 @@ package takeaway.feature.order.registration.presentation
 import domain.usecase.GetPhoneCountryPrefixUseCase
 import io.reactivex.android.schedulers.AndroidSchedulers
 import ru.terrakok.cicerone.Router
-import takeaway.app.BasePresenter
+import base.BasePresenter
 import takeaway.app.ErrorConverter
 import takeaway.app.ErrorType
 import takeaway.app.navigation.Screen

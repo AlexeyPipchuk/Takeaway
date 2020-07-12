@@ -1,11 +1,11 @@
-package takeaway.component
+package components
 
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import androidx.appcompat.widget.Toolbar
-import com.example.takeaway.R
 import kotlinx.android.synthetic.main.custom_toolbar_view.view.*
+import takeaway.component_presentation.R
 
 class CustomToolbarView @JvmOverloads constructor(
     context: Context,

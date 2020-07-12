@@ -1,6 +1,6 @@
 package takeaway.feature.confirmation.presentation
 
-import takeaway.app.TakeawayView
+import base.TakeawayView
 
 interface ConfirmationView: TakeawayView {
 

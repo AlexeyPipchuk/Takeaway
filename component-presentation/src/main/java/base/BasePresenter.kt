@@ -1,4 +1,4 @@
-package takeaway.app
+package base
 
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable

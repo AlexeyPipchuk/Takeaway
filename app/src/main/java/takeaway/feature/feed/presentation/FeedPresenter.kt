@@ -3,7 +3,7 @@ package takeaway.feature.feed.presentation
 import android.os.Handler
 import io.reactivex.android.schedulers.AndroidSchedulers
 import ru.terrakok.cicerone.Router
-import takeaway.app.BasePresenter
+import base.BasePresenter
 import takeaway.app.ErrorConverter
 import takeaway.app.ErrorType
 import takeaway.app.navigation.Screen

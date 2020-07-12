@@ -1,6 +1,6 @@
 package takeaway.feature.success.presentation
 
-import takeaway.app.TakeawayView
+import base.TakeawayView
 
 interface SuccessView : TakeawayView {
 

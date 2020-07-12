@@ -2,7 +2,7 @@ package takeaway.shared.nointernet.presentation
 
 import io.reactivex.android.schedulers.AndroidSchedulers
 import ru.terrakok.cicerone.Router
-import takeaway.app.BasePresenter
+import base.BasePresenter
 import takeaway.app.navigation.Screen
 import takeaway.shared_cafe.domain.usecase.GetCafeListUseCase
 import javax.inject.Inject

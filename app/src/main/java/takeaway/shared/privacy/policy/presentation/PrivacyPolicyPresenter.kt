@@ -1,7 +1,7 @@
 package takeaway.shared.privacy.policy.presentation
 
 import ru.terrakok.cicerone.Router
-import takeaway.app.BasePresenter
+import base.BasePresenter
 import javax.inject.Inject
 
 class PrivacyPolicyPresenter @Inject constructor(

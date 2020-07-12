@@ -1,6 +1,6 @@
 package takeaway.shared.nointernet.presentation
 
-import takeaway.app.TakeawayView
+import base.TakeawayView
 
 interface NoInternetView : TakeawayView {
 

@@ -1,6 +1,6 @@
 package takeaway.feature.feed.promo.presentation
 
-import takeaway.app.TakeawayView
+import base.TakeawayView
 
 interface PromoView : TakeawayView {
 

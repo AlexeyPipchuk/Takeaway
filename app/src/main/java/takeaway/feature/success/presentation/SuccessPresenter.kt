@@ -1,7 +1,7 @@
 package takeaway.feature.success.presentation
 
 import ru.terrakok.cicerone.Router
-import takeaway.app.BasePresenter
+import base.BasePresenter
 import takeaway.app.navigation.Screen
 import javax.inject.Inject
 

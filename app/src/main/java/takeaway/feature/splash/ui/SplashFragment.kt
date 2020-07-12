@@ -7,8 +7,8 @@ import android.view.ViewGroup
 import androidx.core.view.updateLayoutParams
 import androidx.fragment.app.Fragment
 import com.example.takeaway.R
+import base.BaseFragment
 import kotlinx.android.synthetic.main.splash_fragment.*
-import takeaway.app.BaseFragment
 import takeaway.feature.splash.presentation.SplashPresenter
 import takeaway.feature.splash.presentation.SplashView
 import javax.inject.Inject

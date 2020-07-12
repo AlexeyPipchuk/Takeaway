@@ -5,8 +5,8 @@ import android.view.View
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.example.takeaway.R
+import base.BaseFragment
 import kotlinx.android.synthetic.main.no_internet_fragment.*
-import takeaway.app.BaseFragment
 import takeaway.app.addBackPressedListener
 import takeaway.shared.nointernet.presentation.NoInternetPresenter
 import takeaway.shared.nointernet.presentation.NoInternetView

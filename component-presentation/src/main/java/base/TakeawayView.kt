@@ -1,3 +1,3 @@
-package takeaway.app
+package base
 
 interface TakeawayView

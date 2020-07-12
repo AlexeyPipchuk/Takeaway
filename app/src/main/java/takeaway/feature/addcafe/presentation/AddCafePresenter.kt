@@ -1,9 +1,9 @@
 package takeaway.feature.addcafe.presentation
 
+import base.BasePresenter
 import domain.usecase.GetPhoneCountryPrefixUseCase
 import io.reactivex.android.schedulers.AndroidSchedulers
 import ru.terrakok.cicerone.Router
-import takeaway.app.BasePresenter
 import takeaway.feature.addcafe.domain.NewCafeValidatorField
 import takeaway.feature.addcafe.domain.entity.NewCafeRequest
 import takeaway.feature.addcafe.domain.usecase.SendAddNewCafeRequestUseCase

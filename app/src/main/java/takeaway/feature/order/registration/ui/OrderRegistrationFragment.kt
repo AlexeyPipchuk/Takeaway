@@ -6,6 +6,7 @@ import android.widget.EditText
 import androidx.core.view.isVisible
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
+import base.BaseFragment
 import com.example.takeaway.R
 import com.google.android.material.textfield.TextInputLayout
 import com.redmadrobot.inputmask.MaskedTextChangedListener

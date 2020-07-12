@@ -1,6 +1,6 @@
 package takeaway.feature.cafe.product.severalcafe.presentation
 
-import takeaway.app.TakeawayView
+import base.TakeawayView
 
 interface SeveralCafeWarningView : TakeawayView {
 

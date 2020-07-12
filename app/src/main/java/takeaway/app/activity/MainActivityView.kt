@@ -1,5 +1,5 @@
 package takeaway.app.activity
 
-import takeaway.app.TakeawayView
+import base.TakeawayView
 
 interface MainActivityView : TakeawayView

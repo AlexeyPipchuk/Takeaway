@@ -1,6 +1,6 @@
 package takeaway.feature.splash.presentation
 
-import takeaway.app.TakeawayView
+import base.TakeawayView
 
 interface SplashView : TakeawayView {
 

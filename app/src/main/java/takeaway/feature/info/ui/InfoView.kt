@@ -1,5 +1,5 @@
 package takeaway.feature.info.ui
 
-import takeaway.app.TakeawayView
+import base.TakeawayView
 
 interface InfoView : TakeawayView

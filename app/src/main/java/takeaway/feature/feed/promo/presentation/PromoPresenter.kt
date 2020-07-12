@@ -1,6 +1,6 @@
 package takeaway.feature.feed.promo.presentation
 
-import takeaway.app.BasePresenter
+import base.BasePresenter
 import javax.inject.Inject
 
 class PromoPresenter @Inject constructor() : BasePresenter<PromoView>() {

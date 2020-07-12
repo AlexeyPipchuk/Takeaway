@@ -1,6 +1,6 @@
 package takeaway.feature.cafe.product.presentation
 
-import takeaway.app.BasePresenter
+import base.BasePresenter
 import takeaway.shared.basket.domian.usecase.AddToBasketUseCase
 import takeaway.shared.basket.domian.usecase.ClearBasketUseCase
 import takeaway.shared.basket.domian.usecase.GetBasketCafeIdUseCase
@@ -51,7 +51,7 @@ class ProductPresenter @Inject constructor(
 
     fun onApproveToClearBasketButtonClicked(count: Int) {
         clearBasketUseCase()
-        
+
         addToBasketUseCase(product, count, cafe)
         view?.closeProductDialog()
     }

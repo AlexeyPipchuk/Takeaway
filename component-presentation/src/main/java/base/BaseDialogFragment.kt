@@ -1,4 +1,4 @@
-package takeaway.app
+package base
 
 import android.os.Bundle
 import android.view.LayoutInflater

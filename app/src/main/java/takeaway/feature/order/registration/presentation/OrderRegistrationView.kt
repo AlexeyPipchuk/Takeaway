@@ -1,6 +1,6 @@
 package takeaway.feature.order.registration.presentation
 
-import takeaway.app.TakeawayView
+import base.TakeawayView
 import takeaway.shared_cafe.domain.entity.Cafe
 
 interface OrderRegistrationView : TakeawayView {

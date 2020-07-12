@@ -4,8 +4,8 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import com.example.takeaway.R
+import base.BaseFragment
 import kotlinx.android.synthetic.main.privacy_policy_fragment.*
-import takeaway.app.BaseFragment
 import takeaway.shared.privacy.policy.presentation.PrivacyPolicyPresenter
 import takeaway.shared.privacy.policy.presentation.PrivacyPolicyView
 import javax.inject.Inject

@@ -108,4 +108,5 @@ dependencies {
     implementation project(":shared-phone-prefix")
     implementation project(":shared-order-registration")
     implementation project(":shared-product")
+    implementation project(":component-presentation")
 }

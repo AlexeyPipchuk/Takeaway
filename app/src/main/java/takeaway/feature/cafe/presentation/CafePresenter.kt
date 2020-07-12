@@ -1,9 +1,13 @@
 package takeaway.feature.cafe.presentation
 
+import base.BasePresenter
 import io.reactivex.android.schedulers.AndroidSchedulers
 import ru.terrakok.cicerone.Router
-import takeaway.app.*
+import takeaway.app.ErrorConverter
+import takeaway.app.ErrorType
 import takeaway.app.navigation.Screen
+import takeaway.app.subscribeOver
+import takeaway.app.zipWith
 import takeaway.feature.cafe.presentation.model.CategoryItem
 import takeaway.feature.cafe.ui.CafeView
 import takeaway.shared.basket.domian.usecase.GetBasketAmountUseCase

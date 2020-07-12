@@ -1,6 +1,6 @@
 package takeaway.feature.addcafe.presentation
 
-import takeaway.app.TakeawayView
+import base.TakeawayView
 
 interface AddCafeView : TakeawayView {
 

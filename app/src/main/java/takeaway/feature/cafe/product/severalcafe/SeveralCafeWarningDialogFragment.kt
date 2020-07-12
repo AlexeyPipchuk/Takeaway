@@ -2,9 +2,9 @@ package takeaway.feature.cafe.product.severalcafe
 
 import android.os.Bundle
 import android.view.View
+import base.BaseDialogFragment
 import com.example.takeaway.R
 import kotlinx.android.synthetic.main.several_cafe_warning_dialog_fragment.*
-import takeaway.app.BaseDialogFragment
 import takeaway.feature.cafe.product.severalcafe.presentation.SeveralCafeWarningDialogPresenter
 import takeaway.feature.cafe.product.severalcafe.presentation.SeveralCafeWarningView
 import javax.inject.Inject

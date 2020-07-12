@@ -4,9 +4,9 @@ import android.os.Bundle
 import android.view.View
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import base.BaseFragment
 import com.example.takeaway.R
 import kotlinx.android.synthetic.main.basket_fragment.*
-import takeaway.app.BaseFragment
 import takeaway.app.loadImage
 import takeaway.feature.basket.model.BasketItem
 import takeaway.feature.basket.presentation.BasketPresenter
