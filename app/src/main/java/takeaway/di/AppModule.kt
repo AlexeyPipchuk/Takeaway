@@ -7,7 +7,7 @@ import dagger.android.AndroidInjectionModule
 import dagger.android.ContributesAndroidInjector
 import takeaway.app.App
 import takeaway.app.DeepLinkDefiner
-import takeaway.app.ErrorConverter
+import takeaway.shared_error.ErrorConverter
 import takeaway.app.activity.MainActivity
 import takeaway.app.navigation.DeepLinkValidator
 import takeaway.di.fragment.FragmentModule
@@ -39,7 +39,8 @@ abstract class AppModule {
         @JvmStatic
         @AppScope
         @Provides
-        fun provideErrorConverter(): ErrorConverter = ErrorConverter()
+        fun provideErrorConverter(): ErrorConverter =
+            ErrorConverter()
 
         @JvmStatic
         @AppScope

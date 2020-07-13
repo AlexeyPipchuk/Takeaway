@@ -3,8 +3,8 @@ package takeaway.feature.cafe.presentation
 import base.BasePresenter
 import io.reactivex.android.schedulers.AndroidSchedulers
 import ru.terrakok.cicerone.Router
-import takeaway.app.ErrorConverter
-import takeaway.app.ErrorType
+import takeaway.shared_error.ErrorConverter
+import takeaway.shared_error.ErrorType
 import takeaway.app.navigation.Screen
 import takeaway.component_rx_extension.subscribeOver
 import takeaway.component_rx_extension.zipWith

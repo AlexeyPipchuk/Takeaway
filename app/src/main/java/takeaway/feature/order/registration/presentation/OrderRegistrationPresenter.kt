@@ -4,8 +4,8 @@ import domain.usecase.GetPhoneCountryPrefixUseCase
 import io.reactivex.android.schedulers.AndroidSchedulers
 import ru.terrakok.cicerone.Router
 import base.BasePresenter
-import takeaway.app.ErrorConverter
-import takeaway.app.ErrorType
+import takeaway.shared_error.ErrorConverter
+import takeaway.shared_error.ErrorType
 import takeaway.app.navigation.Screen
 import takeaway.feature.order.registration.domain.entity.Order
 import takeaway.feature.order.registration.domain.entity.OrderValidatorField

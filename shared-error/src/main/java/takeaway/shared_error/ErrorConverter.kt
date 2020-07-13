@@ -1,4 +1,4 @@
-package takeaway.app
+package takeaway.shared_error
 
 import java.net.SocketTimeoutException
 import java.net.UnknownHostException
