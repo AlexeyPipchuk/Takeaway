@@ -5,8 +5,8 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import com.example.takeaway.R
 import base.BaseFragment
+import extensions.addBackPressedListener
 import kotlinx.android.synthetic.main.success_fragment.*
-import takeaway.app.addBackPressedListener
 import takeaway.app.fromHtml
 import takeaway.feature.confirmation.ui.orderId
 import takeaway.feature.success.presentation.SuccessPresenter

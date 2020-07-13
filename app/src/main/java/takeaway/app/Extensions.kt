@@ -28,17 +28,6 @@ val Fragment.args: Bundle
     get() = arguments
         ?: throw IllegalArgumentException("Fragment has no arguments")
 
-fun Fragment.hideKeyboard() =
-    requireActivity().window.decorView.hideKeyboard()
-
-fun View.hideKeyboard() {
-    context?.let { context ->
-        val inputManager = context.getSystemService<InputMethodManager>()
-        inputManager?.hideSoftInputFromWindow(windowToken, 0)
-        inputManager?.hideSoftInputFromWindow(applicationWindowToken, 0)
-    } ?: return
-}
-
 fun String.fromHtml(): Spanned =
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
         Html.fromHtml(this, Html.FROM_HTML_MODE_LEGACY)
@@ -75,6 +64,8 @@ fun Fragment.showNoInternetDialog(positiveResult: () -> Unit, negativeResult: ()
         .show()
 }
 
+// RX
+
 fun <T, U> Single<T>.zipWith(other: SingleSource<U>): Single<Pair<T, U>> =
     zipWith(other, BiFunction { t, u -> Pair(t, u) })
 
@@ -82,64 +73,3 @@ fun <T : Any> Single<T>.subscribeOver(
     onError: (Throwable) -> Unit = {},
     onSuccess: (T) -> Unit = {}
 ): Disposable = subscribe(onSuccess, onError)
-
-fun MaterialButton.enable() {
-    isEnabled = true
-    background.setTint(ContextCompat.getColor(context, R.color.colorAccent))
-}
-
-fun MaterialButton.disable() {
-    isEnabled = false
-    background.setTint(
-        ContextCompat.getColor(
-            context,
-            R.color.disabled_button_background
-        )
-    )
-}
-
-fun TextInputLayout.invalidateError() {
-    error = null
-    isErrorEnabled = false
-}
-
-fun View.showPopup(
-    itemList: List<String>,
-    itemClickListener: (item: String) -> Unit
-) {
-    val popupMenu = PopupMenu(context, this)
-
-    itemList.forEach { item ->
-        popupMenu.menu
-            .add(item)
-            .setOnMenuItemClickListener {
-                itemClickListener(it.toString())
-                false
-            }
-    }
-
-    popupMenu.show()
-}
-
-fun Fragment.addBackPressedListener(
-    enabledCallback: Boolean = true,
-    action: OnBackPressedCallback.() -> Unit
-): OnBackPressedCallback {
-    val callback: OnBackPressedCallback = object : OnBackPressedCallback(enabledCallback) {
-        override fun handleOnBackPressed() {
-            action.invoke(this)
-        }
-    }
-    requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
-    return callback
-}
-
-fun Fragment.makeSnackbar(hostView: View? = view, @StringRes textRes: Int): Snackbar? =
-    hostView?.let { Snackbar.make(it, textRes, BaseTransientBottomBar.LENGTH_LONG) }
-        ?.apply(::decorateSnackBar)
-
-private fun Fragment.decorateSnackBar(snackBar: Snackbar) {
-    with(snackBar) {
-        ViewCompat.setElevation(view, resources.getDimension(R.dimen.spacing_2))
-    }
-}

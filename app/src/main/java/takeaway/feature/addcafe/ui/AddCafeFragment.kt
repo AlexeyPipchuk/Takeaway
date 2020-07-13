@@ -12,11 +12,11 @@ import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputLayout
 import com.redmadrobot.inputmask.MaskedTextChangedListener
 import com.redmadrobot.inputmask.helper.AffinityCalculationStrategy
+import extensions.addBackPressedListener
 import kotlinx.android.synthetic.main.add_cafe_fragment.*
-import takeaway.app.addBackPressedListener
-import takeaway.app.disable
-import takeaway.app.invalidateError
-import takeaway.app.makeSnackbar
+import takeaway.component_ui.extensions.disable
+import takeaway.component_ui.extensions.invalidateError
+import takeaway.component_ui.extensions.makeSnackbar
 import takeaway.feature.addcafe.domain.NewCafeValidatorField
 import takeaway.feature.addcafe.presentation.AddCafePresenter
 import takeaway.feature.addcafe.presentation.AddCafeView

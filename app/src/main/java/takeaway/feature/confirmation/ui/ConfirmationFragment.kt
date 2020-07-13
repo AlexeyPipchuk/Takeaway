@@ -3,10 +3,10 @@ package takeaway.feature.confirmation.ui
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
-import com.example.takeaway.R
 import base.BaseFragment
+import com.example.takeaway.R
+import extensions.addBackPressedListener
 import kotlinx.android.synthetic.main.confirmation_fragment.*
-import takeaway.app.addBackPressedListener
 import takeaway.app.fromHtml
 import takeaway.feature.confirmation.presentation.ConfirmationPresenter
 import takeaway.feature.confirmation.presentation.ConfirmationView
