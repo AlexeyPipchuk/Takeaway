@@ -108,6 +108,7 @@ dependencies {
     implementation project(":shared-phone-prefix")
     implementation project(":shared-order-registration")
     implementation project(":shared-product")
+    implementation project(":shared-error")
     implementation project(":component-presentation")
     implementation project(":component-ui")
     implementation project(":component-rx-extension")

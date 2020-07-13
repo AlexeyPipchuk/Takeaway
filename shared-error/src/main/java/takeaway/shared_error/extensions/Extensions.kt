@@ -1,8 +1,8 @@
-package takeaway.app
+package takeaway.shared_error.extensions
 
 import androidx.fragment.app.Fragment
-import com.example.takeaway.R
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import takeaway.shared_error.R
 
 fun Fragment.showServiceUnavailableDialog(positiveResult: () -> Unit, negativeResult: () -> Unit) {
     MaterialAlertDialogBuilder(context, R.style.AlertDialog)

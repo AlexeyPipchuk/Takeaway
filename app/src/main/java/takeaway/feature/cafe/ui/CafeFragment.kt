@@ -11,14 +11,14 @@ import com.example.takeaway.R
 import kotlinx.android.synthetic.main.cafe_appbar.view.*
 import kotlinx.android.synthetic.main.cafe_fragment.*
 import takeaway.app.loadImage
-import takeaway.app.showNoInternetDialog
-import takeaway.app.showServiceUnavailableDialog
 import takeaway.component_ui.extensions.fromHtml
 import takeaway.feature.cafe.presentation.CafePresenter
 import takeaway.feature.cafe.presentation.model.CategoryItem
 import takeaway.feature.cafe.product.ui.ProductAdapter
 import takeaway.feature.cafe.product.ui.ProductDialogFragment
 import takeaway.shared_cafe.domain.entity.Cafe
+import takeaway.shared_error.extensions.showNoInternetDialog
+import takeaway.shared_error.extensions.showServiceUnavailableDialog
 import javax.inject.Inject
 
 private const val CAFE_ARG = "CAFE"

@@ -22,13 +22,6 @@
     <string name="minimumDeliverySumText">минимальная сумма доставки — %1$s₽</string>
 
     //common
-    <string name="no_internet_dialog_title">Проблемы с интернетом =(</string>
-    <string name="no_internet_dialog_message">Отсутствует подключение к интернету. Проверьте соединение и повторите попытку.</string>
-    <string name="ok_dialog_button_text">Повторить</string>
-    <string name="service_unavailable_dialog_title">Что-то пошло не так…</string>
-    <string name="service_unavailable_dialog_message">Сервер не отвечает, повторите попытку или зайдите позже</string>
-    <string name="repeat_dialog_button_text">Повторить</string>
-    <string name="cancel_dialog_button_text">отмена</string>
     <string name="work_time_text">Часы работы</string>
     <string name="business_time_text">Бизнес-ланч</string>
     <string name="product_price">&lt;font color=#FF004C>%1$s ₽&lt;/font></string>
@@ -128,12 +121,6 @@
     <string name="send_add_new_cafe_request_snackbar_success">Заявка успешно отправлена</string>
     <string name="send_add_new_cafe_request_snackbar_fail">Произошла ошибка</string>
     <string name="send_add_new_cafe_request_snackbar_repeat">Повторить</string>
-    <string name="no_internet_title">К сожалению, достучаться до\u00A0сервера не\u00A0удалось</string>
-    <string name="no_internet_sorry">Приносим свои извинения</string>
-    <string name="no_internet_recommendation">Повторите попытку подключения или воспользуйтесь приложением позже</string>
-    <string name="no_internet_retry_button_text">Повторить подключение</string>
-    <string name="no_internet_takeaway_info_button">О Takeaway</string>
-    <string name="no_internet_offline_title">оффлайн доступ</string>
 
     //Success
     <string name="success_order_id_text">Ваш заказ &lt;font color=#3216E7>#%1$s&lt;/font>&lt;br/>успешно подтвержден!</string>

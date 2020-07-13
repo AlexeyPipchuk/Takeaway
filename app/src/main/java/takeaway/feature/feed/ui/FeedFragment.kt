@@ -14,12 +14,12 @@ import com.example.takeaway.R
 import kotlinx.android.synthetic.main.empty_search_result_view.*
 import kotlinx.android.synthetic.main.fab_layout.view.*
 import kotlinx.android.synthetic.main.feed_fragment.*
-import takeaway.app.showNoInternetDialog
-import takeaway.app.showServiceUnavailableDialog
 import takeaway.component_ui.extensions.hideKeyboard
 import takeaway.feature.feed.presentation.FeedPresenter
 import takeaway.feature.feed.presentation.model.FeedItem
 import takeaway.feature.feed.promo.ui.PromoDialogFragment
+import takeaway.shared_error.extensions.showNoInternetDialog
+import takeaway.shared_error.extensions.showServiceUnavailableDialog
 import javax.inject.Inject
 
 private const val NO_INTERNET_ARG = "NO_INTERNET"

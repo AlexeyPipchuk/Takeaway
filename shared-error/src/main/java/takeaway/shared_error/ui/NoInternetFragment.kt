@@ -1,21 +1,22 @@
-package takeaway.shared.nointernet.ui
+package takeaway.shared_error.ui
 
 import android.os.Bundle
 import android.view.View
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import base.BaseFragment
-import com.example.takeaway.R
 import extensions.addBackPressedListener
 import kotlinx.android.synthetic.main.no_internet_fragment.*
-import takeaway.shared.nointernet.presentation.NoInternetPresenter
-import takeaway.shared.nointernet.presentation.NoInternetView
+import takeaway.shared_error.R
+import takeaway.shared_error.presentation.NoInternetPresenter
+import takeaway.shared_error.presentation.NoInternetView
 import javax.inject.Inject
 
 class NoInternetFragment : BaseFragment(R.layout.no_internet_fragment), NoInternetView {
 
     companion object {
-        fun getInstance(): Fragment = NoInternetFragment()
+        fun getInstance(): Fragment =
+            NoInternetFragment()
     }
 
     @Inject

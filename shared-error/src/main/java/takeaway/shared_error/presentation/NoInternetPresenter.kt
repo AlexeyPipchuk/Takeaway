@@ -1,14 +1,12 @@
-package takeaway.shared.nointernet.presentation
+package takeaway.shared_error.presentation
 
 import io.reactivex.android.schedulers.AndroidSchedulers
-import ru.terrakok.cicerone.Router
 import base.BasePresenter
-import takeaway.app.navigation.Screen
 import takeaway.shared_cafe.domain.usecase.GetCafeListUseCase
 import javax.inject.Inject
 
 class NoInternetPresenter @Inject constructor(
-    private val router: Router,
+    private val router: NoInternetRouter,
     private val getCafeListUseCase: GetCafeListUseCase
 ) : BasePresenter<NoInternetView>() {
 
@@ -19,7 +17,7 @@ class NoInternetPresenter @Inject constructor(
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(
                 {
-                    router.replaceScreen(Screen.FeedScreen())
+                    router.toFeedScreen()
                 },
                 {
                     view?.hideProgress()
@@ -29,7 +27,7 @@ class NoInternetPresenter @Inject constructor(
     }
 
     fun onTakeawayInfoClicked() {
-        router.navigateTo(Screen.InfoScreen)
+        router.toInfoScreen()
     }
 
     fun onBackClicked() {

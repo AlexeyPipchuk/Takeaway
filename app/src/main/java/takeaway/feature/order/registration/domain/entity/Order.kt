@@ -1,10 +1,11 @@
 package takeaway.feature.order.registration.domain.entity
 
+import domain.entity.Product
 import takeaway.shared_cafe.domain.entity.Cafe
 
 data class Order(
     val cafe: Cafe?,
-    val productMap: Map<domain.entity.Product, Int>?,
+    val productMap: Map<Product, Int>?,
 
     val name: String,
     val phone: String,

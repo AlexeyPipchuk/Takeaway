@@ -1,4 +1,4 @@
-package takeaway.shared.nointernet.presentation
+package takeaway.shared_error.presentation
 
 import base.TakeawayView
 

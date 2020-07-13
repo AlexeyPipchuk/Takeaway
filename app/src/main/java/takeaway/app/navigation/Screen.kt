@@ -12,7 +12,7 @@ import takeaway.feature.info.ui.InfoFragment
 import takeaway.feature.order.registration.ui.OrderRegistrationFragment
 import takeaway.feature.splash.ui.SplashFragment
 import takeaway.feature.success.ui.SuccessFragment
-import takeaway.shared.nointernet.ui.NoInternetFragment
+import takeaway.shared_error.ui.NoInternetFragment
 import takeaway.shared.privacy.policy.ui.PrivacyPolicyFragment
 import takeaway.shared_cafe.domain.entity.Cafe
 
