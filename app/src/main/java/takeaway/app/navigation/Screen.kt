@@ -3,7 +3,7 @@ package takeaway.app.navigation
 import android.net.Uri
 import androidx.fragment.app.Fragment
 import domain.entity.OrderSketch
-import takeaway.feature.addcafe.ui.AddCafeFragment
+import takeaway.feature_add_cafe.ui.AddCafeFragment
 import takeaway.feature.basket.ui.BasketFragment
 import takeaway.feature.cafe.ui.CafeFragment
 import takeaway.feature.confirmation.ui.ConfirmationFragment
@@ -13,7 +13,6 @@ import takeaway.feature.order.registration.ui.OrderRegistrationFragment
 import takeaway.feature.splash.ui.SplashFragment
 import takeaway.feature.success.ui.SuccessFragment
 import takeaway.shared_error.ui.NoInternetFragment
-import takeaway.shared_privacy_policy.ui.PrivacyPolicyFragment
 import takeaway.shared_cafe.domain.entity.Cafe
 
 sealed class Screen(fragment: Fragment) : BaseScreen(fragment) {

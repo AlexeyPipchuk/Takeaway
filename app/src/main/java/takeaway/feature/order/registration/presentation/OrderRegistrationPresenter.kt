@@ -7,12 +7,12 @@ import base.BasePresenter
 import takeaway.shared_error.ErrorConverter
 import takeaway.shared_error.ErrorType
 import takeaway.app.navigation.Screen
+import takeaway.component_validation.domain.usecase.*
 import takeaway.feature.order.registration.domain.entity.Order
 import takeaway.feature.order.registration.domain.entity.OrderValidatorField
 import takeaway.feature.order.registration.domain.entity.ReceiveMethod
 import takeaway.feature.order.registration.domain.usecase.CreateOrderUseCase
 import takeaway.feature.order.registration.domain.usecase.GetIntervalListUseCase
-import takeaway.feature.order.registration.domain.usecase.validation.*
 import takeaway.shared.basket.domian.usecase.ClearBasketUseCase
 import javax.inject.Inject
 

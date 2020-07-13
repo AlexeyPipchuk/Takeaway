@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="none_elevation">0dp</dimen>
+    <dimen name="snackbar_elevation">2dp</dimen>
 
     //spacing
     <dimen name="spacing_64">64dp</dimen>

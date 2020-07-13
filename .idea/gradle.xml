@@ -13,6 +13,8 @@
             <option value="$PROJECT_DIR$/component-presentation" />
             <option value="$PROJECT_DIR$/component-rx-extension" />
             <option value="$PROJECT_DIR$/component-ui" />
+            <option value="$PROJECT_DIR$/component-validation" />
+            <option value="$PROJECT_DIR$/feature-add-cafe" />
             <option value="$PROJECT_DIR$/shared-cafe" />
             <option value="$PROJECT_DIR$/shared-error" />
             <option value="$PROJECT_DIR$/shared-order-registration" />

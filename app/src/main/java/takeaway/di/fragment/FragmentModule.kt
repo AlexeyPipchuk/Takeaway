@@ -3,9 +3,9 @@ package takeaway.di.fragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 import takeaway.di.FragmentScope
+import takeaway.di.fragment.feature.AddCafeNavigationModule
 import takeaway.di.fragment.shared.NoInternetNavigationModule
 import takeaway.di.fragment.shared.PrivacyPolicyNavigationModule
-import takeaway.feature.addcafe.ui.AddCafeFragment
 import takeaway.feature.basket.ui.BasketFragment
 import takeaway.feature.cafe.product.severalcafe.SeveralCafeWarningDialogFragment
 import takeaway.feature.cafe.product.ui.ProductDialogFragment
@@ -17,6 +17,7 @@ import takeaway.feature.info.ui.InfoFragment
 import takeaway.feature.order.registration.ui.OrderRegistrationFragment
 import takeaway.feature.splash.ui.SplashFragment
 import takeaway.feature.success.ui.SuccessFragment
+import takeaway.feature_add_cafe.ui.AddCafeFragment
 import takeaway.shared_error.ui.NoInternetFragment
 import takeaway.shared_privacy_policy.ui.PrivacyPolicyFragment
 
@@ -72,7 +73,7 @@ interface FragmentModule {
     fun provideSuccessFragment(): SuccessFragment
 
     @FragmentScope
-    @ContributesAndroidInjector
+    @ContributesAndroidInjector(modules = [AddCafeNavigationModule::class])
     fun provideAddCafeFragment(): AddCafeFragment
 
     @FragmentScope

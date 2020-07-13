@@ -105,17 +105,6 @@
     <string name="info_takeaway_instagram">&lt;a href="https://www.instagram.com/takeaway.russia/">takeaway.russia&lt;/a></string>
     <string name="info_statist_instagram">&lt;a href="https://www.instagram.com/statist_russia/">statist_russia&lt;/a></string>
 
-    //Add cafe
-    <string name="add_new_cafe_toolbar_title">Добавить заведение</string>
-    <string name="add_cafe_title">Желаете присоединиться к сервису?\nЗаполните поля ниже.</string>
-    <string name="add_cafe_request_button">Оставить заявку</string>
-    <string name="add_new_cafe_input_cafe_name_hint">Название заведения</string>
-    <string name="add_new_cafe_input_email_hint">E-mail</string>
-    <string name="add_new_cafe_input_phone_hint">Телефон</string>
-    <string name="send_add_new_cafe_request_snackbar_success">Заявка успешно отправлена</string>
-    <string name="send_add_new_cafe_request_snackbar_fail">Произошла ошибка</string>
-    <string name="send_add_new_cafe_request_snackbar_repeat">Повторить</string>
-
     //Success
     <string name="success_order_id_text">Ваш заказ &lt;font color=#3216E7>#%1$s&lt;/font>&lt;br/>успешно подтвержден!</string>
     <string name="success_go_to_feed_button_text">Перейти на главную</string>
