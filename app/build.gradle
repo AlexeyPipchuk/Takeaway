@@ -110,4 +110,5 @@ dependencies {
     implementation project(":shared-product")
     implementation project(":component-presentation")
     implementation project(":component-ui")
+    implementation project(":component-rx-extension")
 }

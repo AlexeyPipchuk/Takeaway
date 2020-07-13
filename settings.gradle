@@ -1,4 +1,4 @@
-include ':app', ':shared-product', ':component-ui',
+include ':app', ':shared-product', ':component-ui', ':component-rx-extension',
         ':component-presentation',
         ':shared-order-registration',
         ':shared-cafe',

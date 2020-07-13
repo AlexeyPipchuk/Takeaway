@@ -6,8 +6,8 @@ import ru.terrakok.cicerone.Router
 import takeaway.app.ErrorConverter
 import takeaway.app.ErrorType
 import takeaway.app.navigation.Screen
-import takeaway.app.subscribeOver
-import takeaway.app.zipWith
+import takeaway.component_rx_extension.subscribeOver
+import takeaway.component_rx_extension.zipWith
 import takeaway.feature.cafe.presentation.model.CategoryItem
 import takeaway.feature.cafe.ui.CafeView
 import takeaway.shared.basket.domian.usecase.GetBasketAmountUseCase

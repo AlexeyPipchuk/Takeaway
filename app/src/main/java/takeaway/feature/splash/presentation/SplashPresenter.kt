@@ -6,7 +6,7 @@ import base.BasePresenter
 import takeaway.app.DeepLinkDefiner
 import takeaway.app.navigation.DeepLinkValidator
 import takeaway.app.navigation.Screen
-import takeaway.app.zipWith
+import takeaway.component_rx_extension.zipWith
 import takeaway.feature.splash.domain.entity.DeepLink
 import takeaway.feature.splash.domain.usecase.GetDeepLinkUseCase
 import takeaway.shared.category.domain.usecase.GetAllCategoryListUseCase
