@@ -1,4 +1,4 @@
-package takeaway.shared.privacy.policy.presentation
+package takeaway.shared_privacy_policy.presentation
 
 import base.TakeawayView
 

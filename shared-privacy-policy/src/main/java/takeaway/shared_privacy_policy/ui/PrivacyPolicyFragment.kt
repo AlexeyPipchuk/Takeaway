@@ -1,19 +1,20 @@
-package takeaway.shared.privacy.policy.ui
+package takeaway.shared_privacy_policy.ui
 
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
-import com.example.takeaway.R
 import base.BaseFragment
 import kotlinx.android.synthetic.main.privacy_policy_fragment.*
-import takeaway.shared.privacy.policy.presentation.PrivacyPolicyPresenter
-import takeaway.shared.privacy.policy.presentation.PrivacyPolicyView
+import takeaway.shared_privacy_policy.R
+import takeaway.shared_privacy_policy.presentation.PrivacyPolicyPresenter
+import takeaway.shared_privacy_policy.presentation.PrivacyPolicyView
 import javax.inject.Inject
 
 class PrivacyPolicyFragment : BaseFragment(R.layout.privacy_policy_fragment), PrivacyPolicyView {
 
     companion object {
-        fun getInstance(): Fragment = PrivacyPolicyFragment()
+        fun getInstance(): Fragment =
+            PrivacyPolicyFragment()
     }
 
     @Inject

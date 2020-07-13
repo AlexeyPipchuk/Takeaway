@@ -1,4 +1,4 @@
-include ':app', ':shared-product', ':component-ui', ':component-rx-extension', ':shared-error',
+include ':app', ':shared-product', ':component-ui', ':component-rx-extension', ':shared-error', ':shared-privacy-policy',
         ':component-presentation',
         ':shared-order-registration',
         ':shared-cafe',

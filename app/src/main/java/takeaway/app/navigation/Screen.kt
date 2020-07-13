@@ -13,7 +13,7 @@ import takeaway.feature.order.registration.ui.OrderRegistrationFragment
 import takeaway.feature.splash.ui.SplashFragment
 import takeaway.feature.success.ui.SuccessFragment
 import takeaway.shared_error.ui.NoInternetFragment
-import takeaway.shared.privacy.policy.ui.PrivacyPolicyFragment
+import takeaway.shared_privacy_policy.ui.PrivacyPolicyFragment
 import takeaway.shared_cafe.domain.entity.Cafe
 
 sealed class Screen(fragment: Fragment) : BaseScreen(fragment) {
@@ -25,7 +25,7 @@ sealed class Screen(fragment: Fragment) : BaseScreen(fragment) {
     object InfoScreen : Screen(InfoFragment.getInstance())
     data class CafeScreen(val cafe: Cafe) : Screen(CafeFragment.getInstance(cafe))
     object BasketScreen : Screen(BasketFragment.getInstance())
-    object PrivacyPolicyScreen : Screen(PrivacyPolicyFragment.getInstance())
+    object PrivacyPolicyScreen : Screen(takeaway.shared_privacy_policy.ui.PrivacyPolicyFragment.getInstance())
 
     data class OrderRegistrationScreen(val orderSketch: OrderSketch) :
         Screen(OrderRegistrationFragment.getInstance(orderSketch))

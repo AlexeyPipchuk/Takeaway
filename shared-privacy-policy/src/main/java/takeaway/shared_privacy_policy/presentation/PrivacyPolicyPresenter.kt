@@ -1,14 +1,13 @@
-package takeaway.shared.privacy.policy.presentation
+package takeaway.shared_privacy_policy.presentation
 
-import ru.terrakok.cicerone.Router
 import base.BasePresenter
 import javax.inject.Inject
 
 class PrivacyPolicyPresenter @Inject constructor(
-    private val router: Router
+    private val router: PrivacyPolicyRouter
 ) : BasePresenter<PrivacyPolicyView>() {
 
     fun onBackClicked() {
-        router.exit()
+        router.back()
     }
 }
