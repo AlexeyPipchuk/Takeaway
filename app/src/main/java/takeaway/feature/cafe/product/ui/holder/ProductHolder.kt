@@ -8,8 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.takeaway.R
 import domain.entity.Product
 import kotlinx.android.synthetic.main.product_item.view.*
-import takeaway.app.fromHtml
 import takeaway.app.loadImage
+import takeaway.component_ui.extensions.fromHtml
 
 class ProductHolder(
     view: View,

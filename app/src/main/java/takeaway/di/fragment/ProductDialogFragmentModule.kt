@@ -2,7 +2,7 @@ package takeaway.di.fragment
 
 import dagger.Module
 import dagger.Provides
-import takeaway.app.args
+import extensions.args
 import takeaway.di.FragmentScope
 import takeaway.feature.cafe.product.ui.ProductDialogFragment
 import takeaway.feature.cafe.product.ui.product

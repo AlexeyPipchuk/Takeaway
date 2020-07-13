@@ -8,8 +8,8 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.example.takeaway.R
 import kotlinx.android.synthetic.main.cafe_item.view.*
-import takeaway.app.fromHtml
 import takeaway.app.loadImage
+import takeaway.component_ui.extensions.fromHtml
 import takeaway.feature.feed.presentation.model.CafeItem
 
 class CafeHolder(

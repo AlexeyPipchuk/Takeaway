@@ -1,40 +1,12 @@
 package takeaway.app
 
-import android.os.Build
-import android.os.Bundle
-import android.text.Html
-import android.text.Spanned
-import android.view.View
-import android.view.inputmethod.InputMethodManager
-import android.widget.PopupMenu
-import androidx.activity.OnBackPressedCallback
-import androidx.annotation.StringRes
-import androidx.core.content.ContextCompat
-import androidx.core.content.getSystemService
-import androidx.core.view.ViewCompat
 import androidx.fragment.app.Fragment
 import com.example.takeaway.R
-import com.google.android.material.button.MaterialButton
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.google.android.material.snackbar.BaseTransientBottomBar
-import com.google.android.material.snackbar.Snackbar
-import com.google.android.material.textfield.TextInputLayout
 import io.reactivex.Single
 import io.reactivex.SingleSource
 import io.reactivex.disposables.Disposable
 import io.reactivex.functions.BiFunction
-
-val Fragment.args: Bundle
-    get() = arguments
-        ?: throw IllegalArgumentException("Fragment has no arguments")
-
-fun String.fromHtml(): Spanned =
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-        Html.fromHtml(this, Html.FROM_HTML_MODE_LEGACY)
-    } else {
-        @Suppress("DEPRECATION")
-        Html.fromHtml(this)
-    }
 
 fun Fragment.showServiceUnavailableDialog(positiveResult: () -> Unit, negativeResult: () -> Unit) {
     MaterialAlertDialogBuilder(context, R.style.AlertDialog)

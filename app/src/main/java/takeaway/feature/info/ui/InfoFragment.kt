@@ -8,7 +8,7 @@ import com.example.takeaway.BuildConfig
 import com.example.takeaway.R
 import base.BaseFragment
 import kotlinx.android.synthetic.main.info_fragment.*
-import takeaway.app.fromHtml
+import takeaway.component_ui.extensions.fromHtml
 import takeaway.feature.info.presentation.InfoPresenter
 import javax.inject.Inject
 

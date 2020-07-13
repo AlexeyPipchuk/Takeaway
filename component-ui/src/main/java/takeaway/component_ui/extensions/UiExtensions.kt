@@ -1,5 +1,8 @@
 package takeaway.component_ui.extensions
 
+import android.os.Build
+import android.text.Html
+import android.text.Spanned
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.PopupMenu
@@ -71,3 +74,11 @@ fun View.showPopup(
 
     popupMenu.show()
 }
+
+fun String.fromHtml(): Spanned =
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+        Html.fromHtml(this, Html.FROM_HTML_MODE_LEGACY)
+    } else {
+        @Suppress("DEPRECATION")
+        Html.fromHtml(this)
+    }

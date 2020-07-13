@@ -1,7 +1,12 @@
 package extensions
 
+import android.os.Bundle
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
+
+val Fragment.args: Bundle
+    get() = arguments
+        ?: throw IllegalArgumentException("Fragment has no arguments")
 
 fun Fragment.addBackPressedListener(
     enabledCallback: Boolean = true,

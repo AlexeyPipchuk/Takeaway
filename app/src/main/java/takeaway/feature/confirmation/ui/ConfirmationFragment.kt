@@ -7,7 +7,7 @@ import base.BaseFragment
 import com.example.takeaway.R
 import extensions.addBackPressedListener
 import kotlinx.android.synthetic.main.confirmation_fragment.*
-import takeaway.app.fromHtml
+import takeaway.component_ui.extensions.fromHtml
 import takeaway.feature.confirmation.presentation.ConfirmationPresenter
 import takeaway.feature.confirmation.presentation.ConfirmationView
 import javax.inject.Inject

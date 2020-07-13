@@ -12,14 +12,10 @@ import com.google.android.material.textfield.TextInputLayout
 import com.redmadrobot.inputmask.MaskedTextChangedListener
 import com.redmadrobot.inputmask.helper.AffinityCalculationStrategy
 import kotlinx.android.synthetic.main.order_registration_fragment.*
-import takeaway.app.fromHtml
 import takeaway.app.loadImage
 import takeaway.app.showNoInternetDialog
 import takeaway.app.showServiceUnavailableDialog
-import takeaway.component_ui.extensions.disable
-import takeaway.component_ui.extensions.enable
-import takeaway.component_ui.extensions.invalidateError
-import takeaway.component_ui.extensions.showPopup
+import takeaway.component_ui.extensions.*
 import takeaway.feature.order.registration.domain.entity.OrderValidatorField
 import takeaway.feature.order.registration.presentation.OrderRegistrationPresenter
 import takeaway.feature.order.registration.presentation.OrderRegistrationView
