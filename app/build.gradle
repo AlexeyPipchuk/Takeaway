@@ -105,6 +105,7 @@ dependencies {
     implementation project(":feature-confirmation")
     implementation project(":feature-info")
     implementation project(":feature-order-registration")
+    implementation project(":feature-splash")
     implementation project(":feature-success")
     implementation project(":shared-basket")
     implementation project(":shared-cafe")

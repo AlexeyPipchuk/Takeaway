@@ -1,7 +1,7 @@
-package takeaway.feature.splash.domain.usecase
+package takeaway.feature_splash.domain.usecase
 
 import android.net.Uri
-import takeaway.feature.splash.domain.entity.DeepLink
+import takeaway.feature_splash.domain.entity.DeepLink
 import javax.inject.Inject
 
 class GetDeepLinkUseCase @Inject constructor() {

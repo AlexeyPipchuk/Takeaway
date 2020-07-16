@@ -1,26 +1,22 @@
-package takeaway.feature.splash.presentation
+package takeaway.feature_splash.presentation
 
-import io.reactivex.android.schedulers.AndroidSchedulers
-import ru.terrakok.cicerone.Router
 import base.BasePresenter
-import takeaway.app.DeepLinkDefiner
-import takeaway.app.navigation.DeepLinkValidator
-import takeaway.app.navigation.Screen
+import io.reactivex.android.schedulers.AndroidSchedulers
 import takeaway.component_rx_extension.zipWith
-import takeaway.feature.splash.domain.entity.DeepLink
-import takeaway.feature.splash.domain.usecase.GetDeepLinkUseCase
-import takeaway.shared_category.domain.usecase.GetAllCategoryListUseCase
+import takeaway.feature_splash.domain.DeepLinkValidator
+import takeaway.feature_splash.domain.entity.DeepLink
+import takeaway.feature_splash.domain.usecase.GetDeepLinkUseCase
 import takeaway.shared_cafe.domain.usecase.GetCafeListUseCase
+import takeaway.shared_category.domain.usecase.GetAllCategoryListUseCase
 import javax.inject.Inject
 
 class SplashPresenter @Inject constructor(
     private val getCafeListUseCase: GetCafeListUseCase,
-    private val getAllCategoryListUseCase: takeaway.shared_category.domain.usecase.GetAllCategoryListUseCase,
+    private val getAllCategoryListUseCase: GetAllCategoryListUseCase,
     private val getDeepLinkUseCase: GetDeepLinkUseCase,
-    private val deepLinkDefiner: DeepLinkDefiner,
     private val deepLinkValidator: DeepLinkValidator,
     private val deepLink: String?,
-    private val router: Router
+    private val router: SplashRouter
 
 ) : BasePresenter<SplashView>() {
 
@@ -43,7 +39,7 @@ class SplashPresenter @Inject constructor(
                 },
                 {
                     view?.showStatusBar()
-                    router.newRootScreen(Screen.NoInternetScreen)
+                    router.toNoInternet()
                 }
             )
             .addToDisposable()
@@ -52,14 +48,10 @@ class SplashPresenter @Inject constructor(
     private fun chooseFirstScreen() {
         if (deepLink != null && deepLinkValidator(deepLink)) {
             openDeepLink(getDeepLinkUseCase(deepLink))
-        } else router.newRootScreen(Screen.FeedScreen())
+        } else router.toFeed()
     }
 
     private fun openDeepLink(deepLink: DeepLink) {
-        val screen = deepLinkDefiner(deepLink)
-
-        screen?.let {
-            router.newRootScreen(screen)
-        } ?: router.newRootScreen(Screen.FeedScreen())
+        router.toScreenOnDeepLink(deepLink)
     }
 }

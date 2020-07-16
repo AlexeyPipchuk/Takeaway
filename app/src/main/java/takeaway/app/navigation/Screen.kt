@@ -10,13 +10,13 @@ import takeaway.feature_confirmation.ui.ConfirmationFragment
 import takeaway.feature.feed.ui.FeedFragment
 import takeaway.feature_info.ui.InfoFragment
 import takeaway.feature_order_registration.ui.OrderRegistrationFragment
-import takeaway.feature.splash.ui.SplashFragment
+import takeaway.feature_splash.ui.SplashFragment
 import takeaway.shared_error.ui.NoInternetFragment
 import takeaway.shared_cafe.domain.entity.Cafe
 
 sealed class Screen(fragment: Fragment) : BaseScreen(fragment) {
 
-    data class SplashScreen(val deepLink: Uri?) : Screen(SplashFragment.getInstance(deepLink))
+    data class SplashScreen(val deepLink: Uri?) : Screen(takeaway.feature_splash.ui.SplashFragment.getInstance(deepLink))
     data class FeedScreen(val noInternet: Boolean = false) :
         Screen(FeedFragment.getInstance(noInternet))
 

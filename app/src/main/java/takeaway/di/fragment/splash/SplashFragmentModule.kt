@@ -1,13 +1,13 @@
-package takeaway.di.fragment
+package takeaway.di.fragment.splash
 
 import dagger.Module
 import dagger.Provides
 import extensions.args
 import takeaway.di.FragmentScope
-import takeaway.feature.splash.ui.SplashFragment
-import takeaway.feature.splash.ui.deepLink
+import takeaway.feature_splash.ui.SplashFragment
+import takeaway.feature_splash.ui.deepLink
 
-@Module
+@Module(includes = [SplashNavigationModule::class])
 object SplashFragmentModule {
 
     @Provides

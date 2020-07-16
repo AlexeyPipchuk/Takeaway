@@ -1,8 +1,7 @@
-package takeaway.app
+package takeaway.app.navigation
 
-import takeaway.app.navigation.Screen
-import takeaway.feature.splash.domain.entity.DeepLink
-import takeaway.feature.splash.domain.entity.DeepLinks
+import takeaway.feature_splash.domain.entity.DeepLink
+import takeaway.feature_splash.domain.entity.DeepLinks
 
 class DeepLinkDefiner {
 

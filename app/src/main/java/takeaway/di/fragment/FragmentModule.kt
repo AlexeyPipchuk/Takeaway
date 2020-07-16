@@ -11,13 +11,13 @@ import takeaway.di.fragment.feature.orderregistration.OrderRegistrationFragmentM
 import takeaway.di.fragment.feature.success.SuccessFragmentModule
 import takeaway.di.fragment.shared.NoInternetNavigationModule
 import takeaway.di.fragment.shared.PrivacyPolicyNavigationModule
+import takeaway.di.fragment.splash.SplashFragmentModule
 import takeaway.feature.cafe.product.severalcafe.SeveralCafeWarningDialogFragment
 import takeaway.feature.cafe.product.ui.ProductDialogFragment
 import takeaway.feature.cafe.ui.CafeFragment
 import takeaway.feature.feed.promo.ui.PromoDialogFragment
 import takeaway.feature.feed.ui.FeedFragment
 import takeaway.feature_order_registration.ui.OrderRegistrationFragment
-import takeaway.feature.splash.ui.SplashFragment
 import takeaway.feature_add_cafe.ui.AddCafeFragment
 import takeaway.feature_basket.ui.BasketFragment
 import takeaway.feature_confirmation.ui.ConfirmationFragment
@@ -31,7 +31,7 @@ interface FragmentModule {
 
     @FragmentScope
     @ContributesAndroidInjector(modules = [SplashFragmentModule::class])
-    fun provideSplashFragment(): SplashFragment
+    fun provideSplashFragment(): takeaway.feature_splash.ui.SplashFragment
 
     @FragmentScope
     @ContributesAndroidInjector(modules = [FeedFragmentModule::class])

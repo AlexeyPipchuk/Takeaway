@@ -1,4 +1,4 @@
-package takeaway.feature.splash.domain.entity
+package takeaway.feature_splash.domain.entity
 
 import java.io.Serializable
 

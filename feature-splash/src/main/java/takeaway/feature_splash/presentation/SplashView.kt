@@ -1,4 +1,4 @@
-package takeaway.feature.splash.presentation
+package takeaway.feature_splash.presentation
 
 import base.TakeawayView
 

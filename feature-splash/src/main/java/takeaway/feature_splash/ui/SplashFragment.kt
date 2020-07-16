@@ -1,4 +1,4 @@
-package takeaway.feature.splash.ui
+package takeaway.feature_splash.ui
 
 import android.net.Uri
 import android.os.Bundle
@@ -6,11 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.updateLayoutParams
 import androidx.fragment.app.Fragment
-import com.example.takeaway.R
 import base.BaseFragment
 import kotlinx.android.synthetic.main.splash_fragment.*
-import takeaway.feature.splash.presentation.SplashPresenter
-import takeaway.feature.splash.presentation.SplashView
+import takeaway.feature_splash.R
+import takeaway.feature_splash.presentation.SplashPresenter
+import takeaway.feature_splash.presentation.SplashView
 import javax.inject.Inject
 
 private const val DEEP_LINK_ARG = "DEEP_LINK_ARG"

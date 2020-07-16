@@ -1,9 +1,8 @@
-package takeaway.app.navigation
+package takeaway.feature_splash.domain
 
 import android.content.Context
 import android.net.Uri
-import com.example.takeaway.R
-import takeaway.feature.splash.domain.entity.DeepLinks
+import takeaway.feature_splash.R
 
 class DeepLinkValidator(private val context: Context) {
 
@@ -20,6 +19,6 @@ class DeepLinkValidator(private val context: Context) {
 
     private fun isPathCorrect(path: String?): Boolean =
         path?.let { itPath ->
-            DeepLinks.values().any { it.path == itPath }
+            takeaway.feature_splash.domain.entity.DeepLinks.values().any { it.path == itPath }
         } ?: false
 }
