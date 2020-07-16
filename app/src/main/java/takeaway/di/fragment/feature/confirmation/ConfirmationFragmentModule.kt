@@ -1,13 +1,13 @@
-package takeaway.di.fragment
+package takeaway.di.fragment.feature.confirmation
 
 import dagger.Module
 import dagger.Provides
 import extensions.args
 import takeaway.di.FragmentScope
-import takeaway.feature.confirmation.ui.ConfirmationFragment
-import takeaway.feature.confirmation.ui.orderId
+import takeaway.feature_confirmation.ui.ConfirmationFragment
+import takeaway.feature_confirmation.ui.orderId
 
-@Module
+@Module(includes = [ConfirmationNavigationModule::class])
 object ConfirmationFragmentModule {
 
     @Provides

@@ -1,15 +1,15 @@
-package takeaway.feature.confirmation.ui
+package takeaway.feature_confirmation.ui
 
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import base.BaseFragment
-import com.example.takeaway.R
 import extensions.addBackPressedListener
 import kotlinx.android.synthetic.main.confirmation_fragment.*
 import takeaway.component_ui.extensions.fromHtml
-import takeaway.feature.confirmation.presentation.ConfirmationPresenter
-import takeaway.feature.confirmation.presentation.ConfirmationView
+import takeaway.feature_confirmation.R
+import takeaway.feature_confirmation.presentation.ConfirmationPresenter
+import takeaway.feature_confirmation.presentation.ConfirmationView
 import javax.inject.Inject
 
 private const val ORDER_ID_ARG = "ORDER_ID"

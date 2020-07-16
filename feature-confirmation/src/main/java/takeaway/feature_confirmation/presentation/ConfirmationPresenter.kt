@@ -1,12 +1,10 @@
-package takeaway.feature.confirmation.presentation
+package takeaway.feature_confirmation.presentation
 
-import ru.terrakok.cicerone.Router
 import base.BasePresenter
-import takeaway.app.navigation.Screen
 import javax.inject.Inject
 
 class ConfirmationPresenter @Inject constructor(
-    private val router: Router,
+    private val router: ConfirmationRouter,
     private val orderId: String
 ) : BasePresenter<ConfirmationView>() {
 
@@ -17,10 +15,10 @@ class ConfirmationPresenter @Inject constructor(
     }
 
     fun onToMainPageBackClicked() {
-        router.backTo(Screen.FeedScreen())
+        router.toFeedScreen()
     }
 
     fun onBackClicked() {
-        router.backTo(Screen.FeedScreen())
+        router.toFeedScreen()
     }
 }

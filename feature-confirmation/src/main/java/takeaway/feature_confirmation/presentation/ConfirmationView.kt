@@ -1,4 +1,4 @@
-package takeaway.feature.confirmation.presentation
+package takeaway.feature_confirmation.presentation
 
 import base.TakeawayView
 

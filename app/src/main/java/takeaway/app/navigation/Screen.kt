@@ -6,12 +6,11 @@ import domain.entity.OrderSketch
 import takeaway.feature_add_cafe.ui.AddCafeFragment
 import takeaway.feature.basket.ui.BasketFragment
 import takeaway.feature.cafe.ui.CafeFragment
-import takeaway.feature.confirmation.ui.ConfirmationFragment
+import takeaway.feature_confirmation.ui.ConfirmationFragment
 import takeaway.feature.feed.ui.FeedFragment
 import takeaway.feature.info.ui.InfoFragment
 import takeaway.feature.order.registration.ui.OrderRegistrationFragment
 import takeaway.feature.splash.ui.SplashFragment
-import takeaway.feature_success.ui.SuccessFragment
 import takeaway.shared_error.ui.NoInternetFragment
 import takeaway.shared_cafe.domain.entity.Cafe
 
