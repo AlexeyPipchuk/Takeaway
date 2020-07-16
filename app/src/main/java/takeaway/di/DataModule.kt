@@ -9,8 +9,8 @@ import retrofit2.Retrofit
 import takeaway.feature.order.registration.data.network.OrderApi
 import takeaway.feature.order.registration.data.repository.CreateOrderRepositoryImpl
 import takeaway.feature.order.registration.domain.repository.CreateOrderRepository
-import takeaway.shared.basket.data.repository.BasketRepositoryImpl
-import takeaway.shared.basket.domian.repository.BasketRepository
+import takeaway.shared_basket.data.repository.BasketRepositoryImpl
+import takeaway.shared_basket.domain.repository.BasketRepository
 import takeaway.shared.cafe.data.api.ProductApi
 import takeaway.shared.cafe.data.repository.ProductRepositoryImpl
 import takeaway.shared.cafe.domain.repository.ProductRepository
@@ -40,7 +40,7 @@ abstract class DataModule {
 
     @AppScope
     @Binds
-    abstract fun provideBasketRepository(repository: BasketRepositoryImpl): BasketRepository
+    abstract fun provideBasketRepository(repository: takeaway.shared_basket.data.repository.BasketRepositoryImpl): takeaway.shared_basket.domain.repository.BasketRepository
 
     @AppScope
     @Binds

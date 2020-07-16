@@ -5,18 +5,18 @@ import ru.terrakok.cicerone.Router
 import takeaway.app.navigation.Screen
 import takeaway.feature.basket.model.BasketItem
 import takeaway.feature.basket.ui.BasketView
-import takeaway.shared.basket.domian.entity.Basket
-import takeaway.shared.basket.domian.usecase.ClearBasketUseCase
-import takeaway.shared.basket.domian.usecase.DeleteProductFromBasketUseCase
-import takeaway.shared.basket.domian.usecase.GetBasketAmountUseCase
-import takeaway.shared.basket.domian.usecase.GetBasketUseCase
+import takeaway.shared_basket.domain.entity.Basket
+import takeaway.shared_basket.domain.usecase.ClearBasketUseCase
+import takeaway.shared_basket.domain.usecase.DeleteProductFromBasketUseCase
+import takeaway.shared_basket.domain.usecase.GetBasketAmountUseCase
+import takeaway.shared_basket.domain.usecase.GetBasketUseCase
 import javax.inject.Inject
 
 class BasketPresenter @Inject constructor(
-    private val getBasketUseCase: GetBasketUseCase,
-    private val deleteProductFromBasketUseCase: DeleteProductFromBasketUseCase,
-    private val clearBasketUseCase: ClearBasketUseCase,
-    private val getBasketAmountUseCase: GetBasketAmountUseCase,
+    private val getBasketUseCase: takeaway.shared_basket.domain.usecase.GetBasketUseCase,
+    private val deleteProductFromBasketUseCase: takeaway.shared_basket.domain.usecase.DeleteProductFromBasketUseCase,
+    private val clearBasketUseCase: takeaway.shared_basket.domain.usecase.ClearBasketUseCase,
+    private val getBasketAmountUseCase: takeaway.shared_basket.domain.usecase.GetBasketAmountUseCase,
     private val router: Router
 ) : BasePresenter<BasketView>() {
 
@@ -28,7 +28,7 @@ class BasketPresenter @Inject constructor(
         updateBasket()
     }
 
-    private fun updateBasket(basket: Basket = getBasketUseCase()) {
+    private fun updateBasket(basket: takeaway.shared_basket.domain.entity.Basket = getBasketUseCase()) {
         if (basket.isBasketNotEmpty()) {
             basket.cafe?.let { view?.showOrderCafeInfo(it) }
             basket.products?.let {
@@ -44,7 +44,7 @@ class BasketPresenter @Inject constructor(
         }
     }
 
-    private fun Basket.isBasketNotEmpty() =
+    private fun takeaway.shared_basket.domain.entity.Basket.isBasketNotEmpty() =
         cafe != null && !products.isNullOrEmpty()
 
     private fun showCalculatedTakeawayDiscount(takeawayDiscount: Int, basketAmount: Int) {
@@ -57,7 +57,7 @@ class BasketPresenter @Inject constructor(
     private fun calculateTakeawayDiscount(takeawayDiscount: Int, basketAmount: Int): Int =
         takeawayDiscount * basketAmount / 100
 
-    private fun calculateHelpValues(basketAmount: Int, basket: Basket) {
+    private fun calculateHelpValues(basketAmount: Int, basket: takeaway.shared_basket.domain.entity.Basket) {
         view?.setDefaultHelpMessagesState()
 
         val minDeliverySum = basket.cafe?.minDeliverySum

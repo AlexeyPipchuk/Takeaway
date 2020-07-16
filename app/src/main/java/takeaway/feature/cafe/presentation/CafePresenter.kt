@@ -10,7 +10,7 @@ import takeaway.component_rx_extension.subscribeOver
 import takeaway.component_rx_extension.zipWith
 import takeaway.feature.cafe.presentation.model.CategoryItem
 import takeaway.feature.cafe.ui.CafeView
-import takeaway.shared.basket.domian.usecase.GetBasketAmountUseCase
+import takeaway.shared_basket.domain.usecase.GetBasketAmountUseCase
 import takeaway.shared.cafe.domain.usecase.GetProductListUseCase
 import takeaway.shared.category.domain.entity.Category
 import takeaway.shared.category.domain.usecase.GetCategoryListUseCase
@@ -19,7 +19,7 @@ import javax.inject.Inject
 
 class CafePresenter @Inject constructor(
     private val getProductListUseCase: GetProductListUseCase,
-    private val getBasketAmountUseCase: GetBasketAmountUseCase,
+    private val getBasketAmountUseCase: takeaway.shared_basket.domain.usecase.GetBasketAmountUseCase,
     private val getCategoryListUseCase: GetCategoryListUseCase,
     private val errorConverter: ErrorConverter,
     private val router: Router,

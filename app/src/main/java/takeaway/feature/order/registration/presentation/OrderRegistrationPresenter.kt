@@ -13,7 +13,7 @@ import takeaway.feature.order.registration.domain.entity.OrderValidatorField
 import takeaway.feature.order.registration.domain.entity.ReceiveMethod
 import takeaway.feature.order.registration.domain.usecase.CreateOrderUseCase
 import takeaway.feature.order.registration.domain.usecase.GetIntervalListUseCase
-import takeaway.shared.basket.domian.usecase.ClearBasketUseCase
+import takeaway.shared_basket.domain.usecase.ClearBasketUseCase
 import javax.inject.Inject
 
 class OrderRegistrationPresenter @Inject constructor(
@@ -23,7 +23,7 @@ class OrderRegistrationPresenter @Inject constructor(
     private val validateCommonStringUseCase: ValidateCommonStringUseCase,
     private val validateSingleNumberUseCase: ValidateSingleNumberUseCase,
     private val validateExportExportTimeUseCase: ValidateExportTimeUseCase,
-    private val clearBasketUseCase: ClearBasketUseCase,
+    private val clearBasketUseCase: takeaway.shared_basket.domain.usecase.ClearBasketUseCase,
     private val createOrderUseCase: CreateOrderUseCase,
     private val getPhoneCountryPrefixUseCase: GetPhoneCountryPrefixUseCase,
     private val getIntervalListUseCase: GetIntervalListUseCase,

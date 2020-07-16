@@ -1,6 +1,6 @@
-package takeaway.shared.basket.domian.usecase
+package takeaway.shared_basket.domain.usecase
 
-import takeaway.shared.basket.domian.repository.BasketRepository
+import takeaway.shared_basket.domain.repository.BasketRepository
 import javax.inject.Inject
 
 class GetBasketAmountUseCase @Inject constructor(

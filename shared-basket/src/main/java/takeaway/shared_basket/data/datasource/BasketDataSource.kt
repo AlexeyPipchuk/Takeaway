@@ -1,16 +1,17 @@
-package takeaway.shared.basket.data.datasource
+package takeaway.shared_basket.data.datasource
 
-import takeaway.shared.basket.domian.entity.Basket
+import domain.entity.Product
+import takeaway.shared_basket.domain.entity.Basket
 import takeaway.shared_cafe.domain.entity.Cafe
 import javax.inject.Inject
 
 class BasketDataSource @Inject constructor() {
 
-    private var productInBasket: MutableMap<domain.entity.Product, Int>? = null
+    private var productInBasket: MutableMap<Product, Int>? = null
     private var cafe: Cafe? = null
     private var amount: Int = 0
 
-    fun addToBasket(product: domain.entity.Product, count: Int, cafe: Cafe) {
+    fun addToBasket(product: Product, count: Int, cafe: Cafe) {
         if (this.cafe != cafe) this.cafe = cafe
 
         if (productInBasket == null) {
@@ -20,7 +21,7 @@ class BasketDataSource @Inject constructor() {
         addToBasket(product, count)
     }
 
-    private fun addToBasket(product: domain.entity.Product, count: Int) {
+    private fun addToBasket(product: Product, count: Int) {
         productInBasket?.let {
             val currentProductCount = it[product] ?: 0
             productInBasket!![product] = currentProductCount + count

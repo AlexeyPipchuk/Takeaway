@@ -1,8 +1,8 @@
-package takeaway.shared.basket.data.repository
+package takeaway.shared_basket.data.repository
 
-import takeaway.shared.basket.data.datasource.BasketDataSource
-import takeaway.shared.basket.domian.entity.Basket
-import takeaway.shared.basket.domian.repository.BasketRepository
+import takeaway.shared_basket.data.datasource.BasketDataSource
+import takeaway.shared_basket.domain.entity.Basket
+import takeaway.shared_basket.domain.repository.BasketRepository
 import takeaway.shared_cafe.domain.entity.Cafe
 import javax.inject.Inject
 

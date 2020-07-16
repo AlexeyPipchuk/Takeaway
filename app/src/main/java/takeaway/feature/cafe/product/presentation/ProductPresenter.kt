@@ -1,16 +1,16 @@
 package takeaway.feature.cafe.product.presentation
 
 import base.BasePresenter
-import takeaway.shared.basket.domian.usecase.AddToBasketUseCase
-import takeaway.shared.basket.domian.usecase.ClearBasketUseCase
-import takeaway.shared.basket.domian.usecase.GetBasketCafeIdUseCase
+import takeaway.shared_basket.domain.usecase.AddToBasketUseCase
+import takeaway.shared_basket.domain.usecase.ClearBasketUseCase
+import takeaway.shared_basket.domain.usecase.GetBasketCafeIdUseCase
 import takeaway.shared_cafe.domain.entity.Cafe
 import javax.inject.Inject
 
 class ProductPresenter @Inject constructor(
-    private val getBasketCafeIdUseCase: GetBasketCafeIdUseCase,
-    private val clearBasketUseCase: ClearBasketUseCase,
-    private val addToBasketUseCase: AddToBasketUseCase,
+    private val getBasketCafeIdUseCase: takeaway.shared_basket.domain.usecase.GetBasketCafeIdUseCase,
+    private val clearBasketUseCase: takeaway.shared_basket.domain.usecase.ClearBasketUseCase,
+    private val addToBasketUseCase: takeaway.shared_basket.domain.usecase.AddToBasketUseCase,
     private val product: domain.entity.Product,
     private val cafe: Cafe
 ) : BasePresenter<ProductView>() {
