@@ -6,6 +6,10 @@
 
     //TODO(Отсортировать)
 
+    //fab
+    <string name="fab_menu_info_button_text">О Takeaway</string>
+    <string name="fab_menu_add_cafe_button_text">Добавить свое заведение</string>
+
     //feed
     <string name="delivery_free_from_colored">бесплатно от &lt;font color=#FF004C>%1$s ₽&lt;/font></string>
     <string name="takeaway_discount_colored">&lt;font color=#FF004C>-%1$s%%&lt;/font> на самовывоз</string>
@@ -37,39 +41,11 @@
     <string name="several_cafe_basket_warning_message">В корзине уже имеются блюда из другого кафе</string>
     <string name="several_cafe_basket_warning_clear_approve">Очистить</string>
     <string name="several_cafe_basket_warning_cancel_clear">Отменить</string>
-    <string name="order_title">Ваш заказ</string>
-    <string name="order_amount_price">Сумма заказа</string>
     <string name="to_order_registration_button_text">Перейти к оформлению</string>
 
     //promo
     <string name="promo_title">Поможем томским\nзаведениям вместе!</string>
     <string name="promo_description">Узнайте, как вы помогаете, совершая заказы через сервис TAKEAWAY</string>
     <string name="motivation_text">Важно понимать, что в текущей экономической ситуации первыми под удар попадают наши любимые кафе, рестораны и бары.&lt;br/>&lt;br/>Единственным способом поддержания деятельности для заведений остаются самовывоз и доставка. Сервис TakeAway помогает вам заказывать любимые блюда быстро и удобно, что позволяет обеспечить заведения дополнительными заказами. Также, мы абсолютно не берем платы за свои услуги с заведений.&lt;br/>&lt;br/>Мы искренне хотим помочь создать любимым местам условия, в которых возможно поддерживать рентабельность, рабочие места и желание радовать нас с вами вкусными блюдами. Именно поэтому, заказывая в TakeAway, вы, прежде всего, помогаете своим любимым заведениям!&lt;br/>&lt;br/>С любовью, &lt;a href="https://statist-w.ru/">команда statist&lt;/a> 💖</string>
-
-    //Order Registration
-    <string name="back_to_basket_text">К корзине</string>
-    <string name="order_registration_title">Оформление заказа</string>
-    <string name="create_order_button_text">Оформить заказ</string>
-    <string name="privacy_policy_link_text">Нажимая эту кнопку, вы соглашаетесь с &lt;br/>&lt;font color=#FF004C>Политикой конфиденциальности&lt;/font></string>
-    <string name="takeaway_radio_button">Самовывоз</string>
-    <string name="delivery_radio_button">Доставка</string>
-    <string name="pickUpWay">Способ получения заказа</string>
-    <string name="order_result_amount_price">Итого</string>
-    <string name="delivery_cost_title">Стоимость доставки</string>
-    <string name="takeaway_radio_button_subtitle">Скидка −%1$s%%</string>
-    <string name="order_registration_takeaway_discount_text">Скидка на самовывоз −%1$s%%</string>
-    <string name="what_your_name_hint">Как вас зовут?</string>
-    <string name="phone_hint">Номер телефона</string>
-    <string name="email_hint">E-mail</string>
-    <string name="email_helper_text_hint">Эл. почта нужна для подтверждения заказа</string>
-    <string name="select_address_hint">Выберете адрес самовывоза</string>
-    <string name="select_time_to_takeaway_hint">К какому времени готовить заказ?</string>
-    <string name="street_hint">Улица</string>
-    <string name="house_number_hint">Дом</string>
-    <string name="comment_hint">Комментарий…</string>
-    <string name="porch_hint">Подъезд</string>
-    <string name="floor_hint">Этаж</string>
-    <string name="flat_hint">Кв.</string>
-    <string name="time_delivery_hint">Укажите время доставки</string>
 
 </resources>

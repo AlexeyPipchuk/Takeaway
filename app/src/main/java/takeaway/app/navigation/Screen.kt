@@ -9,7 +9,7 @@ import takeaway.feature.cafe.ui.CafeFragment
 import takeaway.feature_confirmation.ui.ConfirmationFragment
 import takeaway.feature.feed.ui.FeedFragment
 import takeaway.feature_info.ui.InfoFragment
-import takeaway.feature.order.registration.ui.OrderRegistrationFragment
+import takeaway.feature_order_registration.ui.OrderRegistrationFragment
 import takeaway.feature.splash.ui.SplashFragment
 import takeaway.shared_error.ui.NoInternetFragment
 import takeaway.shared_cafe.domain.entity.Cafe

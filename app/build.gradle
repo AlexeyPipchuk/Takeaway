@@ -104,6 +104,7 @@ dependencies {
     implementation project(":feature-basket")
     implementation project(":feature-confirmation")
     implementation project(":feature-info")
+    implementation project(":feature-order-registration")
     implementation project(":feature-success")
     implementation project(":shared-basket")
     implementation project(":shared-cafe")

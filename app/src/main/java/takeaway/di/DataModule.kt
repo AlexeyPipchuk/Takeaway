@@ -6,11 +6,9 @@ import dagger.Provides
 import data.repository.PhoneCountryRepositoryImpl
 import domain.repository.PhoneCountryRepository
 import retrofit2.Retrofit
-import takeaway.feature.order.registration.data.network.OrderApi
-import takeaway.feature.order.registration.data.repository.CreateOrderRepositoryImpl
-import takeaway.feature.order.registration.domain.repository.CreateOrderRepository
-import takeaway.shared_basket.data.repository.BasketRepositoryImpl
-import takeaway.shared_basket.domain.repository.BasketRepository
+import takeaway.feature_order_registration.data.network.OrderApi
+import takeaway.feature_order_registration.data.repository.CreateOrderRepositoryImpl
+import takeaway.feature_order_registration.domain.repository.CreateOrderRepository
 import takeaway.shared.cafe.data.api.ProductApi
 import takeaway.shared.cafe.data.repository.ProductRepositoryImpl
 import takeaway.shared.cafe.domain.repository.ProductRepository

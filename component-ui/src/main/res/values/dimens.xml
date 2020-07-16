@@ -2,6 +2,10 @@
 <resources>
     <dimen name="none_elevation">0dp</dimen>
     <dimen name="snackbar_elevation">2dp</dimen>
+    <dimen name="card_corner_radius">5dp</dimen>
+    <dimen name="card_elevation">10dp</dimen>
+    <dimen name="logo_width">56dp</dimen>
+    <dimen name="logo_height">42dp</dimen>
 
     //spacing
     <dimen name="spacing_64">64dp</dimen>

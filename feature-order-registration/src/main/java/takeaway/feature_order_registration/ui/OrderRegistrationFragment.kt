@@ -1,0 +1,393 @@
+package takeaway.feature_order_registration.ui
+
+import android.os.Bundle
+import android.view.View
+import android.widget.EditText
+import androidx.core.view.isVisible
+import androidx.core.widget.doAfterTextChanged
+import androidx.fragment.app.Fragment
+import base.BaseFragment
+import com.google.android.material.textfield.TextInputLayout
+import com.redmadrobot.inputmask.MaskedTextChangedListener
+import com.redmadrobot.inputmask.helper.AffinityCalculationStrategy
+import domain.entity.OrderSketch
+import kotlinx.android.synthetic.main.order_registration_fragment.*
+import takeaway.component_ui.extensions.loadImage
+import takeaway.component_ui.extensions.*
+import takeaway.feature_order_registration.R
+import takeaway.feature_order_registration.domain.entity.OrderValidatorField
+import takeaway.feature_order_registration.presentation.OrderRegistrationPresenter
+import takeaway.feature_order_registration.presentation.OrderRegistrationView
+import takeaway.shared_cafe.domain.entity.Cafe
+import takeaway.shared_error.extensions.showNoInternetDialog
+import takeaway.shared_error.extensions.showServiceUnavailableDialog
+import javax.inject.Inject
+
+private const val ORDER_SKETCH_ARG = "ORDER_SKETCH"
+var Bundle.orderSketch: OrderSketch
+    get() = getSerializable(ORDER_SKETCH_ARG) as OrderSketch
+    set(value) = putSerializable(ORDER_SKETCH_ARG, value)
+
+class OrderRegistrationFragment : BaseFragment(R.layout.order_registration_fragment),
+    OrderRegistrationView {
+
+    companion object {
+        fun getInstance(orderSketch: OrderSketch): Fragment =
+            OrderRegistrationFragment()
+                .apply {
+                    arguments = Bundle().apply {
+                        this.orderSketch = orderSketch
+                    }
+                }
+    }
+
+    @Inject
+    lateinit var presenter: OrderRegistrationPresenter
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        presenter.attachView(this)
+
+        initListeners()
+        setTextChangedListeners()
+        setTextFocusChangeListeners()
+
+        //default focus
+        nameEditText.requestFocus()
+    }
+
+    private fun initListeners() {
+        toolbar.setBackButtonListener {
+            presenter.onBackToBasketButtonClicked()
+        }
+        createOrderButton.setOnClickListener {
+            presenter.onCreateOrderButtonClicked()
+        }
+        privacyPolicyLink.setOnClickListener {
+            presenter.onPrivacyPolicyClicked()
+        }
+        takeawayRadioButton.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                presenter.onTakeawayRadioButtonClicked()
+                deliveryRadioButton.isChecked = false
+            }
+        }
+        deliveryRadioButton.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                presenter.onDeliveryRadioButtonClicked()
+                takeawayRadioButton.isChecked = false
+            }
+        }
+
+        addressTakeawayEditText.setOnClickListener {
+            presenter.onAddressTakeawayClicked()
+        }
+        timeTakeawayEditText.setOnClickListener {
+            presenter.onTimeTakeawayClicked()
+        }
+        timeDeliveryEditText.setOnClickListener {
+            presenter.onTimeDeliveryClicked()
+        }
+    }
+
+    private fun setTextChangedListeners() {
+        nameEditText.doAfterTextChanged { nameEditTextLayout.invalidateError() }
+        phoneEditText.doAfterTextChanged { phoneEditTextLayout.invalidateError() }
+        emailEditText.doAfterTextChanged { emailEditTextLayout.invalidateError() }
+        timeTakeawayEditText.doAfterTextChanged { timeTakeawayEditTextLayout.invalidateError() }
+        timeDeliveryEditText.doAfterTextChanged { timeDeliveryEditTextLayout.invalidateError() }
+        streetEditText.doAfterTextChanged { streetEditTextLayout.invalidateError() }
+        houseNumberEditText.doAfterTextChanged { houseNumberEditTextLayout.invalidateError() }
+        porchEditText.doAfterTextChanged { porchEditTextLayout.invalidateError() }
+        floorEditText.doAfterTextChanged { floorEditTextLayout.invalidateError() }
+        flatEditText.doAfterTextChanged { flatEditTextLayout.invalidateError() }
+        commentEditText.doAfterTextChanged { commentEditTextLayout.invalidateError() }
+    }
+
+    private fun setTextFocusChangeListeners() {
+        val focusChangeListener = View.OnFocusChangeListener { view, hasFocus ->
+            if (!hasFocus) {
+                onFocusLost(view)
+            }
+        }
+
+        nameEditText.onFocusChangeListener = focusChangeListener
+        phoneEditText.onFocusChangeListener = focusChangeListener
+        emailEditText.onFocusChangeListener = focusChangeListener
+        streetEditText.onFocusChangeListener = focusChangeListener
+        houseNumberEditText.onFocusChangeListener = focusChangeListener
+        porchEditText.onFocusChangeListener = focusChangeListener
+        floorEditText.onFocusChangeListener = focusChangeListener
+        flatEditText.onFocusChangeListener = focusChangeListener
+        commentEditText.onFocusChangeListener = focusChangeListener
+    }
+
+    private fun onFocusLost(view: View) {
+        when (view) {
+            !is EditText -> Unit
+            nameEditText -> view.onFocusLost(OrderValidatorField.NAME)
+            phoneEditText -> view.onFocusLost(OrderValidatorField.PHONE)
+            emailEditText -> view.onFocusLost(OrderValidatorField.EMAIL)
+            streetEditText -> view.onFocusLost(OrderValidatorField.STREET)
+            houseNumberEditText -> view.onFocusLost(OrderValidatorField.HOUSE_NUMBER)
+            porchEditText -> view.onFocusLost(OrderValidatorField.PORCH)
+            floorEditText -> view.onFocusLost(OrderValidatorField.FLOOR)
+            flatEditText -> view.onFocusLost(OrderValidatorField.FLAT)
+            commentEditText -> view.onFocusLost(OrderValidatorField.COMMENT)
+        }
+    }
+
+    private fun EditText.onFocusLost(field: OrderValidatorField) {
+        presenter.onInputFieldFocusLost(this.text.toString().trim(), field)
+    }
+
+    override fun setPhoneMask(mask: String) {
+        MaskedTextChangedListener.installOn(
+            phoneEditText,
+            "+$mask ([000]) [000]-[00]-[00]",
+            emptyList(),
+            AffinityCalculationStrategy.PREFIX
+        )
+    }
+
+    override fun showProgress() {
+        content.isVisible = false
+        progressBar.isVisible = true
+    }
+
+    override fun hideProgress() {
+        content.isVisible = true
+        progressBar.isVisible = false
+    }
+
+    override fun setPrivacyPolicyText() {
+        privacyPolicyLink.text = getString(R.string.privacy_policy_link_text).fromHtml()
+    }
+
+    override fun showPopUpWithAddresses(addresses: List<String>) {
+        addressTakeawayEditText.showPopup(addresses) {
+            presenter.onAddressSelected(it)
+        }
+    }
+
+    override fun showPopUpWithAvailableTakeawayTimes(times: List<String>) {
+        timeTakeawayEditText.showPopup(times) {
+            presenter.onTakeawayTimeSelected(it)
+        }
+    }
+
+    override fun showPopUpWithAvailableDeliveryTimes(times: List<String>) {
+        timeDeliveryEditText.showPopup(times) {
+            presenter.onDeliveryTimeSelected(it)
+        }
+    }
+
+    override fun showEmptyExportTimeListError() {
+        val error = getString(R.string.empty_export_time_list_error)
+
+        setFieldValidationResult(timeTakeawayEditTextLayout, error)
+        setFieldValidationResult(timeDeliveryEditTextLayout, error)
+    }
+
+    override fun setAddress(address: String) {
+        addressTakeawayEditText.setText(address)
+    }
+
+    override fun setTakeawayTime(takeawayTime: String) {
+        timeTakeawayEditText.setText(takeawayTime)
+    }
+
+    override fun setDeliveryTime(deliveryTime: String) {
+        timeDeliveryEditText.setText(deliveryTime)
+    }
+
+    override fun showOrderCafeInfo(cafe: Cafe) {
+        orderCafeName.text = cafe.name
+
+        val cafeLogoImg = cafe.logoUrl
+        if (cafeLogoImg != null) {
+            orderCafeLogo.isVisible = true
+            orderCafeLogoImg.loadImage(cafeLogoImg)
+        }
+    }
+
+    override fun selectTakeawayReceivingMethod(severalAddresses: Boolean) {
+        takeawayOptionLayout.isVisible = true
+        deliveryOptionLayout.isVisible = false
+
+        if (severalAddresses) {
+            addressTakeawayEditTextLayout.isVisible = true
+        }
+    }
+
+    override fun selectDeliveryReceivingMethod() {
+        deliveryOptionLayout.isVisible = true
+        takeawayOptionLayout.isVisible = false
+    }
+
+    override fun showNoInternetDialog() {
+        showNoInternetDialog(
+            positiveResult = {
+                presenter.onRetryClicked()
+            }, negativeResult = {
+                presenter.onNegativeButtonClicked()
+            }
+        )
+    }
+
+    override fun showServiceUnavailable() {
+        showServiceUnavailableDialog(
+            positiveResult = {
+                presenter.onRetryClicked()
+            }, negativeResult = {
+                presenter.onNegativeButtonClicked()
+            }
+        )
+    }
+
+    override fun showBasketAmount(basketAmountWithoutAll: Int) {
+        orderAmountPrice.text =
+            getString(R.string.rubles_postfix).format(basketAmountWithoutAll.toString())
+    }
+
+    override fun showTakeawayRadioButtonSubtitle(takeawayDiscount: Int) {
+        takeawayRadioButtonSubtitle.text =
+            getString(R.string.takeaway_radio_button_subtitle).format(takeawayDiscount.toString())
+    }
+
+    override fun showDeliveryValueToFreeDescription(valueToFreeDelivery: Int) {
+        deliveryRadioButtonSubtitle.text =
+            getString(R.string.message_with_value_to_free_delivery).format(valueToFreeDelivery.toString())
+    }
+
+    override fun showDeliveryMinSumDescription(deliveryMinSum: Int) {
+        deliveryRadioButtonSubtitle.text =
+            getString(R.string.minimum_amount_for_free_delivery_message).format(deliveryMinSum.toString())
+    }
+
+    override fun setTakeawayDiscountResult(takeawayDiscount: Int, takeawayDiscountCalculated: Int) {
+        takeawayDiscountCalculatedText.text =
+            getString(R.string.order_registration_takeaway_discount_text).format(takeawayDiscount.toString())
+
+        takeawayDiscountCalculatedAmount.text =
+            getString(R.string.rubles_postfix).format(takeawayDiscountCalculated.toString())
+    }
+
+    override fun showTakeawayDiscountResult() {
+        takeawayOrderLayout.isVisible = true
+    }
+
+    override fun hideTakeawayDiscountResult() {
+        takeawayOrderLayout.isVisible = false
+    }
+
+    override fun setDeliveryCostResult(takeawayDeliveryCalculated: Int) {
+        deliveryPriceCalculatedAmount.text =
+            getString(R.string.rubles_postfix).format(takeawayDeliveryCalculated.toString())
+    }
+
+    override fun showDeliveryCostResult() {
+        deliveryOrderLayout.isVisible = true
+    }
+
+    override fun hideDeliveryCostResult() {
+        deliveryOrderLayout.isVisible = false
+    }
+
+    override fun showOrderAmountWithTakeaway(orderWithTakeawayAmount: Int) {
+        orderResultAmountPrice.text =
+            getString(R.string.rubles_postfix).format(orderWithTakeawayAmount.toString())
+    }
+
+    override fun showOrderAmountWithDelivery(orderWithDeliveryAmount: Int) {
+        orderResultAmountPrice.text =
+            getString(R.string.rubles_postfix).format(orderWithDeliveryAmount.toString())
+    }
+
+    override fun disableResultAndButton() {
+        orderResultAmountTitle.isVisible = false
+        orderResultAmountPrice.isVisible = false
+        orderSeparator.isVisible = false
+        createOrderButton.disable()
+    }
+
+    override fun enableResultAndButton() {
+        orderResultAmountTitle.isVisible = true
+        orderResultAmountPrice.isVisible = true
+        orderSeparator.isVisible = true
+        createOrderButton.enable()
+    }
+
+    override fun clearFocus() {
+        requireActivity().currentFocus?.clearFocus()
+    }
+
+    override fun setNameValidationResult(error: String?) {
+        setFieldValidationResult(nameEditTextLayout, error)
+    }
+
+    override fun setPhoneValidationResult(error: String?) {
+        setFieldValidationResult(phoneEditTextLayout, error)
+    }
+
+    override fun setEmailValidationResult(error: String?) {
+        setFieldValidationResult(emailEditTextLayout, error)
+    }
+
+    override fun setStreetValidationResult(error: String?) {
+        setFieldValidationResult(streetEditTextLayout, error)
+    }
+
+    override fun setHouseNumberValidationResult(error: String?) {
+        setFieldValidationResult(houseNumberEditTextLayout, error)
+    }
+
+    override fun setPorchValidationResult(error: String?) {
+        setFieldValidationResult(porchEditTextLayout, error)
+    }
+
+    override fun setFloorValidationResult(error: String?) {
+        setFieldValidationResult(floorEditTextLayout, error)
+    }
+
+    override fun setFlatValidationResult(error: String?) {
+        setFieldValidationResult(flatEditTextLayout, error)
+    }
+
+    override fun setCommentValidationResult(error: String?) {
+        setFieldValidationResult(commentEditTextLayout, error)
+    }
+
+    override fun setTakeawayTimeValidationResult(error: String?) {
+        setFieldValidationResult(timeTakeawayEditTextLayout, error)
+    }
+
+    override fun setDeliveryTimeValidationResult(error: String?) {
+        setFieldValidationResult(timeDeliveryEditTextLayout, error)
+    }
+
+    private fun setFieldValidationResult(layout: TextInputLayout, error: String?) {
+        when {
+            layout.error == null && error != null -> layout.error = error
+            layout.error != null && error == null -> layout.invalidateError()
+            else -> Unit
+        }
+    }
+
+    override fun requestFocusOnFirstError() {
+        //TODO(Разобраться че не так)
+        // т.к. они в разных уровнях вложенности
+//        if (requestFocusOnFirstError(formLayout = basketContent)) {
+//            if (takeawayRadioButton.isChecked) {
+//                requestFocusOnFirstError(formLayout = takeawayOptionLayout)
+//            } else {
+//                requestFocusOnFirstError(formLayout = deliveryFieldsLayout)
+//            }
+//        }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        presenter.detachView()
+    }
+}

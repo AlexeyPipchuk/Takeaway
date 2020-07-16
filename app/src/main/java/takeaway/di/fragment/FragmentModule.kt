@@ -7,6 +7,7 @@ import takeaway.di.fragment.feature.AddCafeNavigationModule
 import takeaway.di.fragment.feature.BasketNavigationModule
 import takeaway.di.fragment.feature.InfoNavigationModule
 import takeaway.di.fragment.feature.confirmation.ConfirmationFragmentModule
+import takeaway.di.fragment.feature.orderregistration.OrderRegistrationFragmentModule
 import takeaway.di.fragment.feature.success.SuccessFragmentModule
 import takeaway.di.fragment.shared.NoInternetNavigationModule
 import takeaway.di.fragment.shared.PrivacyPolicyNavigationModule
@@ -15,7 +16,7 @@ import takeaway.feature.cafe.product.ui.ProductDialogFragment
 import takeaway.feature.cafe.ui.CafeFragment
 import takeaway.feature.feed.promo.ui.PromoDialogFragment
 import takeaway.feature.feed.ui.FeedFragment
-import takeaway.feature.order.registration.ui.OrderRegistrationFragment
+import takeaway.feature_order_registration.ui.OrderRegistrationFragment
 import takeaway.feature.splash.ui.SplashFragment
 import takeaway.feature_add_cafe.ui.AddCafeFragment
 import takeaway.feature_basket.ui.BasketFragment

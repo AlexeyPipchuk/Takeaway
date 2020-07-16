@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="card_elevation">10dp</dimen>
     <dimen name="corner_radius">8dp</dimen>
     <dimen name="card_height">200dp</dimen>
-    <dimen name="logo_width">56dp</dimen>
-    <dimen name="logo_height">42dp</dimen>
     <dimen name="app_bar_elevation">0dp</dimen>
     <dimen name="search_bar_elevation">1dp</dimen>
     <dimen name="search_bar_corner_radius">8dp</dimen>
@@ -17,8 +14,4 @@
     <dimen name="product_card_elevation">2dp</dimen>
     <dimen name="product_image_width">110dp</dimen>
     <dimen name="product_image_height">145dp</dimen>
-
-    //Basket
-    <dimen name="basket_app_bar_elevation">10dp</dimen>
-    <dimen name="spacing_5">5dp</dimen>
 </resources>

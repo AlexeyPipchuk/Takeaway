@@ -48,7 +48,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/spacing_16"
         app:cardBackgroundColor="@android:color/transparent"
-        app:cardCornerRadius="@dimen/spacing_5"
+        app:cardCornerRadius="@dimen/card_corner_radius"
         app:cardElevation="0dp"
         app:layout_constraintBottom_toBottomOf="@+id/backToAllCafeButton"
         app:layout_constraintEnd_toEndOf="parent"
