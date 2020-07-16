@@ -1,38 +1,26 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
-
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
 
+
     defaultConfig {
-        applicationId "com.example.takeaway"
         minSdkVersion 21
         targetSdkVersion 29
         versionCode 1
-        versionName "1.0.0-alpha"
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        versionName "1.0"
 
-        multiDexEnabled true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
     }
 
     buildTypes {
         release {
-            minifyEnabled true
-            shrinkResources true
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-    }
-
-    flavorDimensions "default"
-    productFlavors {
-        free {
-            applicationId "com.example.takeaway.free"
-        }
-        paid {
-            applicationId "com.example.takeaway.paid"
         }
     }
 
@@ -47,9 +35,6 @@ android {
 }
 
 dependencies {
-    //TODO(Ресерч)
-    //freeImplementation 'com.google.android.gms:play-services-ads:19.2.0'
-
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'androidx.appcompat:appcompat:1.1.0'
@@ -67,13 +52,6 @@ dependencies {
     //UI
     implementation 'com.google.android.material:material:1.1.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
-
-    //Navigation
-    implementation 'ru.terrakok.cicerone:cicerone:5.1.0'
-
-    //gson
-    implementation 'com.google.code.gson:gson:2.8.6'
 
     //rx
     implementation "io.reactivex.rxjava2:rxjava:2.2.16"
@@ -84,38 +62,16 @@ dependencies {
     implementation "com.squareup.retrofit2:converter-gson:2.7.1"
     implementation "com.squareup.retrofit2:adapter-rxjava2:2.7.1"
 
-    //logging
-    implementation "com.jakewharton.timber:timber:4.7.1"
-    implementation "com.squareup.okhttp3:logging-interceptor:3.14.2"
-
-    //input mask
-    implementation 'com.redmadrobot:input-mask-android:6.0.0'
-
-    // AppMetrica SDK.
-    implementation 'com.yandex.android:mobmetricalib:3.13.1'
-    // Play Install Referrer library.
-    implementation 'com.android.installreferrer:installreferrer:1.1.2'
+    //shaped image
+    implementation 'com.github.siyamed:android-shape-imageview:0.9.3@aar'
 
     //Modules
-    implementation project(":feature-add-cafe")
-    implementation project(":feature-basket")
-    implementation project(":feature-cafe")
-    implementation project(":feature-confirmation")
-    implementation project(":feature-info")
-    implementation project(":feature-feed")
-    implementation project(":feature-order-registration")
-    implementation project(":feature-splash")
-    implementation project(":feature-success")
     implementation project(":shared-basket")
     implementation project(":shared-cafe")
     implementation project(":shared-category")
     implementation project(":shared-error")
-    implementation project(":shared-order-registration")
-    implementation project(":shared-phone-prefix")
-    implementation project(":shared-privacy-policy")
     implementation project(":shared-product")
     implementation project(":component-presentation")
     implementation project(":component-ui")
-    implementation project(":component-validation")
     implementation project(":component-rx-extension")
 }

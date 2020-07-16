@@ -3,31 +3,4 @@
     <string name="deep_link_scheme" translatable="false">takeaway</string>
     <string name="deep_link_host" translatable="false">deep.takeaway.com</string>
     <string name="https_scheme" translatable="false">https</string>
-
-    //cafe
-    <string name="all_cafe">Все рестораны</string>
-    <string name="default_amount">0₽</string>
-    <string name="delivery_free_from">бесплатно от %1$s ₽</string>
-    <string name="takeaway_discount">-%1$s%% на самовывоз</string>
-    <string name="delivery_price">%1$s ₽ при заказе на меньшую сумму</string>
-    <string name="minimumDeliverySumText">минимальная сумма доставки — %1$s₽</string>
-
-    //common
-    <string name="work_time_text">Часы работы</string>
-    <string name="business_time_text">Бизнес-ланч</string>
-    <string name="product_price">&lt;font color=#FF004C>%1$s ₽&lt;/font></string>
-    <string name="product_weight">%1$s гр.</string>
-    <string name="takeaway_description">Бесплатный сервис\nзаказа еды в Томске</string>
-    <string name="link_on_statist">Сервис разработан&lt;br/>командой &lt;a href="https://statist-w.ru/">statist&lt;/a></string>
-    <string name="to_basket_text">В корзину</string>
-    <string name="rubles_postfix">%1$s ₽</string>
-    <string name="one">1</string>
-    <string name="minus">-</string>
-    <string name="plus">+</string>
-    <string name="several_cafe_basket_warning_title">Очистить корзину?</string>
-    <string name="several_cafe_basket_warning_message">В корзине уже имеются блюда из другого кафе</string>
-    <string name="several_cafe_basket_warning_clear_approve">Очистить</string>
-    <string name="several_cafe_basket_warning_cancel_clear">Отменить</string>
-    <string name="to_order_registration_button_text">Перейти к оформлению</string>
-
 </resources>

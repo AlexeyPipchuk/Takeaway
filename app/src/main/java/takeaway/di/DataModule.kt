@@ -9,12 +9,9 @@ import retrofit2.Retrofit
 import takeaway.feature_order_registration.data.network.OrderApi
 import takeaway.feature_order_registration.data.repository.CreateOrderRepositoryImpl
 import takeaway.feature_order_registration.domain.repository.CreateOrderRepository
-import takeaway.shared.cafe.data.api.ProductApi
-import takeaway.shared.cafe.data.repository.ProductRepositoryImpl
-import takeaway.shared.cafe.domain.repository.ProductRepository
-import takeaway.shared_category.data.api.CategoryApi
-import takeaway.shared_category.data.repository.CategoryRepositoryImpl
-import takeaway.shared_category.domain.repository.CategoryRepository
+import takeaway.feature_cafe.cafe.data.api.ProductApi
+import takeaway.feature_cafe.cafe.data.repository.ProductRepositoryImpl
+import takeaway.feature_cafe.cafe.domain.repository.ProductRepository
 import takeaway.shared_cafe.data.api.CafeApi
 import takeaway.shared_cafe.data.repository.CafeRepositoryImpl
 import takeaway.shared_cafe.domain.repository.CafeRepository
@@ -30,7 +27,7 @@ abstract class DataModule {
 
     @AppScope
     @Binds
-    abstract fun provideProductRepository(repository: ProductRepositoryImpl): ProductRepository
+    abstract fun provideProductRepository(repository: takeaway.feature_cafe.cafe.data.repository.ProductRepositoryImpl): takeaway.feature_cafe.cafe.domain.repository.ProductRepository
 
     @AppScope
     @Binds
@@ -60,8 +57,8 @@ abstract class DataModule {
 
         @JvmStatic
         @Provides
-        fun provideProductApi(retrofit: Retrofit): ProductApi =
-            retrofit.create(ProductApi::class.java)
+        fun provideProductApi(retrofit: Retrofit): takeaway.feature_cafe.cafe.data.api.ProductApi =
+            retrofit.create(takeaway.feature_cafe.cafe.data.api.ProductApi::class.java)
 
         @JvmStatic
         @Provides

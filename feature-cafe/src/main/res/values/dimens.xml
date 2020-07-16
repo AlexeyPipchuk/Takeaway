@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="cafe_image_height">200dp</dimen>
+    <dimen name="cafe_app_bar_height">100dp</dimen>
+    <dimen name="z_up">0.1dp</dimen>
+    <dimen name="product_corner_radius">16dp</dimen>
+    <dimen name="product_card_elevation">2dp</dimen>
+    <dimen name="product_image_width">110dp</dimen>
+    <dimen name="product_image_height">145dp</dimen>
+</resources>
