@@ -7,21 +7,23 @@ import takeaway.di.fragment.feature.AddCafeNavigationModule
 import takeaway.di.fragment.feature.BasketNavigationModule
 import takeaway.di.fragment.feature.InfoNavigationModule
 import takeaway.di.fragment.feature.confirmation.ConfirmationFragmentModule
+import takeaway.di.fragment.feature.feed.FeedFragmentModule
 import takeaway.di.fragment.feature.orderregistration.OrderRegistrationFragmentModule
 import takeaway.di.fragment.feature.success.SuccessFragmentModule
 import takeaway.di.fragment.shared.NoInternetNavigationModule
 import takeaway.di.fragment.shared.PrivacyPolicyNavigationModule
-import takeaway.di.fragment.splash.SplashFragmentModule
+import takeaway.di.fragment.feature.splash.SplashFragmentModule
 import takeaway.feature.cafe.product.severalcafe.SeveralCafeWarningDialogFragment
 import takeaway.feature.cafe.product.ui.ProductDialogFragment
 import takeaway.feature.cafe.ui.CafeFragment
-import takeaway.feature.feed.promo.ui.PromoDialogFragment
-import takeaway.feature.feed.ui.FeedFragment
 import takeaway.feature_order_registration.ui.OrderRegistrationFragment
 import takeaway.feature_add_cafe.ui.AddCafeFragment
 import takeaway.feature_basket.ui.BasketFragment
 import takeaway.feature_confirmation.ui.ConfirmationFragment
+import takeaway.feature_feed.feed.ui.FeedFragment
+import takeaway.feature_feed.promo.ui.PromoDialogFragment
 import takeaway.feature_info.ui.InfoFragment
+import takeaway.feature_splash.ui.SplashFragment
 import takeaway.feature_success.ui.SuccessFragment
 import takeaway.shared_error.ui.NoInternetFragment
 import takeaway.shared_privacy_policy.ui.PrivacyPolicyFragment
@@ -31,7 +33,7 @@ interface FragmentModule {
 
     @FragmentScope
     @ContributesAndroidInjector(modules = [SplashFragmentModule::class])
-    fun provideSplashFragment(): takeaway.feature_splash.ui.SplashFragment
+    fun provideSplashFragment(): SplashFragment
 
     @FragmentScope
     @ContributesAndroidInjector(modules = [FeedFragmentModule::class])

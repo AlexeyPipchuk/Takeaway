@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="corner_radius">8dp</dimen>
-    <dimen name="card_height">200dp</dimen>
-    <dimen name="app_bar_elevation">0dp</dimen>
-    <dimen name="search_bar_elevation">1dp</dimen>
-    <dimen name="search_bar_corner_radius">8dp</dimen>
-
     //Cafe
     <dimen name="cafe_image_height">200dp</dimen>
     <dimen name="cafe_app_bar_height">100dp</dimen>
