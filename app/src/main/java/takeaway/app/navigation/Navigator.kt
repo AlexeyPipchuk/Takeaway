@@ -9,7 +9,7 @@ import ru.terrakok.cicerone.android.support.SupportAppNavigator
 import ru.terrakok.cicerone.commands.Command
 import takeaway.feature.basket.ui.BasketFragment
 import takeaway.feature.feed.ui.FeedFragment
-import takeaway.feature.info.ui.InfoFragment
+import takeaway.feature_info.ui.InfoFragment
 
 class Navigator(
     activity: FragmentActivity,

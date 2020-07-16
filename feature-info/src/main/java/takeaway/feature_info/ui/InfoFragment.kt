@@ -1,15 +1,16 @@
-package takeaway.feature.info.ui
+package takeaway.feature_info.ui
 
 import android.os.Bundle
 import android.text.method.LinkMovementMethod
 import android.view.View
 import androidx.fragment.app.Fragment
-import com.example.takeaway.BuildConfig
-import com.example.takeaway.R
 import base.BaseFragment
 import kotlinx.android.synthetic.main.info_fragment.*
 import takeaway.component_ui.extensions.fromHtml
-import takeaway.feature.info.presentation.InfoPresenter
+import takeaway.feature_info.BuildConfig
+import takeaway.feature_info.R
+import takeaway.feature_info.presentation.InfoPresenter
+import takeaway.feature_info.presentation.InfoView
 import javax.inject.Inject
 
 class InfoFragment : BaseFragment(R.layout.info_fragment), InfoView {

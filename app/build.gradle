@@ -106,6 +106,7 @@ dependencies {
     //Modules
     implementation project(":feature-add-cafe")
     implementation project(":feature-confirmation")
+    implementation project(":feature-info")
     implementation project(":feature-success")
     implementation project(":shared-cafe")
     implementation project(":shared-error")

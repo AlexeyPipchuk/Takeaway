@@ -8,7 +8,7 @@ import takeaway.feature.basket.ui.BasketFragment
 import takeaway.feature.cafe.ui.CafeFragment
 import takeaway.feature_confirmation.ui.ConfirmationFragment
 import takeaway.feature.feed.ui.FeedFragment
-import takeaway.feature.info.ui.InfoFragment
+import takeaway.feature_info.ui.InfoFragment
 import takeaway.feature.order.registration.ui.OrderRegistrationFragment
 import takeaway.feature.splash.ui.SplashFragment
 import takeaway.shared_error.ui.NoInternetFragment
