@@ -22,6 +22,7 @@
             <option value="$PROJECT_DIR$/feature-success" />
             <option value="$PROJECT_DIR$/shared-basket" />
             <option value="$PROJECT_DIR$/shared-cafe" />
+            <option value="$PROJECT_DIR$/shared-category" />
             <option value="$PROJECT_DIR$/shared-error" />
             <option value="$PROJECT_DIR$/shared-order-registration" />
             <option value="$PROJECT_DIR$/shared-phone-prefix" />

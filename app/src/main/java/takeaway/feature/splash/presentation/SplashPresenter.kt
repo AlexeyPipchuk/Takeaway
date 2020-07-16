@@ -9,13 +9,13 @@ import takeaway.app.navigation.Screen
 import takeaway.component_rx_extension.zipWith
 import takeaway.feature.splash.domain.entity.DeepLink
 import takeaway.feature.splash.domain.usecase.GetDeepLinkUseCase
-import takeaway.shared.category.domain.usecase.GetAllCategoryListUseCase
+import takeaway.shared_category.domain.usecase.GetAllCategoryListUseCase
 import takeaway.shared_cafe.domain.usecase.GetCafeListUseCase
 import javax.inject.Inject
 
 class SplashPresenter @Inject constructor(
     private val getCafeListUseCase: GetCafeListUseCase,
-    private val getAllCategoryListUseCase: GetAllCategoryListUseCase,
+    private val getAllCategoryListUseCase: takeaway.shared_category.domain.usecase.GetAllCategoryListUseCase,
     private val getDeepLinkUseCase: GetDeepLinkUseCase,
     private val deepLinkDefiner: DeepLinkDefiner,
     private val deepLinkValidator: DeepLinkValidator,

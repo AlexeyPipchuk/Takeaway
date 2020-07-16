@@ -1,10 +1,10 @@
-package takeaway.shared.category.data.datasource
+package takeaway.shared_category.data.datasource
 
 import io.reactivex.Single
 import io.reactivex.schedulers.Schedulers
-import takeaway.shared.category.data.api.CategoryApi
-import takeaway.shared.category.data.model.CategoryListResponse
-import takeaway.shared.category.domain.entity.Category
+import takeaway.shared_category.data.api.CategoryApi
+import takeaway.shared_category.data.model.CategoryListResponse
+import takeaway.shared_category.domain.entity.Category
 import javax.inject.Inject
 
 class CategoryDataSource @Inject constructor(

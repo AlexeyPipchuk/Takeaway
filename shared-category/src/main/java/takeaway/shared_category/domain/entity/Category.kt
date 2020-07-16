@@ -1,4 +1,4 @@
-package takeaway.shared.category.domain.entity
+package takeaway.shared_category.domain.entity
 
 data class Category(
     val id: Int,

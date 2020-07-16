@@ -1,8 +1,8 @@
-package takeaway.shared.category.domain.usecase
+package takeaway.shared_category.domain.usecase
 
 import io.reactivex.Single
-import takeaway.shared.category.domain.entity.Category
-import takeaway.shared.category.domain.repository.CategoryRepository
+import takeaway.shared_category.domain.entity.Category
+import takeaway.shared_category.domain.repository.CategoryRepository
 import javax.inject.Inject
 
 class GetAllCategoryListUseCase @Inject constructor(

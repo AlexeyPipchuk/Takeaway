@@ -1,7 +1,7 @@
-package takeaway.shared.category.domain.repository
+package takeaway.shared_category.domain.repository
 
 import io.reactivex.Single
-import takeaway.shared.category.domain.entity.Category
+import takeaway.shared_category.domain.entity.Category
 
 interface CategoryRepository {
 

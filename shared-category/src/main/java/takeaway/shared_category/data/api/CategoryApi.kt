@@ -1,9 +1,9 @@
-package takeaway.shared.category.data.api
+package takeaway.shared_category.data.api
 
 import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Query
-import takeaway.shared.category.data.model.CategoryListResponse
+import takeaway.shared_category.data.model.CategoryListResponse
 
 interface CategoryApi {
 

@@ -10,10 +10,9 @@ import takeaway.component_rx_extension.subscribeOver
 import takeaway.component_rx_extension.zipWith
 import takeaway.feature.cafe.presentation.model.CategoryItem
 import takeaway.feature.cafe.ui.CafeView
-import takeaway.shared_basket.domain.usecase.GetBasketAmountUseCase
 import takeaway.shared.cafe.domain.usecase.GetProductListUseCase
-import takeaway.shared.category.domain.entity.Category
-import takeaway.shared.category.domain.usecase.GetCategoryListUseCase
+import takeaway.shared_category.domain.entity.Category
+import takeaway.shared.cafe.domain.usecase.GetCategoryListUseCase
 import takeaway.shared_cafe.domain.entity.Cafe
 import javax.inject.Inject
 
@@ -107,7 +106,7 @@ class CafePresenter @Inject constructor(
         }
     }
 
-    private fun toDefaultCategoryItemList(categories: List<Category>): List<CategoryItem> =
+    private fun toDefaultCategoryItemList(categories: List<takeaway.shared_category.domain.entity.Category>): List<CategoryItem> =
         categories.map { CategoryItem(it) }.apply {
             first().selected = true
         }

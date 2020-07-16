@@ -12,9 +12,9 @@ import takeaway.feature_order_registration.domain.repository.CreateOrderReposito
 import takeaway.shared.cafe.data.api.ProductApi
 import takeaway.shared.cafe.data.repository.ProductRepositoryImpl
 import takeaway.shared.cafe.domain.repository.ProductRepository
-import takeaway.shared.category.data.api.CategoryApi
-import takeaway.shared.category.data.repository.CategoryRepositoryImpl
-import takeaway.shared.category.domain.repository.CategoryRepository
+import takeaway.shared_category.data.api.CategoryApi
+import takeaway.shared_category.data.repository.CategoryRepositoryImpl
+import takeaway.shared_category.domain.repository.CategoryRepository
 import takeaway.shared_cafe.data.api.CafeApi
 import takeaway.shared_cafe.data.repository.CafeRepositoryImpl
 import takeaway.shared_cafe.domain.repository.CafeRepository
@@ -34,7 +34,7 @@ abstract class DataModule {
 
     @AppScope
     @Binds
-    abstract fun provideCategoryRepository(repository: CategoryRepositoryImpl): CategoryRepository
+    abstract fun provideCategoryRepository(repository: takeaway.shared_category.data.repository.CategoryRepositoryImpl): takeaway.shared_category.domain.repository.CategoryRepository
 
     @AppScope
     @Binds
@@ -65,8 +65,8 @@ abstract class DataModule {
 
         @JvmStatic
         @Provides
-        fun provideCategoryApi(retrofit: Retrofit): CategoryApi =
-            retrofit.create(CategoryApi::class.java)
+        fun provideCategoryApi(retrofit: Retrofit): takeaway.shared_category.data.api.CategoryApi =
+            retrofit.create(takeaway.shared_category.data.api.CategoryApi::class.java)
 
         @JvmStatic
         @Provides
