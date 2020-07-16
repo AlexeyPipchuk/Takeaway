@@ -1,12 +1,10 @@
-package takeaway.feature.success.presentation
+package takeaway.feature_success.presentation
 
-import ru.terrakok.cicerone.Router
 import base.BasePresenter
-import takeaway.app.navigation.Screen
 import javax.inject.Inject
 
 class SuccessPresenter @Inject constructor(
-    private val router: Router,
+    private val router: SuccessRouter,
     private val orderId: String
 ) : BasePresenter<SuccessView>() {
 
@@ -17,10 +15,10 @@ class SuccessPresenter @Inject constructor(
     }
 
     fun onFeedButtonClicked() {
-        router.newRootChain(Screen.FeedScreen())
+        router.toFeedScreen()
     }
 
     fun onBackClicked() {
-        router.newRootChain(Screen.FeedScreen())
+        router.toFeedScreen()
     }
 }

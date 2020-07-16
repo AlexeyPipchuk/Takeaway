@@ -105,8 +105,4 @@
     <string name="info_takeaway_instagram">&lt;a href="https://www.instagram.com/takeaway.russia/">takeaway.russia&lt;/a></string>
     <string name="info_statist_instagram">&lt;a href="https://www.instagram.com/statist_russia/">statist_russia&lt;/a></string>
 
-    //Success
-    <string name="success_order_id_text">Ваш заказ &lt;font color=#3216E7>#%1$s&lt;/font>&lt;br/>успешно подтвержден!</string>
-    <string name="success_go_to_feed_button_text">Перейти на главную</string>
-    <string name="success_message_under_title">Вскоре вам перезвонит менеджер. Возьмите трубку!</string>
 </resources>

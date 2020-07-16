@@ -1,16 +1,15 @@
-package takeaway.feature.success.ui
+package takeaway.feature_success.ui
 
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
-import com.example.takeaway.R
 import base.BaseFragment
 import extensions.addBackPressedListener
 import kotlinx.android.synthetic.main.success_fragment.*
 import takeaway.component_ui.extensions.fromHtml
-import takeaway.feature.confirmation.ui.orderId
-import takeaway.feature.success.presentation.SuccessPresenter
-import takeaway.feature.success.presentation.SuccessView
+import takeaway.feature_success.R
+import takeaway.feature_success.presentation.SuccessPresenter
+import takeaway.feature_success.presentation.SuccessView
 import javax.inject.Inject
 
 private const val ORDER_ID_ARG = "ORDER_ID"

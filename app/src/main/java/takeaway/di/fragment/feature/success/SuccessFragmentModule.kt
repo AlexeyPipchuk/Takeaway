@@ -1,18 +1,17 @@
-package takeaway.di.fragment
+package takeaway.di.fragment.feature.success
 
 import dagger.Module
 import dagger.Provides
 import extensions.args
 import takeaway.di.FragmentScope
 import takeaway.feature.confirmation.ui.orderId
-import takeaway.feature.success.ui.SuccessFragment
 
-@Module
+@Module(includes = [SuccessNavigationModule::class])
 object SuccessFragmentModule {
 
     @Provides
     @FragmentScope
     @JvmStatic
-    fun provideOrderIdArg(fragment: SuccessFragment): String =
+    fun provideOrderIdArg(fragment: takeaway.feature_success.ui.SuccessFragment): String =
         fragment.args.orderId
 }

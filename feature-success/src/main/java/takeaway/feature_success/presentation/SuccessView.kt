@@ -1,4 +1,4 @@
-package takeaway.feature.success.presentation
+package takeaway.feature_success.presentation
 
 import base.TakeawayView
 

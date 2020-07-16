@@ -11,7 +11,7 @@ import takeaway.feature.feed.ui.FeedFragment
 import takeaway.feature.info.ui.InfoFragment
 import takeaway.feature.order.registration.ui.OrderRegistrationFragment
 import takeaway.feature.splash.ui.SplashFragment
-import takeaway.feature.success.ui.SuccessFragment
+import takeaway.feature_success.ui.SuccessFragment
 import takeaway.shared_error.ui.NoInternetFragment
 import takeaway.shared_cafe.domain.entity.Cafe
 
@@ -33,7 +33,7 @@ sealed class Screen(fragment: Fragment) : BaseScreen(fragment) {
         Screen(ConfirmationFragment.getInstance(orderId))
 
     data class SuccessScreen(val orderId: String) :
-        Screen(SuccessFragment.getInstance(orderId))
+        Screen(takeaway.feature_success.ui.SuccessFragment.getInstance(orderId))
 
     object AddCafeScreen : Screen(AddCafeFragment.getInstance())
     object NoInternetScreen : Screen(NoInternetFragment.getInstance())
