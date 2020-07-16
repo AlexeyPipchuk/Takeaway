@@ -37,20 +37,9 @@
     <string name="several_cafe_basket_warning_message">В корзине уже имеются блюда из другого кафе</string>
     <string name="several_cafe_basket_warning_clear_approve">Очистить</string>
     <string name="several_cafe_basket_warning_cancel_clear">Отменить</string>
-    <string name="back_to_cafe_text">К заведению</string>
-    <string name="basket_title">Корзина</string>
     <string name="order_title">Ваш заказ</string>
-    <string name="empty_basket_title">Корзина пуста</string>
-    <string name="product_count">%1$s шт.</string>
     <string name="order_amount_price">Сумма заказа</string>
     <string name="to_order_registration_button_text">Перейти к оформлению</string>
-
-    <string name="message_with_value_to_free_delivery">Для доставки за 0 ₽ закажите еще на %1$s ₽</string>
-    <string name="minimum_amount_for_free_delivery_message">Минимальная сумма доставки — %1$s ₽</string>
-
-    //basket
-    <string name="takeaway_discount_calculated">Скидка −%1$s%% на самовывоз составит %2$s ₽</string>
-    <string name="delivery_price_calculated_text">Стоимость доставки для данной суммы — %1$s ₽</string>
 
     //promo
     <string name="promo_title">Поможем томским\nзаведениям вместе!</string>

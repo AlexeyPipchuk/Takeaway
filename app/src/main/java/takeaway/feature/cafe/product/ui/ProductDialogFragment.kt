@@ -12,7 +12,7 @@ import domain.entity.Product
 import base.BaseDialogFragment
 import kotlinx.android.synthetic.main.custom_counter_view.view.*
 import kotlinx.android.synthetic.main.product_dialog_fragment.*
-import takeaway.app.loadImage
+import takeaway.component_ui.extensions.loadImage
 import takeaway.component_ui.extensions.disable
 import takeaway.component_ui.extensions.enable
 import takeaway.feature.cafe.product.presentation.ProductPresenter

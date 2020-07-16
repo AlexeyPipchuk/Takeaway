@@ -4,12 +4,12 @@ import dagger.Module
 import dagger.android.ContributesAndroidInjector
 import takeaway.di.FragmentScope
 import takeaway.di.fragment.feature.AddCafeNavigationModule
+import takeaway.di.fragment.feature.BasketNavigationModule
 import takeaway.di.fragment.feature.InfoNavigationModule
 import takeaway.di.fragment.feature.confirmation.ConfirmationFragmentModule
 import takeaway.di.fragment.feature.success.SuccessFragmentModule
 import takeaway.di.fragment.shared.NoInternetNavigationModule
 import takeaway.di.fragment.shared.PrivacyPolicyNavigationModule
-import takeaway.feature.basket.ui.BasketFragment
 import takeaway.feature.cafe.product.severalcafe.SeveralCafeWarningDialogFragment
 import takeaway.feature.cafe.product.ui.ProductDialogFragment
 import takeaway.feature.cafe.ui.CafeFragment
@@ -18,6 +18,7 @@ import takeaway.feature.feed.ui.FeedFragment
 import takeaway.feature.order.registration.ui.OrderRegistrationFragment
 import takeaway.feature.splash.ui.SplashFragment
 import takeaway.feature_add_cafe.ui.AddCafeFragment
+import takeaway.feature_basket.ui.BasketFragment
 import takeaway.feature_confirmation.ui.ConfirmationFragment
 import takeaway.feature_info.ui.InfoFragment
 import takeaway.feature_success.ui.SuccessFragment
@@ -48,7 +49,7 @@ interface FragmentModule {
     fun provideProductDialogFragment(): ProductDialogFragment
 
     @FragmentScope
-    @ContributesAndroidInjector
+    @ContributesAndroidInjector(modules = [BasketNavigationModule::class])
     fun provideBasketFragment(): BasketFragment
 
     @FragmentScope

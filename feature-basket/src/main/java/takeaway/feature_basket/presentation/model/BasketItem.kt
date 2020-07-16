@@ -1,4 +1,4 @@
-package takeaway.feature.basket.model
+package takeaway.feature_basket.presentation.model
 
 data class BasketItem(
     val productId: String,

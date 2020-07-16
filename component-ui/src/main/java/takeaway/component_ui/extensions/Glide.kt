@@ -1,4 +1,4 @@
-package takeaway.app
+package takeaway.component_ui.extensions
 
 import android.widget.ImageView
 import com.bumptech.glide.Glide

@@ -1,10 +1,10 @@
-package takeaway.feature.basket.ui
+package takeaway.feature_basket.ui
 
 import android.content.Context
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import takeaway.feature.basket.model.BasketItem
-import takeaway.feature.basket.ui.holder.BasketHolder
+import takeaway.feature_basket.presentation.model.BasketItem
+import takeaway.feature_basket.ui.holder.BasketHolder
 
 class BasketAdapter(
     private val context: Context,

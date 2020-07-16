@@ -4,7 +4,7 @@ import android.net.Uri
 import androidx.fragment.app.Fragment
 import domain.entity.OrderSketch
 import takeaway.feature_add_cafe.ui.AddCafeFragment
-import takeaway.feature.basket.ui.BasketFragment
+import takeaway.feature_basket.ui.BasketFragment
 import takeaway.feature.cafe.ui.CafeFragment
 import takeaway.feature_confirmation.ui.ConfirmationFragment
 import takeaway.feature.feed.ui.FeedFragment

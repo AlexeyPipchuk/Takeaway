@@ -1,7 +1,7 @@
-package takeaway.feature.basket.ui
+package takeaway.feature_basket.presentation
 
 import base.TakeawayView
-import takeaway.feature.basket.model.BasketItem
+import takeaway.feature_basket.presentation.model.BasketItem
 import takeaway.shared_cafe.domain.entity.Cafe
 
 interface BasketView : TakeawayView {

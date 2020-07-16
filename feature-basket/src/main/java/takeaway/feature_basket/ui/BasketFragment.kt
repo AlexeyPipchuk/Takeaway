@@ -1,15 +1,16 @@
-package takeaway.feature.basket.ui
+package takeaway.feature_basket.ui
 
 import android.os.Bundle
 import android.view.View
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import base.BaseFragment
-import com.example.takeaway.R
 import kotlinx.android.synthetic.main.basket_fragment.*
-import takeaway.app.loadImage
-import takeaway.feature.basket.model.BasketItem
-import takeaway.feature.basket.presentation.BasketPresenter
+import takeaway.component_ui.extensions.loadImage
+import takeaway.feature_basket.R
+import takeaway.feature_basket.presentation.BasketPresenter
+import takeaway.feature_basket.presentation.BasketView
+import takeaway.feature_basket.presentation.model.BasketItem
 import takeaway.shared_cafe.domain.entity.Cafe
 import javax.inject.Inject
 

@@ -10,7 +10,7 @@ import base.BaseFragment
 import com.example.takeaway.R
 import kotlinx.android.synthetic.main.cafe_appbar.view.*
 import kotlinx.android.synthetic.main.cafe_fragment.*
-import takeaway.app.loadImage
+import takeaway.component_ui.extensions.loadImage
 import takeaway.component_ui.extensions.fromHtml
 import takeaway.feature.cafe.presentation.CafePresenter
 import takeaway.feature.cafe.presentation.model.CategoryItem

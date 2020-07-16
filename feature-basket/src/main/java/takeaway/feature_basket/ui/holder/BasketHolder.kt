@@ -1,14 +1,13 @@
-package takeaway.feature.basket.ui.holder
+package takeaway.feature_basket.ui.holder
 
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.takeaway.R
 import kotlinx.android.synthetic.main.basket_item.view.*
-import kotlinx.android.synthetic.main.product_item.view.productName
-import takeaway.feature.basket.model.BasketItem
+import takeaway.feature_basket.R
+import takeaway.feature_basket.presentation.model.BasketItem
 
 class BasketHolder(
     view: View,

@@ -1,0 +1,11 @@
+<resources>
+    <string name="basket_title">Корзина</string>
+    <string name="empty_basket_title">Корзина пуста</string>
+    <string name="back_to_cafe_text">К заведению</string>
+    <string name="takeaway_discount_calculated">Скидка −%1$s%% на самовывоз составит %2$s ₽</string>
+    <string name="delivery_price_calculated_text">Стоимость доставки для данной суммы — %1$s ₽</string>
+    <string name="rubles_postfix">%1$s ₽</string>
+    <string name="minimum_amount_for_free_delivery_message">Минимальная сумма доставки — %1$s ₽</string>
+    <string name="message_with_value_to_free_delivery">Для доставки за 0 ₽ закажите еще на %1$s ₽</string>
+    <string name="product_count">%1$s шт.</string>
+</resources>

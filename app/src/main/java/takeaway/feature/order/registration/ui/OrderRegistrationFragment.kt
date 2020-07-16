@@ -12,7 +12,7 @@ import com.google.android.material.textfield.TextInputLayout
 import com.redmadrobot.inputmask.MaskedTextChangedListener
 import com.redmadrobot.inputmask.helper.AffinityCalculationStrategy
 import kotlinx.android.synthetic.main.order_registration_fragment.*
-import takeaway.app.loadImage
+import takeaway.component_ui.extensions.loadImage
 import takeaway.component_ui.extensions.*
 import takeaway.feature.order.registration.domain.entity.OrderValidatorField
 import takeaway.feature.order.registration.presentation.OrderRegistrationPresenter
