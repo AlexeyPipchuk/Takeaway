@@ -2,6 +2,7 @@ package takeaway.di.fragment.feature.cafe
 
 import dagger.Module
 import dagger.Provides
+import domain.entity.Product
 import extensions.args
 import takeaway.di.FragmentScope
 import takeaway.feature_cafe.cafe.ui.cafe
@@ -15,7 +16,7 @@ object ProductDialogFragmentModule {
     @Provides
     @FragmentScope
     @JvmStatic
-    fun provideProductArg(fragment: ProductDialogFragment): domain.entity.Product =
+    fun provideProductArg(fragment: ProductDialogFragment): Product =
         fragment.args.product
 
     @Provides

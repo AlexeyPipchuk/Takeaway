@@ -3,11 +3,12 @@ package takeaway.shared_category.data.repository
 import io.reactivex.Single
 import takeaway.shared_category.data.datasource.CategoryDataSource
 import takeaway.shared_category.domain.entity.Category
+import takeaway.shared_category.domain.repository.CategoryRepository
 import javax.inject.Inject
 
 class CategoryRepositoryImpl @Inject constructor(
     private val dataSource: CategoryDataSource
-) : takeaway.shared_category.domain.repository.CategoryRepository {
+) : CategoryRepository {
 
     override fun getList(useCache: Boolean): Single<List<Category>> =
         if (useCache) {

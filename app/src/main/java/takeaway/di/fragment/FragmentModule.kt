@@ -11,17 +11,20 @@ import takeaway.di.fragment.feature.cafe.ProductDialogFragmentModule
 import takeaway.di.fragment.feature.confirmation.ConfirmationFragmentModule
 import takeaway.di.fragment.feature.feed.FeedFragmentModule
 import takeaway.di.fragment.feature.orderregistration.OrderRegistrationFragmentModule
+import takeaway.di.fragment.feature.splash.SplashFragmentModule
 import takeaway.di.fragment.feature.success.SuccessFragmentModule
 import takeaway.di.fragment.shared.NoInternetNavigationModule
 import takeaway.di.fragment.shared.PrivacyPolicyNavigationModule
-import takeaway.di.fragment.feature.splash.SplashFragmentModule
-import takeaway.feature_order_registration.ui.OrderRegistrationFragment
 import takeaway.feature_add_cafe.ui.AddCafeFragment
 import takeaway.feature_basket.ui.BasketFragment
+import takeaway.feature_cafe.cafe.ui.CafeFragment
+import takeaway.feature_cafe.product.ui.ProductDialogFragment
+import takeaway.feature_cafe.severalcafe.ui.SeveralCafeWarningDialogFragment
 import takeaway.feature_confirmation.ui.ConfirmationFragment
 import takeaway.feature_feed.feed.ui.FeedFragment
 import takeaway.feature_feed.promo.ui.PromoDialogFragment
 import takeaway.feature_info.ui.InfoFragment
+import takeaway.feature_order_registration.ui.OrderRegistrationFragment
 import takeaway.feature_splash.ui.SplashFragment
 import takeaway.feature_success.ui.SuccessFragment
 import takeaway.shared_error.ui.NoInternetFragment
@@ -44,11 +47,11 @@ interface FragmentModule {
 
     @FragmentScope
     @ContributesAndroidInjector(modules = [CafeFragmentModule::class])
-    fun provideCafeFragment(): takeaway.feature_cafe.cafe.ui.CafeFragment
+    fun provideCafeFragment(): CafeFragment
 
     @FragmentScope
     @ContributesAndroidInjector(modules = [ProductDialogFragmentModule::class])
-    fun provideProductDialogFragment(): takeaway.feature_cafe.product.ui.ProductDialogFragment
+    fun provideProductDialogFragment(): ProductDialogFragment
 
     @FragmentScope
     @ContributesAndroidInjector(modules = [BasketNavigationModule::class])
@@ -60,7 +63,7 @@ interface FragmentModule {
 
     @FragmentScope
     @ContributesAndroidInjector
-    fun provideSeveralCafeWarningDialogFragment(): takeaway.feature_cafe.severalcafe.ui.SeveralCafeWarningDialogFragment
+    fun provideSeveralCafeWarningDialogFragment(): SeveralCafeWarningDialogFragment
 
     @FragmentScope
     @ContributesAndroidInjector(modules = [PrivacyPolicyNavigationModule::class])

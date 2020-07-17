@@ -1,5 +1,6 @@
 package takeaway.shared_basket.data.repository
 
+import domain.entity.Product
 import takeaway.shared_basket.data.datasource.BasketDataSource
 import takeaway.shared_basket.domain.entity.Basket
 import takeaway.shared_basket.domain.repository.BasketRepository
@@ -10,7 +11,7 @@ class BasketRepositoryImpl @Inject constructor(
     private val dataSource: BasketDataSource
 ) : BasketRepository {
 
-    override fun addToBasket(product: domain.entity.Product, count: Int, cafe: Cafe) {
+    override fun addToBasket(product: Product, count: Int, cafe: Cafe) {
         dataSource.addToBasket(product, count, cafe)
     }
 

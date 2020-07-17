@@ -20,5 +20,4 @@
     <string name="several_cafe_basket_warning_message">В корзине уже имеются блюда из другого кафе</string>
     <string name="several_cafe_basket_warning_clear_approve">Очистить</string>
     <string name="several_cafe_basket_warning_cancel_clear">Отменить</string>
-    <string name="to_order_registration_button_text">Перейти к оформлению</string>
 </resources>

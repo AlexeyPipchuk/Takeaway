@@ -1,4 +1,5 @@
 <resources>
+    <string name="app_name">Takeaway</string>
     <string name="info_back_button_text">Назад</string>
     <string name="info_title">Takeaway</string>
     <string name="info_version_name">Версия приложения %1$s</string>

@@ -27,11 +27,12 @@ class Navigator(
         if (nextFragment == null) return
 
         val horizontalFlowList = listOf(
-            takeaway.feature_feed.feed.ui.FeedFragment::class,
+            FeedFragment::class,
             InfoFragment::class,
             BasketFragment::class
         )
 
+        //TODO(Решить с анимациями)
         //val verticalFlowList = listOf()
 
         //val lastInFlowList = listOf()

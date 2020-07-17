@@ -3,6 +3,10 @@ package takeaway.feature_feed.feed.presentation
 import android.os.Handler
 import base.BasePresenter
 import io.reactivex.android.schedulers.AndroidSchedulers
+import takeaway.feature_feed.feed.presentation.model.CafeItem
+import takeaway.feature_feed.feed.presentation.model.FeedItem
+import takeaway.feature_feed.feed.presentation.model.Promo
+import takeaway.feature_feed.feed.presentation.model.Separator
 import takeaway.shared_cafe.domain.entity.Cafe
 import takeaway.shared_cafe.domain.usecase.GetCafeListUseCase
 import takeaway.shared_error.ErrorConverter
@@ -24,7 +28,7 @@ class FeedPresenter @Inject constructor(
         super.onViewAttach()
 
         if (noInternet) {
-            //Прочекать pending transaction
+            //TODO(Прочекать pending transaction)
             Handler().post {
                 router.toErrorScreen()
             }
@@ -53,8 +57,8 @@ class FeedPresenter @Inject constructor(
             .addToDisposable()
     }
 
-    private fun mapCafeToCafeItem(cafe: Cafe): takeaway.feature_feed.feed.presentation.model.CafeItem =
-        takeaway.feature_feed.feed.presentation.model.CafeItem(
+    private fun mapCafeToCafeItem(cafe: Cafe): CafeItem =
+        CafeItem(
             cafeName = cafe.name,
             takeawayDiscount = cafe.takeawayDiscount,
             deliveryFreeFrom = cafe.deliveryFreeFrom,
@@ -71,12 +75,12 @@ class FeedPresenter @Inject constructor(
         view?.hideProgress()
     }
 
-    private fun createFeedList(cafeList: List<takeaway.feature_feed.feed.presentation.model.CafeItem>): List<takeaway.feature_feed.feed.presentation.model.FeedItem> =
-        mutableListOf<takeaway.feature_feed.feed.presentation.model.FeedItem>(takeaway.feature_feed.feed.presentation.model.Separator.POPULAR)
+    private fun createFeedList(cafeList: List<CafeItem>): List<FeedItem> =
+        mutableListOf<FeedItem>(Separator.POPULAR)
             .apply {
-                add(takeaway.feature_feed.feed.presentation.model.Promo())
+                add(Promo())
                 addAll(cafeList.filter { it.isPopular })
-                add(takeaway.feature_feed.feed.presentation.model.Separator.NOT_POPULAR)
+                add(Separator.NOT_POPULAR)
                 addAll(cafeList.filter { !it.isPopular })
             }
 
@@ -139,7 +143,7 @@ class FeedPresenter @Inject constructor(
         showAllFeedFromCache()
     }
 
-    fun onCafeClicked(selectedCafe: takeaway.feature_feed.feed.presentation.model.CafeItem) {
+    fun onCafeClicked(selectedCafe: CafeItem) {
         val cafe = cafeListCache?.firstOrNull { it.name == selectedCafe.cafeName }
         cafe?.let {
             router.toCafeScreen(it)

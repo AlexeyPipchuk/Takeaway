@@ -42,7 +42,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="@dimen/spacing_8"
-                    tools:text="@string/back_to_cafe_text" />
+                    tools:text="Назад" />
 
             </LinearLayout>
 
@@ -56,7 +56,7 @@
                 app:layout_constraintBottom_toBottomOf="@+id/backButtonLayout"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/backButtonLayout"
-                tools:text="@string/basket_title" />
+                tools:text="Заголовок" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -5,6 +5,7 @@ import dagger.Provides
 import extensions.args
 import takeaway.di.FragmentScope
 import takeaway.feature_confirmation.ui.orderId
+import takeaway.feature_success.ui.SuccessFragment
 
 @Module(includes = [SuccessNavigationModule::class])
 object SuccessFragmentModule {
@@ -12,6 +13,6 @@ object SuccessFragmentModule {
     @Provides
     @FragmentScope
     @JvmStatic
-    fun provideOrderIdArg(fragment: takeaway.feature_success.ui.SuccessFragment): String =
+    fun provideOrderIdArg(fragment: SuccessFragment): String =
         fragment.args.orderId
 }

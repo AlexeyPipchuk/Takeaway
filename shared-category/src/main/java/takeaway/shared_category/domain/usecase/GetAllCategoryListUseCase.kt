@@ -9,8 +9,6 @@ class GetAllCategoryListUseCase @Inject constructor(
     private val repository: CategoryRepository
 ) {
 
-    operator fun invoke(
-        useCache: Boolean = false
-    ): Single<List<Category>> =
+    operator fun invoke(useCache: Boolean = false): Single<List<Category>> =
         repository.getList(useCache)
 }

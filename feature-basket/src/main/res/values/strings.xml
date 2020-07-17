@@ -8,4 +8,7 @@
     <string name="minimum_amount_for_free_delivery_message">Минимальная сумма доставки — %1$s ₽</string>
     <string name="message_with_value_to_free_delivery">Для доставки за 0 ₽ закажите еще на %1$s ₽</string>
     <string name="product_count">%1$s шт.</string>
+    <string name="order_title">Ваш заказ</string>
+    <string name="order_amount_price">Сумма заказа</string>
+    <string name="to_order_registration_button_text">Перейти к оформлению</string>
 </resources>

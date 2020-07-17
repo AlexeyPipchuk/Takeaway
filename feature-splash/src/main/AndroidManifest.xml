@@ -1,2 +1,1 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="takeaway.feature_splash" />
+<manifest package="takeaway.feature_splash" />

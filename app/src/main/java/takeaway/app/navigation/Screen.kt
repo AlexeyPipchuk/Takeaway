@@ -7,21 +7,25 @@ import takeaway.feature_add_cafe.ui.AddCafeFragment
 import takeaway.feature_basket.ui.BasketFragment
 import takeaway.feature_cafe.cafe.ui.CafeFragment
 import takeaway.feature_confirmation.ui.ConfirmationFragment
+import takeaway.feature_feed.feed.ui.FeedFragment
 import takeaway.feature_info.ui.InfoFragment
 import takeaway.feature_order_registration.ui.OrderRegistrationFragment
-import takeaway.shared_error.ui.NoInternetFragment
+import takeaway.feature_splash.ui.SplashFragment
+import takeaway.feature_success.ui.SuccessFragment
 import takeaway.shared_cafe.domain.entity.Cafe
+import takeaway.shared_error.ui.NoInternetFragment
+import takeaway.shared_privacy_policy.ui.PrivacyPolicyFragment
 
 sealed class Screen(fragment: Fragment) : BaseScreen(fragment) {
 
-    data class SplashScreen(val deepLink: Uri?) : Screen(takeaway.feature_splash.ui.SplashFragment.getInstance(deepLink))
+    data class SplashScreen(val deepLink: Uri?) : Screen(SplashFragment.getInstance(deepLink))
     data class FeedScreen(val noInternet: Boolean = false) :
-        Screen(takeaway.feature_feed.feed.ui.FeedFragment.getInstance(noInternet))
+        Screen(FeedFragment.getInstance(noInternet))
 
     object InfoScreen : Screen(InfoFragment.getInstance())
-    data class CafeScreen(val cafe: Cafe) : Screen(takeaway.feature_cafe.cafe.ui.CafeFragment.getInstance(cafe))
+    data class CafeScreen(val cafe: Cafe) : Screen(CafeFragment.getInstance(cafe))
     object BasketScreen : Screen(BasketFragment.getInstance())
-    object PrivacyPolicyScreen : Screen(takeaway.shared_privacy_policy.ui.PrivacyPolicyFragment.getInstance())
+    object PrivacyPolicyScreen : Screen(PrivacyPolicyFragment.getInstance())
 
     data class OrderRegistrationScreen(val orderSketch: OrderSketch) :
         Screen(OrderRegistrationFragment.getInstance(orderSketch))
@@ -30,7 +34,7 @@ sealed class Screen(fragment: Fragment) : BaseScreen(fragment) {
         Screen(ConfirmationFragment.getInstance(orderId))
 
     data class SuccessScreen(val orderId: String) :
-        Screen(takeaway.feature_success.ui.SuccessFragment.getInstance(orderId))
+        Screen(SuccessFragment.getInstance(orderId))
 
     object AddCafeScreen : Screen(AddCafeFragment.getInstance())
     object NoInternetScreen : Screen(NoInternetFragment.getInstance())
