@@ -17,7 +17,7 @@ import takeaway.component_ui.extensions.disable
 import takeaway.component_ui.extensions.invalidateError
 import takeaway.component_ui.extensions.makeSnackbar
 import takeaway.feature_add_cafe.R
-import takeaway.feature_add_cafe.domain.NewCafeValidatorField
+import takeaway.feature_add_cafe.domain.entity.NewCafeValidatorField
 import takeaway.feature_add_cafe.presentation.AddCafePresenter
 import takeaway.feature_add_cafe.presentation.AddCafeView
 import javax.inject.Inject

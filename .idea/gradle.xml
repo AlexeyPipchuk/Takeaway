@@ -12,6 +12,7 @@
             <option value="$PROJECT_DIR$/buildSrc" />
             <option value="$PROJECT_DIR$/component-presentation" />
             <option value="$PROJECT_DIR$/component-rx-extension" />
+            <option value="$PROJECT_DIR$/component-test" />
             <option value="$PROJECT_DIR$/component-ui" />
             <option value="$PROJECT_DIR$/component-validation" />
             <option value="$PROJECT_DIR$/feature-add-cafe" />

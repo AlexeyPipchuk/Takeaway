@@ -6,7 +6,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import takeaway.component_validation.domain.usecase.ValidateCommonStringUseCase
 import takeaway.component_validation.domain.usecase.ValidateEmailUseCase
 import takeaway.component_validation.domain.usecase.ValidatePhoneUseCase
-import takeaway.feature_add_cafe.domain.NewCafeValidatorField
+import takeaway.feature_add_cafe.domain.entity.NewCafeValidatorField
 import takeaway.feature_add_cafe.domain.entity.NewCafeRequest
 import takeaway.feature_add_cafe.domain.usecase.SendAddNewCafeRequestUseCase
 import javax.inject.Inject

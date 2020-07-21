@@ -1,4 +1,4 @@
-include ':app', ':shared-product', ':component-ui', ':component-rx-extension', ':shared-error', ':shared-privacy-policy', ':feature-add-cafe', ':component-validation', ':feature-success', ':feature-confirmation', ':feature-info', ':shared-basket', ':feature-basket', ':feature-order-registration', ':shared-category', ':feature-splash', ':feature-feed', ':feature-cafe',
+include ':app', ':shared-product', ':component-ui', ':component-rx-extension', ':shared-error', ':shared-privacy-policy', ':feature-add-cafe', ':component-validation', ':feature-success', ':feature-confirmation', ':feature-info', ':shared-basket', ':feature-basket', ':feature-order-registration', ':shared-category', ':feature-splash', ':feature-feed', ':feature-cafe', ':component-test',
         ':component-presentation',
         ':shared-order-registration',
         ':shared-cafe',
