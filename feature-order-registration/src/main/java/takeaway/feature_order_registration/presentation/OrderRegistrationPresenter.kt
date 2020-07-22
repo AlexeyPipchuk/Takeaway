@@ -2,7 +2,7 @@ package takeaway.feature_order_registration.presentation
 
 import io.reactivex.android.schedulers.AndroidSchedulers
 import base.BasePresenter
-import domain.usecase.GetPhoneCountryPrefixUseCase
+import takeaway.shared_phone_prefix.domain.usecase.GetPhoneCountryPrefixUseCase
 import takeaway.shared_error.ErrorConverter
 import takeaway.shared_error.ErrorType
 import takeaway.component_validation.domain.usecase.*

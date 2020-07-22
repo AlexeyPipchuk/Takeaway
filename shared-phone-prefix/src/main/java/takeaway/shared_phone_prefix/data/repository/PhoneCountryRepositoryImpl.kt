@@ -1,7 +1,7 @@
-package data.repository
+package takeaway.shared_phone_prefix.data.repository
 
-import data.data.PhoneCountryDataSource
-import domain.repository.PhoneCountryRepository
+import takeaway.shared_phone_prefix.data.datasource.PhoneCountryDataSource
+import takeaway.shared_phone_prefix.domain.repository.PhoneCountryRepository
 import javax.inject.Inject
 
 class PhoneCountryRepositoryImpl @Inject constructor(

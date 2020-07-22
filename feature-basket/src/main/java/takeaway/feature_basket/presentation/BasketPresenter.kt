@@ -56,6 +56,8 @@ class BasketPresenter @Inject constructor(
     private fun calculateTakeawayDiscount(takeawayDiscount: Int, basketAmount: Int): Int =
         takeawayDiscount * basketAmount / 100
 
+
+    //TODO(Страшно чет)
     private fun calculateHelpValues(
         basketAmount: Int,
         basket: Basket
@@ -72,18 +74,17 @@ class BasketPresenter @Inject constructor(
                 view?.showMinDeliverySum(minDeliverySum)
             } else {
                 val deliveryPriceCalculated =
-                    if (deliveryFreeFrom != null) {
-                        if (basketAmount < deliveryFreeFrom) deliveryPrice else 0
-                    } else deliveryPrice
+                    when {
+                        basketAmount < deliveryFreeFrom!! -> deliveryPrice
+                        else -> 0
+                    }
 
                 deliveryDiscountCalculated = deliveryPriceCalculated ?: 0
                 view?.showDeliveryPriceCalculated(deliveryPriceCalculated!!)
 
                 if (deliveryPriceCalculated != 0) {
-                    deliveryFreeFrom?.let {
-                        val valueToFreeDelivery = deliveryFreeFrom - basketAmount
-                        view?.showMessageForFreeDelivery(valueToFreeDelivery)
-                    }
+                    val valueToFreeDelivery = deliveryFreeFrom - basketAmount
+                    view?.showMessageForFreeDelivery(valueToFreeDelivery)
                 } else Unit
             }
         }

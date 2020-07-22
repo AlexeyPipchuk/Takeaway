@@ -3,8 +3,8 @@ package takeaway.di
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
-import data.repository.PhoneCountryRepositoryImpl
-import domain.repository.PhoneCountryRepository
+import takeaway.shared_phone_prefix.data.repository.PhoneCountryRepositoryImpl
+import takeaway.shared_phone_prefix.domain.repository.PhoneCountryRepository
 import retrofit2.Retrofit
 import takeaway.feature_cafe.cafe.data.api.ProductApi
 import takeaway.feature_cafe.cafe.data.repository.ProductRepositoryImpl

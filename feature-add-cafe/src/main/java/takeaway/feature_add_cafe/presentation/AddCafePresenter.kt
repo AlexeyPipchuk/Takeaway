@@ -1,7 +1,7 @@
 package takeaway.feature_add_cafe.presentation
 
 import base.BasePresenter
-import domain.usecase.GetPhoneCountryPrefixUseCase
+import takeaway.shared_phone_prefix.domain.usecase.GetPhoneCountryPrefixUseCase
 import io.reactivex.android.schedulers.AndroidSchedulers
 import takeaway.component_validation.domain.usecase.ValidateCommonStringUseCase
 import takeaway.component_validation.domain.usecase.ValidateEmailUseCase

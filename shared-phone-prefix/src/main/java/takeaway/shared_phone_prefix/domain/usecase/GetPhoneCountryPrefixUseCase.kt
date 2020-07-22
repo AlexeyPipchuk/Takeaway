@@ -1,6 +1,6 @@
-package domain.usecase
+package takeaway.shared_phone_prefix.domain.usecase
 
-import domain.repository.PhoneCountryRepository
+import takeaway.shared_phone_prefix.domain.repository.PhoneCountryRepository
 import javax.inject.Inject
 
 class GetPhoneCountryPrefixUseCase @Inject constructor(

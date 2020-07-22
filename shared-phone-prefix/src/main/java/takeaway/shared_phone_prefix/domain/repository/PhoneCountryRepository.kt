@@ -1,4 +1,4 @@
-package domain.repository
+package takeaway.shared_phone_prefix.domain.repository
 
 interface PhoneCountryRepository {
 

@@ -4,7 +4,7 @@ import com.nhaarman.mockitokotlin2.any
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.verify
 import com.nhaarman.mockitokotlin2.whenever
-import domain.usecase.GetPhoneCountryPrefixUseCase
+import takeaway.shared_phone_prefix.domain.usecase.GetPhoneCountryPrefixUseCase
 import io.reactivex.Completable
 import org.junit.Rule
 import org.junit.Test
@@ -236,5 +236,16 @@ class AddCafePresenterTest {
         presenter.onSendAddNewCafeClicked()
 
         verify(view).showFailSend()
+    }
+
+    @Test
+    fun `on send add new cafe repeat click EXPECT show fail sent`() {
+        whenever(sendAddNewCafeRequestUseCase(newCafeRequest)).thenReturn(Completable.never())
+        presenter.attachView(view)
+
+        presenter.onSendAddNewCafeRepeatClick()
+
+        verify(view).showProgress()
+        verify(sendAddNewCafeRequestUseCase).invoke(any())
     }
 }
