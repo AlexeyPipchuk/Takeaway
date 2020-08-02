@@ -53,6 +53,4 @@ val product = Product(
 )
 
 val productMap = mapOf(product to 1)
-
-val emptyBasket = Basket(null, null)
 val basket = Basket(cafe, productMap)

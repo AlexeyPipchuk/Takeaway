@@ -2,6 +2,7 @@ package takeaway.feature_order_registration.presentation
 
 import io.reactivex.android.schedulers.AndroidSchedulers
 import base.BasePresenter
+import domain.entity.OrderSketch
 import takeaway.shared_phone_prefix.domain.usecase.GetPhoneCountryPrefixUseCase
 import takeaway.shared_error.ErrorConverter
 import takeaway.shared_error.ErrorType
@@ -11,6 +12,7 @@ import takeaway.feature_order_registration.domain.entity.OrderValidatorField
 import takeaway.feature_order_registration.domain.entity.ReceiveMethod
 import takeaway.feature_order_registration.domain.usecase.CreateOrderUseCase
 import takeaway.feature_order_registration.domain.usecase.GetIntervalListUseCase
+import takeaway.shared_basket.domain.usecase.ClearBasketUseCase
 import javax.inject.Inject
 
 class OrderRegistrationPresenter @Inject constructor(
@@ -20,13 +22,13 @@ class OrderRegistrationPresenter @Inject constructor(
     private val validateCommonStringUseCase: ValidateCommonStringUseCase,
     private val validateSingleNumberUseCase: ValidateSingleNumberUseCase,
     private val validateExportExportTimeUseCase: ValidateExportTimeUseCase,
-    private val clearBasketUseCase: takeaway.shared_basket.domain.usecase.ClearBasketUseCase,
+    private val clearBasketUseCase: ClearBasketUseCase,
     private val createOrderUseCase: CreateOrderUseCase,
     private val getPhoneCountryPrefixUseCase: GetPhoneCountryPrefixUseCase,
     private val getIntervalListUseCase: GetIntervalListUseCase,
     private val errorConverter: ErrorConverter,
     private val router: OrderRegistrationRouter,
-    private val orderSketch: domain.entity.OrderSketch
+    private val orderSketch: OrderSketch
 ) : BasePresenter<OrderRegistrationView>() {
 
     var order = Order.EMPTY.copy(cafe = orderSketch.cafe, productMap = orderSketch.products)
@@ -88,12 +90,12 @@ class OrderRegistrationPresenter @Inject constructor(
         if (orderSketch.deliveryAllowed) {
             view?.showOrderAmountWithDelivery(orderSketch.orderWithDeliveryAmount)
             view?.showDeliveryCostResult()
-            view?.hideTakeawayDiscountResult()
         } else {
-            view?.hideTakeawayDiscountResult()
             view?.hideDeliveryCostResult()
             view?.disableResultAndButton()
         }
+
+        view?.hideTakeawayDiscountResult()
     }
 
     fun onBackToBasketButtonClicked() {
@@ -110,7 +112,7 @@ class OrderRegistrationPresenter @Inject constructor(
         if (timeList.isEmpty()) {
             view?.showEmptyExportTimeListError()
         } else {
-            view?.showPopUpWithAvailableTakeawayTimes(getAvailableExportTimeList())
+            view?.showPopUpWithAvailableTakeawayTimes(timeList)
         }
     }
 
@@ -119,7 +121,7 @@ class OrderRegistrationPresenter @Inject constructor(
         if (timeList.isEmpty()) {
             view?.showEmptyExportTimeListError()
         } else {
-            view?.showPopUpWithAvailableDeliveryTimes(getAvailableExportTimeList())
+            view?.showPopUpWithAvailableDeliveryTimes(timeList)
         }
     }
 
