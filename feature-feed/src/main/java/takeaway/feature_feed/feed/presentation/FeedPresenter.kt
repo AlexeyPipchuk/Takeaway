@@ -28,7 +28,7 @@ class FeedPresenter @Inject constructor(
         super.onViewAttach()
 
         if (noInternet) {
-            //TODO(Прочекать pending transaction)
+            //TODO(Прочекать pending transaction - есть закоменнченный тест)
             Handler().post {
                 router.toErrorScreen()
             }
@@ -78,7 +78,7 @@ class FeedPresenter @Inject constructor(
     private fun createFeedList(cafeList: List<CafeItem>): List<FeedItem> =
         mutableListOf<FeedItem>(Separator.POPULAR)
             .apply {
-                add(Promo())
+                add(Promo.DEFAULT)
                 addAll(cafeList.filter { it.isPopular })
                 add(Separator.NOT_POPULAR)
                 addAll(cafeList.filter { !it.isPopular })
