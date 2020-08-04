@@ -37,16 +37,18 @@ class ProductPresenter @Inject constructor(
     fun onToBasketButtonClicked(count: Int) {
         val cafeInBasketId = getBasketCafeIdUseCase()
 
-        if (cafeInBasketId != null) {
-            if (cafeInBasketId == cafe.id) {
+        when {
+            cafeInBasketId != null && cafeInBasketId == cafe.id -> {
                 addToBasketUseCase(product, count, cafe)
                 view?.closeProductDialog()
-            } else {
-                view?.showClearBasketQuestionDialog()
             }
-        } else {
-            addToBasketUseCase(product, count, cafe)
-            view?.closeProductDialog()
+
+            cafeInBasketId != null -> view?.showClearBasketQuestionDialog()
+
+            else -> {
+                addToBasketUseCase(product, count, cafe)
+                view?.closeProductDialog()
+            }
         }
     }
 
