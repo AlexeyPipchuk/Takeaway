@@ -112,7 +112,8 @@ class FeedPresenter @Inject constructor(
         view?.hideEmptySearchResult()
 
         when {
-            cafeListCache.isNullOrEmpty() -> Unit
+            cafeListCache == null -> Unit
+            cafeListCache!!.isEmpty() -> Unit
 
             query.isNullOrEmpty() ->
                 cafeListCache?.let { view?.setFeed(it.map(::mapCafeToCafeItem)) }
@@ -130,7 +131,7 @@ class FeedPresenter @Inject constructor(
             )
         }?.map(::mapCafeToCafeItem)
 
-        if (filteredList.isNullOrEmpty()) {
+        if (filteredList?.isEmpty() != false) {
             view?.setFeed(emptyList())
             view?.showEmptySearchResult()
         } else view?.setFeed(filteredList)

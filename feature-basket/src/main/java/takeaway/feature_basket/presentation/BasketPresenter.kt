@@ -44,7 +44,7 @@ class BasketPresenter @Inject constructor(
     }
 
     private fun Basket.isBasketNotEmpty() =
-        cafe != null && !products.isNullOrEmpty()
+        cafe != null && products?.isNotEmpty() ?: false
 
     private fun showCalculatedTakeawayDiscount(takeawayDiscount: Int, basketAmount: Int) {
         val takeawayDiscountCalculated = calculateTakeawayDiscount(takeawayDiscount, basketAmount)

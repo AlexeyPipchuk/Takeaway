@@ -6,6 +6,7 @@ import config.Application
 import com.android.build.gradle.LibraryExtension
 import com.android.build.gradle.LibraryPlugin
 
+@Deprecated("Не понятно, как заюзать с Gradle DSL")
 class TakeawayLibraryPlugin : Plugin<Project> {
 
     override fun apply(project: Project) {
