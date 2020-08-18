@@ -1,7 +1,4 @@
-apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
-apply plugin: 'kotlin-android-extensions'
-//TODO(Вынести что то в default config, что то в модуль наверное, дабы рассосать это во всех модулях)
 
 dependencies {
     //Support

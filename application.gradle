@@ -1,0 +1,10 @@
+ext {
+    application = [
+            "id"         : "com.example.takeaway",
+            "minApi"     : 21,
+            "maxApi"     : 29,
+            "tools"      : "29.0.3",
+            "versionCode": 1,
+            "versionName": "1.0.0-alpha"
+    ]
+}
