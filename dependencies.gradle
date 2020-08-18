@@ -1,0 +1,98 @@
+ext {
+    versions = [
+            'appCompat'           : "1.2.0",
+            'ktx'                 : "1.3.1",
+            'junit'               : "4.12",
+            'junitAndroidExt'     : "1.1.1",
+            'espresso'            : "3.2.0",
+            'mockito'             : "3.4.4",
+            'mockitoKotlin'       : "2.2.0",
+            'dagger'              : "2.25.2",
+            'material'            : "1.2.0",
+            'constraintLayout'    : "1.1.3",
+            'swiperefreshlayout'  : "1.1.0",
+            'cicerone'            : "5.1.0",
+            'gson'                : "2.8.6",
+            'rxjava'              : "2.2.16",
+            'rxandroid'           : "2.1.1",
+            'retrofit'            : "2.7.1",
+            'timber'              : "4.7.1",
+            'loggingInterceptor'  : "3.14.2",
+            'inputMask'           : "6.0.0",
+            'appMetrica'          : "3.13.1",
+            'appMetricaReferrer'  : "1.1.2",
+            'glide'               : "4.9.0",
+            'shapedImage'         : "0.9.3@aar",
+            'countryPhonePrefixes': "8.12.3"
+    ]
+
+    classpaths = [
+            'gradle': "com.android.tools.build:$versions.gradle"
+    ]
+
+    supportLibraries = [
+            'appCompat': "androidx.appcompat:appcompat:$versions.appCompat",
+            'ktx'      : "androidx.core:core-ktx:$versions.ktx"
+    ]
+
+    libraries = [
+            //Tests
+            'junit'                 : "junit:junit:$versions.junit",
+            'junitAndroidExt'       : "androidx.test.ext:junit:$versions.junitAndroidExt",
+
+            //Mocking
+            'mockito'               : "org.mockito:mockito-core:$versions.mockito",
+            'mockitoAndroid'        : "org.mockito:mockito-android:$versions.mockito",
+            'mockitoKotlin'         : "com.nhaarman.mockitokotlin2:mockito-kotlin:$versions.mockitoKotlin",
+
+            //Ui-Tests
+            'espresso'              : "androidx.test.espresso:espresso-core:$versions.espresso",
+
+            //Dagger
+            'dagger'                : "com.google.dagger:dagger:$versions.dagger",
+            'daggerCompiler'        : "com.google.dagger:dagger-compiler:$versions.dagger",
+            'daggerAndroidSupport'  : "com.google.dagger:dagger-android-support:$versions.dagger",
+            'daggerAndroidProcessor': "com.google.dagger:dagger-android-processor:$versions.dagger",
+
+            //Material
+            'material'              : "com.google.android.material:material:$versions.material",
+            'constraintLayout'      : "androidx.constraintlayout:constraintlayout:$versions.constraintLayout",
+            'swiperefreshlayout'    : "androidx.swiperefreshlayout:swiperefreshlayout:$versions.swiperefreshlayout",
+
+            //Navigation
+            'cicerone'              : "ru.terrakok.cicerone:cicerone:$versions.cicerone",
+
+            //Gson
+            'gson'                  : "com.google.code.gson:gson:$versions.gson",
+
+            //Rx
+            'rxjava'                : "io.reactivex.rxjava2:rxjava:$versions.rxjava",
+            'rxandroid'             : "io.reactivex.rxjava2:rxandroid:$versions.rxandroid",
+
+            //Retrofit
+            'retrofit'              : "com.squareup.retrofit2:retrofit:$versions.retrofit",
+            'retrofitConverterGson' : "com.squareup.retrofit2:converter-gson:$versions.retrofit",
+            'retrofitAdapterRxjava' : "com.squareup.retrofit2:adapter-rxjava2:$versions.retrofit",
+
+            //Logging
+            'timber'                : "com.jakewharton.timber:timber:$versions.timber",
+            'loggingInterceptor'    : "com.squareup.okhttp3:logging-interceptor:$versions.loggingInterceptor",
+
+            //Input mask
+            'inputMask'             : "com.redmadrobot:input-mask-android:$versions.inputMask",
+
+            //AppMetrica
+            'appMetrica'            : "com.yandex.android:mobmetricalib:$versions.appMetrica",
+            'appMetricaReferrer'    : "com.android.installreferrer:installreferrer:$versions.appMetricaReferrer",
+
+            //Glide
+            'glide'                 : "com.github.bumptech.glide:glide:$versions.glide",
+            'glideCompiller'        : "com.github.bumptech.glide:compiler:$versions.glide",
+
+            //ShapedImage
+            'shapedImage'           : "com.github.siyamed:android-shape-imageview:$versions.shapedImage",
+
+            //CountryPhonePrefixes
+            'countryPhonePrefixes'  : "io.michaelrocks:libphonenumber-android:$versions.countryPhonePrefixes"
+    ]
+}

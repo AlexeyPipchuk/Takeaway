@@ -5,7 +5,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import takeaway.shared_error.R
 
 fun Fragment.showServiceUnavailableDialog(positiveResult: () -> Unit, negativeResult: () -> Unit) {
-    MaterialAlertDialogBuilder(context, R.style.AlertDialog)
+    MaterialAlertDialogBuilder(requireContext(), R.style.AlertDialog)
         .setTitle(R.string.service_unavailable_dialog_title)
         .setMessage(R.string.service_unavailable_dialog_message)
         .setPositiveButton(R.string.repeat_dialog_button_text) { _, _ ->
@@ -19,7 +19,7 @@ fun Fragment.showServiceUnavailableDialog(positiveResult: () -> Unit, negativeRe
 }
 
 fun Fragment.showNoInternetDialog(positiveResult: () -> Unit, negativeResult: () -> Unit) {
-    MaterialAlertDialogBuilder(context, R.style.AlertDialog)
+    MaterialAlertDialogBuilder(requireContext(), R.style.AlertDialog)
         .setTitle(R.string.no_internet_dialog_title)
         .setMessage(R.string.no_internet_dialog_message)
         .setPositiveButton(R.string.ok_dialog_button_text) { _, _ ->

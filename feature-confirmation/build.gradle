@@ -3,35 +3,34 @@ apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'androidx.appcompat:appcompat:1.1.0'
+    //Support
+    implementation(supportLibraries.appCompat)
 
     //Unit-test
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    testImplementation(libraries.junit)
+    androidTestImplementation(libraries.junitAndroidExt)
 
     //Mocking
-    testImplementation "org.mockito:mockito-core:3.4.4"
-    testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:2.2.0"
-    androidTestImplementation "org.mockito:mockito-android:3.4.4"
+    testImplementation(libraries.mockito)
+    testImplementation(libraries.mockitoAndroid)
+    androidTestImplementation(libraries.mockitoKotlin)
 
     //UI-test
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    androidTestImplementation(libraries.espresso)
 
     //Dagger
-    implementation 'com.google.dagger:dagger-android-support:2.25.2'
-    kapt 'com.google.dagger:dagger-android-processor:2.25.2'
-    implementation "com.google.dagger:dagger:2.25.2"
-    kapt "com.google.dagger:dagger-compiler:2.25.2"
+    implementation(libraries.dagger)
+    kapt(libraries.daggerCompiler)
+    implementation(libraries.daggerAndroidSupport)
+    kapt(libraries.daggerAndroidProcessor)
 
     //rx
-    implementation "io.reactivex.rxjava2:rxjava:2.2.16"
-    implementation "io.reactivex.rxjava2:rxandroid:2.1.1"
+    implementation(libraries.rxjava)
+    implementation(libraries.rxandroid)
 
     //UI
-    implementation 'com.google.android.material:material:1.1.0'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation(libraries.material)
+    implementation(libraries.constraintLayout)
 
     //Modules
     implementation project(":component-presentation")
